@@ -1,9 +1,9 @@
 .page_ville{
     color:aliceblue; 
-    padding-top: 100px;
     display: flex;
     justify-content:center ;
     flex-direction: column;
+    width: 100%;
 }
 .page_ville h1{
     text-align: center;
