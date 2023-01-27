@@ -23,7 +23,9 @@ $vaisseaux = $sth->fetchAll(PDO::FETCH_ASSOC);
       <div class="description_vaisseau">
 
         <img src="img/<?= $vaisseau['image_vaisseau']; ?>" alt="vaisseau<? $vaisseau['nom_vaisseau']; ?>">
-        <p><?= $vaisseau['description']; ?></p>
+        <div class="description">
+          <p><?= $vaisseau['description']; ?></p>
+        </div>
       </div>
       <div class="caracteristique">
         <table>

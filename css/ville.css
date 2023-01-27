@@ -43,6 +43,10 @@
     .info_ville{
         margin: 20px 10px;
     }
+    .gallery_planete img{
+
+        width: 320px;
+    }
 }
 .info_ville img{
     display: block;

@@ -103,6 +103,7 @@
     align-items: center;
     justify-content: center;
     margin:40px;
+    width: 300px;
  }
  .centered{
   text-decoration: none;

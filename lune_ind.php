@@ -18,12 +18,15 @@ $vaisseaux = $sth->fetchAll(PDO::FETCH_ASSOC);
 <div class="block">
     <div class="info_vaisseau">
         <?php foreach ($vaisseaux as $vaisseau) { ?>
+            <h1><?= $vaisseau['nom']; ?></h1>
             <div class="description_vaisseau">
-                <h1><?= $vaisseau['nom']; ?></h1>
+
                 <img src="img/<?= $vaisseau['image']; ?>" alt="vaisseau<? $vaisseau['nom']; ?>">
+                <div class="description">
                 <p><?= $vaisseau['paragraphe1']; ?></p>
                 <p><?= $vaisseau['paragraphe2']; ?></p>
                 <p><?= $vaisseau['paragraphe3']; ?></p>
+            </div>
             </div>
             <div class="caracteristique">
                 <table>
