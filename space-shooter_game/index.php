@@ -108,33 +108,33 @@ session_start();
             </li>
           </ul>
         </li>
-        <li><a href="#">Forum</a></li>
-        <li><a href="space-shooter_game/index.html">Mini-jeu</a></li>
+        <li><a href="../forum/index.php" target="_blank">Forum</a></li>
+        <li><a href="index.php">Mini-jeu</a></li>
         <li><a href="">Liens utiles</a>
           <ul>
             <li><a href="#">School</a>
               <ul>
                 <li><a href="https://robertsspaceindustries.com/starmap" target="_blank">Starmap</a></li>
-                <li><a href="#">History</a></li>
-                <li><a href="#">Locations</a></li>
-                <li><a href="#">Careers</a></li>
+                <li><a href="https://robertsspaceindustries.com/download" target="_blank">Roberts space industries</a></li>
+                <li><a href="#">Achats des vaisseaux</a></li>
+                <li><a href="#">Lorem</a></li>
               </ul>
             </li>
-            <li><a href="#">Study</a>
+            <li><a href="#">Lorem</a>
               <ul>
-                <li><a href="#">Undergraduate</a></li>
-                <li><a href="#">Masters</a></li>
-                <li><a href="#">International</a></li>
-                <li><a href="#">Online</a></li>
+                <li><a href="#">Lorem</a></li>
+                <li><a href="#">Lorem</a></li>
+                <li><a href="#">Lorem</a></li>
+                <li><a href="#">Lorem</a></li>
               </ul>
 
             </li>
-            <li><a href="#">Study</a>
+            <li><a href="#">Lorem</a>
               <ul>
-                <li><a href="#">Undergraduate</a></li>
-                <li><a href="#">Masters</a></li>
-                <li><a href="#">International</a></li>
-                <li><a href="#">Online</a></li>
+                <li><a href="#">Lorem</a></li>
+                <li><a href="#">Lorem</a></li>
+                <li><a href="#">Lorem</a></li>
+                <li><a href="#">Lorem</a></li>
               </ul>
             </li>
             <li><a href="#">Squadron 42</a>
