@@ -1,0 +1,68 @@
+.page_ville{
+    color:aliceblue; 
+    padding-top: 100px;
+    display: flex;
+    justify-content:center ;
+    flex-direction: column;
+}
+.page_ville h1{
+    text-align: center;
+    font-weight: 900;
+}
+.page_ville h1 img{
+    width:20px;
+}
+.page_ville p{
+    color: white;
+    padding: 20px;
+    line-height: 1.7rem;
+
+}
+.satellite_planete li{
+    list-style-type: none;
+}
+.gallery_planete{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin: 50px 0;
+}
+.gallery_planete img{
+
+    width: 420px;
+    padding:20px;
+}
+.info_ville{
+    box-shadow: rgba(6, 201, 255, 0.25) 0px 50px 100px -20px, rgba(28, 159, 220, 0.3) 0px 30px 60px -30px, rgba(32, 121, 210, 0.35) 0px -2px 6px 0px inset;
+    border:#00fffc 1px solid;
+    margin: 20px 15%;
+}
+@media screen and (max-width:750px) {
+    .info_ville{
+        margin: 20px 10px;
+    }
+}
+.info_ville img{
+    display: block;
+    margin: 20px auto;
+    width: 70%;
+}
+.info_ville h2{
+    margin: 20px 20px;
+    color:rgba(19, 224, 255, 0.75);
+}
+.info_ville li{
+    margin: 10px 20%;
+}
+.gallery_ville{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+}
+.gallery_ville img{
+    width: 40%;
+}

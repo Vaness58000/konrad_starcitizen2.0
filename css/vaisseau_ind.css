@@ -1,0 +1,140 @@
+.info_vaisseau{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+	align-items: center;
+}
+.info_vaisseau h1{
+    color:aliceblue;
+    margin-bottom: 50px;
+}
+.description_vaisseau{
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: center;
+	margin-bottom: 40px;
+}
+.info_vaisseau p{
+    color: aliceblue;
+    text-align: justify;
+    line-height: 2em;
+	width: 500px;
+}
+.info_vaisseau img{
+    width: 500px;
+    margin: 20px;
+}
+table{
+	display: block;
+	margin: auto;
+	width: 80%;
+}
+table, th, td{
+    color: white;
+    text-align:left ; 
+    border: solid 1px rgba(104, 242, 255, 0.236);
+	border-collapse: collapse;
+	background-color: #000000;
+}
+th,td{
+    padding: 20px;
+	text-align: center;
+}
+.block {
+	position: relative;
+    margin: 10px auto 10px;
+    padding: 50px;
+	height: auto;
+	background: black;
+	background-image: url(../img/gridbg_glow.png);
+
+}
+
+.block:before, .block:after {
+	content: '';
+	position: absolute;
+	left: -2px;
+	top: -2px;
+	background: linear-gradient(45deg, #8bf9ff, #50e5ff, #74b3ff,#1e3e68, #189fff, #66b5ff, 
+		#47fafd, #61f8f3,#1ed2ff, #343434);
+	background-size: 400%;
+	width: calc(100% + 10px);
+	height: calc(100% + 4px);
+	z-index: -1;
+	animation: steam 20s linear infinite;
+}
+
+@keyframes steam {
+	0% {
+		background-position: 0 0;
+	}
+	50% {
+		background-position: 400% 0;
+	}
+	100% {
+		background-position: 0 0;
+	}
+}
+
+.block:after {
+	filter: blur(50px);
+}
+@media screen and (max-width: 869px) {
+	.block {
+		
+		padding: 10px;
+	}
+	.description_vaisseau {
+		width:100%;
+		margin: 0;
+		margin-bottom: 40px;
+		padding: 30px;
+	}
+	.info_vaisseau p{
+		color: aliceblue;
+		text-align: justify;
+		line-height: 1.8em;
+	}
+	.info_vaisseau img{
+		width: 320px;
+	}
+	table, th, td{
+		color: white;
+		text-align:left ; 
+		border: solid 1px rgba(104, 242, 255, 0.155);
+		border-collapse: collapse;
+		
+	}
+	table{
+		width: 100%;
+		margin-bottom: 50px;
+	}
+}
+@media screen and (min-width: 870px) and (max-width: 1069px) {
+	.block {
+		
+		padding: 10px;
+	}
+	.description_vaisseau {
+		width:	100%;
+		margin: 0;
+		margin-bottom: 40px;
+	}
+	.info_vaisseau img{
+		width:400px;
+	}
+	.info_vaisseau{
+		width:90%;
+	}
+	.info_vaisseau p{
+		width: 40%;
+	}
+	table{
+		width: 100%;
+		margin-bottom: 50px;
+	}
+
+}

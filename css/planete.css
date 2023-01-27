@@ -1,0 +1,119 @@
+.page_planete{
+    padding-top: 20px;
+    color:aliceblue;
+}
+.page_planete h1{
+    text-align: center;
+ 
+}
+.page_planete h1 img{
+    width: 20px;
+}
+.container_planete {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10vmin;
+    overflow: hidden;
+    transform: skew(5deg);
+}
+.container_planete .card {
+    flex: 1;
+    transition: all 1s ease-in-out;
+    height: 75vmin;
+    position: relative;
+}
+.container_planete .card .card__head {
+    color: black;
+    background: rgba(19, 224, 255, 0.75);
+    padding: 0.5em;
+    transform: rotate(-90deg);
+    transform-origin: 0% 0%;
+    transition: all 0.5s ease-in-out;
+    min-width: 100%;
+    text-align: center;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    font-size: 1em;
+    white-space: nowrap;
+}
+.container_planete .card:hover {
+    flex-grow: 10;
+}
+.container_planete .card:hover img {
+    filter: grayscale(0);
+}
+.container_planete .card:hover .card__head {
+    text-align: center;
+    top: calc(100% - 2em);
+    color: white;
+    background: rgba(0, 0, 0, 0.5);
+    font-size: 2em;
+    transform: rotate(0deg) skew(-5deg);
+}
+.container_planete .card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: all 1s ease-in-out;
+    filter: grayscale(50%);
+}
+
+.hurston{
+    color:aliceblue; 
+    margin-top: 20px;
+    margin-bottom:  50px;
+    display: flex;
+    justify-content:center ;
+    flex-direction: column;
+   
+}
+
+.hurston h1{
+    text-align: center;
+    font-weight: 900;
+}
+.hurston h1 img{
+    width:20px;
+}
+.hurston p{
+    color: white;
+    padding: 20px;
+    line-height: 1.2rem;
+
+}
+.satellite_planete li{
+    list-style-type: none;
+}
+.gallery_planete{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin: 50px 0;
+}
+.gallery_planete img{
+
+    width: 420px;
+    padding:20px;
+}
+.info_planete{
+    box-shadow: rgba(6, 201, 255, 0.25) 0px 50px 100px -20px, rgba(28, 159, 220, 0.3) 0px 30px 60px -30px, rgba(32, 121, 210, 0.35) 0px -2px 6px 0px inset;
+    border:#00fffc 1px solid;
+    margin: 20px 15%;
+}
+@media screen and (max-width:750px) {
+    .info_planete{
+        margin: 20px 10px;
+    }
+  
+}
+.info_planete img{
+    width: 100%;
+}
+.info_planete h2{
+    margin: 20px 20px;
+    color:rgba(19, 224, 255, 0.75);
+}
