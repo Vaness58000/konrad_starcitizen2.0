@@ -55,18 +55,31 @@ $sth4 = $dbco->prepare("SELECT * FROM constructeur ");
 
     <?php foreach ($constructeurs as $constructeur) { ?>
         <div class="container_contructeur">
+
             <h1><img src="img/<?= $constructeur['logo']; ?>"><?= $constructeur['nom']; ?></h1>
+            
             <div class="info_construct">
                 <img src="img/<?= $constructeur['image']; ?>" alt="<?= $constructeur['nom']; ?>">
-                <p><?= $constructeur['paragraphe1']; ?></p>
+                <label class="btn btn--blue" for="modal-2">+ d'infos sur <?= $constructeur['nom']; ?> </label>
+    <input class="modal-state" id="modal-2" type="checkbox" />
+<div class="modal">
+  <label class="modal__bg" for="modal-2"></label>
+  <div class="modal__inner">
+    <label class="modal__close" for="modal-2"></label>
+    <h2><?= $constructeur['nom']; ?></h2>
+    <p><img src="img/<?= $constructeur['image']; ?>" alt="<?= $constructeur['nom']; ?>"><p><?= $constructeur['paragraphe1']; ?></p>
                 <p><?= $constructeur['paragraphe2']; ?></p>
                 <p><?= $constructeur['paragraphe3']; ?></p>
                 <p><?= $constructeur['paragraphe4']; ?></p>
                 <p><?= $constructeur['paragraphe5']; ?></p>
                 <p><?= $constructeur['paragraphe6']; ?></p>
                 <p><?= $constructeur['paragraphe7']; ?></p>
+  </div>
+</div>
+
+                
             </div>
-            <h2><img src="img/account_corners.png" alt="deco">&ensp;Les Véhicules <?= $constructeur['nom']; ?></h2>
+            <h2><img src="img/account_corners.png" alt="deco">&ensp;Les vaisseaux <?= $constructeur['nom']; ?></h2>
         </div>
     <?php
     }
