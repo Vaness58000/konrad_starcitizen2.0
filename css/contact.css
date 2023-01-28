@@ -69,10 +69,14 @@ textarea {
     width: 100%;
     font-size: 1rem;
     background: #000000;
-    color: white;
+    color: rgb(255, 255, 255);
     border-radius: 4px;
 }
-
+input:focus,
+textarea:focus{
+  background-color: rgb(232,240,254);
+  color: rgb(43, 43, 43);
+}
 .input-container input:focus,
 textarea:focus { outline: 0; }
 
@@ -91,7 +95,7 @@ textarea:focus ~ span {
 
 .input-container {
     width: 650px;
-    height: 700px;
+    height: 600px;
     max-width: 100%;
     margin: 20px auto 25px auto;
 }
@@ -178,4 +182,10 @@ textarea:focus ~ span {
         max-width: 100%;
         margin: 20px auto 25px auto;
     }
+    .container_contact h1 {
+      font-size: 40px;
+}
+  .container_contact h4{
+    font-size: 16px;
+  }
 }

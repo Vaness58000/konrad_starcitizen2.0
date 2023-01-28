@@ -12,6 +12,10 @@
 .page_ville h1 img{
     width:20px;
 }
+.page_ville h4{
+    padding-left: 10px;
+    font-size: 20px;
+}
 .page_ville p{
     color: white;
     padding: 20px;

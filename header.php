@@ -53,7 +53,7 @@
               <ul>
                 <li><a href="vaisseau.php">Vaisseaux</a></li>
                 <li><a href="vehicule.php">Véhicules</a></li>
-                <li><a href="#">Armes</a></li>
+                <li><a href="arme.php">Armes</a></li>
               </ul>
             </li>
             <li><a href="#">Lieux</a>
@@ -68,8 +68,12 @@
             </li>
             <li><a href="#">Espèces</a>
               <ul>
-                <li><a href="#">Personnages</a></li>
                 <li><a href="civilisation.php">Civilisations</a></li>
+                <li><a href="humain.php">Humain</a></li>
+                <li><a href="vanduul.php">Vanduul</a></li>
+                <li><a href="banu.php">Banu</a></li>
+                <li><a href="Xian.php">Xi'an</a></li>
+                <li><a href="tevarin.php">Tevarin</a></li>
               </ul>
             </li>
             <li><a href="#">Gallerie</a>
@@ -81,48 +85,24 @@
         </li>
         <li><a href="forum/index.php" target="_blank">Forum</a></li>
         <li><a href="space-shooter_game/index.php">Mini-jeu</a></li>
-        <li><a href="">Liens utiles</a>
+        <li><a href="#">Liens utiles</a>
           <ul>
-            <li><a href="#">RSI</a>
-              <ul>
-                <li><a href="https://robertsspaceindustries.com/starmap" target="_blank">Starmap</a></li>
+          <li><a href="https://robertsspaceindustries.com/starmap" target="_blank">Starmap</a></li>
                 <li><a href="https://robertsspaceindustries.com/download" target="_blank">Roberts space industries</a></li>
-                <li><a href="#">Achats des vaisseaux</a></li>
-                <li><a href="#">Lorem</a></li>
-              </ul>
-            </li>
-            <li><a href="#">Lorem</a>
-              <ul>
-                <li><a href="#">Lorem</a></li>
-                <li><a href="#">Lorem</a></li>
-                <li><a href="#">Lorem</a></li>
-                <li><a href="#">Lorem</a></li>
-              </ul>
-
-            </li>
-            <li><a href="#">Lorem</a>
-              <ul>
-                <li><a href="#">Lorem</a></li>
-                <li><a href="#">Lorem</a></li>
-                <li><a href="#">Lorem</a></li>
-                <li><a href="#">Lorem</a></li>
-              </ul>
-            </li>
-            <li><a href="#">Squadron 42</a>
-              <ul>
-                <li><a href="esquadron.php"><img src="img/wallpaperflare.com_wallpaper (7).jpg"></a></li>
-              </ul>
-            </li>
+                <li><a href="https://robertsspaceindustries.com/pledge" target="_blank">Achats des vaisseaux</a></li>
+                <li><a href="esquadron.php">Squadron 42<img src="img/wallpaperflare.com_wallpaper (7).jpg"></a></li>
           </ul>
         </li>
+
         <li><a href="contact.php">Contact</a></li>
-        <li><a href="#">Mon compte</a>
+        <li><a href="#"><i class="fa-solid fa-user-astronaut"></i>&ensp; Mon compte</a>
           <ul>
             <?php if (!isset($_SESSION['user'])) { ?>
               <li><a href="login.php">Connexion</a></li>
               <li><a href="inscription.php"> Inscription</a></li>
             <?php } else { ?>
-              <li><a href="espace_user.php">Gèrer mes partages</a></li>
+              <li><a href="espace_user.php">Gérer mon profil</a></li>
+              <li><a href="espace_user.php">Partager des screens</a></li>
               <li><a href="deconnexion.php"> Déconnexion</a></li>
             <?php } ?>
           </ul>

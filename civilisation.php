@@ -19,47 +19,47 @@ include "header.php";
 
 <div class="civilisation">
 <div class="gallery">
-  <a target="_blank" href="img_5terre.jpg">
-    <img src="img/civil1.jpg" alt="Cinque Terre" width="600" height="400">
+  <a href="humain.php">
+    <img src="img/civil1.jpg" alt="humain star citizen" width="600" height="400">
   </a>
   <div class="desc">Humains</div>
 </div>
 
 <div class="gallery">
-  <a target="_blank" href="img_forest.jpg">
-    <img src="img/civil2.jpg" alt="Forest" width="600" height="400">
+  <a href="vanduul.php">
+    <img src="img/civil2.jpg" alt="vanduul" width="600" height="400">
   </a>
   <div class="desc">Vanduul</div>
 </div>
 
 <div class="gallery">
-  <a target="_blank" href="img_lights.jpg">
-    <img src="img/civil3.jpg" alt="Northern Lights" width="600" height="400">
+  <a href="banu.php">
+    <img src="img/civil3.jpg" alt="banu" width="600" height="400">
   </a>
   <div class="desc">Banu</div>
 </div>
 
 <div class="gallery">
-  <a target="_blank" href="img_mountains.jpg">
-    <img src="img/civil4.jpg" alt="Mountains" width="600" height="400">
+  <a href="xian.php">
+    <img src="img/civil4.jpg" alt="Xi'an" width="600" height="400">
   </a>
   <div class="desc">Xi'an</div>
 </div>
 <div class="gallery">
-  <a target="_blank" href="img_mountains.jpg">
-    <img src="img/civil5.jpg" alt="Mountains" width="600" height="400">
+  <a href="tevarin.php">
+    <img src="img/civil5.jpg" alt="Tevarin" width="600" height="400">
   </a>
   <div class="desc">Tevarin</div>
 </div>
 <div class="gallery">
-  <a target="_blank" href="img_mountains.jpg">
-    <img src="img/civil6.jpg" alt="Mountains" width="600" height="400">
+  <a href="hadesien.php">
+    <img src="img/civil6.jpg" alt="? on ne sait pas à quoi il ressemble" width="600" height="400">
   </a>
   <div class="desc">Hadésien</div>
 </div>
   <div class="gallery">
-  <a target="_blank" href="img_mountains.jpg">
-    <img src="img/civil6.jpg" alt="Mountains" width="600" height="400">
+  <a href="krthak.php">
+    <img src="img/civil6.jpg" alt="? on ne sait pas à quoi il ressemble" width="600" height="400">
   </a>
   <div class="desc">Kr'Thak</div>
 </div>
@@ -74,23 +74,16 @@ include "header.php";
 
 <div class="civilisation">
 <div class="gallery">
-  <a target="_blank" href="img_5terre.jpg">
     <img src="img/civil6.jpg" alt="Osoïen" width="600" height="400">
-  </a>
   <div class="desc">Osoïen</div>
 </div>
-
 <div class="gallery">
-  <a target="_blank" href="img_forest.jpg">
-    <img src="img/civil6.jpg" alt="Orm" width="600" height="400">
-  </a>
+    <img src="img/civil6.jpg" alt="? on ne sait pas à quoi il ressemble" width="600" height="400">
   <div class="desc">Orm</div>
 </div>
 
 <div class="gallery">
-  <a target="_blank" href="img_lights.jpg">
-    <img src="img/civil6.jpg" alt="Genésien" width="600" height="400">
-  </a>
+    <img src="img/civil6.jpg" alt="? on ne sait pas à quoi il ressemble" width="600" height="400">
   <div class="desc">Genésien</div>
 </div>
 

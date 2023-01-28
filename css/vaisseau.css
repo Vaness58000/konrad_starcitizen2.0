@@ -8,6 +8,7 @@
 .page_vaisseau{
     background-color: #000000;
     background-image: url(../img/gridbg_glow.png);
+    margin-top: 10px;
 }
 .dropbtn {
     background-color: #161824;
@@ -42,7 +43,7 @@
     left:0;
     display: inline-block;
     margin: auto;
-    position:absolute;
+    position:relative;
   }
   
   .dropdown-content {

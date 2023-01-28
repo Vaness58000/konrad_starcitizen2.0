@@ -7,7 +7,7 @@ include 'header.php';
         <h1>Pour nous contacter</h1>
     </div>
     <div class="row_contact">
-        <h4 style="text-align:center">N'hésitez pas nous contacter pour toutes demandes ou renseignements!</h4>
+        <h4 style="text-align:center">N'hésitez pas nous contacter pour toutes demandes ou renseignements !</h4>
     </div>
     <div class="row_contact input-container">
         <div class="col-xs-12">

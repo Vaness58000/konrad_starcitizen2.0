@@ -367,6 +367,7 @@ footer {
     font-size: 12px;
     word-spacing: 2px;
     text-transform: capitalize;
+    text-align: center;
 }
 
 .footer-bottom span {

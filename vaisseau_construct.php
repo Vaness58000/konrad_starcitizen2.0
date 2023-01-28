@@ -34,7 +34,9 @@ $sth4 = $dbco->prepare("SELECT * FROM constructeur ");
                 $sth4->execute();
                 $tousConstrus= $sth4->fetchAll(PDO::FETCH_ASSOC);
 ?>
- <div class="dropdown">
+
+<section class="page_vaisseau">
+<div class="dropdown" style="margin-top: -10px">
         <button onclick="categorie()" class="dropbtn"><i class="fa-solid fa-bars-sort" style="color:white"></i>Constructeur</button>
 
         <div id="myDropdown" class="dropdown-content">
@@ -49,8 +51,6 @@ $sth4 = $dbco->prepare("SELECT * FROM constructeur ");
         </div>
 
     </div>
-<section class="page_vaisseau">
-   
  
     <?php foreach ($constructeurs as $constructeur) { ?>
         <div class="container_contructeur">
