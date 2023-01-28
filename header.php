@@ -5,6 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Konrad Star citizen</title>
+  <link rel = "icon" href ="favicon.ico"  type = "image/x-icon">
   <link rel="stylesheet" href="css/style-header.css">
   <link rel="stylesheet" href="css/index.css">
   <link rel="stylesheet" href="css/vaisseau.css">
@@ -37,7 +38,7 @@
 
   <div class="menu-container">
     <div class="menu">
-      <a href="index.php" class="logo"><img src="img/logo1.png" alt=""></a>
+      <a href="index.php" class="logo"><img src="img/logo1.png" alt="logo du site nemesis of daymar"></a>
       <ul class="clearfix">
         <li><a href="index.php">Accueil</a></li>
         <li><a href="#">Actualités</a>
