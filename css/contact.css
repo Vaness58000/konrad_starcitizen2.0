@@ -9,10 +9,7 @@
     color: white;
     text-align: center;
 }
-.form{
-  background-color: #303030a4;
-  background-image: url(../img/gridbg_glow.png);
-}
+
 
 .container_contact h4 {
     font-family: 'Roboto', sans-serif, 'arial';
@@ -68,8 +65,7 @@ textarea {
     border: 0;
     width: 100%;
     font-size: 1rem;
-    background: #000000;
-    color: rgb(255, 255, 255);
+   
     border-radius: 4px;
 }
 input:focus,

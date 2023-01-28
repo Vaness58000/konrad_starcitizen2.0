@@ -1,5 +1,6 @@
 <?php
 session_start();
+include "header.php";
 require_once 'back/connexion.php'; // ajout connexion bdd 
 // si la session existe pas soit si l'on est pas connecté on redirige
 if (!isset($_SESSION['user'])) {
@@ -12,63 +13,115 @@ $req = $dbco->prepare('SELECT * FROM utilisateurs WHERE token = ?');
 $req->execute(array($_SESSION['user']));
 $data = $req->fetch(PDO::FETCH_ASSOC);
 
-$sth4 = $dbco->prepare("SELECT * FROM images WHERE id_client = :id");
-$sth4->execute([":id" => $_SESSION['utilisateur']['id']]);
-
-/*Retourne un tableau associatif pour chaque entrée de notre table
-        *avec le nom des colonnes sélectionnées en clefs*/
-$images = $sth4->fetchAll(PDO::FETCH_ASSOC);
 ?>
-<?php
-include "header.php"
-?>
-
-<section id="page_user">
-
-    <div class="haut_espace">
-        <h1>Bienvenue <?php echo $data['pseudo']; ?></h1>
+<section id="espace_client">
 
 
+    <div id="info_client_general">
+        <div class="info_client">
+            <h3><i class="fas fa-user-circle"></i>Vos informations</h3>
+            <p>Pseudo : <?php echo $data['pseudo']; ?></p>
+            <p>Adresse mail : <?php echo $data['email']; ?></p>
+            <div class="popup" id="popup-1">
+                <div class="content">
+                    <div class="close-btn" onclick="togglePopup()">
+                        ×</div>
 
-        <form class="form" method="post" action="src/recup_form_image.php" enctype="multipart/form-data">
-            <div class="form--header-container">
-                <h1 class="form--header-title">
-                    <i class="fa-regular fa-image"></i> Partager vos screens
-                </h1>
+                    <form action="layouts/modif_information_client.php?id_client=<?= $data["id_client"] ?>" method="post">
+                        <h3><i class="fas fa-user-circle"></i>Modifier mes informations</h3></br>
 
-                <p class="form--header-text">
-                    Merci de télécharger les screens que vous souhaitez partager avec nous.
-                </p>
-            </div>
-            <div id="image">
+                        <div class="modif">
+                            <label for='pseudo' id="label">Pseudo</label>
+                            <input type="text" id="new_pseudo" name="pseudo" value="<?= $data["pseudo"] ?>" required /></br>
 
-                <p>Sélectionner vos images (attention : vérifiez que les images téléchargées sont libres de droits)</p>
-                <input type="file" name='files[]' multiple>
-                </br>
-            </div>
-
-            <button type="submit" name="submit" class="form__btn" id="btn-2-next">Suivant</button>
-
-            <h2>Gestion de vos screens partagés</h2>
-            <div class="gallery_img">
-                <?php //Pour afficher les infos de la base de données 
-                foreach ($images as $image) {    // foreach=boucle - pour afficher les données de la base de données dans un tableau/ as $= Pour afficher chaque resultat (les entrées de la base de données)
-                ?>
-                    <div class="gestion_image">
-                        <div class="image_personnalisation">
-                            <img src="upload/<?= ($image["name"]) ?>" />
                         </div>
-                        <div class="action_image">
-                            <a href="src/delete_image.php?id=<?= $image["id"] ?>"><i class="fa-regular fa-trash-can"></i></a>
+                        <div class="modif">
+                            <label for='email' id="label">Email   </label>
+                            <input type="email" id="new_mail" name="email" value="<?= $data["email"] ?>" required />
                         </div>
-                    </div>
-                <?php } ?>
+
+                        <button type="submit" class="sauvegarde">Sauvegarder</button>
+
+                    </form>
+
+                </div>
+            </div>
+            <button onclick="togglePopup()" class="first-button">Modifier</button>
+    
+
+        </div>
+        <div class="info_client">
+            <h3><i class="fa-solid fa-user-lock"></i>Votre mot de passe</h3>
+            <?php
+            if (isset($_GET['err'])) {
+                $err = htmlspecialchars($_GET['err']);
+                switch ($err) {
+                    case 'current_password':
+                        echo "<div class='alert alert-danger'>✘ Votre mot de passe actuel est incorrect</div>";
+                        break;
+
+                    case 'success_password':
+                        echo "<div class='alert alert-success'>✔ Votre mot de passe a bien été modifié ! </div>";
+                        break;
+                }
+            }
+            ?>
+
+            <button id="myBtn2" class="btn2">Modifier mon mot de passe</button>
+
+
+            <!-- The Modal -->
+            <div id="myModal2" class="modal2">
+
+                <!-- Modal content -->
+                <div class="modal-content2">
+                    <span class="close2">&times;</span>
+                    <form action="layouts/change_password.php" method="POST">
+                        <h3><i class="fa-solid fa-user-lock"></i>Modifier mon mot de passe</h3></br>
+
+                        <div class="modif">
+                            <label for='current_password'>Mot de passe actuel</label>
+
+                            <input type="password" id="current_password" name="current_password" required /></br>
+
+                        </div>
+                        <div class="modif">
+                            <label for='new_password'>Nouveau mot de passe</label>
+                            <input type="password" id="new_password" name="new_password" required /></br>
+
+                        </div>
+                        <div class="modif">
+                            <label for='new_password_retype'>Re tapez le nouveau mot de passe</label>
+                            <input type="password" id="new_password_retype" name="new_password_retype" required /></br>
+
+                        </div>
+                        <button type="submit" class="sauvegarde">Sauvegarder</button>
+
+                    </form>
+                </div>
 
             </div>
-        </form>
+            <script>
+             
+            </script>
+        </div>
+        <div class="info_client">
+            <h3><i class="fa-regular fa-image"></i>Partager mes screens</h3>
+            <a href="partage.php"><i class="fa-solid fa-shuttle-space"></i>&ensp; Ajouter des screens</a></br></br>
+            <a href="suivi_commande_client.php"><i class="fa-solid fa-shuttle-space"></i> &ensp; Gérer mes screens</a></br></br>
+
+        </div>
+        <div class="info_client">
+            <h3>Une question ?</h3>
+            <p><i class="fa-solid fa-comment-question"></i>Pour toutes questions, merci de remplir le formulaire de contact. Nous vous répondrons dans les meilleurs délais.</p>
+            </br><a href="contact.php"><i class="fa-solid fa-shuttle-space"></i>&ensp; Nous contacter</a>
+        </div>
+    </div>
 </section>
+
+
+
+<script src="js/modale.js"></script>
 <?php
 include "footer.php";
 ?>
-</div>
-</div>
