@@ -7,7 +7,7 @@ include "header.php";
 ?>
 <section class="hurston">
 
-    <h1><img src="img/account_corners.png" alt="deco">&ensp; Système Stanton</h1>
+    <h1>Système Stanton</h1>
     <div class="info_planete">
         <img src="img/stanton.png">
 

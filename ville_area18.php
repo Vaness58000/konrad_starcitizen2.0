@@ -5,7 +5,7 @@ include "header.php";
 ?>
 <section class="page_ville">
   
-        <h1><img src="img/account_corners.png" alt="deco">&ensp; Arial18</h1>
+        <h1>Arial18</h1>
         <div class="info_ville">
             <p>Area18 est la première ville d'ArcCorp dans Star Citizen. Implantée au patch 3.5, elle est largement inspirée de New York avec ses hauts buildings et ses gigantesques panneaux publicitaires. Découvrez les moindres recoins sinueux de la ville mère d'ArcCorp Corporation dans cet article dédié.</p>
             <img src="img/ville.jpg" alt="ville Area18">

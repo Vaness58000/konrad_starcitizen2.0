@@ -134,7 +134,7 @@ margin-top: 150px;
 .container_contructeur h1 img{
   width: 60px;
 }
-.container_contructeur h1,p, h2,li{
+.container_contructeur h1,.container_contructeur p, .container_contructeur h2,.container_contructeur li{
   color: white;
   margin: 10px;
 }

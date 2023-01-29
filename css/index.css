@@ -64,7 +64,6 @@ html {
 .flex-slider {
     width: 100%;
     position: relative;
-    margin-bottom: -60px;
 }
 
 .flex-slider .slides {
@@ -464,12 +463,6 @@ p.demos {
     fill: currentColor;
 }
 
-
-.wrapper_actu{
-    padding-top: 30px;
-
-  
-}
 .wrapper_actu h1{
     color: white;
     font-size: clamp(1.8rem, 3vw, 3rem);
@@ -577,6 +570,7 @@ p.demos {
 .news-slider__pagination {
     text-align: center;
     margin-top: 50px;
+    margin-bottom: 80px;
 }
 
 .news-slider__pagination .swiper-pagination-bullet {

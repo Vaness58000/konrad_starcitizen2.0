@@ -5,7 +5,7 @@ include "header.php";
 ?>
 <section class="page_ville">
 
-    <h1><img src="img/account_corners.png" alt="deco">&ensp; New Babbage</h1>
+    <h1>New Babbage</h1>
     <div class="info_ville">
         <p>Dans Star Citizen, New Babbage est un pôle d'entreprise high-tech situé sur Stanton IV. Sous la gouvernance de Microtech, inventeur du Mobiglass, les entreprises profitent du cadre dynamique et entreprenant de New Babbage pour innover toujours plus, chaque jours, les nouvelles technologies de l'UEE.</p>
         <img src="img/ville23.jpg" alt="ville New Babbage">

@@ -40,7 +40,7 @@ include 'header.php';
         </li>
     </ul>
 </div>
-<!--<div class="wrapper_actu">
+<div class="wrapper_actu">
 
 
 
@@ -203,70 +203,7 @@ include 'header.php';
         </symbol>
     </defs>
 </svg>
-</div>-->
-<div class="container_actu">
-
-    <div class="actu_ind">
-        <a href="#" class="news_actus">
-            <div class="date">
-                <span class="date_title">24</span>
-                <span class="date_txt">Décembre</span>
-            </div>
-            <div class="title">
-                Lorem Ipsum Dolor Sit Amed
-            </div>
-
-            <p class="txt">
-                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s...
-            </p>
-
-            <div class="img_actu">
-                <img src="img/262f7041f0f5f688_1920xH.jpg" alt="actualités">
-            </div>
-        </a>
-    </div>
-
-    <div class="actu_ind">
-        <a href="#" class="news_actus">
-            <div class="date">
-                <span class="date_title">24</span>
-                <span class="date_txt">Décembre</span>
-            </div>
-            <div class="title">
-                Lorem Ipsum Dolor Sit Amed
-            </div>
-
-            <p class="txt">
-                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s...
-            </p>
-
-            <div class="img_actu">
-                <img src="img/262f7041f0f5f688_1920xH.jpg" alt="actualités">
-            </div>
-        </a>
-    </div>
-    <div class="actu_ind">
-        <a href="#" class="news_actus">
-            <div class="date">
-                <span class="date_title">24</span>
-                <span class="date_txt">Décembre</span>
-            </div>
-            <div class="title">
-                Lorem Ipsum Dolor Sit Amed
-            </div>
-
-            <p class="txt">
-                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s...
-            </p>
-
-            <div class="img_actu">
-                <img src="img/262f7041f0f5f688_1920xH.jpg" alt="actualités">
-            </div>
-        </a>
-    </div>
-
 </div>
-
 <?php
 include 'footer.php';
 ?>
@@ -303,7 +240,7 @@ include 'footer.php';
 
     /*CAROUSSEL ACTU*/
 
-    /*var items = document.querySelectorAll('.news__item');
+    var items = document.querySelectorAll('.news__item');
     var item = document.querySelector('.news__item');
 
     function cLog(content) {
@@ -412,7 +349,7 @@ include 'footer.php';
 
 
 
-    });*/
+    });
 </script>
 </body>
 

@@ -85,6 +85,7 @@ th,td{
 @media screen and (max-width: 869px) {
 	.block {	
 		padding: 10px;
+		overflow: hidden;
 	}
 	.info_vaisseau{
 		width:100%;

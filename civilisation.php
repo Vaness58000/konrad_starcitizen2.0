@@ -5,7 +5,7 @@ include "header.php";
 <body>
 <section class="hurston">
 
-<h1><img src="img/account_corners.png" alt="deco">&ensp; Espèces</h1>
+<h1>Civilisations</h1>
 <div class="info_planete">
     <img src="img/civil8.jpg">
 

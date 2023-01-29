@@ -5,7 +5,7 @@ include "header.php";
 ?>
 <section class="page_ville">
 
-    <h1><img src="img/account_corners.png" alt="deco">&ensp; Lorville</h1>
+    <h1>Lorville</h1>
     <div class="info_ville">
         <p>Il existe plusieurs villes dans Star Citizen. La première à avoir été implémentée dans le jeu est Lorville. Elle est située sur Hurston et est le centre d'opération d'Hurston Dynamics dans le système Stanton. On y trouvera de nombreux commerces, notamment le magasin de vaisseaux le mieux fourni.</p>
         <img src="img/ville22.jpg" alt="ville Lorville">

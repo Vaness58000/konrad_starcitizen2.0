@@ -9,7 +9,7 @@ include 'header.php';
 ?>
 
 <section class="page_planete">
-<h1><img src="img/account_corners.png" alt="deco">&ensp; Les stations spatiales</h1>
+<h1>Les stations spatiales</h1>
     <div class="container_planete">
    
   <div class="card">

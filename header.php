@@ -21,6 +21,7 @@
   <link rel="stylesheet" href="css/login.css">
   <link rel="stylesheet" href="css/squadron.css">
   <link rel="stylesheet" href="css/partage_screen.css">
+  <link rel="stylesheet" href="css/gallerie.css">
   <link href="https://fonts.googleapis.com/css?family=Noto+Sans" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -77,7 +78,7 @@
                 <li><a href="tevarin.php">Tevarin</a></li>
               </ul>
             </li>
-            <li><a href="#">Gallerie</a>
+            <li><a href="gallerie.php">Gallerie</a>
               <ul>
                 <li><a href="gallerie.php"><img src="img/262f7041f0f5f688_1920xH.jpg"></a></li>
               </ul>

@@ -8,7 +8,7 @@ $planetes = $sth->fetchAll(PDO::FETCH_ASSOC);
 ?>
 
 <section class="page_planete">
-    <h1><img src="img/account_corners.png" alt="deco">&ensp; Les planètes du Système Stanton</h1>
+    <h1>Les planètes du Système Stanton</h1>
  
     <div class="container_planete">
     <?php foreach ($planetes as $planete) { ?>
