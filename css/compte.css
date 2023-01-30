@@ -23,7 +23,7 @@
     line-height: 20px;
     color: #cccccc;
     border: #00eaff 1px solid;
-    box-shadow: rgba(3, 255, 234, 0.2) 0px 60px 40px -7px;
+    box-shadow: rgba(6, 201, 255, 0.25) 0px 50px 100px -20px, rgba(28, 159, 220, 0.3) 0px 30px 60px -30px, rgba(32, 121, 210, 0.35) 0px -2px 6px 0px inset;
 }
 
 .info_client h3 {

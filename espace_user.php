@@ -1,10 +1,9 @@
 <?php
 session_start();
-include "header.php";
 require_once 'back/connexion.php'; // ajout connexion bdd 
 // si la session existe pas soit si l'on est pas connecté on redirige
 if (!isset($_SESSION['user'])) {
-    header('Location:index.php');
+    header('Location:login.php');
     die();
 }
 
@@ -13,6 +12,9 @@ $req = $dbco->prepare('SELECT * FROM utilisateurs WHERE token = ?');
 $req->execute(array($_SESSION['user']));
 $data = $req->fetch(PDO::FETCH_ASSOC);
 
+?>
+<?php
+include "header.php"
 ?>
 <section id="espace_client">
 
@@ -108,7 +110,7 @@ $data = $req->fetch(PDO::FETCH_ASSOC);
         <div class="info_client">
             <h3><i class="fa-regular fa-image"></i>Partager mes screens</h3>
             <a href="partage.php"><i class="fa-solid fa-shuttle-space"></i>&ensp; Ajouter des screens</a></br></br>
-            <a href="suivi_commande_client.php"><i class="fa-solid fa-shuttle-space"></i> &ensp; Gérer mes screens</a></br></br>
+            <a href="#"><i class="fa-solid fa-shuttle-space"></i> &ensp; Gérer mes screens</a></br></br>
 
         </div>
         <div class="info_client">

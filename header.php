@@ -104,7 +104,7 @@
               <li><a href="inscription.php"> Inscription</a></li>
             <?php } else { ?>
               <li><a href="espace_user.php">Gérer mon profil</a></li>
-              <li><a href="espace_user.php">Partager des screens</a></li>
+              <li><a href="partage.php">Partager des screens</a></li>
               <li><a href="deconnexion.php"> Déconnexion</a></li>
             <?php } ?>
           </ul>

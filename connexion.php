@@ -37,7 +37,7 @@
                     ];
                   
                     
-                    header('Location: index.php');
+                    header('Location: espace_user.php');
                     die();
                 }else{ header('Location: login.php?login_err=password'); die(); }
             }else{ header('Location: login.php?login_err=email'); die(); }
