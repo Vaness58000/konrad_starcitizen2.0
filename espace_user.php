@@ -110,7 +110,7 @@ include "header.php"
         <div class="info_client">
             <h3><i class="fa-regular fa-image"></i>Partager mes screens</h3>
             <a href="partage.php"><i class="fa-solid fa-shuttle-space"></i>&ensp; Ajouter des screens</a></br></br>
-            <a href="#"><i class="fa-solid fa-shuttle-space"></i> &ensp; Gérer mes screens</a></br></br>
+            <a href="gestion_screen.php"><i class="fa-solid fa-shuttle-space"></i> &ensp; Gérer mes screens</a></br></br>
 
         </div>
         <div class="info_client">

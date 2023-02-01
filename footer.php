@@ -15,9 +15,9 @@
 
         <div class="footer-menu">
             <ul class="f-menu">
-                <li><a href="">Accueil</a></li>
-                <li><a href="">A propos</a></li>
-                <li><a href="">Contact</a></li>
+                <li><a href="info_legale.php">Informations légales</a></li>
+                <li><a href="cgu.php">CGU</a></li>
+                <li><a href="politique_confi.php">Politique de confidentialités</a></li>
             </ul>
         </div>
         <p>Copyright &copy;2023 Star citizen - Tous droits réservés </p>

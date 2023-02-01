@@ -29,7 +29,9 @@
 .info_client h3 {
     padding-bottom: 20px;
 }
-
+.info_client form h3{
+    text-align: center;
+}
 .info_client a {
     color: #ffffff;
     font-weight: 400;
@@ -134,7 +136,7 @@
     }
 
     .modal-content2 {
-        width: 320px;
+        width: 100%;
         height: auto;
 
         /* Could be more or less, depending on screen size */

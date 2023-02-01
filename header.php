@@ -22,6 +22,8 @@
   <link rel="stylesheet" href="css/squadron.css">
   <link rel="stylesheet" href="css/partage_screen.css">
   <link rel="stylesheet" href="css/gallerie.css">
+  <link rel="stylesheet" href="css/gestion_screen.css">
+  <link rel="stylesheet" href="css/rgpd.css">
   <link href="https://fonts.googleapis.com/css?family=Noto+Sans" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -46,7 +48,7 @@
         <li><a href="#">Actualités</a>
           <ul>
             <li><a href="actualites.php">Toutes les actus</a></li>
-            <li><a href="#">Patch Notes</a></li>
+            <li><a href="patch_note.php">Patch Notes</a></li>
           </ul>
         </li>
         <li><a href="#">Guide</a>

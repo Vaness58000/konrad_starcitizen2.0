@@ -5,7 +5,7 @@
 .container_contact h1 {
     font-family: 'Poppins', sans-serif, 'arial';
     font-weight: 600;
-    font-size: 72px;
+    font-size: 42px;
     color: white;
     text-align: center;
 }
@@ -108,8 +108,7 @@ textarea:focus ~ span {
     letter-spacing: 1.3px;
     font-weight: 700;
     color: #313133;
-    background: #00ccff;
-  background: linear-gradient(90deg, rgb(1, 166, 255) 0%, rgb(1, 162, 215) 100%);
+    background: linear-gradient(90deg, rgb(0, 255, 217) 0%, rgb(0, 225, 229) 100%);
     border: none;
     border-radius: 1000px;
     box-shadow: 12px 12px 24px rgba(13, 174, 255, 0.64);
@@ -125,8 +124,8 @@ textarea:focus ~ span {
     border-radius: 1000px;
     min-width: calc(200px + 12px);
     min-height: calc(40px + 12px);
-    border: 6px solid #005b85;
-    box-shadow: 0 0 60px rgba(0, 153, 255, 0.64);
+    border: 6px solid rgb(0, 255, 217) ;
+    box-shadow: 0 0 60px rgb(0, 255, 217) ;
     position: absolute;
     top: 50%;
     left: 50%;

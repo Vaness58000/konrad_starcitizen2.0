@@ -34,7 +34,6 @@ $images = $sth4->fetchAll(PDO::FETCH_ASSOC);
                         <h3>Attention, les images doivent être :</h3>
                         <ul>
                             <li>Images libres de droits</li>
-                            <li>Images libres de droits</li>
                             <li>Pas d'images à caractères sexuels, raciales...</li>
                         </ul>
                             

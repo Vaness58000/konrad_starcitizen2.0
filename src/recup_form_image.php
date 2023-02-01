@@ -57,5 +57,5 @@ if(isset($_POST['submit'])) {
         }
     }
      
-    header("Location:../espace_user.php");
+    header("Location:../gestion_screen.php");
 }

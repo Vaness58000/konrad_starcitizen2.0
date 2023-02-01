@@ -16,6 +16,10 @@
     padding-left: 10px;
     font-size: 20px;
 }
+.page_ville span{
+    margin-left: 15%;
+    font-weight: 600;
+}
 .page_ville p{
     color: white;
     padding: 20px;
@@ -51,6 +55,9 @@
 
         width: 320px;
     }
+    .page_ville span{
+        margin-left: 10px;
+    }
 }
 .info_ville img{
     display: block;
@@ -60,6 +67,9 @@
 .info_ville h2{
     margin: 20px 20px;
     color:rgba(19, 224, 255, 0.75);
+}
+.info_ville h3{
+    margin: 20px 20px;
 }
 .info_ville li{
     margin: 10px 20%;
@@ -73,4 +83,15 @@
 }
 .gallery_ville img{
     width: 40%;
+}
+iframe{
+    display: block;
+    margin: auto;
+    margin-bottom: 30px;
+}
+@media screen and (max-width:560px){
+    iframe{
+        width: 320px;
+        height: auto;
+    }
 }

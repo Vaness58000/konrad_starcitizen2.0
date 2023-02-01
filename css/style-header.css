@@ -402,6 +402,8 @@ footer {
 @media (max-width:500px) {
     .footer-menu ul {
         display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
         margin-top: 10px;
         margin-bottom: 20px;
     }

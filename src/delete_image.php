@@ -15,4 +15,4 @@ echo "impossible de supprimer l'image.";
 $sth = $dbco->prepare("DELETE FROM images WHERE id=:id");
 
         $sth->execute([":id" => $_GET["id"]]);
-        header("location:../espace_user.php"); 
+        header("location:../gestion_screen.php"); 

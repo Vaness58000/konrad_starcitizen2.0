@@ -235,7 +235,9 @@ margin: 40px;
   padding: 1em 2em;
   height: 80%;
 }
-
+.modal__inner ul li, .modal__inner h2, .modal__inner p, .modal__inner h3{
+  color: white;
+}
 .modal__close {
   position: absolute;
   right: 1em;

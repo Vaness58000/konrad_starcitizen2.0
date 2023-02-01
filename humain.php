@@ -5,7 +5,7 @@ include 'header.php';
 
 <section class="page_ville">
   
-        <h1><img src="img/account_corners.png" alt="deco">&ensp; Humain</h1>
+        <h1>Humain</h1>
         <div class="info_ville">
             <p>L'Humain ( Angl.  Human) est une espèce récente dans l'histoire de la galaxie, qui a accédé au voyage spatial il y a moins d'un millénaire. Aussi appelée "Humanité" pour désigner l'ensemble des individus de l'espèce humaine, elle est connue pour son individualité et la pluralité de sa culture. Les humains entretiennent une méfiance avec tout ce qui leur est inconnu, méfiance qui a toujours conduit à des tensions lors des premières rencontres avec d'autres espèces.</p>
             <img src="img/humain3.jpg" alt="humain">
