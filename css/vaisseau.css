@@ -8,7 +8,7 @@
 .page_vaisseau{
     background-color: #000000;
     background-image: url(../img/gridbg_glow.png);
-    margin-top: 10px;
+    margin-top: 1px;
 }
 .dropbtn {
     background-color: #161824;
@@ -129,7 +129,7 @@ margin-top: 150px;
   align-items: center;
   justify-content: center;
   margin-bottom: 30px;
-  padding-top: 60px;
+  padding: 10px;
 }
 .container_contructeur h1 img{
   width: 60px;
@@ -172,9 +172,7 @@ margin: 40px;
     width:100%;
    
   }
-  .container_contructeur h1{
-   margin-top: 40px;
-  }
+
 
 }
 

@@ -53,7 +53,6 @@ include "header.php";
             <h3>Hull A <br>MISC</h3>
             <img src="img/patch9.jpg" alt="vaisseau Hull A">
            <h3>Scorpius <br>RSI</h3>
-            <p>Implémentation du système qui permettra aux joueurs avec certains vaisseaux de recharger en carburant d'autres vaisseaux et être payé pour avec toutes les interfaces que cela requiert. Le joueur pourra choisir un réservoir spécifique à remplir depuis une station en utilisant une toute nouvelle interface de ravitaillement.</p>
             <img src="img/patch10.jpg" alt="vaisseau Scorpius">
         </div>
         <div class="info_ville">

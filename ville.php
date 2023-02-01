@@ -9,7 +9,7 @@ include 'header.php';
 ?>
 
 <section class="page_planete">
-<h1>Les Villes</h1>
+
     <div class="container_planete">
    
   <div class="card">

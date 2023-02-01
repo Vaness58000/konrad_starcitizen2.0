@@ -1,10 +1,10 @@
 .page_planete{
-    padding-top: 20px;
     color:aliceblue;
+    width: 100%;
 }
 .page_planete h1{
     text-align: center;
- 
+    padding-top: 20px;
 }
 .page_planete h1 img{
     width: 20px;
@@ -13,7 +13,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 10vmin;
+    margin: 30px 10px;
     overflow: hidden;
     transform: skew(5deg);
 }
@@ -46,7 +46,7 @@
 }
 .container_planete .card:hover .card__head {
     text-align: center;
-    top: calc(100% - 2em);
+    top: calc(100% - 2.5em);
     color: white;
     background: rgba(0, 0, 0, 0.5);
     font-size: 2em;
@@ -116,4 +116,7 @@
 .info_planete h2{
     margin: 20px 20px;
     color:rgba(19, 224, 255, 0.75);
+}
+.info_planete p{
+    line-height: 1.5rem;
 }

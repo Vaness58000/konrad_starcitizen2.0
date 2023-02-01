@@ -2,10 +2,15 @@
 session_start();
 include 'header.php';
 ?>
-<div class="login-container2">
-	<form action="inscription_traitement.php" method="post" class="form-login">
+<section id="html">
+    <div id="logo">
+        <h1><i> Inscription</i></h1>
+    </div>
+    <section class="stark-login2">
 
-		<?php
+        <form action="inscription_traitement.php" method="post">
+            <div id="fade-box">
+			<?php
 		if (isset($_GET['reg_err'])) {
 			$err = htmlspecialchars($_GET['reg_err']);
 
@@ -59,35 +64,25 @@ include 'header.php';
 			}
 		}
 		?>
-		<ul class="login-nav">
-			<li class="login-nav__item active">
-				<a href="#">INSCRIPTION</a>
-			</li>
-			<li class="login-nav__item">
-				<a href="login.php">CONNEXION</a>
-			</li>
-		</ul>
-		<label for="login-input-user" class="login__label">
-			Pseudo
-		</label>
-		<input id="login-input-user" class="login__input" name="pseudo" type="text" required="required" autocomplete="off" />
-		<label for="login-input-user" class="login__label">
-			Email
-		</label>
-		<input id="login-input-user" class="login__input" name="email" type="text" required="required" autocomplete="off" />
-		<label for="login-input-password" class="login__label">
-			Mot de passe
-		</label>
-		<input id="login-input-password" class="login__input" name="password" required="required" type="password" autocomplete="off" />
-		<label for="login-input-password" class="login__label">
-			Confirmer mot de passe
-		</label>
-		<input id="login-input-password" class="login__input" name="password_retype" required="required" type="password" autocomplete="off" />
+				 <input type="text" name="pseudo" id="pseudo" placeholder="Pseudo" required>
+                <input type="email" name="email" id="username" placeholder="email" required>
+                <input type="password" name="password" placeholder="Mot de passe" required>
+				<input type="password" name="password_retype" placeholder="Confirmer mot de passe" required>
+                <a href="login.php" class="login__forgot">Déjà un compte ? se connecter</a>
+                <input type="submit" value="Se connecter"></input>
+            </div>
+        </form>
 
-		<input type="submit" value="S'inscrire"></input>
-	</form>
-	<a href="login.php" class="login__forgot">Déjà un compte ? se connecter</a>
-</div>
+    </section>
+
+    <div id="circle1">
+        <div id="inner-cirlce1">
+            <h2> </h2>
+        </div>
+    </div>
+
+</section>
+
 <?php
 include "footer.php";
 ?>

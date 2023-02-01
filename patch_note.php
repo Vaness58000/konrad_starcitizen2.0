@@ -35,15 +35,15 @@ include "header.php";
 
 
                 <div class="img_actu">
-                    <img src="img/gallerie6.jpg" alt="actualités">
+                    <img src="img/patch12.jpg" alt="patch note">
                     <div class="contenu">
 
                         <div class="title">
-                             Inside Star Citizen : Lorville Revisited
+                        Star Citizen : Patch alpha 3.16
                         </div>
 
                         <p class="txt">
-                            Le patch 3.19 est en préparation, et il devrait apporter son lot de lieux revisités et améliorés. Des épaves de vaisseaux à différents stades d’usure et de vieillissement sont ajoutés à l’univers, et la nouvelle itération de Lorville avance plus vite que prévu.
+                        La Roadmap de Star Citizen mise à disposition par CIG permet de suivre l'avancée du développement et d'avoir un aperçu des features qui composent les patchs à venir. Voici les ajouts prévus pour le patch 3.16 qui devrait sortir vers la fin du mois de décembre 2021.
                         </p>
                         <div class="date">
                             <span>28 janvier 2023</span>
@@ -58,15 +58,15 @@ include "header.php";
 
 
                 <div class="img_actu">
-                    <img src="img/gallerie5.jpg" alt="actualités">
+                    <img src="img/patch13.jpg" alt="patch note">
                     <div class="contenu">
 
                         <div class="title">
-                        Star Citizen Monthly Report : rapport mensuel de novembre et décembre 2022
+                        Star Citizen : Patch alpha 3.15
                         </div>
 
                         <p class="txt">
-                        Pour les deux derniers mois de 2022, les équipes de développement de Star Citizen se sont focalisées sur le patch 3.18 et ses fonctionnalités, notamment le recyclage (salvage) et la nouvelle architecture de stockage des données (Persistent Entity Streaming).
+                        La Roadmap de Star Citizen mise à disposition par CIG permet de suivre l'avancée du développement et d'avoir un aperçu des features qui composent les patchs à venir. Voici les ajouts prévus pour le patch 3.15 qui devrait sortir vers la fin du mois de septembre 2021.
                         </p>
                         <div class="date">
                             <span>28 janvier 2023</span>
