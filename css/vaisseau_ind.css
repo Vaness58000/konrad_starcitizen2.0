@@ -1,35 +1,5 @@
-.info_vaisseau{
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    justify-content: center;
-	align-items: center;
-}
-.info_vaisseau h1{
-    color:aliceblue;
-    margin-bottom: 50px;
-}
-.description_vaisseau{
-	display: flex;
-	flex-direction: row;
-	flex-wrap: wrap;
-	align-items: center;
-	justify-content: center;
-	margin-bottom: 40px;
-}
-.info_vaisseau .description{
-    color: aliceblue;
-    text-align: justify;
-    line-height: 2em;
-	width: 500px;
-}
-.info_vaisseau img{
-    width: 500px;
-    margin: 20px;
-}
 table{
-	display: block;
-	margin: auto;
+	
 	width: 100%;
 }
 table, th, td{
@@ -58,7 +28,7 @@ th,td{
 	position: absolute;
 	left: -2px;
 	top: -2px;
-	background: linear-gradient(45deg, #8bf9ff, #50e5ff, #74b3ff,#1e3e68, #189fff, #66b5ff, 
+	background: linear-gradient(45deg, #8bf9ff, #50e5ff, #1df0fb,#1e5968, #10a8aa, #66b5ff, 
 		#47fafd, #61f8f3,#1ed2ff, #343434);
 	background-size: 400%;
 	width: calc(100% + 10px);
@@ -105,7 +75,7 @@ th,td{
 	.info_vaisseau img{
 		width: 400px;
 	}
-	table, th, td{
+	table{
 		color: white;
 		text-align:left ; 
 		border: solid 1px rgba(104, 242, 255, 0.155);

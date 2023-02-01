@@ -63,7 +63,6 @@
 .hurston{
     color:aliceblue; 
     margin-top: 20px;
-    margin-bottom:  50px;
     display: flex;
     justify-content:center ;
     flex-direction: column;
@@ -118,5 +117,5 @@
     color:rgba(19, 224, 255, 0.75);
 }
 .info_planete p{
-    line-height: 1.5rem;
+    line-height: 1.8rem;
 }

@@ -74,6 +74,7 @@
 }
 .info_ville li{
     margin: 10px 20%;
+    line-height: 1.8rem;
 }
 .gallery_ville{
     display: flex;

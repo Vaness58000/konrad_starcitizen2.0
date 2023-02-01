@@ -13,21 +13,14 @@ $sth->execute();
 $vaisseaux = $sth->fetchAll(PDO::FETCH_ASSOC);
 
 ?>
-
-
 <div class="block">
-  <div class="info_vaisseau">
+  <section class="page_ville">
     <?php foreach ($vaisseaux as $vaisseau) { ?>
-      <h1><?= $vaisseau['nom_vaisseau']; ?></h1>
 
-      <div class="description_vaisseau">
-
+      <div class="info_ville">
+        <h1><?= $vaisseau['nom_vaisseau']; ?></h1>
         <img src="img/<?= $vaisseau['image_vaisseau']; ?>" alt="vaisseau<? $vaisseau['nom_vaisseau']; ?>">
-        <div class="description">
-          <p><?= $vaisseau['description']; ?></p>
-        </div>
-      </div>
-      <div class="caracteristique">
+        <p><?= $vaisseau['description']; ?></p>
         <table>
           <tr>
             <th>constructeur</th>
@@ -70,13 +63,13 @@ $vaisseaux = $sth->fetchAll(PDO::FETCH_ASSOC);
             <td><?= $vaisseau['faiblesses']; ?></td>
           </tr>
         </table>
-
       </div>
+
     <?php
     }
     ?>
-  </div>
 </div>
+
 <?php
 include 'footer.php';
 ?>

@@ -114,38 +114,12 @@ session_start();
         </li>
         <li><a href="../forum/index.php" target="_blank">Forum</a></li>
         <li><a href="index.php">Mini-jeu</a></li>
-        <li><a href="">Liens utiles</a>
+        <li><a href="#">Liens utiles</a>
           <ul>
-            <li><a href="#">School</a>
-              <ul>
-                <li><a href="https://robertsspaceindustries.com/starmap" target="_blank">Starmap</a></li>
+          <li><a href="https://robertsspaceindustries.com/starmap" target="_blank">Starmap</a></li>
                 <li><a href="https://robertsspaceindustries.com/download" target="_blank">Roberts space industries</a></li>
-                <li><a href="#">Achats des vaisseaux</a></li>
-                <li><a href="#">Lorem</a></li>
-              </ul>
-            </li>
-            <li><a href="#">Lorem</a>
-              <ul>
-                <li><a href="#">Lorem</a></li>
-                <li><a href="#">Lorem</a></li>
-                <li><a href="#">Lorem</a></li>
-                <li><a href="#">Lorem</a></li>
-              </ul>
-
-            </li>
-            <li><a href="#">Lorem</a>
-              <ul>
-                <li><a href="#">Lorem</a></li>
-                <li><a href="#">Lorem</a></li>
-                <li><a href="#">Lorem</a></li>
-                <li><a href="#">Lorem</a></li>
-              </ul>
-            </li>
-            <li><a href="#">Squadron 42</a>
-              <ul>
-                <li><a href="../esquadron.php"><img src="../img/wallpaperflare.com_wallpaper (7).jpg"></a></li>
-              </ul>
-            </li>
+                <li><a href="https://robertsspaceindustries.com/pledge" target="_blank">Achats des vaisseaux</a></li>
+                <li><a href="../esquadron.php">Squadron 42<img src="../img/wallpaperflare.com_wallpaper (7).jpg"></a></li>
           </ul>
         </li>
         <li><a href="../contact.php">Contact</a></li>

@@ -16,8 +16,9 @@ $vaisseaux = $sth->fetchAll(PDO::FETCH_ASSOC);
 
 
 <div class="block">
-    <div class="info_vaisseau">
+<section class="page_ville">
         <?php foreach ($vaisseaux as $vaisseau) { ?>
+            <div class="info_ville">
             <h1><?= $vaisseau['nom']; ?></h1>
             <div class="description_vaisseau">
 

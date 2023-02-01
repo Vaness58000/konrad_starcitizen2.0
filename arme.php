@@ -26,10 +26,11 @@ $snipers = $sth4->fetchAll(PDO::FETCH_ASSOC);
 
 <section class="page_vaisseau">
 <h2>Pistolets</h2>
-  <div class="container_vaisseau">
+  <div class="container_arme">
 
     <?php foreach ($pistolets as $pistolet) { ?>
-      <div class="vaisseau_indiv">
+      
+      <div class="arme_indiv">
         <a href="arme_ind.php?id=<?= $pistolet['id']; ?>"><img src="img/<?= $pistolet['image']; ?>" alt="pistolet<? $pistolet['nom']; ?>"></a>
         <div class="centered"><?= $pistolet['nom']; ?></div>
       </div>
@@ -38,10 +39,10 @@ $snipers = $sth4->fetchAll(PDO::FETCH_ASSOC);
     ?>
   </div>
   <h2>Pistolets-mitrailleurs</h2>
-  <div class="container_vaisseau">
+  <div class="container_arme">
 
     <?php foreach ($mitrailleurs as $mitrailleur) { ?>
-      <div class="vaisseau_indiv">
+      <div class="arme_indiv">
         <a href="arme_ind.php?id=<?= $mitrailleur['id']; ?>"><img src="img/<?= $mitrailleur['image']; ?>" alt="pistolet<? $mitrailleur['nom']; ?>"></a>
         <div class="centered"><?= $mitrailleur['nom']; ?></div>
       </div>
@@ -50,10 +51,10 @@ $snipers = $sth4->fetchAll(PDO::FETCH_ASSOC);
     ?>
   </div>
   <h2>Fusils d'assaut</h2>
-  <div class="container_vaisseau">
+  <div class="container_arme">
 
     <?php foreach ($fusils as $fusil) { ?>
-      <div class="vaisseau_indiv">
+      <div class="arme_indiv">
         <a href="arme_ind.php?id=<?= $fusil['id']; ?>"><img src="img/<?= $fusil['image']; ?>" alt="pistolet<? $fusil['nom']; ?>"></a>
         <div class="centered"><?= $fusil['nom']; ?></div>
       </div>
@@ -62,10 +63,10 @@ $snipers = $sth4->fetchAll(PDO::FETCH_ASSOC);
     ?>
   </div>
   <h2>Fusil de précision, Sniper</h2>
-  <div class="container_vaisseau">
+  <div class="container_arme">
 
     <?php foreach ($snipers as $sniper) { ?>
-      <div class="vaisseau_indiv">
+      <div class="arme_indiv">
         <a href="arme_ind.php?id=<?= $sniper['id']; ?>"><img src="img/<?= $sniper['image']; ?>" alt="pistolet<? $sniper['nom']; ?>"></a>
         <div class="centered"><?= $sniper['nom']; ?></div>
       </div>

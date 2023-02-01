@@ -36,8 +36,7 @@ include "header.php";
             </div>
         </div>
 
-        <h3>Stanton I : Hurston : Ses lunes</h3>
-
+        <h3>Stanton I : Hurston : Ses lunes</h3>    
         <div class="systeme">
             <div class="system1">
                 <img src="img/systeme3.png" alt="hurston">
