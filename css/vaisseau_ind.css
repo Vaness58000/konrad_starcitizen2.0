@@ -15,7 +15,10 @@ th,td{
 }
 .block {
 	position: relative;
-    margin: 10px auto 10px;
+    margin-left: auto;
+	margin-right: auto;
+	margin-top: 10px;
+	margin-bottom: -40px;
     padding: 50px;
 	height: auto;
 	background: black;

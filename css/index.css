@@ -1,11 +1,11 @@
 body {
     background-image: url(../img/gridbg_glow.png);
     background-color: #000;
+    overflow-x: hidden !important;
 }
 
 html {
     position: relative;
-    overflow-x: hidden !important;
 }
 
 
@@ -25,10 +25,10 @@ html {
     /* Background image */
     background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../img/Source.jpg);
     background-size: cover;
-    background-position: center center;
     background-repeat: no-repeat;
     background-attachment: fixed;
-    background-position-x: 50%;
+    background-position-x: 70%;
+    background-position-y: 20%;
 }
 
 #hero-title {
@@ -473,7 +473,6 @@ p.demos {
     max-width: 1300px;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 60px;
     border-radius: 25px;
 }
 

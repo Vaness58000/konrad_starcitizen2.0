@@ -80,7 +80,7 @@ $tousConstrus = $sth4->fetchAll(PDO::FETCH_ASSOC);
 
 
             </div>
-            <h2><img src="img/account_corners.png" alt="deco">&ensp;Les vaisseaux <?= $constructeur['nom']; ?></h2>
+            <h2><img src="img/account_corners.png" alt="deco">&ensp;Les véhicules <?= $constructeur['nom']; ?></h2>
         </div>
     <?php
     }
