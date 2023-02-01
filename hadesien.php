@@ -12,8 +12,8 @@ include 'header.php';
         <p>Il y a autant de théories sur la nature des Hadésiens que d’étoiles dans le ciel. Chaque année, un nouveau lot d’universitaires diplômés se rend dans le système, en espérant qu’ils seront ceux qui perceront finalement le mystère de cette civilisation, et chaque année, ils en ressortent pleins de frustrations. Cela ne signifie pas que les Hadésiens sont un mystère complet.</p>
         <p>Les scientifiques ont réussi à déterminer approximativement leurs dimensions physiques et que la guerre civile a été menée il y a environ 300.000 années. Basé sur des preuves squelettiques et architecturales, les Hadésiens étaient des créatures de forme arrondie avec un corps central encombrant. Plusieurs appendices minces (un nombre qui varie apparemment d’Hadésien en Hadésien) et une paire de longs bras complète leur corps.</p>
     </div>
-  
-<?php
+
+    <?php
     include "footer.php";
-?>
-</body>
+    ?>
+    </body>

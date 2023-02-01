@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Pour envoyer un email.
  */
@@ -15,7 +16,8 @@ if (!function_exists('message_email')) {
      * @param type (string) $messageHTML le message en html.
      * @param type (string) $messageText le message en format texte.
      */
-    function message_email(?string $mail, ?string $mail_from, ?string $objet, ?string $messageHTML, ?string $messageText = null):void {
+    function message_email(?string $mail, ?string $mail_from, ?string $objet, ?string $messageHTML, ?string $messageText = null): void
+    {
         message_email_encoder($mail, $mail_from, "UTF-8", $objet, $messageHTML, $messageText);
     }
 
@@ -30,12 +32,13 @@ if (!function_exists('message_email')) {
      * @param type (string) $messageHTML le message en html.
      * @param type (string) $messageText le message en format texte.
      */
-    function message_email_encoder(?string $mail, ?string $mail_from, ?string $encoder, ?string $objet, ?string $messageHTML, ?string $messageText = null):void {
+    function message_email_encoder(?string $mail, ?string $mail_from, ?string $encoder, ?string $objet, ?string $messageHTML, ?string $messageText = null): void
+    {
         $passage_ligne = "\n";
         if (!preg_match("#^[a-z0-9._-]+@(hotmail|live|msn).[a-z]{2,4}$#", $mail)) { // On filtre les serveurs qui rencontrent des bogues.
             $passage_ligne = "\r\n";
         }
-        if(empty($messageText)) {
+        if (empty($messageText)) {
             $messageText = strip_tags(str_replace("<br />", "\n", $messageHTML));
         }
         //Creation de la boundary
@@ -47,13 +50,13 @@ if (!function_exists('message_email')) {
         //Creation du message.
         $message = $passage_ligne . "--" . $boundary . $passage_ligne;
         //Ajout du message au format texte.
-        $message .= "Content-Type: text/plain; charset=\"".$encoder."\"" . $passage_ligne;
+        $message .= "Content-Type: text/plain; charset=\"" . $encoder . "\"" . $passage_ligne;
         $message .= "Content-Transfer-Encoding: 8bit" . $passage_ligne;
         $message .= $passage_ligne . $messageText . $passage_ligne;
         //Separateur html et text
         $message .= $passage_ligne . "--" . $boundary . $passage_ligne;
         //Ajout du message au format HTML
-        $message .= "Content-Type: text/html; charset=\"".$encoder."\"" . $passage_ligne;
+        $message .= "Content-Type: text/html; charset=\"" . $encoder . "\"" . $passage_ligne;
         $message .= "Content-Transfer-Encoding: 8bit" . $passage_ligne;
         $message .= $passage_ligne . $messageHTML . $passage_ligne;
         //Fin du message

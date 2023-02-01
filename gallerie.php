@@ -12,19 +12,19 @@ $images = $sth4->fetchAll(PDO::FETCH_ASSOC);
 
 ?>
 <div class="photo-grid">
-<?php //Pour afficher les infos de la base de données 
-    foreach ($images as $image) {    // foreach=boucle - pour afficher les données de la base de données dans un tableau/ as $= Pour afficher chaque resultat (les entrées de la base de données)
-    ?>
-  <div class="card">
-  
+  <?php //Pour afficher les infos de la base de données 
+  foreach ($images as $image) {    // foreach=boucle - pour afficher les données de la base de données dans un tableau/ as $= Pour afficher chaque resultat (les entrées de la base de données)
+  ?>
+    <div class="card">
+
       <img src="upload/<?= ($image["name"]) ?>" />
 
       <div class="detail_user">
         <img id="avatar" src="img/avatar.png" alt="avatar utilisateur">
         <h4>Konrad</h4>
       </div>
-    
-  </div>
+
+    </div>
   <?php } ?>
 </div>
 <?php

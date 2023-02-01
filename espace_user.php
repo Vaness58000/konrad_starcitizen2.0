@@ -38,7 +38,7 @@ include "header.php"
 
                         </div>
                         <div class="modif">
-                            <label for='email' id="label">Email   </label>
+                            <label for='email' id="label">Email </label>
                             <input type="email" id="new_mail" name="email" value="<?= $data["email"] ?>" required />
                         </div>
 
@@ -49,7 +49,7 @@ include "header.php"
                 </div>
             </div>
             <button onclick="togglePopup()" class="first-button">Modifier</button>
-    
+
 
         </div>
         <div class="info_client">
@@ -104,7 +104,7 @@ include "header.php"
 
             </div>
             <script>
-             
+
             </script>
         </div>
         <div class="info_client">

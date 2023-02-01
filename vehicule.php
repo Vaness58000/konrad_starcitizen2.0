@@ -37,17 +37,17 @@ $constructs = $sth3->fetchAll(PDO::FETCH_ASSOC);
 
     </div>
 
-        <div class="container_vaisseau">
+    <div class="container_vaisseau">
 
-            <?php foreach ($vaisseaux as $vaisseau) { ?>
-                <div class="vaisseau_indiv">
-                    <a href="vaisseau_ind.php?id=<?= $vaisseau['id']; ?>"><img src="img/<?= $vaisseau['image_vaisseau']; ?>" alt="vaisseau<? $vaisseau['nom_vaisseau']; ?>"></a>
-                    <div class="centered"><?= $vaisseau['nom_vaisseau']; ?></div>
-                </div>
-            <?php
-            }
-            ?>
-        </div>
+        <?php foreach ($vaisseaux as $vaisseau) { ?>
+            <div class="vaisseau_indiv">
+                <a href="vaisseau_ind.php?id=<?= $vaisseau['id']; ?>"><img src="img/<?= $vaisseau['image_vaisseau']; ?>" alt="vaisseau<? $vaisseau['nom_vaisseau']; ?>"></a>
+                <div class="centered"><?= $vaisseau['nom_vaisseau']; ?></div>
+            </div>
+        <?php
+        }
+        ?>
+    </div>
 </section>
 <?php
 include 'footer.php';

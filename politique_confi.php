@@ -31,17 +31,17 @@ include "header.php";
         </ul>
         <p>Quel que soit le Service que vous utilisez, nous ne collectons uniquement que les données qui sont strictement nécessaires (i) pour la délivrance des Services, (ii) pour l’exécution d’un contrat auquel vous êtes partie, (iii) pour lesquels vous nous avez donné votre consentement, ou (iv) pour respecter une obligation légale à laquelle nous sommes soumis.</p>
         <p>Les Données Personnelles collectées varient donc d’un Utilisateur à l’autre, en fonction du nombre de Services utilisés par chaque Utilisateur.</p>
-        
+
         <p>Les Données Personnelles que nous sommes susceptibles de collecter à travers les Services sont par exemple : votre adresse IP, votre adresse électronique (e-mail), votre âge, votre ville, votre pays de résidence, vos comptes de réseaux sociaux.
         </p>
-       
+
         <p>Lorsque vous naviguez sur le Site ou que vous utilisez certains Services, nous sommes susceptibles de déposer un ou plusieurs cookie(s) sur votre équipement terminal (par exemple : votre ordinateur, votre téléphone mobile). Un cookie est un fichier texte qui s’implante dans votre équipement terminal et qui stocke des informations pouvant ensuite être relues par le serveur.
         </p>
         <p>Les cookies sont souvent utilisés pour faciliter la navigation des utilisateurs (par exemple pour mémoriser temporairement votre session afin de ne pas vous demander d’indiquer à nouveau cette information à chaque fois que vous consultez le Site ou que vous naviguez d’une page à l’autre). D’autres cookies permettent également de réaliser des statistiques ou de mémoriser vos préférences. Le fichier texte du cookie va contenir diverses informations telles que votre numéro d’identification unique sans toutefois permettre de vous identifier personnellement.
         </p>
-     
+
         <h3>Quelles sont les finalités de la collecte de vos données personnelles ?</h3>
-        
+
         <p>Les Données Personnelles vous concernant sont recueillies pour les finalités suivantes :
         </p>
         <ul>
@@ -56,13 +56,13 @@ include "header.php";
             <li>Répondre aux demandes des autorités administratives ou aux réquisitions judiciaires, conformément à la législation en vigueur</li>
         </ul>
         <p>Les Données Personnelles collectées en contrepartie de l’utilisation des Services sont nécessaires pour vous fournir les Services que vous utilisez.</p>
-        
+
         <h3>Quelles sont vos droits et comment les exercer ?</h3>
 
-        <h3>Vos droits : </h3> 
+        <h3>Vos droits : </h3>
         <p>Conformément à la législation en vigueur, vous disposez d’un droit d’accès, de rectification et d’opposition des données vous concernant. Vous pouvez accéder aux informations que vous avez renseignées au moment de la création de votre compte et les modifier en vous rendant dans la page de votre compte ou en nous contactant à l’adresse indiquée ci-dessous.</p>
-        
-        <h3>Vos droits à compter du 25 mai 2018 : </h3> 
+
+        <h3>Vos droits à compter du 25 mai 2018 : </h3>
         <p>A compter du 25 mai 2018 et en application du règlement 2016/679 du 27 avril 2016, vous pourrez également exercer votre droit à la limitation du traitement, à l’effacement de vos données, à la portabilité de vos Données Personnelles et à ne pas faire l’objet d’une décision individuelle automatisée.</p>
         <h3>Droit d’opposition :</h3>
         <p>Dans les limites du droit applicable, à l’exception des traitements pour lesquels il existe des motifs légitimes et impérieux pour le traitement de vos Données Personnelles, vous pouvez, à tout moment, vous opposer à un traitement de vos Données Personnelles, notamment lorsque vos données sont traitées à des fins de proposition, y compris de profilage dans la mesure où le profilage est lié à une telle prospection commerciale.</p>
@@ -86,12 +86,12 @@ include "header.php";
         <p>En cas de réponse non satisfaisante, vous avez la possibilité de saisir la CNIL.</p>
         <h3>Quelles sont les particularités concernant les droits des enfants ?</h3>
         <p>
-        Pour accéder et utiliser nos Services, les enfants âgés de moins de 15 ans devront être autorisés par leur représentant légal (par exemple par son père, sa mère, son tuteur légal ou tout autre représentant légal exerçant l’autorité parentale).
+            Pour accéder et utiliser nos Services, les enfants âgés de moins de 15 ans devront être autorisés par leur représentant légal (par exemple par son père, sa mère, son tuteur légal ou tout autre représentant légal exerçant l’autorité parentale).
         </p>
         <p>Au moment de l’inscription d’un enfant âgé de moins de 15 ans sur le Site, nous nous donnons le droit de vérifier raisonnablement que l’accès et l’utilisation des Services ont bien été autorisés par le représentant légal de l’enfant.</p>
         <h3>Combien de temps vos données sont-elles conservées ?</h3>
         <p>
-        Les Données Personnelles que vous nous envoyez sont conservées dans un environnement technique sécurisé.
+            Les Données Personnelles que vous nous envoyez sont conservées dans un environnement technique sécurisé.
         </p>
         <p>En fonction du traitement effectué sur vos Données Personnelles, les données peuvent faire l’objet d’une durée de conservation différente.</p>
         <p>La plupart des Données Personnelles sont stockées pendant une durée de trois (3) ans à compter de votre dernière utilisation du Site, d’un Service.</p>
@@ -99,14 +99,14 @@ include "header.php";
         <p>A l’issue du délai de conservation les Données Personnelles sont purgées et donc effacées de notre base de données.</p>
 
         <h3>Modification</h3>
-       
+
         <p>Nous nous réservons le droit de modifier à tout moment cette Politique de protection des données. En cas de modification substantielle telle que l’introduction d’une nouvelle finalité, nous vous fournirons au préalable des informations au sujet de cette autre finalité. Ceci afin de s’assurer que vous disposez d'un délai raisonnable pour exercer vos droits en vertu de la législation applicable.
         </p>
         <p>Nous vous encourageons néanmoins à consulter régulièrement la Politique de protection des données afin de prendre connaissance des modalités de protection de vos informations personnelles prévues.</p>
         <p>Cette Politique de protection des données a été mise à jour pour la dernière fois à la date indiquée ci-dessus.</p>
         <h3>Contact</h3>
         <p>
-        Pour toute question relative à notre Politique de protection des données, vous pouvez nous contacter directement en vous adressant à contact@mail-fr  ou via le formulaire de contact du site.
+            Pour toute question relative à notre Politique de protection des données, vous pouvez nous contacter directement en vous adressant à contact@mail-fr ou via le formulaire de contact du site.
         </p>
     </div>
 

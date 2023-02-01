@@ -1,8 +1,9 @@
-.image_site h1{
+.image_site h1 {
     color: aliceblue;
     text-align: center;
     margin: 50px 0;
 }
+
 .gallery_img {
     display: flex;
     flex-wrap: wrap;
@@ -15,7 +16,8 @@
     height: 200px;
     margin: 30px;
 }
-.gallery_img a{
+
+.gallery_img a {
     display: block;
     background-color: #00bdae;
     color: #FFF;
@@ -24,7 +26,8 @@
     transition: .3s;
     margin: 20px auto;
 }
-.gestion_img{
+
+.gestion_img {
     display: flex;
     flex-direction: column;
     justify-content: center;

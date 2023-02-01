@@ -60,13 +60,13 @@ include "header.php";
         <p>A l'inverse des Commons et de la Promenade, la Plaza est beaucoup plus sobre dans son esthétisme. il s'agit d'un pôle commercial. On y retrouve, en autre, de nombreux magasins pour équiper vos vaisseaux.</p>
         <p>Service disponible :</p>
         <li>Magasin d'armes pour vaisseau Centermass
-</li>
+        </li>
         <li>Magasin de composant pour vaisseau Omega Pro</li>
         <li>Trade & Development Division</li>
         <li>Un magasin d'armures et de consommables dédiés au minage "Shubin Interstellar"
-</li>
+        </li>
         <li>L'Admin Office</li>
-     
+
         <img src="img/ville46.jpg" alt="ville New Babbage">
         <div class="gallery_ville">
             <img src="img/ville47.png" alt="ville New Babbage">
@@ -78,9 +78,9 @@ include "header.php";
         <h2>Sky Bridge</h2>
         <p>Pour aller vers le dôme de la Promenade, les visiteurs traversent le "Sky Bridge". Il s'agit d'un tunnel de verre relativement large où l'on a un magnifique panorama sur New Babbage.</p>
         <p>On peut s'assoir pour admirer la vue. De nuit on peut y observer l'éclairage de la ville.</p>
-  
-            <img src="img/ville49.jpg" alt="ville New Babbage">
-       
+
+        <img src="img/ville49.jpg" alt="ville New Babbage">
+
     </div>
     <div class="info_ville">
         <h2>La Promenade</h2>
@@ -105,7 +105,7 @@ include "header.php";
         </div>
     </div>
 
-    
+
 
     <?php
     include "footer.php";

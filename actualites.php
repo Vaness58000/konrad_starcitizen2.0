@@ -15,11 +15,11 @@ include "header.php";
                     <div class="contenu">
 
                         <div class="title">
-                        Alpha 3.18 : vers un peu plus de persistance dans Star Citizen
+                            Alpha 3.18 : vers un peu plus de persistance dans Star Citizen
                         </div>
 
                         <p class="txt">
-                        La mise à jour 3.18 de Star Citizen devrait être significative dans la mesure où elle doit déployer une technologie permettant une vraie persistance des objets dynamiques dans l'univers de jeu. 
+                            La mise à jour 3.18 de Star Citizen devrait être significative dans la mesure où elle doit déployer une technologie permettant une vraie persistance des objets dynamiques dans l'univers de jeu.
                         </p>
                         <div class="date">
                             <span>28 janvier 2023</span>
@@ -39,7 +39,7 @@ include "header.php";
                     <div class="contenu">
 
                         <div class="title">
-                             Inside Star Citizen : Lorville Revisited
+                            Inside Star Citizen : Lorville Revisited
                         </div>
 
                         <p class="txt">
@@ -62,11 +62,11 @@ include "header.php";
                     <div class="contenu">
 
                         <div class="title">
-                        Star Citizen Monthly Report : rapport mensuel de novembre et décembre 2022
+                            Star Citizen Monthly Report : rapport mensuel de novembre et décembre 2022
                         </div>
 
                         <p class="txt">
-                        Pour les deux derniers mois de 2022, les équipes de développement de Star Citizen se sont focalisées sur le patch 3.18 et ses fonctionnalités, notamment le recyclage (salvage) et la nouvelle architecture de stockage des données (Persistent Entity Streaming).
+                            Pour les deux derniers mois de 2022, les équipes de développement de Star Citizen se sont focalisées sur le patch 3.18 et ses fonctionnalités, notamment le recyclage (salvage) et la nouvelle architecture de stockage des données (Persistent Entity Streaming).
                         </p>
                         <div class="date">
                             <span>28 janvier 2023</span>
@@ -84,4 +84,3 @@ include "header.php";
     <?php
     include "footer.php";
     ?>
-

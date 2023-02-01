@@ -1,15 +1,15 @@
 <?php
 require_once __DIR__ . '../../back/connexion.php';
 if (!empty($_GET['u'])) {
-    $token = htmlspecialchars(base64_decode($_GET['u']));
-    $check = $dbco->prepare('SELECT * FROM password_recover WHERE token_user = ?');
-    $check->execute(array($token));
-    $row = $check->rowCount();
+  $token = htmlspecialchars(base64_decode($_GET['u']));
+  $check = $dbco->prepare('SELECT * FROM password_recover WHERE token_user = ?');
+  $check->execute(array($token));
+  $row = $check->rowCount();
 
-    if ($row == 0) {
-        echo "Lien non valide";
-        die();
-    }
+  if ($row == 0) {
+    echo "Lien non valide";
+    die();
+  }
 }
 ?>
 <!DOCTYPE html>
@@ -19,7 +19,7 @@ if (!empty($_GET['u'])) {
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Konrad Star citizen</title>
-  <link rel = "icon" href ="favicon.ico"  type = "image/x-icon">
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
   <link rel="stylesheet" href="../css/style-header.css">
   <link rel="stylesheet" href="../css/index.css">
   <link rel="stylesheet" href="../css/vaisseau.css">
@@ -105,10 +105,10 @@ if (!empty($_GET['u'])) {
         <li><a href="../space-shooter_game/index.php">Mini-jeu</a></li>
         <li><a href="#">Liens utiles</a>
           <ul>
-          <li><a href="https://robertsspaceindustries.com/starmap" target="_blank">Starmap</a></li>
-                <li><a href="https://robertsspaceindustries.com/download" target="_blank">Roberts space industries</a></li>
-                <li><a href="https://robertsspaceindustries.com/pledge" target="_blank">Achats des vaisseaux</a></li>
-                <li><a href="esquadron.php">Squadron 42<img src="img/wallpaperflare.com_wallpaper (7).jpg"></a></li>
+            <li><a href="https://robertsspaceindustries.com/starmap" target="_blank">Starmap</a></li>
+            <li><a href="https://robertsspaceindustries.com/download" target="_blank">Roberts space industries</a></li>
+            <li><a href="https://robertsspaceindustries.com/pledge" target="_blank">Achats des vaisseaux</a></li>
+            <li><a href="esquadron.php">Squadron 42<img src="img/wallpaperflare.com_wallpaper (7).jpg"></a></li>
           </ul>
         </li>
 
@@ -133,57 +133,57 @@ if (!empty($_GET['u'])) {
   </div>
   <section id="html">
     <div id="logo">
-        <h1><i> Connexion</i></h1>
+      <h1><i> Connexion</i></h1>
     </div>
     <section class="stark-login">
 
-        <form action="password_change_post.php" method="post">
-            <div id="fade-box">
-            <input type="hidden" name="token" value="<?php echo base64_decode(htmlspecialchars($_GET['u'])); ?>" required />
-            <input id="login-input-password" class="login__input" type="password" name="password" placeholder="Nouveau mot de passe" autocomplete="off" required />
-            <input id="login-input-password" class="login__input" type="password" name="password_repeat" placeholder="Confirmer mot de passe" autocomplete="off" required />
-            <input type="submit" value="Enregistrer"></input>
-            </div>
-        </form>
+      <form action="password_change_post.php" method="post">
+        <div id="fade-box">
+          <input type="hidden" name="token" value="<?php echo base64_decode(htmlspecialchars($_GET['u'])); ?>" required />
+          <input id="login-input-password" class="login__input" type="password" name="password" placeholder="Nouveau mot de passe" autocomplete="off" required />
+          <input id="login-input-password" class="login__input" type="password" name="password_repeat" placeholder="Confirmer mot de passe" autocomplete="off" required />
+          <input type="submit" value="Enregistrer"></input>
+        </div>
+      </form>
 
     </section>
 
     <div id="circle1">
-        <div id="inner-cirlce1">
-            <h2> </h2>
-        </div>
+      <div id="inner-cirlce1">
+        <h2> </h2>
+      </div>
     </div>
 
-</section>
- 
-<footer>
+  </section>
+
+  <footer>
     <div class="footer-content">
-        <img src="img/logo1.png" alt="logo star citizen">
-        <h3>Star Citizen</h3>
-        <p>Communauté Star Citizen France. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s...</p>
-        <ul class="socials">
-            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-            <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-            <li><a href="#"><i class="fa fa-youtube"></i></a></li>
-            <li><a href="#"><i class="fa fa-linkedin-square"></i></a></li>
-        </ul>
+      <img src="img/logo1.png" alt="logo star citizen">
+      <h3>Star Citizen</h3>
+      <p>Communauté Star Citizen France. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s...</p>
+      <ul class="socials">
+        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+        <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+        <li><a href="#"><i class="fa fa-youtube"></i></a></li>
+        <li><a href="#"><i class="fa fa-linkedin-square"></i></a></li>
+      </ul>
     </div>
     <div class="footer-bottom">
 
-        <div class="footer-menu">
-            <ul class="f-menu">
-                <li><a href="info_legale.php">Informations légales</a></li>
-                <li><a href="cgu.php">CGU</a></li>
-                <li><a href="politique_confi.php">Politique de confidentialités</a></li>
-            </ul>
-        </div>
-        <p>Copyright &copy;2023 Star citizen - Tous droits réservés </p>
+      <div class="footer-menu">
+        <ul class="f-menu">
+          <li><a href="info_legale.php">Informations légales</a></li>
+          <li><a href="cgu.php">CGU</a></li>
+          <li><a href="politique_confi.php">Politique de confidentialités</a></li>
+        </ul>
+      </div>
+      <p>Copyright &copy;2023 Star citizen - Tous droits réservés </p>
     </div>
 
-</footer>
+  </footer>
 
-    <script>
+  <script>
     window.onscroll = function() {
       scrollFunction()
     };

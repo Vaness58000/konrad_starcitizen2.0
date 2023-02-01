@@ -12,7 +12,7 @@ include 'header.php';
     </div>
     <div class="info_ville">
         <h2>Histoire</h2>
-        <p>Xi'an ( Phon.  [shee-ahn]) et humains ont partagé des relations tumultueuses au cours des âges. Les Xi'ans ont toujours considéré l’humanité comme aveugle et impétueuse, mais ils n’ignoraient pas non plus sa capacité destructrice et ils ont donc agit avec prudence. Alors que leur technologie peut sembler supérieure à celle des humains (elle semble en tout cas plus confortable), cette impression est simplement due à son caractère étranger. En réalité, les deux civilisations sont relativement équivalentes de ce point de vue et leur aptitude à l’annihilation mutuelle est probablement ce qui a évité toute tentative d’agression dans chaque camp.Au plus fort des tensions opposant l’UEE à l’Empire Xi'an, une ligne de systèmes a fait office de zone no man’s land entre les deux factions. Ces systèmes, Tohil, Oya, Gurzil, Horus, Pallas, Hadur, Indra et Virtus, sont connus sous le nom de Ligne Perry. Avec le traité de paix signé en 2789, la Ligne Perry a été partagée : Tohil, Oya, Gurzil et Horus ont été annexés par l’UEE tandis que les Xi'ans se sont appropriés Pallas, Hadur, Indra et Virtus.</p>
+        <p>Xi'an ( Phon. [shee-ahn]) et humains ont partagé des relations tumultueuses au cours des âges. Les Xi'ans ont toujours considéré l’humanité comme aveugle et impétueuse, mais ils n’ignoraient pas non plus sa capacité destructrice et ils ont donc agit avec prudence. Alors que leur technologie peut sembler supérieure à celle des humains (elle semble en tout cas plus confortable), cette impression est simplement due à son caractère étranger. En réalité, les deux civilisations sont relativement équivalentes de ce point de vue et leur aptitude à l’annihilation mutuelle est probablement ce qui a évité toute tentative d’agression dans chaque camp.Au plus fort des tensions opposant l’UEE à l’Empire Xi'an, une ligne de systèmes a fait office de zone no man’s land entre les deux factions. Ces systèmes, Tohil, Oya, Gurzil, Horus, Pallas, Hadur, Indra et Virtus, sont connus sous le nom de Ligne Perry. Avec le traité de paix signé en 2789, la Ligne Perry a été partagée : Tohil, Oya, Gurzil et Horus ont été annexés par l’UEE tandis que les Xi'ans se sont appropriés Pallas, Hadur, Indra et Virtus.</p>
         <img src="img/Xian.png" alt="xian">
         <p>Les relations entre Xi'ans et humains se sont apaisées au fur et à mesure des siècles, mais il serait difficile de les qualifier d’amicales sans une légère pointe de sarcasme. « Sous surveillance » serait une expression plus appropriée : l’humanité espère que les Xi'ans ne se préparent pas à la détruire, mais elle se tient prête pour cette éventualité.</p>
     </div>
@@ -36,8 +36,8 @@ include 'header.php';
         <img src="img/xian5.png" alt="xian">
 
     </div>
-   
-    
+
+
     <?php
     include "footer.php";
     ?>

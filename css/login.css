@@ -308,7 +308,7 @@ Log in form
   z-index: 4;
 }
 
-.stark-login form{
+.stark-login form {
   animation: form-entry 2s ease-in-out;
   background: #111;
   background: linear-gradient(#004746, #111111);
@@ -316,14 +316,15 @@ Log in form
   box-shadow: 0 0 15px #00fffd;
   border-radius: 5px;
   display: block;
-  height:280px;
+  height: 280px;
   margin: 180px auto;
   position: relative;
   z-index: 4;
   width: 500px;
 
 }
-.stark-login2 form{
+
+.stark-login2 form {
   animation: form-entry 2s ease-in-out;
   background: #111;
   background: linear-gradient(#004746, #111111);
@@ -331,16 +332,18 @@ Log in form
   box-shadow: 0 0 15px #00fffd;
   border-radius: 5px;
   display: block;
-  height:370px;
+  height: 370px;
   margin: 150px auto;
   position: relative;
   z-index: 4;
   width: 500px;
 }
-.stark-login form #fade-box p{
+
+.stark-login form #fade-box p {
   color: #efe;
   padding: 20px 10px;
 }
+
 .stark-login form:hover,
 .stark-login2 form:hover {
   border: 6px solid #00fffd;
@@ -379,14 +382,14 @@ Log in form
   outline: none;
 }
 
-.stark-login input:invalid, 
+.stark-login input:invalid,
 .stark-login2 input:invalid {
   border: 2px solid #00fffc;
   box-shadow: 0 0 5px #00fffb72, inset 0 0 5px #00fffb64, 0 2px 0 black;
 }
 
 .stark-login input[type="submit"],
-.stark-login2 input[type="submit"]{
+.stark-login2 input[type="submit"] {
   animation: input-entry 2s ease-in;
   background: #222;
   background: linear-gradient(#333333, #222222);
@@ -422,7 +425,7 @@ Log in form
 }
 
 .stark-login button:active,
-.stark-login2 button:active  {
+.stark-login2 button:active {
   background: #292929;
   background: linear-gradient(#393939, #292929);
   box-shadow: 0 1px 0 #000, inset 1px 0 1px #222;
@@ -616,6 +619,7 @@ Animation Keyframes
     transform: rotate(360deg);
   }
 }
+
 @media screen and (max-width:600px) {
   .stark-login form {
     animation: form-entry 2s ease-in-out;
@@ -625,13 +629,14 @@ Animation Keyframes
     box-shadow: 0 0 15px #00fffd;
     border-radius: 5px;
     display: block;
-    height:270px;
+    height: 270px;
     margin: 100px auto;
     position: relative;
     z-index: 4;
     width: 320px;
-  
+
   }
+
   .stark-login2 form {
     animation: form-entry 2s ease-in-out;
     background: #111;
@@ -640,12 +645,12 @@ Animation Keyframes
     box-shadow: 0 0 15px #00fffd;
     border-radius: 5px;
     display: block;
-    height:370px;
+    height: 370px;
     margin: 100px auto;
     position: relative;
     z-index: 4;
     width: 320px;
-  
+
   }
 
   @keyframes form-entry {
@@ -655,7 +660,7 @@ Animation Keyframes
       opacity: 0;
       padding: 0;
     }
-  
+
     20% {
       height: 0;
       border: 1px solid #00a4a2;
@@ -663,7 +668,7 @@ Animation Keyframes
       opacity: 0;
       padding: 0;
     }
-  
+
     40% {
       width: 0;
       height: 220px;
@@ -671,71 +676,74 @@ Animation Keyframes
       opacity: 1;
       padding: 0;
     }
-  
+
     100% {
       height: 220px;
       width: 320px;
     }
   }
 
-.stark-login input[type="submit"],
-.stark-login2 input[type="submit"]{
-  width: 200px;
+  .stark-login input[type="submit"],
+  .stark-login2 input[type="submit"] {
+    width: 200px;
 
-}
-.stark-login input,
-.stark-login2 input {
-  width: 300px;
-}
-#circle1 {
- display: none;
-  height: 320px;
-  width: 320px;
-  position: absolute;
-  top: 140px;
-  left: 50%;
-  margin-left: -250px;
-  overflow: hidden;
-  opacity: 0.4;
-  z-index: -3;
-}
+  }
 
-#inner-cirlce1 {
-  background: #000;
-  border-radius: 50%;
-  border: 36px solid #00fffc;
-  height: 260px;
-  width: 300px;
-  margin: 10px;
-}
+  .stark-login input,
+  .stark-login2 input {
+    width: 300px;
+  }
 
-#inner-cirlce1:before {
-  content: ' ';
-  width: 140px;
-  height: 320px;
-  background: #000;
-  position: absolute;
-  top: 0;
-  left: 0;
-}
+  #circle1 {
+    display: none;
+    height: 320px;
+    width: 320px;
+    position: absolute;
+    top: 140px;
+    left: 50%;
+    margin-left: -250px;
+    overflow: hidden;
+    opacity: 0.4;
+    z-index: -3;
+  }
 
-#inner-cirlce1:after {
-  content: ' ';
-  width: 320px;
-  height: 140px;
-  background: #000;
-  position: absolute;
-  top: 0;
-  left: 0;
-}
-#logo {
-  animation: logo-entry 2s ease-in;
-  width: 320px;
-  margin: 0 auto;
-  position: relative;
-  z-index: 40;
-}
+  #inner-cirlce1 {
+    background: #000;
+    border-radius: 50%;
+    border: 36px solid #00fffc;
+    height: 260px;
+    width: 300px;
+    margin: 10px;
+  }
+
+  #inner-cirlce1:before {
+    content: ' ';
+    width: 140px;
+    height: 320px;
+    background: #000;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+  #inner-cirlce1:after {
+    content: ' ';
+    width: 320px;
+    height: 140px;
+    background: #000;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+  #logo {
+    animation: logo-entry 2s ease-in;
+    width: 320px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 40;
+  }
 
 
-  
+
 }

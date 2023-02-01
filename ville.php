@@ -10,20 +10,23 @@ include 'header.php';
 
 <section class="page_planete">
 
-    <div class="container_planete">
-   
-  <div class="card">
-    <a href="ville_area18.php"><img src="img/ville.jpg" alt="ville Area 18">
-    <div class="card__head">Area18</div></a>
-  </div>
-  <div class="card">
-    <a href="ville_lorville.php"><img src="img/ville22.jpg" alt="ville Lorville">
-    <div class="card__head">Lorville</div></a>
-  </div>
-  <div class="card">
-    <a href="ville_newbabbage.php"><img src="img/ville23.jpg" alt="ville New Babbage">
-    <div class="card__head">New Babbage</div></a>
-  </div>
+  <div class="container_planete">
+
+    <div class="card">
+      <a href="ville_area18.php"><img src="img/ville.jpg" alt="ville Area 18">
+        <div class="card__head">Area18</div>
+      </a>
+    </div>
+    <div class="card">
+      <a href="ville_lorville.php"><img src="img/ville22.jpg" alt="ville Lorville">
+        <div class="card__head">Lorville</div>
+      </a>
+    </div>
+    <div class="card">
+      <a href="ville_newbabbage.php"><img src="img/ville23.jpg" alt="ville New Babbage">
+        <div class="card__head">New Babbage</div>
+      </a>
+    </div>
 </section>
 <?php
 include 'footer.php';

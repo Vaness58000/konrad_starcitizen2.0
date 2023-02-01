@@ -24,11 +24,11 @@ include "header.php"
         <?php //Pour afficher les infos de la base de données 
         foreach ($images as $image) {    // foreach=boucle - pour afficher les données de la base de données dans un tableau/ as $= Pour afficher chaque resultat (les entrées de la base de données)
         ?>
-        <div class="gestion_img">
-            <img src="upload/<?= ($image["name"]) ?>" />
-            <a href="src/delete_image.php?id=<?= $image["id"] ?>">Supprimer le screen</a>
-        </div>
+            <div class="gestion_img">
+                <img src="upload/<?= ($image["name"]) ?>" />
+                <a href="src/delete_image.php?id=<?= $image["id"] ?>">Supprimer le screen</a>
+            </div>
         <?php } ?>
-        
+
     </div>
 </div>

@@ -61,11 +61,11 @@ include 'header.php';
     </div>
     <div class="info_ville">
         <h2>Religion</h2>
-        <p>A l'origine, les Tevarin suivaient les préceptes du Rijora ( Phon.  REE-jorr-ah), un code guerrier similaire au bushido sur l'ancienne Terre. Les Tevarin croyaient par-dessus tout en l'honneur, à l'allégeance et au devoir. Enfreindre leur code strict signifiait l'excommunication voire même l'exécution dans les cas extrêmes.</p>
-        <p>Après leur défaite lors de la première guerre et la perte de leur monde natal, le code commença à perdre en popularité. La Seconde Guerre Tevarin fut une tentative de retrouver la gloire d'antan des Tevarin. Lorsqu'elle se solda par un terrible échec, les derniers croyants du Rijora se lancèrent vers Kaleeth et se consumèrent dans l'atmosphère avant de se crasher sur la planète. Les derniers survivants abandonnèrent alors ces croyances pour de bon. Cet apogée fut connu parmi les Tevarin comme "La Purge" ( Angl.  The Purge), pendant laquelle la plupart des Tevarin détruisirent leurs Manuscrits (les préceptes sacrés du Rijora).</p>
-      
+        <p>A l'origine, les Tevarin suivaient les préceptes du Rijora ( Phon. REE-jorr-ah), un code guerrier similaire au bushido sur l'ancienne Terre. Les Tevarin croyaient par-dessus tout en l'honneur, à l'allégeance et au devoir. Enfreindre leur code strict signifiait l'excommunication voire même l'exécution dans les cas extrêmes.</p>
+        <p>Après leur défaite lors de la première guerre et la perte de leur monde natal, le code commença à perdre en popularité. La Seconde Guerre Tevarin fut une tentative de retrouver la gloire d'antan des Tevarin. Lorsqu'elle se solda par un terrible échec, les derniers croyants du Rijora se lancèrent vers Kaleeth et se consumèrent dans l'atmosphère avant de se crasher sur la planète. Les derniers survivants abandonnèrent alors ces croyances pour de bon. Cet apogée fut connu parmi les Tevarin comme "La Purge" ( Angl. The Purge), pendant laquelle la plupart des Tevarin détruisirent leurs Manuscrits (les préceptes sacrés du Rijora).</p>
+
     </div>
-   
+
 
     <?php
     include "footer.php";

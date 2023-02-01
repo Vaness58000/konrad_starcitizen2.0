@@ -117,7 +117,7 @@
                             <li><a href="espace_user.php">Gèrer mes partages</a></li>
                             <li><a href="deconnexion.php"> Déconnexion</a></li>
                         <?php } ?>
-                       
+
                     </ul>
                 </li>
 

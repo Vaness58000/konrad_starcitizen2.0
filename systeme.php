@@ -36,7 +36,7 @@ include "header.php";
             </div>
         </div>
 
-        <h3>Stanton I : Hurston : Ses lunes</h3>    
+        <h3>Stanton I : Hurston : Ses lunes</h3>
         <div class="systeme">
             <div class="system1">
                 <img src="img/systeme3.png" alt="hurston">
@@ -70,7 +70,7 @@ include "header.php";
         </div>
 
         <h3>Stanton II : Crusader : Ses lunes</h3>
-      
+
         <div class="systeme">
             <div class="system1">
                 <img src="img/systeme9.png" alt="hurston">
@@ -109,7 +109,7 @@ include "header.php";
         <h3>Stanton III : ArcCorp</h3>
         <p>ArcCorp possède deux Lunes : Lyria et Wala. La planète entière est une ville géante mais la zone d'atterrissage principale est Area18.</p>
         <div class="systeme">
-            
+
             <div class="system1">
                 <img src="img/systeme16.png" alt="hurston">
                 <p>ArcCorp</p>
@@ -118,12 +118,12 @@ include "header.php";
                 <img src="img/systeme17.jpg" alt="hurston">
                 <p>Area18</p>
             </div>
-           
+
         </div>
 
         <h3>Stanton III : ArcCorp : Ses lunes</h3>
         <div class="systeme">
-            
+
             <div class="system1">
                 <img src="img/systeme18.png" alt="hurston">
                 <p>Lyria</p>
@@ -132,13 +132,13 @@ include "header.php";
                 <img src="img/systeme19.png" alt="hurston">
                 <p>Wala</p>
             </div>
-           
+
         </div>
 
         <h3>Stanton IV : MicroTech</h3>
         <p>Microtech possède trois lunes : Calliope, Clio et Euterpe. La zone d'atterrissage principale est New Babbage.</p>
         <div class="systeme">
-            
+
             <div class="system1">
                 <img src="img/systeme20.png" alt="hurston">
                 <p>Microtech</p>
@@ -147,12 +147,12 @@ include "header.php";
                 <img src="img/systeme21.jpg" alt="hurston">
                 <p>New Babbage</p>
             </div>
-           
+
         </div>
 
-       <h3>Stanton IV : Microtech : Ses lunes</h3>
-      <div class="systeme">
-            
+        <h3>Stanton IV : Microtech : Ses lunes</h3>
+        <div class="systeme">
+
             <div class="system1">
                 <img src="img/systeme22.jpg" alt="hurston">
                 <p>Calliope</p>
@@ -165,14 +165,14 @@ include "header.php";
                 <img src="img/systeme24.jpg" alt="hurston">
                 <p>Euterpe</p>
             </div>
-           
+
         </div>
 
     </div>
-        <div class="gallery_planete">
+    <div class="gallery_planete">
 
 
-        </div>
+    </div>
 
 
 </section>

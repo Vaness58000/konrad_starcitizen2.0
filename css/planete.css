@@ -1,14 +1,18 @@
-.page_planete{
-    color:aliceblue;
+.page_planete {
+    color: aliceblue;
     width: 100%;
 }
-.page_planete h1{
+
+.page_planete h1 {
     text-align: center;
     padding-top: 20px;
+    font-size: clamp(1rem, 2.5vw, 1.9rem);
 }
-.page_planete h1 img{
+
+.page_planete h1 img {
     width: 20px;
 }
+
 .container_planete {
     display: flex;
     justify-content: center;
@@ -17,12 +21,14 @@
     overflow: hidden;
     transform: skew(5deg);
 }
+
 .container_planete .card {
     flex: 1;
     transition: all 1s ease-in-out;
     height: 75vmin;
     position: relative;
 }
+
 .container_planete .card .card__head {
     color: black;
     background: rgba(19, 224, 255, 0.75);
@@ -38,12 +44,15 @@
     font-size: 1em;
     white-space: nowrap;
 }
+
 .container_planete .card:hover {
     flex-grow: 10;
 }
+
 .container_planete .card:hover img {
     filter: grayscale(0);
 }
+
 .container_planete .card:hover .card__head {
     text-align: center;
     top: calc(100% - 2.5em);
@@ -52,6 +61,7 @@
     font-size: 2em;
     transform: rotate(0deg) skew(-5deg);
 }
+
 .container_planete .card img {
     width: 100%;
     height: 100%;
@@ -60,32 +70,36 @@
     filter: grayscale(50%);
 }
 
-.hurston{
-    color:aliceblue; 
+.hurston {
+    color: aliceblue;
     margin-top: 20px;
     display: flex;
-    justify-content:center ;
+    justify-content: center;
     flex-direction: column;
-   
+
 }
 
-.hurston h1{
+.hurston h1 {
     text-align: center;
     font-weight: 900;
 }
-.hurston h1 img{
-    width:20px;
+
+.hurston h1 img {
+    width: 20px;
 }
-.hurston p{
+
+.hurston p {
     color: white;
     padding: 20px;
     line-height: 1.2rem;
 
 }
-.satellite_planete li{
+
+.satellite_planete li {
     list-style-type: none;
 }
-.gallery_planete{
+
+.gallery_planete {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -93,29 +107,35 @@
     align-items: center;
     margin: 50px 0;
 }
-.gallery_planete img{
+
+.gallery_planete img {
 
     width: 420px;
-    padding:20px;
+    padding: 20px;
 }
-.info_planete{
+
+.info_planete {
     box-shadow: rgba(6, 201, 255, 0.25) 0px 50px 100px -20px, rgba(28, 159, 220, 0.3) 0px 30px 60px -30px, rgba(32, 121, 210, 0.35) 0px -2px 6px 0px inset;
-    border:#00fffc 1px solid;
+    border: #00fffc 1px solid;
     margin: 20px 15%;
 }
+
 @media screen and (max-width:750px) {
-    .info_planete{
+    .info_planete {
         margin: 20px 10px;
     }
-  
+
 }
-.info_planete img{
+
+.info_planete img {
     width: 100%;
 }
-.info_planete h2{
+
+.info_planete h2 {
     margin: 20px 20px;
-    color:rgba(19, 224, 255, 0.75);
+    color: rgba(19, 224, 255, 0.75);
 }
-.info_planete p{
+
+.info_planete p {
     line-height: 1.8rem;
 }

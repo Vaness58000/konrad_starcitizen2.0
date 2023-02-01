@@ -53,4 +53,3 @@ if (isset($_GET["id_client"]) && !empty($_GET["id_client"])){ //si le champs est
 
         header("Location:../espace_user.php"); //sinon renvoi à l'index
 }
-?>

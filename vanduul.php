@@ -50,8 +50,8 @@ include 'header.php';
     <div class="info_ville">
         <h2>Diplomaties</h2>
         <p>Humain : Ennemi<br>
-        Xi’an : Aucune relation certifiée. Le territoire humain sépare les Vanduul des Xi’An, ce qui limite sensiblement les contacts entre les deux races. Pour le moment, rares furent-ils, et très souvent au dénouement habituel d’une rencontre avec des Vanduul, à savoir des affrontements.<br>
-        Banu : Quelques clans Vanduul commercent avec les planètes</p>
+            Xi’an : Aucune relation certifiée. Le territoire humain sépare les Vanduul des Xi’An, ce qui limite sensiblement les contacts entre les deux races. Pour le moment, rares furent-ils, et très souvent au dénouement habituel d’une rencontre avec des Vanduul, à savoir des affrontements.<br>
+            Banu : Quelques clans Vanduul commercent avec les planètes</p>
 
     </div>
     <div class="info_ville">
@@ -64,17 +64,17 @@ include 'header.php';
         <h2>Vaisseaux</h2>
         <p>Les vaisseaux Vanduuls sont directement inspirés des formes caractéristiques de leurs poignards ; ce qui laisse penser que la culture du poignard et le rite qui va avec sont bien plus vieux que l’accès à la technologie dans la race Vanduul.</p>
         <img src="img/vanduul10.jpg" alt="vanduul">
-       
+
     </div>
     <div class="info_ville">
         <h2>Religion</h2>
-        <p>En raison de l’importance culturelle de leur personne dans leur société, les Vanduul ne considèrent pas le fait qu’il puisse y avoir un être divin. Seul l’individu compte, ainsi que ses accomplissements. Les jeunes Vanduul sont éduqués en prenant exemple de leurs ancêtres. Il n'y a aucune divinité, ni aucun mysticisme.</p>            
+        <p>En raison de l’importance culturelle de leur personne dans leur société, les Vanduul ne considèrent pas le fait qu’il puisse y avoir un être divin. Seul l’individu compte, ainsi que ses accomplissements. Les jeunes Vanduul sont éduqués en prenant exemple de leurs ancêtres. Il n'y a aucune divinité, ni aucun mysticisme.</p>
     </div>
     <div class="info_ville">
         <h2>Langage</h2>
-        <p>Le langage Vanduul combine des mots gutturaux et des gestes d’emphase. Le langage se complète avec leur peau luminescente qui change en fonction de l’humeur de l’individu.</p>            
+        <p>Le langage Vanduul combine des mots gutturaux et des gestes d’emphase. Le langage se complète avec leur peau luminescente qui change en fonction de l’humeur de l’individu.</p>
     </div>
-    
+
     <?php
     include "footer.php";
     ?>

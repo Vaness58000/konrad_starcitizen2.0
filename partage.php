@@ -14,7 +14,7 @@ $images = $sth4->fetchAll(PDO::FETCH_ASSOC);
     <div class="form_screen">
         <form class="form" method="post" action="src/recup_form_image.php" enctype="multipart/form-data">
             <h1>
-                 Partager vos screens
+                Partager vos screens
             </h1>
 
             <p class="text">
@@ -23,7 +23,7 @@ $images = $sth4->fetchAll(PDO::FETCH_ASSOC);
 
             <div id="image">
 
-            <label class="btn btn--blue" for="modal-2">En savoir + </label>
+                <label class="btn btn--blue" for="modal-2">En savoir + </label>
                 <input class="modal-state" id="modal-2" type="checkbox" />
                 <div class="modal">
                     <label class="modal__bg" for="modal-2"></label>
@@ -36,14 +36,14 @@ $images = $sth4->fetchAll(PDO::FETCH_ASSOC);
                             <li>Images libres de droits</li>
                             <li>Pas d'images à caractères sexuels, raciales...</li>
                         </ul>
-                            
-                        
-                            <p>Les images seront étudiées avant la mise en ligne sur le site et en cas de non respect du réglement seront supprimées.</p> <br>
-                   
-                        
+
+
+                        <p>Les images seront étudiées avant la mise en ligne sur le site et en cas de non respect du réglement seront supprimées.</p> <br>
+
+
                     </div>
                 </div>
-              
+
             </div>
             <label for="file" class="label-file"><i class="fa-regular fa-image"></i>&ensp; Séléctionner vos screens</label>
             <input type="file" name='files[]' multiple id="file" class="input-file">

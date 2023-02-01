@@ -52,7 +52,7 @@ include "header.php";
             <h2>Vaisseaux & Véhicules</h2>
             <h3>Hull A <br>MISC</h3>
             <img src="img/patch9.jpg" alt="vaisseau Hull A">
-           <h3>Scorpius <br>RSI</h3>
+            <h3>Scorpius <br>RSI</h3>
             <img src="img/patch10.jpg" alt="vaisseau Scorpius">
         </div>
         <div class="info_ville">
@@ -60,8 +60,8 @@ include "header.php";
             <h3>Rivières - Core Tech</h3>
             <img src="img/patch11.png" alt="Rivières - Core Tech">
             <p>
-            Implémentation de l'outil technologique permettant le développement et l'implémentation de rivières et bassins dans le jeu. Pour sa première implémentation, seule une rivière sera présente sur microTech, tandis que d'autres arriveront dans de futures mises à jour.</p>
-         
+                Implémentation de l'outil technologique permettant le développement et l'implémentation de rivières et bassins dans le jeu. Pour sa première implémentation, seule une rivière sera présente sur microTech, tandis que d'autres arriveront dans de futures mises à jour.</p>
+
         </div>
 
 </div>

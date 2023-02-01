@@ -7,7 +7,7 @@ include 'header.php';
 
 $sth = $dbco->prepare("SELECT * FROM arme WHERE categorie='pistolet' ");
 $sth->execute();
-$pistolets= $sth->fetchAll(PDO::FETCH_ASSOC);
+$pistolets = $sth->fetchAll(PDO::FETCH_ASSOC);
 
 $sth2 = $dbco->prepare("SELECT * FROM arme WHERE categorie='mitrailleur' ");
 $sth2->execute();
@@ -25,11 +25,11 @@ $snipers = $sth4->fetchAll(PDO::FETCH_ASSOC);
 
 
 <section class="page_vaisseau">
-<h2>Pistolets</h2>
+  <h2>Pistolets</h2>
   <div class="container_arme">
 
     <?php foreach ($pistolets as $pistolet) { ?>
-      
+
       <div class="arme_indiv">
         <a href="arme_ind.php?id=<?= $pistolet['id']; ?>"><img src="img/<?= $pistolet['image']; ?>" alt="pistolet<? $pistolet['nom']; ?>"></a>
         <div class="centered"><?= $pistolet['nom']; ?></div>

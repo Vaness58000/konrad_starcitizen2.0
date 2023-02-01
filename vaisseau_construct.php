@@ -31,12 +31,12 @@ $sth3->execute();
 $constructs = $sth3->fetchAll(PDO::FETCH_ASSOC);
 
 $sth4 = $dbco->prepare("SELECT * FROM constructeur ");
-                $sth4->execute();
-                $tousConstrus= $sth4->fetchAll(PDO::FETCH_ASSOC);
+$sth4->execute();
+$tousConstrus = $sth4->fetchAll(PDO::FETCH_ASSOC);
 ?>
 
 <section class="page_vaisseau">
-<div class="dropdown" style="margin-top: -10px">
+    <div class="dropdown" style="margin-top: -10px">
         <button onclick="categorie()" class="dropbtn"><i class="fa-solid fa-bars-sort" style="color:white"></i>Constructeur</button>
 
         <div id="myDropdown" class="dropdown-content">
@@ -51,32 +51,33 @@ $sth4 = $dbco->prepare("SELECT * FROM constructeur ");
         </div>
 
     </div>
- 
+
     <?php foreach ($constructeurs as $constructeur) { ?>
         <div class="container_contructeur">
 
             <h1><img src="img/<?= $constructeur['logo']; ?>"><?= $constructeur['nom']; ?></h1>
-            
+
             <div class="info_construct">
                 <img src="img/<?= $constructeur['image']; ?>" alt="<?= $constructeur['nom']; ?>">
                 <label class="btn btn--blue" for="modal-2">+ d'infos sur <?= $constructeur['nom']; ?> </label>
-    <input class="modal-state" id="modal-2" type="checkbox" />
-<div class="modal">
-  <label class="modal__bg" for="modal-2"></label>
-  <div class="modal__inner">
-    <label class="modal__close" for="modal-2"></label>
-    <h2><?= $constructeur['nom']; ?></h2>
-    <p><img src="img/<?= $constructeur['image']; ?>" alt="<?= $constructeur['nom']; ?>"><p><?= $constructeur['paragraphe1']; ?></p>
-                <p><?= $constructeur['paragraphe2']; ?></p>
-                <p><?= $constructeur['paragraphe3']; ?></p>
-                <p><?= $constructeur['paragraphe4']; ?></p>
-                <p><?= $constructeur['paragraphe5']; ?></p>
-                <p><?= $constructeur['paragraphe6']; ?></p>
-                <p><?= $constructeur['paragraphe7']; ?></p>
-  </div>
-</div>
+                <input class="modal-state" id="modal-2" type="checkbox" />
+                <div class="modal">
+                    <label class="modal__bg" for="modal-2"></label>
+                    <div class="modal__inner">
+                        <label class="modal__close" for="modal-2"></label>
+                        <h2><?= $constructeur['nom']; ?></h2>
+                        <p><img src="img/<?= $constructeur['image']; ?>" alt="<?= $constructeur['nom']; ?>">
+                        <p><?= $constructeur['paragraphe1']; ?></p>
+                        <p><?= $constructeur['paragraphe2']; ?></p>
+                        <p><?= $constructeur['paragraphe3']; ?></p>
+                        <p><?= $constructeur['paragraphe4']; ?></p>
+                        <p><?= $constructeur['paragraphe5']; ?></p>
+                        <p><?= $constructeur['paragraphe6']; ?></p>
+                        <p><?= $constructeur['paragraphe7']; ?></p>
+                    </div>
+                </div>
 
-                
+
             </div>
             <h2><img src="img/account_corners.png" alt="deco">&ensp;Les vaisseaux <?= $constructeur['nom']; ?></h2>
         </div>

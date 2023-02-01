@@ -27,4 +27,3 @@ if (isset($_GET["s"]) AND $_GET["s"] == "Rechercher")
   
 }
 }
-?>

@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Konrad Star citizen</title>
-  <link rel = "icon" href ="favicon.ico"  type = "image/x-icon">
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
   <link rel="stylesheet" href="css/style-header.css">
   <link rel="stylesheet" href="css/index.css">
   <link rel="stylesheet" href="css/vaisseau.css">
@@ -91,10 +91,10 @@
         <li><a href="space-shooter_game/index.php">Mini-jeu</a></li>
         <li><a href="#">Liens utiles</a>
           <ul>
-          <li><a href="https://robertsspaceindustries.com/starmap" target="_blank">Starmap</a></li>
-                <li><a href="https://robertsspaceindustries.com/download" target="_blank">Roberts space industries</a></li>
-                <li><a href="https://robertsspaceindustries.com/pledge" target="_blank">Achats des vaisseaux</a></li>
-                <li><a href="esquadron.php">Squadron 42<img src="img/wallpaperflare.com_wallpaper (7).jpg"></a></li>
+            <li><a href="https://robertsspaceindustries.com/starmap" target="_blank">Starmap</a></li>
+            <li><a href="https://robertsspaceindustries.com/download" target="_blank">Roberts space industries</a></li>
+            <li><a href="https://robertsspaceindustries.com/pledge" target="_blank">Achats des vaisseaux</a></li>
+            <li><a href="esquadron.php">Squadron 42<img src="img/wallpaperflare.com_wallpaper (7).jpg"></a></li>
           </ul>
         </li>
 
