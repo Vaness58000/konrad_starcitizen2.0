@@ -16,7 +16,7 @@ if (!empty($_POST['email'])) {
         $insert = $dbco->prepare('INSERT INTO password_recover(token_user, token) VALUES(?,?)');
         $insert->execute(array($token_user, $token));
 
-        $link = 'konrad_starcitizen/src/recover.php?u=' . base64_encode($token_user) . '&token=' . base64_encode($token);
+        $link = 'konrad_starcitizen2.0.test/src/recover.php?u=' . base64_encode($token_user) . '&token=' . base64_encode($token);
 
         message_email($_POST['email'], 'noreply@konrad_starcitizen.tld', 'Réinitialisation du mot de passe', '<h1>Réinitialisation de votre mot de passe</h1><p>Pour réinitialiser votre mot de passe, veuillez suivre ce lien : <a href=' . $link . '>' . $link . '</a></p>');
         // $retour = mail('vanessa.geoffroid@gmail.com', 'Envoi depuis la page index', $_POST['message'], 'From: '.$_POST['email']);
