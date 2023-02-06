@@ -1,10 +1,6 @@
 .form_screen {
     display: block;
-    margin: 50px auto;
-    width: 60%;
     background-color: black;
-    border: 1px solid rgb(0, 154, 165);
-    box-shadow: rgba(6, 201, 255, 0.25) 0px 50px 100px -20px, rgba(28, 159, 220, 0.3) 0px 30px 60px -30px, rgba(32, 121, 210, 0.35) 0px -2px 6px 0px inset;
 }
 
 .form_screen h1 {
@@ -20,17 +16,8 @@
     align-items: center;
 }
 
-.label-file {
-    margin: 30px 0;
-    cursor: pointer;
-    color: #00b1ca;
-    font-weight: bold;
+input[type="file"]{
+    display: block;
+    margin: auto;
 }
 
-.label-file:hover {
-    color: #25a5c4;
-}
-
-.input-file {
-    display: none;
-}

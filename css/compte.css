@@ -1,6 +1,133 @@
-#espace_client {
-    margin-top: 20px;
+.user {
+	color: #ffffff;
+	font-family: "Jost", sans-serif;
+	background: linear-gradient(to bottom, rgba(43, 43, 43, 0.111) 0%, rgba(5, 84, 255, 0.263) 54%, rgba(0, 0, 0, 0.111)  100%);
+
+	display: flex;
+	flex-wrap: wrap;
+	padding: 50px 20px;
+	width: 100%;
+	margin-bottom: -50px;
 }
+.card_user{
+	margin: auto;
+	position: relative;
+	z-index: 1;
+	overflow-x: hidden;
+	background-color: rgb(6, 6, 6);
+	display: flex;
+	transition: 0.3s;
+	flex-direction: column;
+	border-radius: 10px;
+	box-shadow: 0 0 0 8px rgba(255, 255, 255, 0.2);
+	width: 80%;
+}
+
+.card_user .card-avatar {
+	transform: none;
+	left: 20px;
+	width: 50px;
+	height: 50px;
+	bottom: 10px;
+}
+.card_user .card-fullname, .card .card-jobtitle {
+	left: 86px;
+	transform: none;
+}
+.card_user .card-fullname {
+	bottom: 18px;
+	font-size: 19px;
+}
+.card_user .card-jobtitle {
+	bottom: 16px;
+	letter-spacing: 1px;
+	font-size: 10px;
+}
+.card-header_user {
+	position: relative;
+	height: 200px;
+	flex-shrink: 0;
+	width: 100%;
+	transition: 0.3s;
+}
+.card-header_user * {
+	transition: 0.3s;
+}
+.card-cover_user {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	height: 160px;
+	top: -20%;
+	left: 0;
+	will-change: top;
+	background-size: cover;
+	background-position: center;
+	filter: blur(30px);
+	transform: scale(1.2);
+	transition: 0.5s;
+}
+.card-avatar_user {
+	width: 100px;
+	height: 100px;
+	box-shadow: 0 8px 8px rgba(0, 0, 0, 0.2);
+	border-radius: 50%;
+	object-position: center;
+	object-fit: cover;
+	position: absolute;
+	bottom: 0;
+	left: 50%;
+	transform: translateX(-50%) translateY(-64px);
+}
+.card-fullname_user {
+	position: absolute;
+	bottom: 0;
+	font-size: 22px;
+	font-weight: 700;
+	text-align: center;
+	white-space: nowrap;
+	transform: translateY(-10px) translateX(-50%);
+	left: 50%;
+}
+
+
+.card-buttons_user {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: rgb(49, 49, 49);
+	margin-top: auto;
+	position: sticky;
+	bottom: 0;
+	left: 0;
+}
+
+.card-buttons_user a {
+	flex: 1 1 auto;
+	user-select: none;
+	background: 0;
+	font-size: 13px;
+	border: 0;
+	padding: 15px 5px;
+	cursor: pointer;
+	color: #5c5c6d;
+	transition: 0.3s;
+	font-family: "Jost", sans-serif;
+	font-weight: 500;
+	outline: 0;
+	border-bottom: 3px solid transparent;
+	text-align: center;
+}
+.card-buttons_user a{
+	color: #ffffff;
+
+	background: linear-gradient(to bottom, rgba(0, 51, 133, 0.562) 0%, rgba(1, 8, 88, 0.638) 44%, rgba(0, 29, 173, 0.562)  100%);
+}
+.card-buttons_user a:hover{
+	background: linear-gradient(to bottom, rgb(0, 0, 0) 0%, rgba(0, 0, 0, 0.263) 44%, rgba(5, 5, 5, 0.111) 100%);
+	border-bottom: 3px solid #001258;
+}
+
 
 #info_client_general {
     display: flex;
@@ -8,23 +135,22 @@
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    padding: 50px 0;
+    background-color: #000;
 }
 
 .info_client {
     background: rgb(0, 0, 0);
-    margin: 5px;
-    margin-bottom: 30px;
-    margin-left: 60px;
-    margin-right: 60px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     width: 500px;
     height: 250px;
     padding: 50px 80px;
     line-height: 20px;
     color: #cccccc;
-    border: #00eaff 1px solid;
-    box-shadow: rgba(6, 201, 255, 0.25) 0px 50px 100px -20px, rgba(28, 159, 220, 0.3) 0px 30px 60px -30px, rgba(32, 121, 210, 0.35) 0px -2px 6px 0px inset;
-}
+    border: #00eaff0a 1px solid;
+  }
 
 .info_client h3 {
     padding-bottom: 20px;
@@ -40,91 +166,11 @@
     line-height: 1.8rem;
 }
 
-.info_client a:hover {
-    color: #00eaff;
-    font-weight: 700;
-}
 
 .info_client h3 i {
     color: rgba(255, 255, 255, 0.862);
     font-size: 30px;
     margin-right: 20px;
-}
-
-
-.btn2 {
-    display: block;
-    margin: auto;
-    margin-top: 30px;
-    text-align: center;
-    text-decoration: none;
-    border-radius: 15px;
-    background-color: #00bdae;
-    color: white;
-    padding: 20px 30px;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: clamp(0.8rem, 0.5vw, 2rem);
-    font-weight: 500;
-    box-shadow: 0px 20px 35px 5px rgba(0, 234, 199, 0.15);
-}
-
-.modal2 {
-    display: none;
-    /* Hidden by default */
-    position: fixed;
-    /* Stay in place */
-    z-index: 99;
-    /* Sit on top */
-    left: 0;
-    top: 0;
-    width: 100%;
-    /* Full width */
-    height: 100%;
-    /* Full height */
-    overflow: auto;
-    /* Enable scroll if needed */
-    background-color: rgb(0, 0, 0);
-    /* Fallback color */
-    background-color: rgba(0, 0, 0, 0.4);
-    /* Black w/ opacity */
-}
-
-/* Modal Content/Box */
-.modal-content2 {
-    display: block;
-    margin: auto;
-    margin-top: 80px;
-    background-image: url(../img/gridbg_glow.png);
-    background-color: #000;
-    padding: 20px;
-    width: 100%;
-    height: 100vh;
-    z-index: 2;
-    padding-bottom: 50px;
-    position: absolute;
-    /* Could be more or less, depending on screen size */
-}
-
-/* The Close Button */
-.close2 {
-    position: absolute;
-    right: 20px;
-    top: 30px;
-    width: 30px;
-    height: 30px;
-    color: rgb(0, 242, 255);
-    font-size: 35px;
-    border-radius: 50%;
-    padding: 2px 5px 7px 5px;
-    background: #373737;
-    cursor: pointer;
-}
-
-.close2:hover,
-.close2:focus {
-    color: rgb(253, 253, 253);
-    text-decoration: none;
-    cursor: pointer;
 }
 
 @media (max-width: 644px) {
@@ -135,13 +181,6 @@
         width: 320px;
         height: auto;
         padding: 50px 20px;
-    }
-
-    .modal-content2 {
-        width: 100%;
-        height: auto;
-
-        /* Could be more or less, depending on screen size */
     }
 }
 
@@ -164,13 +203,16 @@
 }
 
 .popup .content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     position: absolute;
     margin-top: 180px;
     padding-top: 50px;
     left: 50%;
     transform: translate(-50%, -150%) scale(0);
     width: 100%;
-    height: 100vh;
+    height: 80vh;
     z-index: 2;
     text-align: center;
     padding: 10px;
@@ -186,11 +228,11 @@
     top: 30px;
     width: 30px;
     height: 30px;
-    color: rgb(0, 242, 255);
+    color: rgb(24,56,96);
     font-size: 35px;
     border-radius: 50%;
     padding: 2px 5px 7px 5px;
-    background: #373737;
+    background: #fdfdfd;
     cursor: pointer;
 }
 
@@ -208,7 +250,67 @@
 
 .first-button {
     display: block;
-    background-color: #00bdae;
+    background-color: rgb(24,56,96);
+    color: #FFF;
+    padding: 1rem 1.25rem;
+    border-radius: .5rem;
+    transition: .3s;
+    margin: 20px auto;
+}
+
+.popup2 {
+    background-color: #000000;
+}
+
+.popup2 .content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    margin-top: -145px;
+    padding-top: 90px;
+    left: 50%;
+    transform: translate(-50%, -150%) scale(0);
+    width: 100%;
+    height: 100vh;
+    z-index: 2;
+    text-align: center;
+    padding: 10px;
+    border-radius: 5px;
+    background-image: url(../img/gridbg_glow.png);
+    background-color: #000;
+    z-index: 1;
+}
+
+.popup2 .close-btn {
+    position: absolute;
+    right: 20px;
+    top: 80px;
+    width: 30px;
+    height: 30px;
+    color: rgb(255, 255, 255);
+    font-size: 35px;
+    border-radius: 50%;
+    padding: 2px 5px 7px 5px;
+    background: rgb(24,56,96);
+    cursor: pointer;
+}
+
+.popup2 .close-btn:hover,
+.popup2 .close-btn:focus {
+    color: rgb(253, 253, 253);
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.popup2.active .content {
+    transition: all 300ms ease-in-out;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.first-button2 {
+    display: block;
+    background-color: rgb(24,56,96);
     color: #FFF;
     padding: 1rem 1.25rem;
     border-radius: .5rem;
@@ -223,12 +325,11 @@
 
 #new_mail {
     width: 320px;
-    margin-left: 20px;
 }
 
 .sauvegarde {
     display: block;
-    background-color: #00bdae;
+    background-color:rgb(24,56,96);
     color: #FFF;
     padding: 1rem 1.25rem;
     border-radius: .5rem;
@@ -241,4 +342,10 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+@media screen and (max-width: 600px) {
+	.user {
+		padding: 50px 0px;
+		
+	}
 }

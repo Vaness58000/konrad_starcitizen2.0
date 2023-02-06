@@ -24,6 +24,8 @@
   <link rel="stylesheet" href="css/gallerie.css">
   <link rel="stylesheet" href="css/gestion_screen.css">
   <link rel="stylesheet" href="css/rgpd.css">
+  <link rel="stylesheet" href="css/streamer.css">
+  <link href="//fonts.googleapis.com/css?family=Electrolize|Orbitron:400,500,700|Quantico|Share+Tech+Mono&display=swap" rel="stylesheet" type="text/css">
   <link href="https://fonts.googleapis.com/css?family=Noto+Sans" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -87,8 +89,43 @@
             </li>
           </ul>
         </li>
-        <li><a href="forum/index.php" target="_blank">Forum</a></li>
-        <li><a href="space-shooter_game/index.php">Mini-jeu</a></li>
+        <li><a href="#">GamePlay</a>
+          <ul>
+            <li><a href="#">Streamer</a>
+              <ul>
+                <li><a href="streamer.php">Konrad</a></li>
+                <li><a href="vehicule.php">Véhicules</a></li>
+                <li><a href="arme.php">Armes</a></li>
+              </ul>
+            </li>
+            <li><a href="#">Lieux</a>
+              <ul>
+                <li><a href="planete.php">Planètes</a></li>
+                <li><a href="systeme.php">Système</a></li>
+                <li><a href="lunes.php">Lunes</a></li>
+                <li><a href="ville.php">Villes</a></li>
+                <li><a href="station_spatiale.php">Stations spaciales</a></li>
+                <li><a href="#">Lieux insolites</a></li>
+              </ul>
+            </li>
+            <li><a href="#">Espèces</a>
+              <ul>
+                <li><a href="civilisation.php">Civilisations</a></li>
+                <li><a href="humain.php">Humain</a></li>
+                <li><a href="vanduul.php">Vanduul</a></li>
+                <li><a href="banu.php">Banu</a></li>
+                <li><a href="Xian.php">Xi'an</a></li>
+                <li><a href="tevarin.php">Tevarin</a></li>
+              </ul>
+            </li>
+            <li><a href="gallerie.php">Gallerie</a>
+              <ul>
+                <li><a href="gallerie.php"><img src="img/262f7041f0f5f688_1920xH.jpg"></a></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li><a href="gallerie.php">Gallerie</a></li>
         <li><a href="#">Liens utiles</a>
           <ul>
             <li><a href="https://robertsspaceindustries.com/starmap" target="_blank">Starmap</a></li>
@@ -114,7 +151,8 @@
       </ul>
     </div>
   </div>
-  <div>
+  <!--<div id="bandeau"><img src="img/rocket2.gif" alt="vaisseau pixel"><p>Tentez de remporter chaques semaines 10€ en participant à notre Mini-jeu concours disponible sur le site. Le joueur ayant obtenu le meileur score recevra la récompense. Le nom du gagnant sera disponible chaque samedi sur le site en page d'accueil. Bonne chance à vous ! <a href="#">Voir conditions</a></p></div>
+            --><div>
     <button onclick="retourHaut()" id="haut" title="Retour haut de page"><img src="img/fleche.png" alt="fleche retour haut de page"></button>
   </div>
   <script>

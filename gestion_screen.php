@@ -6,6 +6,11 @@ if (!isset($_SESSION['user'])) {
     header('Location:login.php');
     die();
 }
+// On récupere les données de l'utilisateur
+$req = $dbco->prepare('SELECT * FROM utilisateurs WHERE token = ?');
+$req->execute(array($_SESSION['user']));
+$data = $req->fetch(PDO::FETCH_ASSOC);
+
 $sth4 = $dbco->prepare("SELECT * FROM images WHERE id_client = :id");
 $sth4->execute([":id" => $_SESSION['utilisateur']['id']]);
 
@@ -17,18 +22,41 @@ $images = $sth4->fetchAll(PDO::FETCH_ASSOC);
 <?php
 include "header.php"
 ?>
+<div class="user">
 
-<div class="image_site">
-    <h1><i class="fa-regular fa-image"></i>&ensp; Vos screens partagés</h1>
-    <div class="gallery_img">
-        <?php //Pour afficher les infos de la base de données 
-        foreach ($images as $image) {    // foreach=boucle - pour afficher les données de la base de données dans un tableau/ as $= Pour afficher chaque resultat (les entrées de la base de données)
-        ?>
-            <div class="gestion_img">
-                <img src="upload/<?= ($image["name"]) ?>" />
-                <a href="src/delete_image.php?id=<?= $image["id"] ?>">Supprimer le screen</a>
+    <div class="card_user" data-state="#about">
+        <div class="card-header_user">
+            <div class="card-cover_user" style="background-image: url('img/fond_blue.jpg')"></div>
+            <img class="card-avatar_user" src="img/avatar.png" alt="avatar" />
+            <h1 class="card-fullname_user"><?php echo $data['pseudo']; ?></h1>
+
+        </div>
+
+        <div class="card-buttons_user">
+
+            <a href="espace_user.php">Mon compte</a>
+            <a href="gestion_screen.php">Gérer mes screens</a>
+
+        </div>
+        <div class="image_site">
+            <h1><i class="fa-regular fa-image"></i>&ensp; Vos screens partagés</h1>
+            <a href="partage.php">+ Publier un screen</a>
+            <div class="gallery_img">
+                <?php //Pour afficher les infos de la base de données 
+                foreach ($images as $image) {    // foreach=boucle - pour afficher les données de la base de données dans un tableau/ as $= Pour afficher chaque resultat (les entrées de la base de données)
+                ?>
+                    <div class="gestion_img">
+                        <img src="upload/<?= ($image["name"]) ?>" />
+                        <div class="suppression">
+                        <a href="src/delete_image.php?id=<?= $image["id"] ?>" title="supprimer le screen"><i class="fa-sharp fa-solid fa-trash-can"></i></a>
+                        </div>
+                    </div>
+                <?php } ?>
+
             </div>
-        <?php } ?>
-
+        </div>
     </div>
-</div>
+    </div>
+    <?php
+    include "footer.php";
+    ?>

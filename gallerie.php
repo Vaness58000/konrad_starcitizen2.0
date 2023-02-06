@@ -22,6 +22,7 @@ $images = $sth4->fetchAll(PDO::FETCH_ASSOC);
       <div class="detail_user">
         <img id="avatar" src="img/avatar.png" alt="avatar utilisateur">
         <h4>Konrad</h4>
+       <!-- <a href="action.php?t=1&id=<? $image["id_image"] ?>">J'aime</a>-->
       </div>
 
     </div>
