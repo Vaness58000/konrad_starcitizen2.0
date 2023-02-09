@@ -6,7 +6,6 @@ include 'header.php';
 $sth = $dbco->prepare("SELECT * FROM actus");
 $sth->execute();
 $actus = $sth->fetchAll(PDO::FETCH_ASSOC);
-
 ?>
 <div class="flex-slider">
     <div class="sp-container">
