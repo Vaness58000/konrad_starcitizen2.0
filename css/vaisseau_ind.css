@@ -19,58 +19,8 @@ td {
 	text-align: center;
 }
 
-.block {
-	position: relative;
-	margin-left: auto;
-	margin-right: auto;
-	margin-top: 10px;
-	margin-bottom: -40px;
-	padding: 50px;
-	height: auto;
-	background: black;
-	background-image: url(../img/gridbg_glow.png);
-	width: 100%;
-}
-
-.block:before,
-.block:after {
-	content: '';
-	position: absolute;
-	left: -2px;
-	top: -2px;
-	background: linear-gradient(45deg, #8bf9ff, #50e5ff, #1df0fb, #1e5968, #10a8aa, #66b5ff,
-			#47fafd, #61f8f3, #1ed2ff, #343434);
-	background-size: 400%;
-	width: calc(100% + 10px);
-	height: calc(100% + 4px);
-	z-index: -1;
-	animation: steam 20s linear infinite;
-}
-
-@keyframes steam {
-	0% {
-		background-position: 0 0;
-	}
-
-	50% {
-		background-position: 400% 0;
-	}
-
-	100% {
-		background-position: 0 0;
-	}
-}
-
-.block:after {
-	filter: blur(50px);
-}
-
 @media screen and (max-width: 869px) {
-	.block {
-		padding: 10px;
-		overflow: hidden;
-	}
-
+	
 	.info_vaisseau {
 		width: 100%;
 	}

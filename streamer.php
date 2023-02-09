@@ -12,7 +12,7 @@ $actus = $sth->fetchAll(PDO::FETCH_ASSOC);
 
   <div class="card_streamer" data-state="#about">
     <div class="card-header">
-      <div class="card-cover" style="background-image: url('https://images.unsplash.com/photo-1549068106-b024baf5062d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=934&q=80')"></div>
+    <div class="card-cover" style="background-image: url('img/fond_violet.jpg')"></div>
       <img class="card-avatar" src="img/avatar.png" alt="avatar" />
       <h1 class="card-fullname">Konrad</h1>
       <h2 class="card-jobtitle">Streamer Star Citizen</h2>

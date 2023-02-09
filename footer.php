@@ -1,7 +1,6 @@
 <footer>
     <div class="footer-content">
         <img src="img/logo1.png" alt="logo star citizen">
-        <h3>Star Citizen</h3>
         <p>Communauté Star Citizen France. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s...</p>
         <ul class="socials">
             <li><a href="#"><i class="fa fa-facebook"></i></a></li>

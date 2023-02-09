@@ -253,7 +253,7 @@ a.login__forgot:hover {
 
 
 /* =========================================
-Stark Industries Logo
+container  Logo
 ========================================= */
 #logo {
   animation: logo-entry 2s ease-in;
@@ -308,10 +308,10 @@ Log in form
   z-index: 4;
 }
 
-.stark-login form {
+.container-login form {
   animation: form-entry 2s ease-in-out;
   background: #111;
-  background: linear-gradient(#004746, #111111);
+  background-color: var(--light-color);
   border: 6px solid #00a4a2;
   box-shadow: 0 0 15px #00fffd;
   border-radius: 5px;
@@ -324,7 +324,7 @@ Log in form
 
 }
 
-.stark-login2 form {
+.container-login2 form {
   animation: form-entry 2s ease-in-out;
   background: #111;
   background: linear-gradient(#004746, #111111);
@@ -339,21 +339,21 @@ Log in form
   width: 500px;
 }
 
-.stark-login form #fade-box p {
+.container-login form #fade-box p {
   color: #efe;
   padding: 20px 10px;
 }
 
-.stark-login form:hover,
-.stark-login2 form:hover {
+.container-login form:hover,
+.container-login2 form:hover {
   border: 6px solid #00fffd;
   box-shadow: 0 0 25px #00fffd;
   transition: 1s all;
 }
 
 
-.stark-login input,
-.stark-login2 input {
+.container-login input,
+.container-login2 input {
   background: #222;
   background: linear-gradient(#333333, #222222);
   border: 1px solid #444;
@@ -371,8 +371,8 @@ Log in form
   width: 400px;
 }
 
-.stark-login input:focus,
-.stark-login2 input:focus {
+.container-login input:focus,
+.container-login2 input:focus {
   animation: box-glow 1s ease-out infinite alternate;
   background: #0B4252;
   background: linear-gradient(#333933, #222922);
@@ -382,41 +382,39 @@ Log in form
   outline: none;
 }
 
-.stark-login input:invalid,
-.stark-login2 input:invalid {
+.container-login input:invalid,
+.container-login2 input:invalid {
   border: 2px solid #00fffc;
   box-shadow: 0 0 5px #00fffb72, inset 0 0 5px #00fffb64, 0 2px 0 black;
 }
 
-.stark-login input[type="submit"],
-.stark-login2 input[type="submit"] {
-  animation: input-entry 2s ease-in;
-  background: #222;
-  background: linear-gradient(#333333, #222222);
-  box-sizing: content-box;
-  border: 1px solid #444;
-  border-left-color: #000;
-  border-radius: 5px;
-  box-shadow: 0 2px 0 #000;
-  color: #fff;
-  display: block;
-  font-family: 'Cabin', helvetica, arial, sans-serif;
-  font-size: 13px;
-  font-weight: 400;
-  height: 40px;
-  line-height: 40px;
-  margin: 20px auto;
-  padding: 0;
-  position: relative;
-  text-shadow: 0 -1px 0 #000;
-  width: 400px;
-  transition: 1s all;
+.container-login input[type="submit"],
+.container-login2 input[type="submit"] {
+  background-color:var(--light-color);
+  background-image: url(https://robertsspaceindustries.com/rsi/static/images/content-page/horizontal-lined-bg.png);
+  padding:0rem 2rem;
+  color:var(--white-color);  
+  border:.1rem solid var(--light-color);
+  text-indent:0;
 }
 
-.stark-login button:hover,
-.stark-login button:focus,
-.stark-login2 button:hover,
-.stark-login2 button:focus {
+.container-login input[type="submit"] span,
+.container-login2 input[type="submit"] span {
+  position: relative;
+  display: inline-block;
+  z-index: 2;
+}
+
+.container-login input[type="submit"]:hover,
+.container-login2 input[type="submit"]:hover {
+  color:var(--primary-color);
+  border-color: var(--primary-color);
+}
+
+.container-login button:hover,
+.container-login button:focus,
+.container-login2 button:hover,
+.container-login2 button:focus {
   background: #0C6125;
   background: linear-gradient(#393939, #292929);
   color: #00fffc;
@@ -424,8 +422,8 @@ Log in form
   transition: 1s all;
 }
 
-.stark-login button:active,
-.stark-login2 button:active {
+.container-login button:active,
+.container-login2 button:active {
   background: #292929;
   background: linear-gradient(#393939, #292929);
   box-shadow: 0 1px 0 #000, inset 1px 0 1px #222;
@@ -621,7 +619,7 @@ Animation Keyframes
 }
 
 @media screen and (max-width:600px) {
-  .stark-login form {
+  .container-login form {
     animation: form-entry 2s ease-in-out;
     background: #111;
     background: linear-gradient(#004746, #111111);
@@ -637,7 +635,7 @@ Animation Keyframes
 
   }
 
-  .stark-login2 form {
+  .container-login2 form {
     animation: form-entry 2s ease-in-out;
     background: #111;
     background: linear-gradient(#004746, #111111);
@@ -683,14 +681,14 @@ Animation Keyframes
     }
   }
 
-  .stark-login input[type="submit"],
-  .stark-login2 input[type="submit"] {
+  .container-login input[type="submit"],
+  .container-login2 input[type="submit"] {
     width: 200px;
 
   }
 
-  .stark-login input,
-  .stark-login2 input {
+  .container-login input,
+  .container-login2 input {
     width: 300px;
   }
 

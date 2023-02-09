@@ -6,7 +6,7 @@ include "header.php";
     <div id="logo">
         <h1><i> Connexion</i></h1>
     </div>
-    <section class="stark-login">
+    <section class="container-login">
 
         <form action="connexion.php" method="post">
             <div id="fade-box">

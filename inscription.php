@@ -6,7 +6,7 @@ include 'header.php';
 	<div id="logo">
 		<h1><i> Inscription</i></h1>
 	</div>
-	<section class="stark-login2">
+	<section class="container-login2">
 
 		<form action="inscription_traitement.php" method="post">
 			<div id="fade-box">

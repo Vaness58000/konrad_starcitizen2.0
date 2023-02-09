@@ -1,6 +1,5 @@
 .streamer {
 	color: #ffffff;
-	font-family: "Jost", sans-serif;
 	background: linear-gradient(to bottom, rgba(89, 0, 255, 0.111) 0%, rgba(15, 6, 138, 0.263) 44%, rgba(89, 0, 255, 0.111)  100%);
 	background-repeat: no-repeat;
 	background-size: cover;
@@ -10,22 +9,40 @@
 	flex-wrap: wrap;
 	padding: 50px 20px;
 	width: 100%;
-	margin-bottom: -50px;
+}
+.gameplay{
+	color: #ffffff;
+	background: linear-gradient(to bottom, rgba(89, 0, 255, 0.111) 0%, rgba(15, 6, 138, 0.263) 44%, rgba(89, 0, 255, 0.111)  100%);
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+	padding: 50px 20px;
+	width: 100%;
 }
 .card_streamer {
-	margin: auto;
 	position: relative;
 	z-index: 1;
 	overflow-x: hidden;
 	background-color: rgb(6, 6, 6);
 	display: flex;
-	transition: 0.3s;
 	flex-direction: column;
 	border-radius: 10px;
 	box-shadow: 0 0 0 8px rgba(255, 255, 255, 0.2);
 	width: 80%;
 }
-
+.card_gameplay{
+	margin: 20px;
+	position: relative;
+	z-index: 1;
+	overflow-x: hidden;
+	background-color: rgb(6, 6, 6);
+	display: flex;
+	flex-direction: column;
+	border-radius: 10px;
+	box-shadow: 0 0 0 8px rgba(255, 255, 255, 0.2);
+	width: 500px;
+}
 .card_streamer.is-active .card-avatar {
 	transform: none;
 	left: 20px;

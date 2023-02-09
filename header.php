@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Konrad Star citizen</title>
   <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="fonts/stylesheet.css">
   <link rel="stylesheet" href="css/style-header.css">
   <link rel="stylesheet" href="css/index.css">
   <link rel="stylesheet" href="css/vaisseau.css">
@@ -25,10 +26,6 @@
   <link rel="stylesheet" href="css/gestion_screen.css">
   <link rel="stylesheet" href="css/rgpd.css">
   <link rel="stylesheet" href="css/streamer.css">
-  <link href="//fonts.googleapis.com/css?family=Electrolize|Orbitron:400,500,700|Quantico|Share+Tech+Mono&display=swap" rel="stylesheet" type="text/css">
-  <link href="https://fonts.googleapis.com/css?family=Noto+Sans" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -46,16 +43,23 @@
     <div class="menu">
       <a href="index.php" class="logo"><img src="img/logo1.png" alt="logo du site nemesis of daymar"></a>
       <ul class="clearfix">
-        <li><a href="index.php">Accueil</a></li>
-        <li><a href="#">Actualités</a>
+        <li><a class="radio" href="index.php">Accueil</a></li>
+        <li><a class="radio" href="#">Actus</a>
           <ul>
-            <li><a href="actualites.php">Toutes les actus</a></li>
-            <li><a href="patch_note.php">Patch Notes</a></li>
+            <li><a class="radio" href="actualites.php">Toutes les actus</a></li>
+            <li><a class="radio" href="patch_note.php">Patch Notes</a></li>
           </ul>
         </li>
-        <li><a href="#">Guide</a>
+        <li><a class="radio" href="#">Guide</a>
           <ul>
-            <li><a href="#">Equipements</a>
+            <li><a class="radio" href="equipement.php">Equipements</a>
+            <li><a class="radio" href="#">Lieux</a>
+            <li><a class="radio" href="civilisation.php">Espèces</a>
+          </ul>
+        </li>
+       <!-- <li><a href="#">Guide</a>
+          <ul>
+            <li><a href="equipement.php">Equipements</a>
               <ul>
                 <li><a href="vaisseau.php">Vaisseaux</a></li>
                 <li><a href="vehicule.php">Véhicules</a></li>
@@ -88,71 +92,37 @@
               </ul>
             </li>
           </ul>
-        </li>
-        <li><a href="#">GamePlay</a>
+        </li>-->
+        <li><a class="radio" href="gameplay.php">GamePlay</a></li>
+
+        <li><a class="radio" href="gallerie.php">Gallerie</a></li>
+        <li><a class="radio" href="#">Liens utiles</a>
           <ul>
-            <li><a href="#">Streamer</a>
-              <ul>
-                <li><a href="streamer.php">Konrad</a></li>
-                <li><a href="vehicule.php">Véhicules</a></li>
-                <li><a href="arme.php">Armes</a></li>
-              </ul>
-            </li>
-            <li><a href="#">Lieux</a>
-              <ul>
-                <li><a href="planete.php">Planètes</a></li>
-                <li><a href="systeme.php">Système</a></li>
-                <li><a href="lunes.php">Lunes</a></li>
-                <li><a href="ville.php">Villes</a></li>
-                <li><a href="station_spatiale.php">Stations spaciales</a></li>
-                <li><a href="#">Lieux insolites</a></li>
-              </ul>
-            </li>
-            <li><a href="#">Espèces</a>
-              <ul>
-                <li><a href="civilisation.php">Civilisations</a></li>
-                <li><a href="humain.php">Humain</a></li>
-                <li><a href="vanduul.php">Vanduul</a></li>
-                <li><a href="banu.php">Banu</a></li>
-                <li><a href="Xian.php">Xi'an</a></li>
-                <li><a href="tevarin.php">Tevarin</a></li>
-              </ul>
-            </li>
-            <li><a href="gallerie.php">Gallerie</a>
-              <ul>
-                <li><a href="gallerie.php"><img src="img/262f7041f0f5f688_1920xH.jpg"></a></li>
-              </ul>
-            </li>
-          </ul>
-        </li>
-        <li><a href="gallerie.php">Gallerie</a></li>
-        <li><a href="#">Liens utiles</a>
-          <ul>
-            <li><a href="https://robertsspaceindustries.com/starmap" target="_blank">Starmap</a></li>
-            <li><a href="https://robertsspaceindustries.com/download" target="_blank">Roberts space industries</a></li>
-            <li><a href="https://robertsspaceindustries.com/pledge" target="_blank">Achats des vaisseaux</a></li>
-            <li><a href="esquadron.php">Squadron 42<img src="img/wallpaperflare.com_wallpaper (7).jpg"></a></li>
+            <li><a class="radio" href="https://robertsspaceindustries.com/starmap" target="_blank">Starmap</a></li>
+            <li><a class="radio" href="https://robertsspaceindustries.com/download" target="_blank">Roberts space industries</a></li>
+            <li><a class="radio" href="https://robertsspaceindustries.com/pledge" target="_blank">Achats des vaisseaux</a></li>
+            <li><a class="radio" href="esquadron.php">Squadron 42</a></li>
           </ul>
         </li>
 
-        <li><a href="contact.php">Contact</a></li>
-        <li><a href="#"><i class="fa-solid fa-user-astronaut"></i>&ensp; Mon compte</a>
+        <li><a class="radio" href="contact.php">Contact</a></li>
+        <li><a class="radio" href="#"> Mon compte</a>
           <ul>
             <?php if (!isset($_SESSION['user'])) { ?>
-              <li><a href="login.php">Connexion</a></li>
-              <li><a href="inscription.php"> Inscription</a></li>
+              <li><a class="radio" href="login.php">Connexion</a></li>
+              <li><a class="radio" href="inscription.php"> Inscription</a></li>
             <?php } else { ?>
-              <li><a href="espace_user.php">Gérer mon profil</a></li>
-              <li><a href="partage.php">Partager des screens</a></li>
-              <li><a href="deconnexion.php"> Déconnexion</a></li>
+              <li><a class="radio" href="espace_user.php">Gérer mon profil</a></li>
+              <li><a class="radio" href="partage.php">Partager des screens</a></li>
+              <li><a class="radio" href="deconnexion.php"> Déconnexion</a></li>
             <?php } ?>
           </ul>
         </li>
       </ul>
     </div>
   </div>
-  <!--<div id="bandeau"><img src="img/rocket2.gif" alt="vaisseau pixel"><p>Tentez de remporter chaques semaines 10€ en participant à notre Mini-jeu concours disponible sur le site. Le joueur ayant obtenu le meileur score recevra la récompense. Le nom du gagnant sera disponible chaque samedi sur le site en page d'accueil. Bonne chance à vous ! <a href="#">Voir conditions</a></p></div>
-            --><div>
+  
+  <div>
     <button onclick="retourHaut()" id="haut" title="Retour haut de page"><img src="img/fleche.png" alt="fleche retour haut de page"></button>
   </div>
   <script>

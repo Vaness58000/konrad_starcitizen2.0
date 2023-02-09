@@ -1,23 +1,16 @@
-#titre_page {
-  text-align: center;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.page_vaisseau{
+  background-image: url("../img/shipdetail-space-bg.jpg");
+  background-attachment: fixed;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
-
-.page_vaisseau {
-  background-color: #000000;
-  background-image: url(../img/gridbg_glow.png);
-  margin-top: 1px;
-}
-
 .page_vaisseau h2 {
   color: aliceblue;
   margin-top: 20px;
   margin-bottom: 10px;
   margin-left: 20px;
 }
-
+/* MENU CHOIX DU CONSTRUCTEUR */
 .dropbtn {
   background-color: #161824;
   color: white;
@@ -25,7 +18,6 @@
   font-size: 16px;
   border-image: url('../img/8a8098d9768cd373f0b32b9bb344e609-removebg-preview.png') 30 / 19px round;
   cursor: pointer;
-  margin-top: 10px;
 }
 
 .dropbtn:hover,
@@ -35,7 +27,6 @@
 
 #myInput {
   box-sizing: border-box;
-
   background-position: 14px 12px;
   background-repeat: no-repeat;
   font-size: 16px;
@@ -84,15 +75,8 @@
   display: block;
 
 }
+/*FIN MENU CHOIX CONSTRUCTEUR*/
 
-@media (max-width: 640px) {
-  .title_categorie h1 {
-    margin-left: 0;
-    text-align: center;
-
-  }
-
-}
 
 .container_vaisseau {
   display: flex;
@@ -103,6 +87,8 @@
   position: relative;
   text-align: center;
   color: white;
+  width: 100%;
+  
 }
 
 .container_arme {

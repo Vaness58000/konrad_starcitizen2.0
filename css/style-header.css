@@ -1,22 +1,86 @@
 * {
     margin: 0;
     padding: 0;
-    font-family: sans-serif;
     box-sizing: border-box;
 }
-
+:root {
+    --body-color: #89b1c4;
+    --primary-color: #00ebff;
+    --secondary-color: #ffae00;
+    --white-color: #fff;
+    --light-color: rgba(22, 104, 159, 0.2);
+    --blue-color: rgba(10, 24, 34, 0.8);
+    --line-color: #0a5688;
+    --dark-black-color: rgb(10, 37, 53);
+    --light-black-color: #1a252d;
+    --shadow-color: #0074c2;
+    --transparent-color: transparent;
+}
 a {
     color: rgb(246, 246, 246);
+    font-family: "jurabook";
+}
+
+a.radio {
+    display: inline;
+    color: rgb(246, 246, 246);
+    font-family: "jurabook";
+}
+
+a.radio:hover {
+    color: #04ffff;
+}
+
+.radio,
+.radio:hover {
+    color: var(--white-color);
+}
+
+.radio:hover {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+
+.radio:before {
+    content: '';
+    width: 21px;
+    height: 21px;
+    margin-right: .5rem;
+    background: url(https://robertsspaceindustries.com/rsi/static/images/store/radio-pager-small.png) no-repeat center center;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.radio:hover:before {
+    -webkit-transform: rotate(-90deg);
+    -ms-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+    background: url(https://robertsspaceindustries.com/rsi/static/images/store/radio-pager-on-small.png) no-repeat 0 0, url(https://robertsspaceindustries.com/rsi/static/images/store/radio-pager-small.png) no-repeat 0 0;
+}
+
+.radio:hover:before {
+    transform: rotate(-90deg);
+    -ms-transform: rotate(-90deg);
+    -webkit-transform: rotate(-90deg);
+}
+
+.radio:before {
+    -webkit-transition-duration: 0.2s;
+    -moz-transition-duration: 0.2s;
+    -o-transition-duration: 0.2s;
+    transition-duration: 0.2s;
+    -webkit-perspective: 1000;
+    perspective: 1000;
 }
 
 .menu {
     width: 100%;
-
 }
 
 .menu-container {
     margin: 0 auto;
-    background: #151515;
+    background: var(--dark-black-color);
     z-index: 99;
 }
 
@@ -26,7 +90,8 @@ a {
 }
 
 .menu a.logo img {
-    width: 200px;
+    width: 100px;
+    padding-left: 40px;
 }
 
 .menu img {
@@ -57,7 +122,7 @@ a {
     cursor: pointer;
     float: right;
     padding: 1.5em 2em;
-    background: rgb(25, 25, 25);
+    background: var(--dark-black-color);
     color: rgb(255, 255, 255);
 }
 
@@ -86,25 +151,28 @@ a {
 
 .menu>ul>li {
     float: left;
-    background: #161616;
+    background: var(--dark-black-color);
     padding: 0;
     margin: 0;
 }
 
 .menu>ul>li a {
+    font-family: "jurabook";
     text-decoration: none;
     padding: 1.5em 1.5em;
     display: block;
+    font-weight: 600;
+    font-size: 16px;
 }
 
 .menu>ul>li:hover {
-    background: #000000;
+    background:var(--dark-black-color);
 }
 
 .menu>ul>li>ul {
     display: none;
     width: 100%;
-    background: #000000;
+    background: var(--light-black-color);
     padding: 20px;
     position: absolute;
     z-index: 99;
@@ -262,13 +330,6 @@ a {
     }
 }
 
-footer {
-    background: #111;
-    height: auto;
-    width: 100%;
-    padding-top: 40px;
-    color: #fff;
-}
 
 .footer-content {
     display: flex;
@@ -280,12 +341,11 @@ footer {
 }
 
 footer {
-    background: #111;
+    background: var(--light-color);
     height: auto;
     width: 100%;
     padding-top: 40px;
     color: #fff;
-    margin-top: 50px;
 }
 
 .footer-content {
@@ -298,23 +358,18 @@ footer {
 }
 
 .footer-content img {
-    width: 320px;
+    width: 120px;
 }
 
-.footer-content h3 {
-    font-size: 2.1rem;
-    font-weight: 500;
-    text-transform: capitalize;
-    line-height: 3rem;
-}
 
 .footer-content p {
     max-width: 500px;
     margin: 10px auto;
     line-height: 28px;
-    font-size: 14px;
+    font-size: 16px;
     color: #cacdd2;
     text-align: center;
+    font-family: "jurabook";
 }
 
 .socials {
@@ -353,7 +408,7 @@ footer {
 }
 
 .footer-bottom {
-    background: #000;
+    background: var(--blue-color);
     padding: 20px;
     padding-bottom: 40px;
     display: flex;
@@ -397,7 +452,7 @@ footer {
 }
 
 .footer-menu ul li a:hover {
-    color: #27bcda;
+    color: var(--primary-color);
 }
 
 @media (max-width:500px) {
@@ -422,7 +477,7 @@ html {
     z-index: 99;
     border: none;
     outline: none;
-    background-color: rgb(0, 255, 217);
+    background-color: rgb(62 76 95);
     color: white;
     cursor: pointer;
     padding: 5px;
@@ -431,11 +486,9 @@ html {
 }
 
 #haut:hover {
-    background-color: rgb(0, 251, 255);
+    background-color: rgb(62 76 95);
 }
 
 #haut img {
     width: 30px;
 }
-
-

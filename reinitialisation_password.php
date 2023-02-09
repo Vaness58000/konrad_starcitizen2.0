@@ -6,7 +6,7 @@ include "header.php";
 	<div id="logo">
 		<h1><i>Réinitialisation</i></h1>
 	</div>
-	<section class="stark-login">
+	<section class="container-login">
 
 		<form action="src/forgot.php" method="post">
 			<div id="fade-box">
