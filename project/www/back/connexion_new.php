@@ -4,7 +4,7 @@
             
             //On essaie de se connecter
             try{
-                $dbco_new = new PDO("mysql:host=$servername;dbname=$basename;charset=utf8", $username, $password);
+                $dbco_new = new PDO("mysql:host=$servername_new;dbname=$basename_new;charset=utf8", $username_new, $password_new);
                 //On définit le mode d'erreur de PDO sur Exception
                 $dbco_new->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             }
