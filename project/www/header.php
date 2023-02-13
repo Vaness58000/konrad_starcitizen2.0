@@ -26,6 +26,8 @@
   <link rel="stylesheet" href="css/gestion_screen.css">
   <link rel="stylesheet" href="css/rgpd.css">
   <link rel="stylesheet" href="css/streamer.css">
+  <link rel="stylesheet" href="css/patch_note.css">
+  <link rel="stylesheet" href="css/lieu.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -39,25 +41,78 @@
 
 <body>
 
-  <div class="menu-container">
-    <div class="menu">
-      <a href="index.php" class="logo"><img src="img/logo1.png" alt="logo du site nemesis of daymar"></a>
-      <ul class="clearfix">
-        <li><a class="radio" href="index.php">Accueil</a></li>
-        <li><a class="radio" href="#">Actus</a>
-          <ul>
-            <li><a class="radio" href="actualites.php">Toutes les actus</a></li>
-            <li><a class="radio" href="patch_note.php">Patch Notes</a></li>
-          </ul>
-        </li>
-        <li><a class="radio" href="#">Guide</a>
-          <ul>
-            <li><a class="radio" href="equipement.php">Equipements</a>
-            <li><a class="radio" href="#">Lieux</a>
-            <li><a class="radio" href="civilisation.php">Espèces</a>
-          </ul>
-        </li>
-       <!-- <li><a href="#">Guide</a>
+  <div class="wrapper_menu">
+    
+    <nav>
+      <input type="checkbox" id="show-search">
+      <input type="checkbox" id="show-menu">
+      <label for="show-menu" class="menu-icon"><i class="fas fa-bars"></i></label>
+      <div class="content">
+        <div class="logo"><a href="index.php"><img src="img/logo_test.png" alt=""></a></div>
+        <ul class="links">
+          <li><a class="radio" href="index.php">Accueil</a></li>
+          <li>
+            <a href="#" class="desktop-link radio">Actus</a>
+            <input type="checkbox" id="show-actus">
+            <label for="show-actus" class="radio">Actus</label>
+            <ul>
+              <li><a class="radio" href="actualites.php">Toutes les actus</a></li>
+              <li><a class="radio" href="patch_note.php">Patch Notes</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="#" class="desktop-link radio">Guide</a>
+            <input type="checkbox" id="show-guide">
+            <label for="show-guide" class="radio">Guide</label>
+            <ul class="deroulant">
+              <li><a class="radio" href="equipement.php">Equipements</a></li>
+              <li><a class="radio" href="lieu.php">Lieux</a></li>
+              <li><a class="radio" href="civilisation.php">Espèces</a></li>
+            </ul>
+          </li>
+          <li><a class="radio" href="gameplay.php">GamePlay</a></li>
+          <li><a class="radio" href="gallerie.php">Gallerie</a></li>
+
+          <li>
+            <a href="#" class="desktop-link radio">Liens utiles</a>
+            <input type="checkbox" id="show-liens">
+            <label for="show-liens" class="radio">Liens utiles</label>
+            <ul>
+              <li><a class="radio" href="https://robertsspaceindustries.com/starmap" target="_blank">Starmap</a></li>
+              <li><a class="radio" href="https://robertsspaceindustries.com/download" target="_blank">Roberts space industries</a></li>
+              <li><a class="radio" href="esquadron.php">Squadron 42</a></li>
+
+            </ul>
+          </li>
+
+          <li>
+            <a href="#" class="desktop-link radio">Mon compte</a>
+            <input type="checkbox" id="show-compte">
+            <label for="show-compte" class="radio">Mon compte</label>
+            <ul>
+              <?php if (!isset($_SESSION['user'])) { ?>
+                <li><a class="radio" href="login.php">Connexion</a></li>
+                <li><a class="radio" href="inscription.php"> Inscription</a></li>
+              <?php } else { ?>
+                <li><a class="radio" href="espace_user.php">Gérer mon profil</a></li>
+                <li><a class="radio" href="partage.php">Partager des screens</a></li>
+                <li><a class="radio" href="deconnexion.php"> Déconnexion</a></li>
+              <?php } ?>
+            </ul>
+          </li>
+        </ul>
+      </div>
+      <label for="show-search" class="search-icon"><i class="fas fa-search"></i></label>
+      <form action="#" class="search-box">
+        <input type="text" placeholder="Taper votre recherche ..." required>
+        <button type="submit" class="go-icon"><i class="fas fa-long-arrow-alt-right"></i></button>
+      </form>
+    
+    </nav>
+  </div>
+  <!-- Debut du code du traducteur de site Web de Google -->
+
+  <!-- <li><a href="#">Guide</a>
           <ul>
             <li><a href="equipement.php">Equipements</a>
               <ul>
@@ -92,57 +147,48 @@
               </ul>
             </li>
           </ul>
-        </li>-->
-        <li><a class="radio" href="gameplay.php">GamePlay</a></li>
-
-        <li><a class="radio" href="gallerie.php">Gallerie</a></li>
-        <li><a class="radio" href="#">Liens utiles</a>
-          <ul>
-            <li><a class="radio" href="https://robertsspaceindustries.com/starmap" target="_blank">Starmap</a></li>
-            <li><a class="radio" href="https://robertsspaceindustries.com/download" target="_blank">Roberts space industries</a></li>
-            <li><a class="radio" href="https://robertsspaceindustries.com/pledge" target="_blank">Achats des vaisseaux</a></li>
-            <li><a class="radio" href="esquadron.php">Squadron 42</a></li>
-          </ul>
         </li>
 
-        <li><a class="radio" href="contact.php">Contact</a></li>
-        <li><a class="radio" href="#"> Mon compte</a>
-          <ul>
-            <?php if (!isset($_SESSION['user'])) { ?>
-              <li><a class="radio" href="login.php">Connexion</a></li>
-              <li><a class="radio" href="inscription.php"> Inscription</a></li>
-            <?php } else { ?>
-              <li><a class="radio" href="espace_user.php">Gérer mon profil</a></li>
-              <li><a class="radio" href="partage.php">Partager des screens</a></li>
-              <li><a class="radio" href="deconnexion.php"> Déconnexion</a></li>
-            <?php } ?>
-          </ul>
-        </li>
-      </ul>
-    </div>
+
+  <li><a class="radio" href="contact.php">Contact</a></li>
+  <li><a class="radio" href="#"> Mon compte</a>
+    <ul>
+      <?php if (!isset($_SESSION['user'])) { ?>
+        <li><a class="radio" href="login.php">Connexion</a></li>
+        <li><a class="radio" href="inscription.php"> Inscription</a></li>
+      <?php } else { ?>
+        <li><a class="radio" href="espace_user.php">Gérer mon profil</a></li>
+        <li><a class="radio" href="partage.php">Partager des screens</a></li>
+        <li><a class="radio" href="deconnexion.php"> Déconnexion</a></li>
+      <?php } ?>
+    </ul>
+  </li>
+  </ul>
   </div>
-  
+  </div>-->
+
   <div>
     <button onclick="retourHaut()" id="haut" title="Retour haut de page"><img src="img/fleche.png" alt="fleche retour haut de page"></button>
   </div>
-  <script>
-    window.onscroll = function() {
-      scrollFunction()
-    };
+  <div class="page">
+    <script>
+      window.onscroll = function() {
+        scrollFunction()
+      };
 
-    function scrollFunction() {
-      if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
-        document.getElementById("haut").style.display = "block";
-      } else {
-        document.getElementById("haut").style.display = "none";
+      function scrollFunction() {
+        if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+          document.getElementById("haut").style.display = "block";
+        } else {
+          document.getElementById("haut").style.display = "none";
+        }
       }
-    }
 
-    function retourHaut() {
-      document.body.scrollTop = 0;
-      document.documentElement.scrollTop = 0;
-    }
-  </script>
-  <!-- partial -->
-  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js'></script>
-  <script src="js/script.js"></script>
+      function retourHaut() {
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
+      }
+    </script>
+    <!-- partial -->
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js'></script>
+    <script src="js/script.js"></script>

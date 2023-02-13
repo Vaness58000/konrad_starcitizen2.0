@@ -2,85 +2,141 @@
 session_start();
 include "header.php";
 ?>
-<div class="page_actu">
+<div class="patch">
+	<div class="patch-card">
+		<div class="patch-card__thumbnail">
+			<a href=""><img src="img/gallerie10.jpg" alt="" /></a>
+		</div>
 
-    <div class="container_actu">
+		<div class="patch-card__content">
+			<a href="">
+				<h2 class="patch-card__title">Patch note 3.18</h2>
+			</a>
 
-        <div class="actu_ind">
-            <a href="patch.php" class="news_actus">
+			<div class="patch-card__text">
+				<p>
+					Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptates debitis dignissimos odio sequi ab. Architecto sed laudantium recusandae dolor
+				</p>
+			</div>
 
+			<div class="patch-card__meta">
+				<span class="patch-card__timestamp"><i class="ion-clock"></i>2 jours</span>
+				<span class="patch-card__auteur">Konrad</span>
+			</div>
+		</div>
+	</div>
+	<div class="patch-card">
+		<div class="patch-card__thumbnail">
+			<a href=""><img src="img/gallerie11.jpg" alt="" /></a>
+		</div>
 
-                <div class="img_actu">
-                    <img src="img/patch.jpg" alt="patch note">
-                    <div class="contenu">
+		<div class="patch-card__content">
+			<a href="">
+				<h2 class="patch-card__title">Patch note 3.18</h2>
+			</a>
 
-                        <div class="title">
-                            Star Citizen : Patch alpha 3.17
-                        </div>
+			<div class="patch-card__text">
+				<p>
+					Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptates debitis dignissimos odio sequi ab. Architecto sed laudantium recusandae dolor
+				</p>
+			</div>
 
-                        <p class="txt">
-                            La Roadmap de Star Citizen mise à disposition par CIG permet de suivre l'avancée du développement et d'avoir un aperçu des features qui composent les patchs à venir. Voici les ajouts prévus pour le patch 3.17 qui est sortie le 29 avril 2022.
-                        </p>
-                        <div class="date">
-                            <span>28 janvier 2023</span>
-                        </div>
-                    </div>
+			<div class="patch-card__meta">
+				<span class="patch-card__timestamp"><i class="ion-clock"></i>2 jours</span>
+				<span class="patch-card__auteur">Konrad</span>
+			</div>
+		</div>
+	</div>
+	<div class="patch-card">
+		<div class="patch-card__thumbnail">
+			<a href=""><img src="img/gallerie12.jpg" alt="" /></a>
+		</div>
 
-                </div>
-            </a>
-        </div>
+		<div class="patch-card__content">
+			<a href="">
+				<h2 class="patch-card__title">Patch note 3.18</h2>
+			</a>
 
-        <div class="actu_ind">
-            <a href="#" class="news_actus">
+			<div class="patch-card__text">
+				<p>
+					Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptates debitis dignissimos odio sequi ab. Architecto sed laudantium recusandae dolor
+				</p>
+			</div>
 
+			<div class="patch-card__meta">
+				<span class="patch-card__timestamp"><i class="ion-clock"></i>2 jours</span>
+				<span class="patch-card__auteur">Konrad</span>
+			</div>
+		</div>
+	</div>
+	<div class="patch-card">
+		<div class="patch-card__thumbnail">
+			<a href=""><img src="img/gallerie9.jpg" alt="" /></a>
+		</div>
 
-                <div class="img_actu">
-                    <img src="img/patch12.jpg" alt="patch note">
-                    <div class="contenu">
+		<div class="patch-card__content">
+			<a href="">
+				<h2 class="patch-card__title">Patch note 3.18</h2>
+			</a>
 
-                        <div class="title">
-                            Star Citizen : Patch alpha 3.16
-                        </div>
+			<div class="patch-card__text">
+				<p>
+					Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptates debitis dignissimos odio sequi ab. Architecto sed laudantium recusandae dolor
+				</p>
+			</div>
 
-                        <p class="txt">
-                            La Roadmap de Star Citizen mise à disposition par CIG permet de suivre l'avancée du développement et d'avoir un aperçu des features qui composent les patchs à venir. Voici les ajouts prévus pour le patch 3.16 qui devrait sortir vers la fin du mois de décembre 2021.
-                        </p>
-                        <div class="date">
-                            <span>28 janvier 2023</span>
-                        </div>
-                    </div>
+			<div class="patch-card__meta">
+				<span class="patch-card__timestamp"><i class="ion-clock"></i>2 jours</span>
+				<span class="patch-card__auteur">Konrad</span>
+			</div>
+		</div>
+	</div>
+	<div class="patch-card">
+		<div class="patch-card__thumbnail">
+			<a href=""><img src="img/gallerie6.jpg" alt="" /></a>
+		</div>
 
-                </div>
-            </a>
-        </div>
-        <div class="actu_ind">
-            <a href="#" class="news_actus">
+		<div class="patch-card__content">
+			<a href="">
+				<h2 class="patch-card__title">Patch note 3.18</h2>
+			</a>
 
+			<div class="patch-card__text">
+				<p>
+					Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptates debitis dignissimos odio sequi ab. Architecto sed laudantium recusandae dolor
+				</p>
+			</div>
 
-                <div class="img_actu">
-                    <img src="img/patch13.jpg" alt="patch note">
-                    <div class="contenu">
+			<div class="patch-card__meta">
+				<span class="patch-card__timestamp"><i class="ion-clock"></i>2 jours</span>
+				<span class="patch-card__auteur">Konrad</span>
+			</div>
+		</div>
+	</div>
+	<div class="patch-card">
+		<div class="patch-card__thumbnail">
+			<a href=""><img src="img/gallerie7.jpg" alt="" /></a>
+		</div>
 
-                        <div class="title">
-                            Star Citizen : Patch alpha 3.15
-                        </div>
+		<div class="patch-card__content">
+			<a href="">
+				<h2 class="patch-card__title">Patch note 3.18</h2>
+			</a>
 
-                        <p class="txt">
-                            La Roadmap de Star Citizen mise à disposition par CIG permet de suivre l'avancée du développement et d'avoir un aperçu des features qui composent les patchs à venir. Voici les ajouts prévus pour le patch 3.15 qui devrait sortir vers la fin du mois de septembre 2021.
-                        </p>
-                        <div class="date">
-                            <span>28 janvier 2023</span>
-                        </div>
-                    </div>
+			<div class="patch-card__text">
+				<p>
+					Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptates debitis dignissimos odio sequi ab. Architecto sed laudantium recusandae dolor
+				</p>
+			</div>
 
-                </div>
-            </a>
-        </div>
-
-    </div>
-
-
-
-    <?php
-    include "footer.php";
-    ?>
+			<div class="patch-card__meta">
+				<span class="patch-card__timestamp"><i class="ion-clock"></i>2 jours</span>
+				<span class="patch-card__auteur">Konrad</span>
+			</div>
+		</div>
+	</div>
+	
+</div>
+<?php
+include "footer.php";
+?>

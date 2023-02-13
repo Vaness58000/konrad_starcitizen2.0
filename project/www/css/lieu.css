@@ -1,0 +1,296 @@
+.page_choix{
+    height: 90vh;
+}
+.flex-container {
+    margin-top: 10px;
+    position: absolute;
+    height: 90vh;
+    width: 100%;
+    display: -webkit-flex;
+    /* Safari */
+    display: flex;
+    overflow: hidden;
+    z-index: 400;
+}
+
+@media screen and (max-width: 768px) {
+    .flex-container {
+        flex-direction: column;
+    }
+}
+
+.flex-title {
+    color: #f1f1f1;
+    position: relative;
+    font-size: 3vw;
+    margin: auto;
+    text-align: center;
+    transform: rotate(90deg);
+    top: 290px;
+    letter-spacing: 2px;
+    line-height: 1em;
+    text-transform: uppercase;
+    color: transparent;
+    -webkit-text-stroke: 1px rgba(0, 251, 255, 0.837);
+    -webkit-transition: all 500ms ease;
+    -moz-transition: all 500ms ease;
+    -ms-transition: all 500ms ease;
+    -o-transition: all 500ms ease;
+    transition: all 500ms ease;
+}
+
+@media screen and (max-width: 768px) {
+    .flex-title {
+        transform: rotate(0deg) !important;
+    }
+}
+
+.flex-about {
+    opacity: 0;
+    position: relative;
+    font-size: 2vw;
+    padding: 5%;
+    top: 290px;
+    line-height: 1.3;
+    margin: auto;
+    text-align: left;
+    transform: rotate(0deg);
+    -webkit-transition: all 500ms ease;
+    -moz-transition: all 500ms ease;
+    -ms-transition: all 500ms ease;
+    -o-transition: all 500ms ease;
+    transition: all 500ms ease;
+}
+
+@media screen and (max-width: 768px) {
+    .flex-about {
+        padding: 0%;
+        border: 0px solid #f1f1f1;
+    }
+}
+
+.flex-slide {
+    -webkit-flex: 1;
+    /* Safari 6.1+ */
+    -ms-flex: 1;
+    /* IE 10 */
+    flex: 1;
+    cursor: pointer;
+    -webkit-transition: all 500ms ease;
+    -moz-transition: all 500ms ease;
+    -ms-transition: all 500ms ease;
+    -o-transition: all 500ms ease;
+    transition: all 500ms ease;
+}
+
+@media screen and (max-width: 768px) {
+    .flex-slide {
+        overflow: auto;
+        overflow-x: hidden;
+    }
+
+    .flex-title {
+
+        top: 50px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .flex-slide p {
+        font-size: 2em;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .flex-slide ul li {
+        font-size: 4em;
+    }
+
+    .flex-about {
+        top: 100px;
+    }
+    .home, .planete, .lune, .ville, .station{
+        height:500px;
+    }
+}
+
+.flex-slide:hover {
+    -webkit-flex-grow: 3;
+    flex-grow: 3;
+}
+
+.home {
+    height: 100vh;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../img/systeme.png");
+    background-size: cover;
+    background-position: center center;
+}
+
+@media screen and (min-width: 768px) {
+    .home {
+        animation: aboutFlexSlide 1;
+        animation-delay: 0s;
+    }
+}
+
+@keyframes aboutFlexSlide {
+    0% {
+        -webkit-flex-grow: 1;
+        flex-grow: 1;
+    }
+
+    50% {
+        -webkit-flex-grow: 3;
+        flex-grow: 3;
+    }
+
+    100% {
+        -webkit-flex-grow: 1;
+        flex-grow: 1;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .flex-title-home {
+        transform: rotate(90deg);
+        top: 250px;
+        animation: aboutFlexSlide 1;
+        animation-delay: 0s;
+    }
+}
+
+@keyframes homeFlextitle {
+    0% {
+        transform: rotate(90deg);
+        top: 15%;
+    }
+
+    50% {
+        transform: rotate(0deg);
+        top: 15%;
+    }
+
+    100% {
+        transform: rotate(90deg);
+        top: 15%;
+    }
+}
+
+.flex-about-home {
+    opacity: 0;
+}
+
+@media screen and (min-width: 768px) {
+    .flex-about-home {
+        animation: aboutFlexSlide 1;
+        animation-delay: 0s;
+    }
+}
+
+@keyframes flexAboutHome {
+    0% {
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+.planete {
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../img/hurston.jpg");
+    background-size: cover;
+    background-position: center center;
+}
+
+
+.ville {
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../img/ville53.jpg");
+    background-size: cover;
+    background-position: center center;
+}
+
+.lune {
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../img/lune21.jpg");
+    background-size: cover;
+    background-position: center center;
+}
+.station {
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../img/station.jpg");
+    background-size: cover;
+    background-position: center center;
+}
+
+
+
+/*BOUTONS*/
+.bouton-lieu {
+    display: flex;
+    justify-content: center;
+}
+
+.bouton-lieu .btn_lieu {
+    background-color: rgb(15, 56, 78);
+    padding: 1rem 2rem;
+    color: var(--primary-color);
+    text-decoration: none;
+    margin: 20px;
+    display: inline-block;
+    border-left: .2rem solid var(--primary-color);
+    position: relative;
+    overflow: hidden;
+    text-indent: 0;
+
+}
+
+.bouton-lieu .btn_lieu span {
+    position: relative;
+    display: inline-block;
+    z-index: 2;
+}
+
+.bouton-lieu a {
+    color: var(--secondary-color);
+    opacity: .7;
+    text-decoration: none;
+    text-align: center;
+}
+
+.bouton-lieu a:hover {
+    opacity: 1;
+    text-decoration: none;
+    -webkit-transition: all .3s;
+    -moz-transition: all .3s;
+    transition: all .3s;
+}
+
+.bouton-lieu .btn_lieu:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 0;
+    z-index: 1;
+    -webkit-transition: all .6s;
+    -moz-transition: all .6s;
+    transition: all .6s;
+    background: var(--blue-color);
+}
+
+.bouton-lieu .btn_lieu:hover:after {
+    left: 0;
+    background: #42EDF8;
+    box-shadow: 0 0 15px 3px rgba(0, 112, 202, 0.6), 0 -15px 25px 0 rgba(11, 183, 226, 0.65);
+}
+
+.bouton-lieu .btn_lieu:hover {
+    color: var(--secondary-color);
+    -webkit-transition: all .3s;
+    -moz-transition: all .3s;
+    transition: all .3s;
+}

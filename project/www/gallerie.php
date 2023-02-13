@@ -15,7 +15,7 @@ $images = $sth4->fetchAll(PDO::FETCH_ASSOC);
   <?php //Pour afficher les infos de la base de données 
   foreach ($images as $image) {    // foreach=boucle - pour afficher les données de la base de données dans un tableau/ as $= Pour afficher chaque resultat (les entrées de la base de données)
   ?>
-    <div class="card">
+    <div class="card_gallerie">
 
       <img src="upload/<?= ($image["name"]) ?>" />
 

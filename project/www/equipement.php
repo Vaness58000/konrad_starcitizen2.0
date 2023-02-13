@@ -5,10 +5,10 @@ include "header.php";
 
 ?>
 
-<section class="page_planete">
+<section class="page_presentation">
  
 
-  <div class="container_planete">
+  <div class="container_categorie">
   
       <div class="card">
         <a href="vaisseau.php"><img src="img/vaisseau_illustration.jpg">

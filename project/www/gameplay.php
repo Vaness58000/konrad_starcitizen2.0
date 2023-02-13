@@ -11,8 +11,8 @@ $actus = $sth->fetchAll(PDO::FETCH_ASSOC);
 <div class="gameplay">
 
     <div class="card_gameplay" data-state="#about">
-        <div class="card-header">
-            <div class="card-cover" style="background-image: url('img/fond_violet.jpg')"></div>
+        <div class="card-header2">
+            <div class="card-cover" style="background-image: url('img/ville8.png')"></div>
             <img class="card-avatar" src="img/avatar.png" alt="avatar" />
             <h1 class="card-fullname">Konrad</h1>
             <h2 class="card-jobtitle">Streamer Star Citizen</h2>
@@ -42,8 +42,8 @@ $actus = $sth->fetchAll(PDO::FETCH_ASSOC);
     </div>
 
     <div class="card_gameplay" data-state="#about">
-        <div class="card-header">
-            <div class="card-cover" style="background-image: url('img/fond_violet.jpg')"></div>
+        <div class="card-header2">
+            <div class="card-cover" style="background-image: url('img/ville8.png')"></div>
             <img class="card-avatar" src="img/avatar.png" alt="avatar" />
             <h1 class="card-fullname">Konrad</h1>
             <h2 class="card-jobtitle">Streamer Star Citizen</h2>
@@ -73,8 +73,8 @@ $actus = $sth->fetchAll(PDO::FETCH_ASSOC);
     </div>
 
     <div class="card_gameplay" data-state="#about">
-        <div class="card-header">
-            <div class="card-cover" style="background-image: url('img/fond_violet.jpg')"></div>
+        <div class="card-header2">
+            <div class="card-cover" style="background-image: url('img/ville8.png')"></div>
             <img class="card-avatar" src="img/avatar.png" alt="avatar" />
             <h1 class="card-fullname">Konrad</h1>
             <h2 class="card-jobtitle">Streamer Star Citizen</h2>
@@ -103,8 +103,8 @@ $actus = $sth->fetchAll(PDO::FETCH_ASSOC);
         </div>
     </div>
     <div class="card_gameplay" data-state="#about">
-        <div class="card-header">
-            <div class="card-cover" style="background-image: url('img/fond_violet.jpg')"></div>
+        <div class="card-header2">
+            <div class="card-cover" style="background-image: url('img/ville8.png')"></div>
             <img class="card-avatar" src="img/avatar.png" alt="avatar" />
             <h1 class="card-fullname">Konrad</h1>
             <h2 class="card-jobtitle">Streamer Star Citizen</h2>

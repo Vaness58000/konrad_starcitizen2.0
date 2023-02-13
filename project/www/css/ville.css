@@ -22,7 +22,6 @@
 }
 
 .page_ville span {
-    margin-left: 15%;
     font-weight: 600;
 }
 
@@ -58,7 +57,7 @@
     margin: 20px 15%;
 }
 
-@media screen and (max-width:750px) {
+@media screen and (max-width:855px) {
     .info_ville {
         margin: 20px 10px;
     }
