@@ -1,10 +1,10 @@
 <?php
-            $servername = 'localhost';
-            $username = 'root';
-            $password = '';
+            
+            include __DIR__.'/sgbd_connexion.php';
+            
             //On essaie de se connecter
             try{
-                $dbco = new PDO("mysql:host=$servername;dbname=star_citizen;charset=utf8", $username, $password);
+                $dbco = new PDO("mysql:host=$servername;dbname=$basename;charset=utf8", $username, $password);
                 //On définit le mode d'erreur de PDO sur Exception
                 $dbco->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             }

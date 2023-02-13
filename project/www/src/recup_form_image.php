@@ -1,6 +1,6 @@
 <?php
 session_start();
-include "../back/connexion.php";
+include __DIR__ . "/../back/connexion.php";
 
 if (isset($_POST['submit'])) {
 

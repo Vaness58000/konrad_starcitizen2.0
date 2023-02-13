@@ -1,0 +1,198 @@
+Contrat d'hébergement - Conditions d'utilisation - Conditions générales de vente
+
+o2switch
+Chemin des Pardiaux
+63000 Clermont-Ferrand
+
+Capital de 100000€
+Siret 510 909 80700024
+
+Version du 26 Août 2019.
+
+
+
+
+-I- OBJET
+Le présent contrat a pour objet de préciser les conditions et modalités selon lesquelles o2switch permet l'accès à ses divers services d'hébergement.
+Toute inscription/commande/renouvellement d'un produit mis à disposition sur le site o2switch implique l'acceptation totale du présent contrat.
+L'Internet étant en constante évolution, o2switch se réserve le droit de modifier le présent contrat à tout moment.
+En cas de changement, décidé imputable sur la période de facturation en cours, le client sera averti par courrier électronique (e-mail) et bénéficiera d'un délai de trente jours pour refuser ou accepter le nouveau contrat.
+Si le site du client est encore actif passé ce delai, o2switch considèrera que le client est d'accord avec les modifications.
+Si le client n'est pas d'accord, il sera remboursé au pro-rata des mois restants de la durée de son contrat sur demande via envoi d'un courrier recommandé (à sa charge) au siège social de o2switch.
+
+
+
+-II- DUREE ET PAIEMENT
+Les contrats o2switch sont signés pour une durée minimale précisée lors de la commande.
+La somme due pour les prestations de services fournies est payable d'avance par les moyens de paiement mis à disposition du client : chèque bancaire, carte bancaire et virement bancaire.
+o2switch se réserve cependant le droit de répercuter sans délai toute nouvelle taxe ou toute augmentation de taux des taxes existantes.
+Tout incident et/ou retard de paiement entraînera de plein droit l'application d'une indemnité de retard après mise en demeure égale à 10 % des sommes dûes, des pénalités de retard égales à 1,5 fois le taux d'intérêt légal en vigueur.
+o2switch se réserve le droit de fermer l'accès à ses différents services, ainsi que d'interrompre la publication du site web du client dès le premier jour de retard de paiement, ceux ci étant suspendus jusqu'à complet paiement par le client.
+Le client est expressément informé et accepte que les données hébergées soient supprimées du service souscrit 30 jours après dépassement de sa date d'échéance visible sur https://clients.o2switch.fr. Le service sera alors recyclé. Il appartient par conséquent au client de procéder à toutes les sauvegardes nécessaires.
+Le client peut demander une destruction plus rapide des données en formulant la demande auprès de o2switch.
+Le client peut demander confirmation de la destruction de ses données sur simple demande auprès de o2switch.
+
+
+
+-III- LE SERVICE D'HEBERGEMENT
+1/ Contenu
+Les données mises à disposition ou stockées via les services o2switch doivent répondre aux lois françaises en vigueur ainsi qu'à celles du pays d'origine du client.
+Sont interdits en hébergement, tous contenus, qu'ils soient accessibles ou non, comme :
+- Les fichiers soumis aux lois sur la propriété intellectuelle et dont le client n'a pas l'accord nécessaire à la diffusion.
+- Les liens P2P dont le contenu est soumis aux lois sur la propriété intellectuelle et dont le client n'a pas l'accord nécessaire à la diffusion.
+- Les fichiers à caractère injurieux, diffamatoires, racistes, xénophobes, etc.
+- Les fichiers incitant à la discrimination, à commettre un quelconque délit.
+o2switch refuse les sites web à caractère pornographique.
+Le client s'engage à ne pas inclure de redirection de son domaine (incluant tout type de liens hypertextes) vers des sites diffusant des contenus illicites ou tels qu'indiqués ci-dessus.
+L'envoi de courriers électroniques (email) par l'intermédiaire des services o2switch n'est pas limité dans le cas d'un usage normal, non automatisé.
+L'envoi de courriers électroniques (email) par l'intermédiaire des services o2switch est limité, pour éviter tout abus, à vingt mille envois (nombre de courriers électroniques) par jour dans le cas de l'usage d'un quelconque mécanisme d'envoi automatisé.
+L'envoi de courriers non sollicités (SPAM) par l'intermédiaire des services o2switch est strictement interdit et sanctionné. Cela pourra entraîner la fermeture immédiate et sans préavis du compte concerné.
+Tous les envois de courriers électroniques groupés doivent êtres effectués avec l'accord préalable des destinataires.
+Tous les envois de courriers électroniques de démarchage sont proscrits, quelque soit la nature de l'envoyeur, du moment que le destinateur n'en ait pas solicité la réception.
+
+Dans tous les cas cités ci-dessus, o2switch pourra interrompre le contrat d'hébergement concerné sans préavis et sans versement d'indemnité.
+Le client est le SEUL responsable du contenu de toutes les informations hébergées sur son compte ainsi que de la diffusion de ces informations. En aucun cas o2switch ne saurait être tenue responsable d'un manquement aux lois françaises ou autres que le client aurait éventuellement enfreintes.
+
+2/ Protection des ressources
+Dans le cadre d'un hébergement web mutualisé, le client s'engage à respecter certaines règles pour le bien de chacun.
+Afin d'éviter la saturation des serveurs, vous ne devez pas :
+- Faire fonctionner tout processus demandant plus 2.9ghz de ressources CPU, plus de 48go de mémoire vive, plus de 420 secondes consécutives d'utilisation du CPU, ou utilisant plus de 95% de toutes les ressources d'un serveur physique, n'importe quand.
+- Faire fonctionner des programmes en mode server-side sur le serveur. Cela inclut toutes sortes de daemons, comme IRCD.
+- Faire fonctionner tout programme binaire autres que ceux mis à disposition par o2switch.
+- Faire tout usage autre que les requêtes POST,GET,OPTIONS,PUT nécessaires au bon fonctionnement d'un site internet.
+- Consommer plus de 10000pps, au même moment, sur l'interface réseau du serveur hébergeant votre site.
+- Stocker ou héberger un fichier dont la taille unique est supérieure à 50go. Créer un répertoire contenant, à lui seul, plus de 20000 fichiers (c'est notamment le cas des systèmes de cache incontrolés qui induisent l'écriture massive de petits fichiers, saturant et réduisant les performances d'un disque dur). Utiliser plus de 500000 inodes sur un même espace d'hébergement web.
+- Faire fonctionner des softwares (eggdrops par exemple) ayant une connection avec un réseau IRC (Internet Relay Chat).
+- Faire usage des services mis à disposition par o2switch comme solution de sauvegarde directe, indirecte, ou d'un service tiers.
+"L'offre unique" o2switch représente un service d'hébergement web mutualisé, de sites internet. En ce sens l'hebergement web ne doit pas servir à d'autres usages que d'héberger des sites internet ou tout service lié (comme la messagerie). Tout autre usage est proscrit par nos conditions générales.
+- Les bases de données servent seulement les sites web de l'hébergé dans l'infrastructure o2switch et ne doivent subir aucun accès extérieur. L'accès extérieur est possible pour un usage de développement. Est entendu comme usage de développement, un accès marginal et à destination d'une adresse IP, unique, d'un fournisseur d'accès internet.
+- Faire usage de tout ou partie des services mis à disposition par o2switch en complément de prestations d'hébergement assurées par un tiers.
+Généralement, le client est prévenu de la surconsommation sans que son site ne soit désactivé.
+Cependant, o2switch se réserve un droit de suspension immédiate et sans préavis si celui-ci met gravement en danger la stabilité des installations.
+La sous-location d'un espace d'hébergement web mutualisé est strictement interdite par nos services. Elle sera passible d'une suspension puis d'une destruction du compte concerné. L'hébergé sera alors alerté par email.
+- Seuls les créateurs de sites ou webmasters peuvent proposer des services à valeur ajoutée pour leurs clients.
+- En aucun cas "l'offre unique", l'hébergement web mutualisé d'o2switch ne doit servir de base à la création d'un service d'hébergement tiers, quelqu'en soit sa nature, sa destination technique ou commerciale.
+
+
+3/ Divers
+o2switch crée des archivages internes sur ses serveurs d'hébergement web mutualisé et en fonction de l'offre d'hébergement choisie. Ces archivages sont destinés à restaurer le service, par o2switch, dans son maximum possible, dans le cas d'une défaillance matérielle. Ces archivages sont effectués sous réserve que le client soit à jour dans la date d’échéance de son hébergement. Sont exclus des archivages les fichiers dont les extensions sont, avec ou sans majuscule, .tar.gz, .tar, .iso, .img, .zip, .jpa, .7z, .rar, .mkv, .wav, .mp3, .flac, .avi, .mpeg, .mp4, .mpg, .tmp, .ogg, .wmv, .vdi ou plus généralement toute extension ayant la même destination que celles précédemment citées.
+Les archivages créés par o2switch sont incrémentaux, sans historique multiple. Les archivages ne sont pas réalisés dans le cas de prestations personnalisées, en dehors des serveurs d'hébergement web mutualisé et/ou en l'absence de notification détaillée sur la facture et/ou bon de commande mis à la disposition du client. Il doit être considéré qu'o2switch n'effectue aucune sauvegarde spécifique des données hébergées.
+o2switch peut être ammené à mettre à disposition du client, depuis son interface technique cPanel, un outil de récupérations de données archivées. Le client fait son affaire de vérifier, régulièrement, que les données visibles dans l'outil sont conformes à ses attentes et besoins. Les données visibles depuis l'interface technique cPanel représentent le contenu maximum disponible, qui soit en mesure d'être récupéré, quelque soit la raison, défaillance, et quelqu'en soit son origine.
+Les archivages ne sont plus effectués à partir cent milles fichiers sur un même compte d'hébergement web mutualisé. Les archivages de contenus sans rapport avec l'hébergement d'un site internet ne sont pas effectués. Les archivages ne sont pas effectués si les fichiers sont cryptés, illisibles, corrompus.
+
+o2switch met tout en oeuvre pour fournir un service exemplaire pour tous.
+o2switch ne pourra être tenue responsable d'une indisponibilité ou d'un problème quelconque s'il n'est pas de son fait ou dépend d'un tiers dont il n'a pas le contrôle.
+L'Internet étant en constante évolution, o2switch se réserve le droit de modifier ses infrastructures, technologies utilisées et services.
+
+o2switch met à disposition un contenant (hébergement) où le client est libre de déposer ses données. De fait, le client a conscience que l'ensemble du contenu est sous sa propre gestion et sous sa propre responsabilité. Le client doit veiller à la maintenance de toute donnée hébergée sur les services o2switch. Le client doit veiller à l'intégrité des données qu'il héberge ainsi qu'à la sécurité des informations (identifiants par exemple) qui sont mises à sa disposition par o2switch. Le client doit veiller à ce qu'aucun détournement du service, volontaire ou malvaillant, ne soit réalisé.
+Le client s'engage à garder une copie, saine et à jour de ses données, quelqu'en soit la nature, sur tout média à sa discrétion et à ses frais qui soit indépendant du service d'hébergement opéré par o2switch. Cela dans un but de sauvegarde des données confiées à o2switch. o2switch recommande au client de récupérer, une fois par semaine, le contenu complet de son accès ftp, tout répertoire confondu, ainsi que de ses bases de données. La responsabilité d'o2switch ne pourra pas être recherchée en cas de manquement du client à restaurer une copie saine et à jour de ses données, auprès d'o2switch ou d'un tiers. Cependant et dans le cas où la responsabilité d'o2switch devait être relevée par une autorité judiciaire elle ne pourrait être supérieure à un montant égal au montant des prestations facturées au client pour la période de souscription, ou pour la période du dernier renouvellement des prestations. Plus généralement, le client fait de son affaire tout comportement, toute maintenance, toute erreur, toute opération sur et en rapport avec le contenu présent sur l'hébergement : le client assumera sa propre responsabilité technique et financière.
+o2switch peut être amenée à suspendre, sans compensation et avertissement préalable, tout accès web d'un compte d'hébergement contenant des données d'hameçonnage, filoutage.
+
+o2switch met à disposition un service de messagerie. Ce service de messagerie propose un serveur de messagerie sortante dit SMTP. Le client prend la responsabilité de vérifier la bonne réception, effective, des courriels (emails) envoyés par l'intermédiaire du service de messagerie sortant.
+Le fait, pour un tiers, de bloquer le courriel envoyé depuis un serveur de messagerie sortante SMTP du réseau o2switch, quelqu'en soit le motif, dépend de l'unique responsabilité du tiers. La responsabilité de la non-réception d'un courriel, auprès d'un destinataire, ne peut être recherché qu'auprès du tiers, gestionnaire de la messagerie du destinataire.
+
+Si le client souscrit à une prestation de nom de domaine, ou incluant un nom de domaine, il appartient à ce dernier de vérifier la bonne disponibilité du nom de domaine préalablement à sa commande sur https://clients.o2switch.fr.
+Si le nom de domaine commandé n'est pas disponible, le client recevra, de la part d'o2switch, un courriel lui notifiant de cet état.
+Si le client dispose des droits sur le nom de domaine commandé, le client pourra alors fournir à o2switch tout code, élément, permettant le transfert du nom de domaine vers o2switch.
+Le client doit fournir les éléments nécessaires au transfert du nom de domaine en réponse au courriel lui notifiant de l'état du nom de domaine. o2switch répondra alors, de manière individuelle à chaque demande de transfert. En l'absence de réponse, tout élément envoyé par le client est réputé comme non réceptionné par les services o2switch.
+Il appartient au client de vérifier, suivant ses propres besoins et en tout temps : que le nom de domaine est bien sous gestion o2switch, que le nom de domaine est aux bonnes coordonnées du titulaire désiré.
+o2switch attire l'attention du client sur le fait qu'un transfert de nom de domaine depuis un prestataire tiers est susceptible de ne pas modifier les informations concernant le titulaire de ce dernier. Les informations du titulaire de nom de domaine peuvent alors êtres celles transmises par l'ancien prestataire du nom de domaine. Le titulaire officiel d'un nom de domaine est relativement important, et conditionne tout droit de modifications techniques/administratives sur le nom de domaine. Le client peut demander, en tout temps, une vérification des éléments concernant le titulaire du nom de domaine, l'état de validité ou de gestion du nom de domaine, par simple envoi d'un courriel à support@o2switch.fr
+Si besoin, et sur demande formelle, un document à contre-signer par un cédant et repreneur d'un nom de domaine peut vous être communiqué. Il sera alors à nous retourner, par courriel à support@o2switch.fr, complété d'éléments d'identification des parties, afin de procéder à un changement de titulaire d'un nom de domaine.
+La procédure de changement de titulaire d'un nom de domaine est gratuite, une seule fois et dans un délai de trois mois suivant la souscription du service, lorsque le nom de domaine est récupéré chez o2switch à l'aide d'une procédure de transfert entrante. La procédure de changement de titulaire d'un nom de domaine est payante pour tout autre cas au tarif d'enregistrement courant et actuel d'un nom de domaine de l'extension (par exemple .com, .net, .fr ..) concernée chez o2switch.
+Si le client ne dispose pas des droits sur le nom de domaine commandé depuis https://clients.o2switch.fr, il peut demander modification de sa commande sans frais, ou encore le remboursement de la prestation commandée qui devient alors réputée nulle.
+Si le client a commandé une offre d'hébergement web qui peut inclure, gratuitement, un nom de domaine, seule la prestation d'hébergement web est considérée : si le nom de domaine n'est pas disponible, ne peut être déposé, ou faire l'objet d'un transfert vers o2switch, le client devra choisir un autre nom de domaine dès que désiré, sans pouvoir prétendre au remboursement de la prestation commandée.
+
+o2switch attire l'attention du client sur le fait qu'un transfert de nom de domaine, ne réalise pas, de fait, la migration de contenus à héberger chez o2switch.
+Le client doit faire, préalablement à la communication des éléments nécessaires au lancement du transfert de nom de domaine son affaire de tout déplacement de fichiers, configurations ou modifications nécessaires au bon fonctionnement du contenu chez o2switch. Si o2switch assiste de manière gracieuse le client dans son étape de migration des données vers o2switch, le client fera son affaire de toute vérification concernant le fonctionnement désiré et effectif. o2switch agit en simple intermédiaire technique hébergeur, et ne devient, d'aucune manière qu'il soit, éditeur, webmaster, ou gestionnaire du contenu hébergé.
+
+Dans l'hypothèse où la responsabilité d'o2switch serait retenue, l'indemnisation globale et cumulée, toutes causes confondues, à laquelle le Client pourrait prétendre sera limitée au montant effectivement réglé par le Client à o2switch au cours des six derniers mois précédant l'évènement à l'origine de la responsabilité d'o2switch.
+En aucun cas, o2switch ne pourra être tenue pour responsable tant à l'égard du Client qu'à l'égard de tiers, pour tout dommage imprévisible ou pour tout dommage indirect, qu’il soit matériel ou immatériel, tel que perte d'exploitation, perte de bénéfice ou d'image ou de toute autre perte financière résultant de l'utilisation ou de l'impossibilité d'utiliser le Service par le Client ainsi que toute perte ou détérioration d'informations pour lesquelles o2switch ne peut être tenue pour responsable. Tout dommage subi par un tiers est un dommage indirect et ne donne pas lieu en conséquence à indemnisation.
+Les parties reconnaissent que le prix du contrat reflète la répartition des risques découlant du contrat, ainsi que l’équilibre économique voulu par les parties, et que le contrat n’aurait pas été conclu à ces conditions sans les limitations de responsabilité définies aux présentes ainsi que l'engagement de durée. De manière expresse, les parties conviennent que les limitations de responsabilité continuent à s'appliquer même en cas de résolution ou de résiliation du contrat.
+
+
+4/ Service gratuit Nextcloud
+Nextcloud est un outil de stockage, partage, et organisation de fichiers personnels.
+o2switch peut être amené à proposer, à son entière discrétion, pour ses clients à l'offre unique d'hébergement web, des services totalements gratuits, qui sont indépendants des serveurs de production, comme une instance Nextcloud.
+Cette instance est proposée "telle quelle". Cette instance n'est pas incluse dans les prestations vendues. o2switch ne réalisera aucune sauvegarde, aucun archivage, aucune duplication des données déposées sur ce service. Ceci en dehors d'un mécanisme de sécurisation RAIDZ2 du système de fichiers ZFS exploité. Le client s'engage à conserver, sur un tout moyen indépendant d'o2switch et de son choix, une copie de ses propres données déposées sur l'instance Nextcloud. Le client s'engage à ne prétendre à aucune indemnisation en cas de défaillance de l'instance Nextcloud. Le client s'engage à utiliser l'instance en toute autonomie.
+Cette instance n'est pas destinée à recevoir l'hébergement de sites internet. ou tout autre applicafif en dehors de Nextcloud. Nextcloud est un produit sous licence AGPLv3, développé par Nextcloud GmbH.
+Le client s'engage à ne pas stocker du contenu soumis à droit d'auteur, quelqu'en soit le motif ou la provenance. Le client s'engage à faire son affaire de la sécurisation de sa propre instance Nextcloud, particulièrement sur les bonnes pratiques de sécurité, comme les mots de passe forts, ou les mises à jour applicatives régulières.
+En cas de non renouvellement de la prestation d'hébergement web qui donne accès à l'instance Nextcloud, cette dernière sera suspendue, puis détruite, sans aucun délai. La destruction d'une instance Nextcloud est irréversible.
+Si la législation Française, ou des taxes, des redevances, venaient à évoluer et impacter le stockage de contenus personnels, le client qui utilise l'instance Nextcloud aurait alors le choix entre supprimer son instance, ou assumer, à ses exclusifs frais, les coûts relatifs.
+
+
+-IV- CONFIDENTIALITE
+
+Le Client de o2switch doit fournir ses coordonnées personnelles valides et complètes ainsi qu'une adresse électronique valide (e-mail) pour commander une offre d'hébergement.
+Le Client doit avertir o2switch par courrier électronique (e-mail) de tout changement dans ses coordonnées personnelles.
+De même, il se doit de mettre à jour son adresse électronique dans les divers panels qui pourraient être mis à sa disposition. Ou et plus généralement, toute information personnelle nécessaire.
+o2switch s'engage à garder ces informations confidentielles.
+Celles-ci ne seront en aucun cas mises à disposition ou cédées à un tiers sauf aux autorités compétentes en cas de litige judiciaire par exemple, ou d'obligations légales.
+Ces données seront simplement utilisées à des fins de gestion interne à nos services.
+
+Lors du dépôt d'un nom de domaine, les prestataires en charge de certaines extensions (de manière non exhaustive : .fr .com .net .org .info .eu .biz ...) demandent des informations personnelles sur le titulaire de l'hébergement. Ceci, dans le but de sécuriser l'enregistrement au nom du Client final du nom de domaine sur lequel il aura plein droit d'usage. Les informations communiquées lors de la souscription sont alors transmises : Nom, Prénom, Entité, Adresse postale, Date de naissance (si applicable).
+
+Le Client final peut expressément demander à ce que ses informations personnelles soient gardées confidentielles auprès de ces prestataires. Il devra pour cela envoyer un email à support@o2switch.fr précisant sa demande, en même temps ou préalablement à la souscription du nom de domaine. Le Client final est cependant informé que dans ce cas, le nom de domaine sera enregistré sous les coordonnées o2switch. Le Client final pourra cependant récupérer son nom de domaine par transfert sortant. Il assumera alors, techniquement et financièrement, toute modification nécessaire des informations sur la propriété du domaine. En aucun cas la responsabilité d'o2switch ne pourra être retenue en cas de non respect de ces règles de gestion.
+
+Le Client final a conscience que lors d'une demande de support technique, un technicien o2switch peut en toute logique être amené à voir le contenu de son hébergement, quelqu'il soit. o2switch et ses techniciens s'engagent sur la confidentialité liée au secret des affaires. Un manquement aux conditions générales constaté peut être porté à l'attention du Client final.
+Lors d'une demande de support technique, le Client final autorise expressément o2switch à se connecter aux prestations mises à disposition et à effectuer toute opération nécessaire à l'élaboration d'un diagnostic ou d'une solution. De convention expresse les Parties s’accordent pour considérer les données collectées, traitées et/ou stockées par o2switch dans le cadre du Contrat au moyen de ses propres outils d’enregistrement et de calcul comme la preuve suffisante du contenu, de la réalité et du moment de la collecte du traitement et/ou du stockage desdites données.
+
+Le Client dispose d’un droit d’accès, de rectification, de suppression et d’opposition sur les données le concernant en adressant un courrier et en justifiant de son identité à l’adresse :
+o2switch - Chemin des Pardiaux - 63000 Clermont-Ferrand.
+La demande peut aussi être réalisée par courriel à support@o2switch.fr
+
+Le Client reste propriétaire des données qu’il traite au moyen du Service o2switch ou des outils mis à sa disposition par les Services o2switch.
+En application des dispositions du Règlement n°2016/679 dit Règlement Général pour la Protection des Données (« RGPD »), il demeure le responsable du traitement, et o2switch agit dans le cadre du Contrat en tant que sous-traitant du Client.
+A ce titre, le Client doit communiquer clairement à o2switch toute information utile quant aux finalités du traitement envisagé et prendre en compte toute observation pertinente de o2switch tenue à une obligation de conseil.
+o2switch met en œuvre tout moyen et procédure raisonnablement appropriés pour garantir l’intégrité, la confidentialité et la sécurité des données objets du traitement. En particulier o2switch s’interdit de céder ou de communiquer à des tiers les données traitées par le Service.
+
+La collecte des Données Personnelles intervient lors de la souscription par le Client et de l’utilisation des Services. Les données personnelles du Client sont destinées à o2switch pour la gestion et la sécurisation du compte du Client, ainsi que pour satisfaire aux obligations légales en matière d’identification des créateurs de contenus sur Internet. Les coordonnées bancaires du Client seront utilisées par o2switch pour la facturation, le paiement et le recouvrement de toute somme due et née d’un contrat conclu avec o2switch.
+o2switch, conformément aux dispositions du RGPD et de la Loi Informatique et Libertés précités, s’engage à ne conserver les Données Personnelles collectées que pour la durée strictement nécessaire à la mise en œuvre des Services et à la réponse aux obligations légales d'o2switch.
+
+Le Service o2switch peut être amené à mettre à disposition du Client des moyens d'analyse des logs de son hébergement.
+Ces analyses de logs peuvent faire apparaître l'adresse IP des visiteurs/usagers de l'hébergement mis à disposition. Le Client s'engage à en informer tout tiers dont la Loi le nécessite.
+Le Client dispose de la faculté de demander la désactivation des moyens d'analyse de logs mis à sa disposition. Il devra alors formuler une demande, depuis l'adresse mail notifiée dans sa fiche Client, à support@o2switch.fr
+o2switch répondra alors systématiquement et individuellement à chaque demande raisonnable pour confirmation de la prise en compte du choix de désactivation des moyens d'analyses de logs.
+A défaut de réponse à un email envoyé sur support@o2switch.fr, le courriel est répondu comme non réceptionné par les Services o2switch. Le Client pourra alors envoyer sa demande, impérativement par courrier postal, en recommandé A/R à o2switch - Chemin des Pardiaux - 63000 Clermont-Ferrand.
+
+Le Client est informé qu'o2switch conserve un ensemble de logs, en interne, et dans le strict but de répondre à ses obligations légales.
+Le Client doit alors en informer ses visiteurs/usagers du service mis à disposition par o2switch.
+Les obligations légales suivies par o2switch sont de droit Français et de l'Union Européenne.
+
+Le Client est informé que le Service mis à disposition par o2switch est destiné à un hébergement web conventionnel.
+Le Client est informé qu'il dispose d'une arborescence native qui lui est propre, accessible par divers services dont FTP, et non chiffrée, susceptible de contenir un ensemble de données hébergées : fichiers (dont courriels), logs, données propre au Client, au format Unix/Linux et liées à l'identification sur certains services. (shadow,passwd).
+Le Client fait son affaire de la bonne gestion du service mis à sa disposition, de sa sécurisation, et devra agir dans les plus brefs délais s'il estime ou détecte une compromission de l'espace. Le Client devra par ailleurs en informer dans les plus brefs délais o2switch. Si le Client a perdu toute faculté de changement des données d'identification (exemple : mot de passe) du service, dont et d'ailleurs, o2switch n'a pas connaissance, o2switch sera apte à générer de nouvelles informations d'identification sur demande du Client. Et après avoir été en mesure d'identifier le Client comme légitime à réaliser la demande.
+Si o2switch suspecte par des faits techniques une compromission du service mis à disposition du Client, tout élément d'identification dépendant d'o2switch sera susceptible d'être régénéré au profit du Client.
+
+
+-V- RETRACTATION
+Conformément à la législation, le consommateur dispose d'un délai de quatorze jours pour exercer son droit de rétractation d'un contrat conclu à distance, à la suite d'un démarchage téléphonique ou hors établissement, sans avoir à motiver sa décision ni à supporter d'autres coûts que ceux prévus aux articles L. 121-21-3 à L. 121-21-5. (Pour plus d'information, voir articles L. 121-21 et suivants du Code de la consommation).
+- o2switch, par geste commercial, permet au client de bénéficier d'une prolongation du délai légal à 30 (trente) jours calendaires à compter de l'activation de la prestation commandée. -
+
+Si celui-ci souhaite user de son droit de rétractation, ou de remboursement de son offre durant cette période, il lui suffira d'envoyer un courrier électronique (email) à l'adresse commercial@o2switch.fr.
+Il devra éventuellement l'accompagner d'un courrier recommandé (frais à la charge du client) au siège de l'entreprise. o2switch ne pourra être tenue responsable du mauvais traitement de la demande du client en cas de non réception du courrier électronique par le personnel de l'entreprise.
+Le client est informé qu'un remboursement provoque la clôture totale et définitive du service souscrit. Le client est informé qu'un remboursement provoque la destruction totale et définitive de toutes les données hébergées.
+
+Si le client a commandé une offre incluant un nom de domaine, il devra payer celui-ci du tarif individuel du nom de domaine concerné chez o2switch, en vigueur à date de commande et pour l'extension concernée en euros TTC en cas de remboursement. La somme sera déduite du remboursement et le nom de domaine restera à sa disposition pour tout changement de prestataire jusqu'à son échéance.
+
+En déposant un nom de domaine par l'intermédiaire d'o2switch, le client reconnait que le service auquel il souscrit correspond à un bien nettement personnalisé. Par conséquent et conformément aux dispositions de l'article L 121-21-8, 3°, il ne lui sera pas possible d'exercer un droit de rétractation sur un nom de domaine.
+
+Un nom de domaine est un service enregistré de manière définitive auprès des organismes mondiaux en charge, pour une période donnée.
+Conformément au Code de la Consommation pris en son article L 121-21-8, 3° "le droit de rétractation ne peut être exercé (...) pour les contrats de fourniture de biens confectionnés selon les spécifications du consommateur ou nettement personnalisés (...)".
+Le client reconnaît ainsi notamment que l’enregistrement d’un nom de domaine constitue, du fait des choix opérés par le client la fourniture d’un tel bien personnalisé au sens de l’article précité.
+La clause "-V- RETRACTATION" n'est pas applicable lors du renouvellement d'un contrat.
+
+
+-VI- RENOUVELLEMENT / RESILIATION
+Avant chaque fin de contrat, le client sera prévenu par email de l'imminence du terme du contrat.
+o2switch ayant recours à des systèmes automatisés, le Client se doit en complément de vérifier par lui même la date du terme de son contrat afin de renouveller dans les temps. S'il constate un problème, il devra contacter nos équipes afin de les en informer. o2switch ne pourra être tenue responsable en cas de dysfonctionnement exceptionnel des automatisations.
+Si le Client accepte de renouveler son contrat, il devra choisir son moyen de paiement et sera orienté vers la procédure à suivre.
+Si le Client ne donne pas de nouvelles suite aux relances effectuées par nos services de gestion, nous considèrerons que ledit Client souhaite clore son hébergement et son compte sera immédiatement cloturé puis supprimé au terme du contrat en cours.
+Pour des raisons de non respect de certaines clauses du présent contrat, o2switch pourra résilier de plein droit le contrat le liant avec son Client.
+Le client ne pourra demander remboursement de son offre d'hébergement s'il est exposé à un manquement total ou partiel du présent contrat.
+Le client a un délai de trente jours pour résilier son abonnement (voir clause 'RETRACTATION'). Passé ce délai, il devra attendre la fin de la durée du présent contrat sans possibilité de résiliation ou de remboursement pro-rata d'une période d'hébergement non utilisée.
+Si le Client reconduit une prestation expirée depuis plus de trente jours il est considéré qu'une prestation nouvelle a été demandé..
+
+
+-VII- LITIGES
+Le présent contrat est régi par la loi française. Toutes contestations qui pourraient s'élever entre les parties à l'occasion de l'interprétation et/ou de l'exécution du présent contrat seront soumises, à défaut d'entente amiable, aux Tribunaux des lieux admis par la législation. Si la loi l'autorise, les Tribunaux de Clermont-Ferrand seront prioritaires.
+Modalité de paiement
