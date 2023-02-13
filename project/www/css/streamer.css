@@ -1,76 +1,74 @@
 .streamer {
 	color: #ffffff;
-	background: linear-gradient(to bottom, rgba(89, 0, 255, 0.111) 0%, rgba(15, 6, 138, 0.263) 44%, rgba(89, 0, 255, 0.111)  100%);
-	background-repeat: no-repeat;
-	background-size: cover;
-	background-position: center;
-	background-attachment: fixed;
 	display: flex;
 	flex-wrap: wrap;
+	justify-content: center;
 	padding: 50px 20px;
 	width: 100%;
 }
 .gameplay{
 	color: #ffffff;
-	background: linear-gradient(to bottom, rgba(89, 0, 255, 0.111) 0%, rgba(15, 6, 138, 0.263) 44%, rgba(89, 0, 255, 0.111)  100%);
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: center;
 	align-items: center;
-	padding: 50px 20px;
 	width: 100%;
+	padding: 50px 0;
 }
 .card_streamer {
 	position: relative;
 	z-index: 1;
 	overflow-x: hidden;
-	background-color: rgb(6, 6, 6);
+	background-color: var(--light-color);
 	display: flex;
 	flex-direction: column;
 	border-radius: 10px;
 	box-shadow: 0 0 0 8px rgba(255, 255, 255, 0.2);
-	width: 80%;
 }
 .card_gameplay{
 	margin: 20px;
 	position: relative;
 	z-index: 1;
 	overflow-x: hidden;
-	background-color: rgb(6, 6, 6);
+	background-color: var(--light-color);
 	display: flex;
 	flex-direction: column;
 	border-radius: 10px;
-	box-shadow: 0 0 0 8px rgba(255, 255, 255, 0.2);
+	box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.2);
 	width: 500px;
 }
-.card_streamer.is-active .card-avatar {
+.card_streamer .card-avatar {
 	transform: none;
 	left: 20px;
 	width: 50px;
 	height: 50px;
 	bottom: 10px;
 }
-.card_streamer.is-active .card-fullname, .card.is-active .card-jobtitle {
+.card_streamer .card-fullname, .card .card-jobtitle {
 	left: 86px;
 	transform: none;
 }
-.card_streamer.is-active .card-fullname {
+.card_streamer .card-fullname {
 	bottom: 18px;
 	font-size: 19px;
 }
-.card_streamer.is-active .card-jobtitle {
+.card_streamer .card-jobtitle {
 	bottom: 16px;
 	letter-spacing: 1px;
 	font-size: 10px;
 }
-.card-header {
+.card-header2 {
 	position: relative;
 	height: 200px;
 	flex-shrink: 0;
 	width: 100%;
 	transition: 0.3s;
 }
-.card-header * {
+.card-header {
+	position: relative;
+	height: 100px;
+	flex-shrink: 0;
+	width: 100%;
 	transition: 0.3s;
 }
 .card-cover {
@@ -153,7 +151,7 @@
 	margin-bottom: 30px;
 }
 .card-social svg {
-	fill: #a5b5ce;
+	fill: #ffffff;
 	width: 16px;
 	display: block;
 	transition: 0.3s;
@@ -172,7 +170,7 @@
 	margin-right: 10px;
 }
 .card-social a:hover svg {
-	fill: #637faa;
+	fill: #ffffff;
 }
 .card-social a:last-child {
 	margin-right: 0;
@@ -206,8 +204,8 @@
 }
 .card-buttons a{
 	color: #ffffff;
-	border-bottom: 3px solid #8a84ff;
-	background: linear-gradient(to bottom, rgba(89, 0, 255, 0.111) 0%, rgba(15, 6, 138, 0.263) 44%, rgba(89, 0, 255, 0.111)  100%);
+	border-bottom: 3px solid var(--medium-light-color);
+	background: var(--light-color);
 }
 .card-buttons a:hover{
 	background: linear-gradient(to bottom, rgb(0, 0, 0) 0%, rgba(0, 0, 0, 0.263) 44%, rgba(5, 5, 5, 0.111) 100%);
@@ -219,12 +217,7 @@
 	justify-content: center;
 	flex-wrap: wrap;
 }
-.actus_stream{
-	display: flex;
-	flex-direction: row;
-	justify-content: center;
-	flex-wrap: wrap;
-}
+
 .video{
 	width:320px;
 	height: auto;

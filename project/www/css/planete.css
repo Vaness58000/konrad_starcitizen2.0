@@ -1,19 +1,15 @@
-.page_planete {
+.page_presentation {
     color: aliceblue;
     width: 100%;
 }
 
-.page_planete h1 {
+.page_presentation h1 {
     text-align: center;
     padding-top: 20px;
     font-size: clamp(1rem, 2.5vw, 1.9rem);
 }
 
-.page_planete h1 img {
-    width: 20px;
-}
-
-.container_planete {
+.container_categorie {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -22,16 +18,16 @@
     transform: skew(5deg);
 }
 
-.container_planete .card {
+.container_categorie .card {
     flex: 1;
     transition: all 1s ease-in-out;
     height: 75vmin;
     position: relative;
 }
 
-.container_planete .card .card__head {
-    color: black;
-    background: rgba(19, 224, 255, 0.75);
+.container_categorie .card .card__head {
+    color: rgb(255, 255, 255);
+    background: var(--medium-light-color);
     padding: 0.5em;
     transform: rotate(-90deg);
     transform-origin: 0% 0%;
@@ -45,24 +41,24 @@
     white-space: nowrap;
 }
 
-.container_planete .card:hover {
+.container_categorie .card:hover {
     flex-grow: 10;
 }
 
-.container_planete .card:hover img {
+.container_categorie .card:hover img {
     filter: grayscale(0);
 }
 
-.container_planete .card:hover .card__head {
+.container_categorie .card:hover .card__head {
     text-align: center;
     top: calc(100% - 2.5em);
     color: white;
-    background: rgba(0, 0, 0, 0.5);
+    background: var(--medium-light-color);
     font-size: 2em;
     transform: rotate(0deg) skew(-5deg);
 }
 
-.container_planete .card img {
+.container_categorie .card img {
     width: 100%;
     height: 100%;
     object-fit: cover;

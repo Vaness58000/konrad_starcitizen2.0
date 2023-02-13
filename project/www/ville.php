@@ -8,9 +8,9 @@ include 'header.php';
 /*css planete.css*/
 ?>
 
-<section class="page_planete">
+<section class="page_presentation">
 
-  <div class="container_planete">
+  <div class="container_categorie">
 
     <div class="card">
       <a href="ville_area18.php"><img src="img/ville.jpg" alt="ville Area 18">

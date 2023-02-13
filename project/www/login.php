@@ -2,11 +2,13 @@
 session_start();
 include "header.php";
 ?>
-<section id="html">
-    <div id="logo">
-        <h1><i> Connexion</i></h1>
-    </div>
+
+<div class="page_connect">
     <section class="container-login">
+        <div id="logo">
+            <h1><i> Connexion</i></h1>
+        </div>
+
 
         <form action="connexion.php" method="post">
             <div id="fade-box">
@@ -80,8 +82,7 @@ include "header.php";
         </div>
     </div>
 
-</section>
-
+</div>
 <?php
 include "footer.php";
 ?>

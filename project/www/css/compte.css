@@ -2,12 +2,10 @@
 	color: #ffffff;
 	font-family: "Jost", sans-serif;
 	background: linear-gradient(to bottom, rgba(43, 43, 43, 0.111) 0%, rgba(5, 84, 255, 0.263) 54%, rgba(0, 0, 0, 0.111)  100%);
-
 	display: flex;
 	flex-wrap: wrap;
-	padding: 50px 20px;
+	padding: 150px 20px;
 	width: 100%;
-	margin-bottom: -50px;
 }
 .card_user{
 	margin: auto;

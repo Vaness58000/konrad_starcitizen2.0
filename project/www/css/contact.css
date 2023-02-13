@@ -27,10 +27,10 @@
 
 /* ///// inputs /////*/
 
-input:focus~label,
-textarea:focus~label,
-input:valid~label,
-textarea:valid~label {
+.container_contact input:focus~label,
+.container_contact textarea:focus~label,
+.container_contact input:valid~label,
+.container_contact textarea:valid~label {
   font-size: 0.75em;
   color: #999;
   top: -5px;
@@ -68,8 +68,8 @@ textarea:valid~label {
   max-width: 100%;
 }
 
-input[type="text"], input[type="email"],
-textarea {
+.container_contact input[type="text"], input[type="email"],
+.container_contact textarea {
   padding: 30px;
   border: 0;
   width: 100%;
@@ -78,38 +78,38 @@ textarea {
   border-radius: 4px;
 }
 
-input:focus,
-textarea:focus {
+.container_contact input:focus,
+.container_contact textarea:focus {
   background-color: rgb(232, 240, 254);
   color: rgb(43, 43, 43);
 }
 
-.input-container input:focus,
-textarea:focus {
+.container_contact .input-container input:focus,
+.container_contact textarea:focus {
   outline: 0;
 }
 
-.input-container input:focus~span,
-textarea:focus~span {
+.container_contact .input-container input:focus~span,
+.container_contact textarea:focus~span {
   width: 100%;
   -webkit-transition: all 0.075s ease;
   transition: all 0.075s ease;
 }
 
-.input-container textarea {
+.container_contact .input-container textarea {
   width: 100%;
   min-height: 15em;
   margin-bottom: 20px;
 }
 
-.input-container {
+.container_contact .input-container {
   width: 650px;
   height: 600px;
   max-width: 100%;
   margin: 20px auto 25px auto;
 }
 
-.input-container .button {
+.container_contact .input-container .button {
 
   display: block;
   margin: auto;
@@ -132,7 +132,7 @@ textarea:focus~span {
   padding: 10px;
 }
 
-.input-container button::before {
+.container_contact .input-container button::before {
   content: '';
   border-radius: 1000px;
   min-width: calc(200px + 12px);
@@ -178,18 +178,18 @@ button:focus::after {
   }
 }
 
-.input-container input[type=checkbox]+label {
+.container_contact .input-container input[type=checkbox]+label {
   color: #ccc;
   font-style: italic;
 }
 
-.input-container input[type=checkbox]:checked+label {
+.container_contact .input-container input[type=checkbox]:checked+label {
   color: rgb(0, 115, 255);
   font-style: normal;
 }
 
 @media only screen and (max-width: 768px) {
-  .input-container {
+  .container_contact .input-container {
     width: 650px;
     height: 800px;
     max-width: 100%;
