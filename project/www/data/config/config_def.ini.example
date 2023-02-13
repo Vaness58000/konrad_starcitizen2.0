@@ -1,0 +1,32 @@
+[configDefault]
+lien_subfolder = "./";
+file_json_info_entreprise = "./informations.json";
+email_text = "./emailText.ini";
+folder_data = "./../";
+folder_img = "./../img/";
+style_template = "default";
+style_template_admin = "default";
+lien_message = "./#contact";
+lien_modif_pass = "./connexion/modifpasse/?code={{CODE}}";
+lien_create_pass = "./connexion/createpasse/?code={{CODE}}";
+routage = "true";
+emails = "defaut@email.fr";
+emailsContact = "defaut@email.fr";
+emailsDev = "defaut@email.fr";
+message-error-page = "";
+message-error-page-email = "";
+list-email = "";
+
+[keyPrivate]
+key1 = "Lk5Uz3slx3BrAghS1aaW5AYgWZRV0tIX5eI0yPchFz4=";
+key2 = "EZ44mFi3TlAey1b2w4Y7lVDuqO+SRxGXsa7nctnr/JmMrA2vN6EJhrvdVZbxaQs5jpSe34X3ejFK/o9+Y5c83w==";
+code1 = "";
+
+[sgbd]
+type = "mysql";
+server = "localhost";
+port = "0";
+name = "";
+user = "root";
+pass = "";
+prefix = "";

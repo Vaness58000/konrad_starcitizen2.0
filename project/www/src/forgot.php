@@ -1,6 +1,6 @@
 <?php
 require_once __DIR__ . '../../back/connexion.php';
-include "message_email.php";
+include __DIR__ . "/message_email.php";
 if (!empty($_POST['email'])) {
     $email = htmlspecialchars($_POST['email']);
 

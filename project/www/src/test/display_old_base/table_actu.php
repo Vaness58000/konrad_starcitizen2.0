@@ -1,5 +1,5 @@
 <?php
-include __DIR__.'/config_test.php';
+include __DIR__.'/../../repository/ArticleRepository.php';
 ?>
 
 <table>
@@ -16,9 +16,8 @@ include __DIR__.'/config_test.php';
         </thead>
         <tbody>
             <?php 
-            $sth_article = $dbco_new->prepare("SELECT * FROM utilisateurs INNER JOIN articles ON utilisateurs.id_user = articles.id_user");
-            $sth_article->execute();
-            $article = $sth_article->fetchAll(PDO::FETCH_ASSOC);
+            $articleRepository = new ArticleRepository();
+            $article = $articleRepository->findAllAndUser();
 
             foreach ($article as $construct) {?>
                 <tr>
@@ -30,9 +29,7 @@ include __DIR__.'/config_test.php';
                     <td><?= $construct['video'] ?></td>
                     <td>
                         <?php 
-                        $sth_article_img = $dbco_new->prepare("SELECT * FROM articles_image WHERE id_article=:id_article");
-                        $sth_article_img->execute([":id_article" => $construct["id"]]);
-                        $article_img = $sth_article_img->fetchAll(PDO::FETCH_ASSOC);
+                        $article_img = $articleRepository->findAllImgArticle($construct["id"]);
 
                         foreach ($article_img as $construct_img) {?>
                                 <?= $construct_img['name'] ?>,

@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__ . '../../back/connexion.php';
+require_once __DIR__ . '/../../back/connexion.php';
 
 if (!empty($_GET['u']) && !empty($_GET['token'])) {
 

@@ -1,6 +1,6 @@
 <?php
 session_start();
-require "../back/connexion.php";
+require __DIR__ . "/../back/connexion.php";
 if (!isset($_SESSION['utilisateur'])) {
     header('Location:index.php');
     die();

@@ -139,7 +139,10 @@
 include __DIR__.'/table_actu.php';
 ?>
   </div>
-  <div class="div_nav arme">arme
+  <div class="div_nav arme">
+<?php
+include __DIR__.'/table_armement.php';
+?>
   </div>
   <div class="div_nav constructeur">
 <?php
@@ -151,13 +154,25 @@ include __DIR__.'/table_constructeur.php';
 include __DIR__.'/table_image.php';
 ?>
   </div>
-  <div class="div_nav lieux">lieux
+  <div class="div_nav lieux">
+<?php
+include __DIR__.'/table_lieux.php';
+?>
   </div>
-  <div class="div_nav lunes">lunes
+  <div class="div_nav lunes">
+<?php
+include __DIR__.'/table_lune.php';
+?>
   </div>
-  <div class="div_nav vaisseau">vaisseau
+  <div class="div_nav vaisseau">
+<?php
+include __DIR__.'/table_vaisseau.php';
+?>
   </div>
-  <div class="div_nav ville">ville
+  <div class="div_nav ville">
+<?php
+include __DIR__.'/table_ville.php';
+?>
   </div>
 </body>
 </html>

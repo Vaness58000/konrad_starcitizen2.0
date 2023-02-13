@@ -1,5 +1,5 @@
 <?php
-include __DIR__.'/config_test.php';
+include __DIR__.'/../../repository/ScreensRepository.php';
 ?>
 
 <table>
@@ -12,9 +12,8 @@ include __DIR__.'/config_test.php';
         </thead>
         <tbody>
             <?php 
-            $sth_article = $dbco_new->prepare("SELECT * FROM utilisateurs INNER JOIN  screens ON utilisateurs.id_user =  screens.id_user");
-            $sth_article->execute();
-            $article = $sth_article->fetchAll(PDO::FETCH_ASSOC);
+            $screensRepository = new ScreensRepository();
+            $article = $screensRepository->findAllAndUser();
 
             foreach ($article as $construct) {?>
                 <tr>

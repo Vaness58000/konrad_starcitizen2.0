@@ -1,5 +1,5 @@
 <?php
-include __DIR__.'/config_test.php';
+include __DIR__.'/../../repository/ConstructeurRepository.php';
 ?>
 
 <table>
@@ -13,9 +13,8 @@ include __DIR__.'/config_test.php';
         </thead>
         <tbody>
             <?php 
-            $sth_construct = $dbco_new->prepare("SELECT * FROM constructeur");
-            $sth_construct->execute();
-            $construct_tab = $sth_construct->fetchAll(PDO::FETCH_ASSOC);
+            $constructeurRepository = new ConstructeurRepository();
+            $construct_tab = $constructeurRepository->findAll();
 
             foreach ($construct_tab as $construct) {?>
                 <tr>

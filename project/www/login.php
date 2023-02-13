@@ -64,7 +64,7 @@ include "header.php";
                     }
                 }
                 ?>
-                <input type="email" name="email" id="username" placeholder="email" required>
+                <input type="text" name="email" id="username" placeholder="email/pseudo" required>
                 <input type="password" name="password" placeholder="Mot de passe" required>
                 <a href="reinitialisation_password.php" class="login__forgot">Mot de passe oublié ?</a>
                 <a href="inscription.php" class="login__forgot">Pas de compte ? s'inscrire</a>
