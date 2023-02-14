@@ -2,8 +2,8 @@
 -- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
--- Hôte : testdiscord_mariadb:3306
--- Généré le : ven. 10 fév. 2023 à 17:59
+-- Hôte : starcitizen_mariadb:3306
+-- Généré le : mar. 14 fév. 2023 à 12:18
 -- Version du serveur : 10.4.18-MariaDB-1:10.4.18+maria~focal-log
 -- Version de PHP : 8.0.19
 
@@ -1724,6 +1724,7 @@ CREATE TABLE `screens` (
   `name` varchar(155) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
   `image` varchar(255) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
   `alt` varchar(255) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
+  `src` varchar(255) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
   `date` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
@@ -1731,29 +1732,29 @@ CREATE TABLE `screens` (
 -- Déchargement des données de la table `screens`
 --
 
-INSERT INTO `screens` (`id_screen`, `id_user`, `name`, `image`, `alt`, `date`) VALUES
-(1, 8, '262f7041f0f5f688_1920xH.jpg', '262f7041f0f5f688_1920xH.jpg', '262f7041f0f5f688_1920xH.jpg', '2023-02-10 17:13:44'),
-(2, 8, '804504.jpg', '804504.jpg', '804504.jpg', '2023-02-10 17:13:44'),
-(3, 8, 'ArcCorp.png', 'ArcCorp.png', 'ArcCorp.png', '2023-02-10 17:13:44'),
-(4, 8, 'gallerie.jpg', 'gallerie.jpg', 'gallerie.jpg', '2023-02-10 17:13:44'),
-(5, 8, 'gallerie3.jpg', 'gallerie3.jpg', 'gallerie3.jpg', '2023-02-10 17:13:44'),
-(6, 8, 'gallerie4.jpg', 'gallerie4.jpg', 'gallerie4.jpg', '2023-02-10 17:13:44'),
-(7, 8, 'gallerie5.jpg', 'gallerie5.jpg', 'gallerie5.jpg', '2023-02-10 17:13:44'),
-(8, 8, 'gallerie6.jpg', 'gallerie6.jpg', 'gallerie6.jpg', '2023-02-10 17:13:44'),
-(9, 8, 'gallerie7.jpg', 'gallerie7.jpg', 'gallerie7.jpg', '2023-02-10 17:13:44'),
-(10, 8, 'gallerie8.jpg', 'gallerie8.jpg', 'gallerie8.jpg', '2023-02-10 17:13:44'),
-(11, 8, 'gallerie9.jpg', 'gallerie9.jpg', 'gallerie9.jpg', '2023-02-10 17:13:44'),
-(12, 8, 'gallerie10.jpg', 'gallerie10.jpg', 'gallerie10.jpg', '2023-02-10 17:13:44'),
-(13, 8, 'gallerie11.jpg', 'gallerie11.jpg', 'gallerie11.jpg', '2023-02-10 17:13:44'),
-(14, 8, 'gallerie12.jpg', 'gallerie12.jpg', 'gallerie12.jpg', '2023-02-10 17:13:44'),
-(15, 8, 'station4.jpg', 'station4.jpg', 'station4.jpg', '2023-02-10 17:13:44'),
-(16, 8, 'ville7.png', 'ville7.png', 'ville7.png', '2023-02-10 17:13:44'),
-(17, 7, 'lune25.jpg', 'lune25.jpg', 'lune25.jpg', '2023-02-10 17:13:44'),
-(18, 7, 'vaisseau26.jpg', 'vaisseau26.jpg', 'vaisseau26.jpg', '2023-02-10 17:13:44'),
-(19, 7, 'vaisseau67.jpg', 'vaisseau67.jpg', 'vaisseau67.jpg', '2023-02-10 17:13:44'),
-(20, 7, 'wallpaperflare.com_wallpaper (26).jpg', 'wallpaperflare.com_wallpaper (26).jpg', 'wallpaperflare.com_wallpaper (26).jpg', '2023-02-10 17:13:44'),
-(21, 7, 'vanduul10.jpg', 'vanduul10.jpg', 'vanduul10.jpg', '2023-02-10 17:13:44'),
-(22, 7, 'actus2.jpg', 'actus2.jpg', 'actus2.jpg', '2023-02-10 17:13:44');
+INSERT INTO `screens` (`id_screen`, `id_user`, `name`, `image`, `alt`, `src`, `date`) VALUES
+(1, 8, '262f7041f0f5f688_1920xH.jpg', '262f7041f0f5f688_1920xH.jpg', '262f7041f0f5f688_1920xH.jpg', '262f7041f0f5f688_1920xH.jpg', '2023-02-10 17:13:44'),
+(2, 8, '804504.jpg', '804504.jpg', '804504.jpg', '804504.jpg', '2023-02-10 17:13:44'),
+(3, 8, 'ArcCorp.png', 'ArcCorp.png', 'ArcCorp.png', 'ArcCorp.png', '2023-02-10 17:13:44'),
+(4, 8, 'gallerie.jpg', 'gallerie.jpg', 'gallerie.jpg', 'gallerie.jpg', '2023-02-10 17:13:44'),
+(5, 8, 'gallerie3.jpg', 'gallerie3.jpg', 'gallerie3.jpg', 'gallerie3.jpg', '2023-02-10 17:13:44'),
+(6, 8, 'gallerie4.jpg', 'gallerie4.jpg', 'gallerie4.jpg', 'gallerie4.jpg', '2023-02-10 17:13:44'),
+(7, 8, 'gallerie5.jpg', 'gallerie5.jpg', 'gallerie5.jpg', 'gallerie5.jpg', '2023-02-10 17:13:44'),
+(8, 8, 'gallerie6.jpg', 'gallerie6.jpg', 'gallerie6.jpg', 'gallerie6.jpg', '2023-02-10 17:13:44'),
+(9, 8, 'gallerie7.jpg', 'gallerie7.jpg', 'gallerie7.jpg', 'gallerie7.jpg', '2023-02-10 17:13:44'),
+(10, 8, 'gallerie8.jpg', 'gallerie8.jpg', 'gallerie8.jpg', 'gallerie8.jpg', '2023-02-10 17:13:44'),
+(11, 8, 'gallerie9.jpg', 'gallerie9.jpg', 'gallerie9.jpg', 'gallerie9.jpg', '2023-02-10 17:13:44'),
+(12, 8, 'gallerie10.jpg', 'gallerie10.jpg', 'gallerie10.jpg', 'gallerie10.jpg', '2023-02-10 17:13:44'),
+(13, 8, 'gallerie11.jpg', 'gallerie11.jpg', 'gallerie11.jpg', 'gallerie11.jpg', '2023-02-10 17:13:44'),
+(14, 8, 'gallerie12.jpg', 'gallerie12.jpg', 'gallerie12.jpg', 'gallerie12.jpg', '2023-02-10 17:13:44'),
+(15, 8, 'station4.jpg', 'station4.jpg', 'station4.jpg', 'station4.jpg', '2023-02-10 17:13:44'),
+(16, 8, 'ville7.png', 'ville7.png', 'ville7.png', 'ville7.png', '2023-02-10 17:13:44'),
+(17, 7, 'lune25.jpg', 'lune25.jpg', 'lune25.jpg', 'lune25.jpg', '2023-02-10 17:13:44'),
+(18, 7, 'vaisseau26.jpg', 'vaisseau26.jpg', 'vaisseau26.jpg', 'vaisseau26.jpg', '2023-02-10 17:13:44'),
+(19, 7, 'vaisseau67.jpg', 'vaisseau67.jpg', 'vaisseau67.jpg', 'vaisseau67.jpg', '2023-02-10 17:13:44'),
+(20, 7, 'wallpaperflare.com_wallpaper (26).jpg', 'wallpaperflare.com_wallpaper (26).jpg', 'wallpaperflare.com_wallpaper (26).jpg', 'wallpaperflare.com_wallpaper (26).jpg', '2023-02-10 17:13:44'),
+(21, 7, 'vanduul10.jpg', 'vanduul10.jpg', 'vanduul10.jpg', 'vanduul10.jpg', '2023-02-10 17:13:44'),
+(22, 7, 'actus2.jpg', 'actus2.jpg', 'actus2.jpg', 'actus2.jpg', '2023-02-10 17:13:44');
 
 -- --------------------------------------------------------
 
