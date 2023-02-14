@@ -1,6 +1,6 @@
 <?php
-include __DIR__.'/connexion.php';
-include __DIR__.'/connexion_new.php';
+include __DIR__.'/../../back/connexion.php';
+include __DIR__.'/../../back/connexion_new.php';
 
 // recup 01
 $sth_users_old = $dbco->prepare("SELECT * FROM utilisateurs");
