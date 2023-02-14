@@ -51,6 +51,7 @@
 .patch-card__text p{
     color:#ffffff;
     padding: 20px 0;
+    line-height: 1.6rem;
 }
 .patch-card__meta {
     color: #ffffff;

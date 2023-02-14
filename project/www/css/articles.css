@@ -1,0 +1,129 @@
+.page_ville {
+    color: aliceblue;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+}
+
+.page_ville h1 {
+    text-align: center;
+    font-weight: 900;
+    font-size: clamp(1.3rem, 3vw, 2.2rem);
+}
+
+.page_ville h1 img {
+    width: 20px;
+}
+
+.page_ville h4 {
+    padding-left: 10px;
+    font-size: 20px;
+}
+.page_ville h3{
+    font-size: 17px;
+}
+#auteur{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#auteur img{
+    width: 60px;
+    margin-right:5px;
+    border-radius:50%;
+    background-color: var(--light-color);
+}
+.page_ville p {
+    color: white;
+    padding: 20px;
+    line-height: 1.7rem;
+
+}
+
+.satellite_planete li {
+    list-style-type: none;
+}
+
+.gallery_planete {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin: 50px 0;
+}
+
+.gallery_planete img {
+
+    width: 420px;
+    padding: 20px;
+}
+
+.info_ville {
+    box-shadow: rgba(6, 201, 255, 0.25) 0px 50px 100px -20px, rgba(28, 159, 220, 0.3) 0px 30px 60px -30px, rgba(32, 121, 210, 0.35) 0px -2px 6px 0px inset;
+    border: #00fffb01 1px solid;
+    margin: 20px 15%;
+}
+
+@media screen and (max-width:855px) {
+    .info_ville {
+        margin: 20px 10px;
+    }
+
+    .gallery_planete img {
+
+        width: 320px;
+    }
+
+    .page_ville span {
+        margin-left: 10px;
+    }
+}
+
+.info_ville img {
+    display: block;
+    margin: 20px auto;
+    width: 70%;
+}
+
+.info_ville h2 {
+    margin: 20px 20px;
+    color: rgba(19, 224, 255, 0.75);
+}
+
+.info_ville h3 {
+    margin: 20px 20px;
+}
+
+.info_ville li {
+    margin: 10px 20%;
+    line-height: 1.8rem;
+}
+
+.gallery_ville {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+}
+
+.gallery_ville img {
+    width: 40%;
+}
+
+iframe {
+    display: block;
+    margin: auto;
+    margin-bottom: 30px;
+}
+
+@media screen and (max-width:560px) {
+    iframe {
+        width: 320px;
+        height: auto;
+    }
+}
