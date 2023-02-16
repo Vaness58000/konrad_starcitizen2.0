@@ -1,7 +1,7 @@
 <?php
 require __DIR__.'/../../../back/connexion.php';
 ?>
-<section class="hurston">
+<section class="lieu">
 
     <h1>Système Stanton</h1>
     <div class="info_planete">

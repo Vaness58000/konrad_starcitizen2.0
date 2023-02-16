@@ -11,10 +11,10 @@ $sth2->execute();
 $planetes = $sth2->fetchAll(PDO::FETCH_ASSOC);
 
 ?>
-<section class="hurston">
+<section class="lieu">
   <?php foreach ($planetes as $planete) { ?>
     <h1><?= $planete['nom']; ?></h1>
-    <div class="info_planete">
+    <div class="info_generale">
       <img src="img/<?= $planete['image']; ?>">
       <p><?= $planete['paragraphe1']; ?></p>
       <p><?= $planete['paragraphe2']; ?></p>

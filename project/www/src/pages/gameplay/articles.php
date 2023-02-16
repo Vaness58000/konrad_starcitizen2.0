@@ -1,59 +1,31 @@
 <?php
 require __DIR__ . '/../../../back/connexion.php';
+require __DIR__ . '/../../../src/repository/ArticleRepository.php';
+$articleRepository = new ArticleRepository();
+$article = $articleRepository->findAllAndTypeUser(1);
+
 ?>
 
 <div class="grid_article">
+<?php foreach ($article as $construct) { ?>
   <div class="grid-item">
     <div class="card_article">
-      <img class="card_article-img" src="img/gallerie10.jpg" alt="" />
+    <a href="?ind=article_streamer_ind&id=<?=$construct["id"] ?>"><img class="card_article-img" src="img/gallerie10.jpg" alt="" /></a>
       <div class="card_article-content">
         <div id="streamer">
           <img src="img/avatar.png" alt="">
-          <h3>Konrad</h3>
-          <span class="patch-card__timestamp"><i class="ion-clock"></i> 2 jours</span>
+          <h3><?= $construct['pseudo'] ?></h3>
+          <span class="patch-card__timestamp"><i class="ion-clock"></i><?= $construct['date'] ?> </span>
         </div>
 
-        <h1 class="card_article-header">LOREM</h1>
+        <a href="?ind=article_streamer_ind&id=<?=$construct["id"] ?>"><h1 class="card_article-header"><?= $construct['titre'] ?></h1></a>
         <p class="card_article-text">
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+        <?= $construct['resume'] ?>
         </p>
-        <a href="?ind=article_streamer_ind" class="card_article-btn">Lire<span>&rarr;</span></a>
+        <a href="?ind=article_streamer_ind&id=<?=$construct["id"] ?>" class="card_article-btn">Lire<span>&rarr;</span></a>
       </div>
     </div>
   </div>
-  <div class="grid-item">
-    <div class="card_article">
-      <img class="card_article-img" src="img/gallerie11.jpg" alt="" />
-      <div class="card_article-content">
-        <div id="streamer">
-          <img src="img/avatar.png" alt="">
-          <h3>Konrad</h3>
-          <span class="patch-card__timestamp"><i class="ion-clock"></i> 2 jours</span>
-        </div>
-        <h1 class="card_article-header">LOREM</h1>
-        <p class="card_article-text">
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-        </p>
-        <a href="?ind=article_streamer_ind" class="card_article-btn">Lire<span>&rarr;</span></a>
-      </div>
-    </div>
-  </div>
-  <div class="grid-item">
-    <div class="card_article">
-      <img class="card_article-img" src="img/gallerie12.jpg" alt="" />
-      <div class="card_article-content">
-        <div id="streamer">
-          <img src="img/avatar.png" alt="">
-          <h3>Konrad</h3>
-          <span class="patch-card__timestamp"><i class="ion-clock"></i> 2 jours</span>
-        </div>
-        <h1 class="card_article-header">LOREM</h1>
-        <p class="card_article-text">
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-        </p>
-        <a href="?ind=article_streamer_ind" class="card_article-btn">Lire<span>&rarr;</span></a>
-      </div>
-    </div>
-  </div>
-</div>
+  <?php } ?>
+ 
 </div>

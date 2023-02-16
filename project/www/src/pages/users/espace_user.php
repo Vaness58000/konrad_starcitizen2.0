@@ -32,8 +32,8 @@ $data = $req->fetch(PDO::FETCH_ASSOC);
 
 
 
-        <div id="info_client_general">
-            <div class="info_client">
+        <div id="info_user_general">
+            <div class="info_user">
                 <h3><i class="fas fa-user-circle"></i>Vos informations</h3>
                 <p>Pseudo : <?php echo $data['pseudo']; ?></p>
                 <p>Adresse mail : <?php echo $data['email']; ?></p>
@@ -68,7 +68,7 @@ $data = $req->fetch(PDO::FETCH_ASSOC);
 
 
 
-            <div class="info_client">
+            <div class="info_user">
                 <h3><i class="fa-solid fa-user-lock"></i>Votre mot de passe</h3>
                 <?php
                 if (isset($_GET['err'])) {

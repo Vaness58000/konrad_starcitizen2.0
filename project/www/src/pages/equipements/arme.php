@@ -19,7 +19,7 @@ $snipers = $sth4->fetchAll(PDO::FETCH_ASSOC);
 ?>
 
 
-<section class="page_vaisseau">
+<section class="page_equipement">
   <h2>Pistolets</h2>
   <div class="container_arme">
 

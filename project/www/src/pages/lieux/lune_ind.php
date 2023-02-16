@@ -14,14 +14,14 @@ $vaisseaux = $sth->fetchAll(PDO::FETCH_ASSOC);
 
 
 <div class="block">
-    <section class="page_ville">
+    <section class="page_generale">
         <?php foreach ($vaisseaux as $vaisseau) { ?>
-            <div class="info_ville">
+            <div class="info_generale">
                 <h1><?= $vaisseau['nom']; ?></h1>
-                <div class="description_vaisseau">
+                <div class="description_generale">
 
                     <img src="img/<?= $vaisseau['image']; ?>" alt="vaisseau<? $vaisseau['nom']; ?>">
-                    <div class="description">
+                    <div class="description_generale">
                         <p><?= $vaisseau['paragraphe1']; ?></p>
                         <p><?= $vaisseau['paragraphe2']; ?></p>
                         <p><?= $vaisseau['paragraphe3']; ?></p>

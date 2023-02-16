@@ -1,9 +1,8 @@
 <?php
 require __DIR__ . '/../../back/connexion.php';
-
-$sth = $dbco->prepare("SELECT * FROM actus");
-$sth->execute();
-$actus = $sth->fetchAll(PDO::FETCH_ASSOC);
+require __DIR__ . '/../../src/repository/ArticleRepository.php';
+$articleRepository = new ArticleRepository();
+$article = $articleRepository->findAllAndTypeUser(1);
 
 ?>
 
@@ -46,25 +45,33 @@ $actus = $sth->fetchAll(PDO::FETCH_ASSOC);
 
     <div class="container_postcard">
 
-        <?php foreach ($actus as $actu) { ?>
+        <?php foreach ($article as $construct) { ?>
             <article class="postcard dark blue">
-                <a class="postcard__img_link" href="?ind=article_streamer_ind">
-                    <img class="postcard__img" src="img/<?= $actu['image1']; ?>" alt="Image Title" />
+                <a class="postcard__img_link" href="?ind=actualite_ind&id=<?= $construct["id"]; ?>">
+                    <?php
+                    $article_img = $articleRepository->findAllImgArticle($construct["id"]);
+                    if (count($article_img) >= 1) {
+                    ?>
+                        <img class="postcard__img" src="img/<?= $article_img[0]['name'] ?>" alt="Image Title" />
+
+                    <?php } ?>
+                    <!--<img class="postcard__img" src="img/gallerie10.jpg" alt="Image Title" />-->
                 </a>
                 <div class="postcard__text">
-                    <h1 class="postcard__title blue"><a href="?ind=article_streamer_ind"><?= $actu['titre']; ?></a></h1>
+
+                    <h1 class="postcard__title blue"><a href="?ind=actualite_ind&id=<?= $construct["id"]; ?>"><?= $construct['titre']; ?></a></h1>
                     <div class="postcard__subtitle small">
                         <time datetime="2020-05-25 12:00:00">
-                            <i class="fas fa-calendar-alt mr-2"></i> Mercredi 8 février 2023
+                            <i class="fas fa-calendar-alt mr-2"></i> <?= $construct['date']; ?>
                         </time>
                     </div>
                     <div class="postcard__bar"></div>
-                    <div class="postcard__preview-txt"><?= $actu['resume']; ?></div>
+                    <div class="postcard__preview-txt"><?= $construct['resume']; ?></div>
                     <ul class="postcard__tagbox">
                         <li class="tag__item">il y a 2 jours</li>
 
                         <li class="tag__item auteur blue">
-                            <a href="?ind=article_streamer_ind">Publié par Konrad</a>
+                            <a href="?ind=actualite_ind&id=<?= $construct["id"]; ?>">Publié par <?= $construct['pseudo'] ?></a>
                         </li>
                     </ul>
                 </div>
@@ -88,75 +95,32 @@ $actus = $sth->fetchAll(PDO::FETCH_ASSOC);
     <hr>
 </div>
 <div class="patch">
-
-    <div class="patch-card">
-        <div class="patch-card__thumbnail">
-            <a href=""><img src="img/gallerie10.jpg" alt="" /></a>
-        </div>
-
-        <div class="patch-card__content">
-            <a href="">
-                <h2 class="patch-card__title">Patch note 3.18</h2>
-            </a>
-
-            <div class="patch-card__text">
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptates debitis dignissimos odio sequi ab. Architecto sed laudantium recusandae dolor
-                </p>
+    <?php foreach ($article as $construct) { ?>
+        <div class="patch-card">
+            <div class="patch-card__thumbnail">
+                <a href="?ind=patch_ind&id=<?= $construct["id"]; ?>"><img src="img/gallerie10.jpg" alt="" /></a>
             </div>
 
-            <div class="patch-card__meta">
-                <span class="patch-card__timestamp"><i class="ion-clock"></i>2 jours</span>
-                <span class="patch-card__auteur">Konrad</span>
+            <div class="patch-card__content">
+                <a href="?ind=patch_ind&id=<?= $construct["id"]; ?>">
+                    <h2 class="patch-card__title"><?= $construct['titre']; ?></h2>
+                </a>
+
+                <div class="patch-card__text">
+                    <p>
+                        <?= $construct['resume']; ?>
+                    </p>
+                </div>
+
+                <div class="patch-card__meta">
+                    <span class="patch-card__timestamp"><i class="ion-clock"></i>2 jours</span>
+                    <span class="patch-card__auteur"><?= $construct['pseudo'] ?></span>
+                </div>
             </div>
         </div>
-    </div>
-    <div class="patch-card">
-        <div class="patch-card__thumbnail">
-            <a href=""><img src="img/gallerie11.jpg" alt="" /></a>
-        </div>
-
-        <div class="patch-card__content">
-            <a href="">
-                <h2 class="patch-card__title">Patch note 3.18</h2>
-            </a>
-
-            <div class="patch-card__text">
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptates debitis dignissimos odio sequi ab. Architecto sed laudantium recusandae dolor
-                </p>
-            </div>
-
-            <div class="patch-card__meta">
-                <span class="patch-card__timestamp"><i class="ion-clock"></i>2 jours</span>
-                <span class="patch-card__auteur">Konrad</span>
-            </div>
-        </div>
-    </div>
-    <div class="patch-card">
-        <div class="patch-card__thumbnail">
-            <a href=""><img src="img/gallerie11.jpg" alt="" /></a>
-        </div>
-
-        <div class="patch-card__content">
-            <a href="">
-                <h2 class="patch-card__title">Patch note 3.18</h2>
-            </a>
-
-            <div class="patch-card__text">
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptates debitis dignissimos odio sequi ab. Architecto sed laudantium recusandae dolor
-                </p>
-            </div>
-
-            <div class="patch-card__meta">
-                <span class="patch-card__timestamp"><i class="ion-clock"></i>2 jours</span>
-                <span class="patch-card__auteur">Konrad</span>
-            </div>
-        </div>
-    </div>
-
-
+    <?php
+    }
+    ?>
 </div>
 <div class="bouton">
     <a class="btn_actus" href="?ind=patch_note"><span>Voir +</span></a>
@@ -166,7 +130,7 @@ $actus = $sth->fetchAll(PDO::FETCH_ASSOC);
 
 <div class="wrapper">
     <div class="section_categorie">
-        <h1 class="centered2">Derniers articles</h1>
+        <h1 class="centered2">Derniers GamePlay</h1>
         <hr>
     </div>
 

@@ -10,7 +10,7 @@ $lunes = $sth->fetchAll(PDO::FETCH_ASSOC);
 <div class="container_lune">
 
     <?php foreach ($lunes as $lune) { ?>
-        <div class="vaisseau_indiv">
+        <div class="equipement_indiv">
             <a href="?ind=lune_ind&id=<?= $lune['id']; ?>"><img src="img/<?= $lune['image']; ?>" alt="lune<? $lune['nom']; ?>"></a>
             <div class="centered"><?= $lune['nom']; ?></div>
         </div>

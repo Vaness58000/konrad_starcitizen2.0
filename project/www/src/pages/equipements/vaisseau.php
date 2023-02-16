@@ -16,7 +16,7 @@ $constructs = $sth3->fetchAll(PDO::FETCH_ASSOC);
 ?>
 
 
-<section class="page_vaisseau">
+<section class="page_equipement">
   <div class="dropdown">
     <button onclick="categorie()" class="dropbtn"><i class="fa-solid fa-bars-sort" style="color:white"></i>Constructeur</button>
 
@@ -40,10 +40,10 @@ $constructs = $sth3->fetchAll(PDO::FETCH_ASSOC);
          <input type="submit" name = "s" value="Rechercher">
         </div>
       </form>-->
-  <div class="container_vaisseau">
+  <div class="container_equipement">
 
     <?php foreach ($vaisseaux as $vaisseau) { ?>
-      <div class="vaisseau_indiv">
+      <div class="equipement_indiv">
         <a href="?ind=vaisseau_ind&id=<?= $vaisseau['id']; ?>"><img src="img/<?= $vaisseau['image_vaisseau']; ?>" alt="vaisseau<? $vaisseau['nom_vaisseau']; ?>"></a>
         <div class="centered"><?= $vaisseau['nom_vaisseau']; ?></div>
       </div>
