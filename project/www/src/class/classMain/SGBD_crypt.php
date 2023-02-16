@@ -54,6 +54,9 @@ if (!class_exists('SGBD_crypt')) {
          * crypter le mot de passe.
          */
         public function encrypt(?string $input):string {
+            if(empty($input)){
+                return "";
+            }
             try {
                 $first_key = base64_decode($this->first_Key);
                 $second_key = base64_decode($this->second_key);   
@@ -94,6 +97,9 @@ if (!class_exists('SGBD_crypt')) {
          * decrypter le mot de passe.
          */
         public function decrypt(?string $input):?string {
+            if(empty($input)){
+                return "";
+            }
             try {
                 $first_key = base64_decode($this->first_Key);
                 $second_key = base64_decode($this->second_key);           

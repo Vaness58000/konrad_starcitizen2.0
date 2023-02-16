@@ -13,10 +13,10 @@ $armes = $sth->fetchAll(PDO::FETCH_ASSOC);
 
 ?>
 
-<section class="page_ville">
+<section class="page_generale">
     <?php foreach ($armes as $arme) { ?>
 
-        <div class="info_ville">
+        <div class="info_generale">
 
             <h1><?= $arme['nom']; ?></h1>
             <img src="img/<?= $arme["image"] ?>" alt="" class="image" />

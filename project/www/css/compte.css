@@ -1,3 +1,5 @@
+/* espace user*/
+
 .user {
 	color: #ffffff;
 	font-family: "Jost", sans-serif;
@@ -127,7 +129,7 @@
 }
 
 
-#info_client_general {
+#info_user_general {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -136,7 +138,7 @@
     background-color: #000;
 }
 
-.info_client {
+.info_user {
     background: rgb(0, 0, 0);
     display: flex;
     flex-direction: column;
@@ -150,29 +152,30 @@
     border: #00eaff0a 1px solid;
   }
 
-.info_client h3 {
+.info_user h3 {
     padding-bottom: 20px;
 }
 
-.info_client form h3 {
+.info_user form h3 {
     text-align: center;
 }
 
-.info_client a {
+.info_user a {
     color: #ffffff;
     font-weight: 400;
     line-height: 1.8rem;
 }
 
 
-.info_client h3 i {
+.info_user h3 i {
     color: rgba(255, 255, 255, 0.862);
     font-size: 30px;
     margin-right: 20px;
 }
 
 @media (max-width: 644px) {
-    .info_client {
+    .info_user
+ {
         background: rgb(0, 0, 0);
         margin: 5px;
         margin-bottom: 30px;

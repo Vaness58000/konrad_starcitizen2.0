@@ -31,7 +31,7 @@ $sth4->execute();
 $tousConstrus = $sth4->fetchAll(PDO::FETCH_ASSOC);
 ?>
 
-<section class="page_vaisseau">
+<section class="page_equipement">
     <div class="dropdown">
         <button onclick="categorie()" class="dropbtn"><i class="fa-solid fa-bars-sort" style="color:white"></i>Constructeur</button>
 

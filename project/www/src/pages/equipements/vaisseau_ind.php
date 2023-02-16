@@ -12,10 +12,10 @@ $vaisseaux = $sth->fetchAll(PDO::FETCH_ASSOC);
 
 ?>
 
-<section class="page_ville">
+<section class="page_generale">
   <?php foreach ($vaisseaux as $vaisseau) { ?>
 
-    <div class="info_ville">
+    <div class="info_generale">
       <main class="main-content">
         <section class="slideshow">
           <div class="slideshow-inner">
@@ -35,8 +35,6 @@ $vaisseaux = $sth->fetchAll(PDO::FETCH_ASSOC);
                 <div class="slide-content">
                   <div class="caption">
                     <div class="title"><?= $vaisseau['nom_vaisseau']; ?></div>
-
-                   
                   </div>
                 </div>
                 <div class="image-container">

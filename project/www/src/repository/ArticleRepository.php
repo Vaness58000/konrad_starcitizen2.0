@@ -36,6 +36,22 @@ if (!class_exists('ArticleRepository')) {
         public function findAllImgArticle(int $id):array {
             return $this->setSql('SELECT * FROM articles_image WHERE id_article=:id_article')->setParamInt(":id_article", $id)->fetchAllAssoc();
         }
-    }
+
+        public function findAllAndUserId(int $id):array {
+            return $this->setSql('SELECT * FROM articles '.
+                'INNER JOIN utilisateurs ON utilisateurs.id_user = articles.id_user WHERE articles.id=:id_article')->setParamInt(":id_article", $id)->fetchAllAssoc();
+        }
+
+        /*Pour relier l'utilisateur au article*/
+        public function findAllAndTypeUserId(int $id, int $type):array {
+            return $this->setSql('SELECT * FROM articles '.
+                'INNER JOIN utilisateurs ON utilisateurs.id_user = articles.id_user WHERE articles.id=:id_article AND articles.id_categorie_article=:id_categorie_article')->setParamInt(":id_article", $id)->setParamInt(":id_categorie_article", $type)->fetchAllAssoc();
+        }
+        /*pour relier le type */
+        public function findAllAndTypeUser(int $type):array {
+            return $this->setSql('SELECT * FROM articles '.
+                'INNER JOIN utilisateurs ON utilisateurs.id_user = articles.id_user WHERE articles.id_categorie_article=:id_categorie_article')->setParamInt(":id_categorie_article", $type)->fetchAllAssoc();
+        }
+    } 
 }
 

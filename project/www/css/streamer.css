@@ -37,6 +37,19 @@
 	box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.2);
 	width: 500px;
 }
+@media screen and (max-width: 1088px){
+	.card_gameplay{
+		width: 320px;
+	}
+}
+@media screen and (max-width: 720px){
+	.card_gameplay{
+		width: 500px;
+	}
+}
+.info_streamer{
+	display: flex;
+}
 .card_streamer .card-avatar {
 	transform: none;
 	left: 20px;

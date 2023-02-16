@@ -1,4 +1,4 @@
-.page_ville {
+.page_generale {
     color: aliceblue;
     display: flex;
     justify-content: center;
@@ -6,37 +6,44 @@
     width: 100%;
 }
 
-.page_ville h1 {
+.page_generale h1 {
     text-align: center;
     font-weight: 900;
-    font-size: clamp(1.3rem, 3vw, 2.2rem);
+    font-size: clamp(1.6rem, 3vw, 2.2rem);
+    margin: 20px auto;
+    width: 70%;
 }
 
-.page_ville h1 img {
+.page_generale h1 img {
     width: 20px;
 }
 
-.page_ville h4 {
+.page_generale h4 {
     padding-left: 10px;
     font-size: 20px;
 }
-.page_ville h3{
+.page_generale h3{
     font-size: 17px;
 }
 #auteur{
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
     align-items: center;
 }
-
+#auteur a{
+    color: aqua;
+    line-height: 1.5rem;
+}
+#auteur a:hover{
+    color: aqua;
+}
 #auteur img{
     width: 60px;
     margin-right:5px;
     border-radius:50%;
     background-color: var(--light-color);
 }
-.page_ville p {
+.page_generale p {
     color: white;
     padding: 20px;
     line-height: 1.7rem;
@@ -62,14 +69,14 @@
     padding: 20px;
 }
 
-.info_ville {
+.info_generale {
     box-shadow: rgba(6, 201, 255, 0.25) 0px 50px 100px -20px, rgba(28, 159, 220, 0.3) 0px 30px 60px -30px, rgba(32, 121, 210, 0.35) 0px -2px 6px 0px inset;
     border: #00fffb01 1px solid;
     margin: 20px 15%;
 }
 
 @media screen and (max-width:855px) {
-    .info_ville {
+    .info_generale {
         margin: 20px 10px;
     }
 
@@ -78,27 +85,27 @@
         width: 320px;
     }
 
-    .page_ville span {
+    .page_generale span {
         margin-left: 10px;
     }
 }
 
-.info_ville img {
+.info_generale img {
     display: block;
     margin: 20px auto;
     width: 70%;
 }
 
-.info_ville h2 {
+.info_generale h2 {
     margin: 20px 20px;
     color: rgba(19, 224, 255, 0.75);
 }
 
-.info_ville h3 {
+.info_generale h3 {
     margin: 20px 20px;
 }
 
-.info_ville li {
+.info_generale li {
     margin: 10px 20%;
     line-height: 1.8rem;
 }
@@ -125,5 +132,10 @@ iframe {
     iframe {
         width: 320px;
         height: auto;
+    }
+    .page_generale h1 {
+        text-align: center;
+        margin: 20px 0px;
+        width: 100%;
     }
 }
