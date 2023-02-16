@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : starcitizen_mariadb:3306
--- Généré le : jeu. 16 fév. 2023 à 08:54
+-- Généré le : jeu. 16 fév. 2023 à 09:35
 -- Version du serveur : 10.4.18-MariaDB-1:10.4.18+maria~focal-log
 -- Version de PHP : 8.0.19
 
@@ -164,7 +164,9 @@ CREATE TABLE `categories_articles` (
 --
 
 INSERT INTO `categories_articles` (`id_categorie_article`, `nom`) VALUES
-(1, 'article');
+(2, 'actualité'),
+(1, 'article'),
+(3, 'patch_note');
 
 -- --------------------------------------------------------
 
@@ -2436,7 +2438,7 @@ ALTER TABLE `avatar`
 -- AUTO_INCREMENT pour la table `categories_articles`
 --
 ALTER TABLE `categories_articles`
-  MODIFY `id_categorie_article` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_categorie_article` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT pour la table `categories_especes`
