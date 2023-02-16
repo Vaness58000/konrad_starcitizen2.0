@@ -29,7 +29,7 @@ if (!empty($_POST['email']) && !empty($_POST['password'])) // Si il existe les c
                 ];
 
 
-                header('Location: ?ind=espace_user');
+                header('Location: admin/?ind=espace_user');
                 //die();
             } else {
                 header('Location: ?ind=login&login_err=password');
