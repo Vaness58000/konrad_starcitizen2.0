@@ -6,28 +6,28 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Konrad Star citizen</title>
   <link rel="icon" href="favicon.ico" type="image/x-icon">
-  <link rel="stylesheet" href="fonts/stylesheet.css">
-  <link rel="stylesheet" href="/src/css/style-header.css">
-  <link rel="stylesheet" href="/src/css/index.css">
-  <link rel="stylesheet" href="/src/css/equipement.css">
-  <link rel="stylesheet" href="/src/css/equipement_ind.css">
-  <link rel="stylesheet" href="/src/css/contact.css">
-  <link rel="stylesheet" href="/src/css/planete.css">
-  <link rel="stylesheet" href="/src/css/systeme.css">
-  <link rel="stylesheet" href="/src/css/login.css">
-  <link rel="stylesheet" href="/src/css/civilisation.css">
-  <link rel="stylesheet" href="/src/css/articles.css">
-  <link rel="stylesheet" href="/src/css/compte.css">
-  <link rel="stylesheet" href="/src/css/login.css">
-  <link rel="stylesheet" href="/src/css/squadron.css">
-  <link rel="stylesheet" href="/src/css/partage_screen.css">
-  <link rel="stylesheet" href="/src/css/gallerie.css">
-  <link rel="stylesheet" href="/src/css/gestion_screen.css">
-  <link rel="stylesheet" href="/src/css/rgpd.css">
-  <link rel="stylesheet" href="/src/css/streamer.css">
-  <link rel="stylesheet" href="/src/css/patch_note.css">
-  <link rel="stylesheet" href="/src/css/lieu.css">
-  <link rel="stylesheet" href="/src/css/gameplay.css">
+  <link rel="stylesheet" href="src/fonts/stylesheet.css">
+  <link rel="stylesheet" href="src/css/style-header.css">
+  <link rel="stylesheet" href="src/css/index.css">
+  <link rel="stylesheet" href="src/css/equipement.css">
+  <link rel="stylesheet" href="src/css/equipement_ind.css">
+  <link rel="stylesheet" href="src/css/contact.css">
+  <link rel="stylesheet" href="src/css/planete.css">
+  <link rel="stylesheet" href="src/css/systeme.css">
+  <link rel="stylesheet" href="src/css/login.css">
+  <link rel="stylesheet" href="src/css/civilisation.css">
+  <link rel="stylesheet" href="src/css/articles.css">
+  <link rel="stylesheet" href="src/css/compte.css">
+  <link rel="stylesheet" href="src/css/login.css">
+  <link rel="stylesheet" href="src/css/squadron.css">
+  <link rel="stylesheet" href="src/css/partage_screen.css">
+  <link rel="stylesheet" href="src/css/gallerie.css">
+  <link rel="stylesheet" href="src/css/gestion_screen.css">
+  <link rel="stylesheet" href="src/css/rgpd.css">
+  <link rel="stylesheet" href="src/css/streamer.css">
+  <link rel="stylesheet" href="src/css/patch_note.css">
+  <link rel="stylesheet" href="src/css/lieu.css">
+  <link rel="stylesheet" href="src/css/gameplay.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -199,4 +199,4 @@
     </script>
     <!-- partial -->
     <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js'></script>
-    <script src="js/script.js"></script>
+    <script src="/src/js/script.js"></script>

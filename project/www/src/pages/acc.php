@@ -306,4 +306,4 @@ $article = $articleRepository->findAllAndTypeUser(1);
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/flexslider/2.5.0/jquery.flexslider.min.js"></script>
-<script src="js/slide_accueil.js"></script>
+<script src="src/js/slide_accueil.js"></script>
