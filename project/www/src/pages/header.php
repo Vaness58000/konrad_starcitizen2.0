@@ -48,16 +48,16 @@
       <input type="checkbox" id="show-menu">
       <label for="show-menu" class="menu-icon"><i class="fas fa-bars"></i></label>
       <div class="content">
-        <div class="logo"><a href="index.php"><img src="img/logo_test.png" alt=""></a></div>
+        <div class="logo"><a href="./"><img src="img/logo_test.png" alt=""></a></div>
         <ul class="links">
-          <li><a class="radio" href="index.php">Accueil</a></li>
+          <li><a class="radio" href="./">Accueil</a></li>
           <li>
             <a href="#" class="desktop-link radio">Actus</a>
             <input type="checkbox" id="show-actus">
             <label for="show-actus" class="radio">Actus</label>
             <ul>
-              <li><a class="radio" href="?ind=actualites">Toutes les actus</a></li>
-              <li><a class="radio" href="?ind=patch_note">Patch Notes</a></li>
+              <li><a class="radio" href="./?ind=actualites">Toutes les actus</a></li>
+              <li><a class="radio" href="./?ind=patch_note">Patch Notes</a></li>
             </ul>
           </li>
           <li>
@@ -65,9 +65,9 @@
             <input type="checkbox" id="show-guide">
             <label for="show-guide" class="radio">Guide</label>
             <ul class="deroulant">
-              <li><a class="radio" href="?ind=equipements">Equipements</a></li>
-              <li><a class="radio" href="?ind=lieux">Lieux</a></li>
-              <li><a class="radio" href="?ind=especes">Espèces</a></li>
+              <li><a class="radio" href="./?ind=equipements">Equipements</a></li>
+              <li><a class="radio" href="./?ind=lieux">Lieux</a></li>
+              <li><a class="radio" href="./?ind=especes">Espèces</a></li>
             </ul>
           </li>
           <li>
@@ -75,11 +75,11 @@
             <input type="checkbox" id="show-gameplay">
             <label for="show-gameplay" class="radio">Gameplay</label>
             <ul class="deroulant">
-              <li><a class="radio" href="?ind=articles">Tous les articles</a></li>
-              <li><a class="radio" href="?ind=gameplay">Streamer</a></li>
+              <li><a class="radio" href="./?ind=articles">Tous les articles</a></li>
+              <li><a class="radio" href="./?ind=gameplay">Streamer</a></li>
             </ul>
           </li>
-          <li><a class="radio" href="?ind=gallerie">Gallerie</a></li>
+          <li><a class="radio" href="./?ind=gallerie">Gallerie</a></li>
 
           <li>
             <a href="#" class="desktop-link radio">Liens utiles</a>
@@ -88,7 +88,7 @@
             <ul>
               <li><a class="radio" href="https://robertsspaceindustries.com/starmap" target="_blank">Starmap</a></li>
               <li><a class="radio" href="https://robertsspaceindustries.com/download" target="_blank">Roberts space industries</a></li>
-              <li><a class="radio" href="?ind=squadron">Squadron 42</a></li>
+              <li><a class="radio" href="./?ind=squadron">Squadron 42</a></li>
 
             </ul>
           </li>
@@ -99,12 +99,12 @@
             <label for="show-compte" class="radio">Mon compte</label>
             <ul>
               <?php if (!isset($_SESSION['user'])) { ?>
-                <li><a class="radio" href="?ind=login">Connexion</a></li>
-                <li><a class="radio" href="?ind=inscription"> Inscription</a></li>
+                <li><a class="radio" href="./?ind=login">Connexion</a></li>
+                <li><a class="radio" href="./?ind=inscription"> Inscription</a></li>
               <?php } else { ?>
-                <li><a class="radio" href="?ind=espace_user">Gérer mon profil</a></li>
-                <li><a class="radio" href="?ind=partage">Partager des screens</a></li>
-                <li><a class="radio" href="?ind=deconnexion"> Déconnexion</a></li>
+                <li><a class="radio" href="./admin/?ind=espace_user">Gérer mon profil</a></li>
+                <li><a class="radio" href="./admin/?ind=partage">Partager des screens</a></li>
+                <li><a class="radio" href="./?ind=deconnexion"> Déconnexion</a></li>
               <?php } ?>
             </ul>
           </li>
@@ -115,7 +115,7 @@
         <input type="text" placeholder="Taper votre recherche ..." required>
         <button type="submit" class="go-icon"><i class="fas fa-long-arrow-alt-right"></i></button>
       </form>
-    
+      <div id="google_translate_element"></div>
     </nav>
   </div>
   <!-- Debut du code du traducteur de site Web de Google -->
@@ -199,4 +199,6 @@
     </script>
     <!-- partial -->
     <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js'></script>
-    <script src="js/script.js"></script>
+    <script src="./js/script.js"></script>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    <script src="./js/google_traduction.js"></script>

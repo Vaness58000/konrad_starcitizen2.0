@@ -643,3 +643,14 @@ footer {
         font-size: 13px;
     }
 }
+
+/*.goog-te-banner-frame{
+    display: none!important;
+}*/
+
+/*.skiptranslate:first-child {
+    display: none;
+    max-height: 0px;
+    box-sizing: border-box;
+    overflow: hidden;
+}*/
