@@ -4,3 +4,12 @@
 /project/cron/config_path.php
 /project/error/config_path.php
 /project/install/config_path.php
+/project/www/back/sgbd_connexion.php
+/project/www/back/sgbd_connexion_new.php
+/project/www/forum/config.php
+/project/www/src/config/config.php
+/project/www/upload
+/project/www/config/config_def.ini
+/project/www/config/informations.json
+/project/www/.htaccess
+/project/www/errors.log

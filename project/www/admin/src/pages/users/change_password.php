@@ -2,7 +2,7 @@
 // Démarrage de la session 
 session_start();
 // Include de la base de données
-require_once '../back/connexion.php';
+require_once __DIR__.'/../../../../back/connexion.php';
 
 
 // Si la session n'existe pas 

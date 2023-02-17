@@ -14,7 +14,7 @@ if (!empty($_POST['email']) && !empty($_POST['password'])) // Si il existe les c
     $check->execute([":email" => $email]);
     $data = $check->fetch(PDO::FETCH_ASSOC);
     $row = $check->rowCount();
-
+    
     // Si > à 0 alors l'utilisateur existe
     if ($row > 0) {
         // Si le mail est bon niveau format
@@ -29,7 +29,7 @@ if (!empty($_POST['email']) && !empty($_POST['password'])) // Si il existe les c
                 ];
 
 
-                header('Location: ?ind=espace_user');
+                header('Location: admin/?ind=espace_user');
                 //die();
             } else {
                 header('Location: ?ind=login&login_err=password');
