@@ -115,7 +115,6 @@
         <input type="text" placeholder="Taper votre recherche ..." required>
         <button type="submit" class="go-icon"><i class="fas fa-long-arrow-alt-right"></i></button>
       </form>
-      <div id="google_translate_element"></div>
     </nav>
   </div>
   <!-- Debut du code du traducteur de site Web de Google -->
@@ -200,5 +199,3 @@
     <!-- partial -->
     <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js'></script>
     <script src="./js/script.js"></script>
-    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-    <script src="./js/google_traduction.js"></script>
