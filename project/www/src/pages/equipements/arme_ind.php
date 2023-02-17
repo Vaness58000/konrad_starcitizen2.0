@@ -1,27 +1,24 @@
 <?php
 require __DIR__ . '/../../../back/connexion.php';
-
-$id = strip_tags($_GET["id"]);
-$sth = $dbco->prepare(" 
-SELECT * 
-FROM arme WHERE id=:id");
-$sth->bindValue(":id", $id, PDO::PARAM_INT);
-$sth->execute();
-/*Retourne un tableau associatif pour chaque entrée de notre table
-*avec le nom des colonnes sélectionnées en clefs*/
-$armes = $sth->fetchAll(PDO::FETCH_ASSOC);
-
+require __DIR__ . '/../../../src/repository/ArmeFpsRepository.php';
+$armeFpsRepository = new ArmeFpsRepository();
+$armeFps = $armeFpsRepository->findAllId($_GET['id']);
 ?>
 
 <section class="page_generale">
-    <?php foreach ($armes as $arme) { ?>
+    <?php foreach ($armeFps as $construct) { ?>
 
         <div class="info_generale">
 
-            <h1><?= $arme['nom']; ?></h1>
-            <img src="img/<?= $arme["image"] ?>" alt="" class="image" />
-            <p><?= $arme['paragraphe']; ?></p>
-            <p><?= $arme['paragraphe2']; ?></p>
+            <h1><?= $construct['nom_arm'] ?></h1>
+            <?php 
+                        $armeFps_img = $armeFpsRepository->findAllImgObj($construct["id_objet"]);
+
+                        foreach ($armeFps_img as $construct_img) {?>
+                                <img src="img/<?= $construct_img['name'] ?>" class="image" alt="<?= $construct['nom_arm'] ?>"/>
+                        <?php } ?>
+            <p><?= str_replace("\n", "<br/>",$construct['contenu']) ?></p>
+           
             <div class="bouton">
                 <a class="btn_actus" href="#"><span>Pledge Store</span></a>
             </div>

@@ -55,14 +55,13 @@ $article = $articleRepository->findAllAndTypeUser(1);
                         <img class="postcard__img" src="img/<?= $article_img[0]['name'] ?>" alt="Image Title" />
 
                     <?php } ?>
-                    <!--<img class="postcard__img" src="img/gallerie10.jpg" alt="Image Title" />-->
                 </a>
                 <div class="postcard__text">
 
                     <h1 class="postcard__title blue"><a href="?ind=actualite_ind&id=<?= $construct["id"]; ?>"><?= $construct['titre']; ?></a></h1>
                     <div class="postcard__subtitle small">
-                        <time datetime="2020-05-25 12:00:00">
-                            <i class="fas fa-calendar-alt mr-2"></i> <?= $construct['date']; ?>
+                        <time>
+                            <i class="fas fa-calendar-alt mr-2"></i> <?= date('d/m/Y', strtotime($construct['date'])); ?>
                         </time>
                     </div>
                     <div class="postcard__bar"></div>
@@ -98,7 +97,13 @@ $article = $articleRepository->findAllAndTypeUser(1);
     <?php foreach ($article as $construct) { ?>
         <div class="patch-card">
             <div class="patch-card__thumbnail">
-                <a href="?ind=patch_ind&id=<?= $construct["id"]; ?>"><img src="img/gallerie10.jpg" alt="" /></a>
+                <a href="?ind=patch_ind&id=<?= $construct["id"]; ?>"> 
+                <?php
+                    $article_img = $articleRepository->findAllImgArticle($construct["id"]);
+                    if (count($article_img) >= 1) {
+                    ?><img src="img/<?= $article_img[0]['name'] ?>" alt="" />
+                    <?php } ?>
+                </a>
             </div>
 
             <div class="patch-card__content">
@@ -113,8 +118,8 @@ $article = $articleRepository->findAllAndTypeUser(1);
                 </div>
 
                 <div class="patch-card__meta">
-                    <span class="patch-card__timestamp"><i class="ion-clock"></i>2 jours</span>
-                    <span class="patch-card__auteur"><?= $construct['pseudo'] ?></span>
+                    <span class="patch-card__timestamp"><i class="ion-clock"></i><?= date('d/m/Y', strtotime($construct['date'])); ?></span>
+                    <span class="patch-card__auteur"><?= $construct['pseudo'] ?><img src="img/avatar.png"/></span>
                 </div>
             </div>
         </div>
@@ -301,4 +306,4 @@ $article = $articleRepository->findAllAndTypeUser(1);
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/flexslider/2.5.0/jquery.flexslider.min.js"></script>
-<script src="js/slide_accueil.js"></script>
+<script src="src/js/slide_accueil.js"></script>

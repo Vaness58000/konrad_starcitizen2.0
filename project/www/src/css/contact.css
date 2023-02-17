@@ -1,0 +1,179 @@
+@-webkit-keyframes bounce {
+	0%, 100% {
+		-webkit-transform: translateX(0px);
+	}
+	30% {
+		-webkit-transform: translateX(5px);
+	}
+	60% {
+		-webkit-transform: translateX(-5px);
+	}
+}
+@-moz-keyframes bounce {
+	0%, 100% {
+		-moz-transform: translateX(0px);
+	}
+	30% {
+		-moz-transform: translateX(5px);
+	}
+	60% {
+		-moz-transform: translateX(-5px);
+	}
+}
+@keyframes bounce {
+	0%, 100% {
+		transform: translateX(0px);
+	}
+	30% {
+		transform: translateX(5px);
+	}
+	60% {
+		transform: translateX(-5px);
+	}
+}
+.container_contact {
+  max-width: 960px;
+  margin: 25px auto;
+  text-align: center;
+  -webkit-perspective: 800px;
+  -moz-perspective: 800px;
+  perspective: 800px;
+}
+.contact-loading {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #1D6782;
+  opacity: 0.2;
+  z-index: 100;
+}
+.contact-loading.show {
+  display: block;
+}
+.contact-form {
+  position: relative;
+  width:70%;
+  padding: 15px;
+  display: inline-block;
+  background: var(--light-color);
+  -webkit-transition: all 0.7s ease-in-out;
+  -moz-transition: all 0.7s ease-in-out;
+  transition: all 0.7s ease-in-out;
+}
+.contact-form.sending {
+  -webkit-transform: rotateX(40deg);
+  -moz-transform: rotateX(40deg);
+  transform: rotateX(40deg);
+}
+.contact-form:before {
+  content:"";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 1px;
+  width: 100%;
+  background: rgb(33,135,231);
+  box-shadow: 0px 0px 10px 1px rgba(0, 198, 255, 0.7);
+}
+.contact-title {
+  color: #1D6782;
+  font-size: 24px;
+  font-weight: 700;
+  text-align: center;
+  padding: 10px 0;
+}
+
+.field {
+  border: none;
+}
+.field label {
+  display: block;
+  text-align: left;
+  color: #fff;
+  opacity: 0.5;
+}
+.field input,
+.field textarea {
+  display: block;
+  width: 100%;
+  background: #17181E;
+  color: rgba(33,135,231, 0.7);
+  border: none;
+  outline: none;
+  font-size: 16px;
+  padding: 5px 8px;
+  border: 1px solid rgb(51, 54, 59);
+  border-radius: 3px;
+  margin-top: 5px;
+  letter-spacing: 1px;
+}
+.field textarea {
+  height: 150px;
+  max-height: 300px;
+}
+.field input:focus,
+.field textarea:focus {
+  box-shadow: 0px 0px 5px 1px rgba(0, 198, 255, 0.7);
+  border: 1px solid rgba(33,135,231, 0.4);
+  -webkit-transition: border 0.5s ease, box-shadow 0.5s linear;
+  -moz-transition: border 0.5s ease, box-shadow 0.5s linear;
+  transition: border 0.5s ease, box-shadow 0.5s linear;
+}
+.btn-send {
+  position: relative;
+  display: inline-block;
+  margin: 25px 0 15px;
+  border: none;
+  outline: none;
+  color: #1D6782;
+  cursor: pointer;
+  font: normal 16px 'Open Sans';
+  background: #17181E;
+}
+.btn-send span {
+  display: inline-block;
+  padding: 10px 25px;
+  font-family: "jurabook";
+}
+.btn-send.sending {
+  width: 100%;
+  height: 1px;
+  -webkit-transition: width 0.5s ease 1s, height 0.5s ease, top 1s ease 1.2s;
+  -moz-transition: width 0.5s ease 1s, height 0.5s ease, top 1s ease 1.2s;
+  transition: width 0.5s ease 1s, height 0.5s ease, top 1s ease 1.2s;
+  box-shadow: 0px 0px 10px 1px rgba(33, 138, 255, 0.7);
+}
+.btn-send:after {
+  content:'';
+  position: absolute;
+  height: 1px;
+  left: 0;
+  width: 0;
+  background: rgb(33,135,231);
+}
+.btn-send.sending:after {
+  width: 100%;
+  -webkit-transition: width 2.5s ease 1s;
+  -moz-transition: width 2.5s ease 1s;
+  transition: width 2.5s ease 1s;
+}
+.btn-send.sending > span {
+  display: none;
+}
+.btn-send:hover {
+  color: #2183D9;
+  background: #21262B;
+  -webkit-animation: 300ms ease 0s normal none 1 bounce;
+  -moz-animation: 300ms ease 0s normal none 1 bounce;
+  animation: 300ms ease 0s normal none 1 bounce;
+}
+
+.success {
+  font-size: 14px;
+  color: #2183D9;
+  margin: 5px 0;
+}

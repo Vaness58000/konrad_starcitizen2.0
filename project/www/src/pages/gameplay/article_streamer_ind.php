@@ -16,12 +16,18 @@ $article = $articleRepository->findAllAndTypeUserId($_GET['id'], 1);
                     <a href="#"><img src="img/avatar.png" alt="">
                         <h3>Publié par <?= $construct['pseudo'] ?>
                     </a> </br>
-                    le <?= $construct['date'] ?></h3>
+                    le <?= date('d/m/Y H:i:s', strtotime($construct['date'])); ?></h3>
                 </div>
                 <p><?= str_replace("\n", "<br/>", $construct['resume']) ?></p>
 
                 <p><?= str_replace("\n", "<br/>", $construct['contenu']) ?></p>
                 <iframe width="560" height="315" src="<?= $construct['video'] ?>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                <?php
+                $article_img = $articleRepository->findAllImgArticle($construct["id"]);
+
+                foreach ($article_img as $construct_img) { ?>
+                    <img src="img/<?= $construct_img['name'] ?>">
+                <?php } ?>
             </div>
 
         <?php } ?>
