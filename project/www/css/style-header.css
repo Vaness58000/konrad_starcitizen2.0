@@ -273,7 +273,7 @@ footer {
 
 .footer-content {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     flex-wrap: wrap;
     align-items: center;
     justify-content: space-around;
@@ -294,13 +294,12 @@ footer {
 }
 
 .footer-content h3 {
-    margin: 10px auto;
+    margin: 10px 0;
     line-height: 28px;
     font-size: 16px;
-    color: #cacdd2;
-    text-align: center;
+    color: #19dce6;
     font-family: "jurabook";
-    font-weight: 500;
+    font-weight: 700;
 }
 
 .footer-top {
@@ -308,22 +307,33 @@ footer {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    align-items: flex-start;
-    margin: 0 30px;
-    width: 500px;
+    width: 90%;
 }
-
+.logo_footer{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
 .footer-top p {
     font-size: 14px;
     font-weight: 400px;
     line-height: 1.8rem;
+    text-align: center;
 }
-
+.info{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: flex-start;
+    width: 100%;
+}
 .reseau {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin: 30px 10px 10px 10px;
 }
 
 .social-container {
@@ -395,6 +405,7 @@ footer {
     word-spacing: 2px;
     text-transform: capitalize;
     text-align: center;
+    padding-bottom: 10px;
 }
 
 .footer-bottom span {
@@ -402,7 +413,20 @@ footer {
     opacity: .4;
     font-weight: 200;
 }
-
+.contact li a{
+    color: #cfd2d6;
+    text-decoration: none;
+}
+.contacter{
+    margin: 30px 10px 10px 10px;
+}
+.contact{
+    list-style-type: none;
+    margin: 1em;
+}
+.footer-menu{
+    margin:30px;
+}
 .footer-menu ul {
     display: flex;
     flex-direction: column;
@@ -420,6 +444,58 @@ footer {
 
 .footer-menu ul li a:hover {
     color: var(--primary-color);
+}
+@media screen and (max-width: 600px) {
+    .logo_footer{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    
+}
+@media screen and (max-width: 939px) {
+    .footer-menu .f-menu{
+        display: flex;
+        flex-direction: row;
+    }
+    .footer-menu{
+        margin: 5px 0px 0px 0px;
+    }
+    .footer-content h3{
+        text-align: center;
+    }
+}
+@media screen and (max-width: 632px) {
+    .info{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .social {
+        padding: 0;
+        list-style: none;
+        margin: 0.5em;
+    }
+    .footer-menu .f-menu{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .footer-menu ul li {
+        padding: 10px 0px;
+        display: block;
+    }
+    .reseau{
+        margin: 0px;
+    }
+    .contacter{
+        margin-top: 10px;
+    }
+    .footer-top{
+        width: 100%;
+    }
 }
 
 
@@ -579,64 +655,8 @@ footer {
 /*fin responsive menu*/
 
 /*responsive footer*/
-@media (max-width:1050px) {
-    .footer-content {
-        display: flex;
-        flex-wrap: wrap;
-        align-items: center;
-        justify-content: center;
-        padding: 20px 0;
-        margin: 0 10px;
-    }
 
-    .footer-menu ul {
-        display: flex;
-        flex-direction: row;
-    }
 
-    .footer-top {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        align-items: center;
-        margin: 0 30px;
-        width: 100%;
-    }
-
-    .footer-top p {
-        font-size: 14px;
-        width: 100%;
-        text-align: center;
-    }
-
-    .info {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-    }
-}
-
-@media (max-width:582px) {
-    .reseau {
-        margin: 0 50px;
-    }
-
-    .social {
-        margin: 0;
-    }
-
-    .footer-menu ul {
-        display: flex;
-        flex-direction: column;
-    }
-
-    .footer-menu ul li {
-        padding: 10px 0;
-        display: block;
-    }
-}
 
 @media screen and (max-width: 350px) {
     .footer-menu ul li {

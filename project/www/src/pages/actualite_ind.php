@@ -13,15 +13,22 @@ $article = $articleRepository->findAllAndTypeUserId($_GET['id'], 1);
 
             <div class="info_generale">
                 <div id="auteur">
-                <a href="#"><img src="img/avatar.png" alt="">
-                    <h3>Publié par <?= $construct['pseudo'] ?></a> </br>
-                    le <?= $construct['date'] ?></h3>
+                    <a href="#"><img src="img/avatar.png" alt="">
+                        <h3>Publié par <?= $construct['pseudo'] ?>
+                    </a> </br>
+                    le <?= date('d/m/Y H:i:s', strtotime($construct['date'])); ?></h3>
                 </div>
                 <p><?= str_replace("\n", "<br/>", $construct['resume']) ?></p>
 
                 <p><?= str_replace("\n", "<br/>", $construct['contenu']) ?></p>
-            </div>
+            
+            <?php
+                $article_img = $articleRepository->findAllImgArticle($construct["id"]);
 
+                foreach ($article_img as $construct_img) { ?>
+                    <img src="img/<?= $construct_img['name'] ?>">
+                <?php } ?>
+            </div>
         <?php } ?>
         </section>
 </div>
