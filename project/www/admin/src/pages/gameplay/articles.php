@@ -30,7 +30,7 @@ if (isset($_GET['err'])) {
     }
 }
 
-$templatePage = new TemplatePage(__DIR__.'/../../template/profile.html');
+$templatePage = new TemplatePage(__DIR__.'/../../template/articles.html');
 $templatePage->addVarString("[#CITIZEN_USER_ID#]", $id);
 $templatePage->addVarString("[#CITIZEN_USER_PSEUDO#]", $pseudo);
 $templatePage->addVarString("[#CITIZEN_USER_EMAIL#]", $email);

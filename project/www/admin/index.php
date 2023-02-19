@@ -1,25 +1,58 @@
 <?php 
 session_start();
-$get_ind = "acc";
+$get_ind = "espace_user";
 if(!empty($_GET['ind'])) {
     $get_ind = $_GET['ind'];
 }
 if(!isset($_SESSION['user'])) {
     header('Location: ./../?ind=login');
 }
-if($get_ind != "connexion" && $get_ind != "inscription_traitement" && $get_ind != "deconnexion") {
-    include __DIR__.'/src/pages/header.php';
+
+include __DIR__.'/../src/class/classMain/TemplatePage.php';
+
+$templateIndex = new TemplatePage(__DIR__.'/src/template/header_footer.html');
+$templateMenuAdmin = new TemplatePage(__DIR__.'/src/template/menu_admin.html');
+$no_session = new TemplatePage(__DIR__.'/src/template/session/no_session.html');
+$one_session = new TemplatePage(__DIR__.'/src/template/session/one_session.html');
+$menu_session = $no_session->html();
+$js = "";
+$css = "";
+$contenu = "";
+
+$templateMenuAdmin->addFileCss("./src/css/style_admin.css");
+
+if (!isset($_SESSION['user'])) {
+    $menu_session = $one_session->html();
 }
 
-?>
+if($get_ind == "acc") {
+} else if($get_ind == "espace_user") {
+    include __DIR__.'/src/pages/users/espace_user.php';
+} else if($get_ind == "partage") {
+    include __DIR__.'/src/pages/partage.php';
+} else if($get_ind == "articles"){
+    include __DIR__.'/src/pages/gameplay/articles.php';
+} else {
+    include __DIR__.'/src/pages/users/espace_user.php';
+}
 
-    <?php 
-    
+if($get_ind != "connexion" && $get_ind != "inscription_traitement" && $get_ind != "deconnexion") {
+    $templateMenuAdmin->addVarString("[#CITIZEN_INDEX_PAGE_ADMIN#]", $contenu);
+    $contenu = $templateMenuAdmin->html();
+    $templateIndex->addVarString("[#CITIZEN_INDEX_SESSION#]", $menu_session);
+    $templateIndex->addVarString("[#CITIZEN_INDEX_CSS#]", $templateMenuAdmin->css().$css);
+    $templateIndex->addVarString("[#CITIZEN_INDEX_PAGE#]", $contenu);
+    $templateIndex->addVarString("[#CITIZEN_INDEX_JS#]", $templateMenuAdmin->js().$js);
+    echo $templateIndex->html();
+}
+
+
+/*
     if($get_ind == "acc") {
         include __DIR__.'/src/pages/acc.php';
     }
 
-    /*equipements*/
+    / *equipements* /
     else if($get_ind == "equipements") {
         include __DIR__.'/src/pages/equipements/equipement.php';
     }
@@ -50,9 +83,9 @@ if($get_ind != "connexion" && $get_ind != "inscription_traitement" && $get_ind !
     else if($get_ind == "verif_form") {
         include __DIR__.'/src/pages/equipements/verif-form.php';
     }
-    /*fin equipements*/
+    / *fin equipements* /
 
-    /* actu/patch*/
+    / * actu/patch* /
     else if($get_ind == "actualites"){
         include __DIR__.'/src/pages/actualites.php';
     }
@@ -65,9 +98,9 @@ if($get_ind != "connexion" && $get_ind != "inscription_traitement" && $get_ind !
     else if($get_ind == "patch_ind"){
         include __DIR__.'/src/pages/patch_note_ind.php';
     }
-    /*fin actu/patch*/
+    / *fin actu/patch* /
 
-    /*lieu*/
+    / *lieu* /
     else if($get_ind == "lieux"){
         include __DIR__.'/src/pages/lieux/lieu.php';
     }
@@ -101,16 +134,16 @@ if($get_ind != "connexion" && $get_ind != "inscription_traitement" && $get_ind !
     else if($get_ind == "ville_ind") {
         include __DIR__.'/src/pages/lieux/ville_ind.php';
     }
-    /*fin lieux*/
+    / *fin lieux* /
 
-    /*especes*/
+    / *especes* /
     else if($get_ind == "especes") {
         include __DIR__.'/src/pages/especes/civilisation.php';
     }
-    /*fin especes*/
+    / *fin especes* /
 
 
-    /* streamers */
+    / * streamers * /
     else if($get_ind == "gameplay"){
         include __DIR__.'/src/pages/gameplay/gameplay.php';
     }
@@ -126,9 +159,9 @@ if($get_ind != "connexion" && $get_ind != "inscription_traitement" && $get_ind !
     else if($get_ind == "article_streamer_ind"){
         include __DIR__.'/src/pages/gameplay/article_streamer_ind.php';
     }
-    /*streamers*/
+    / *streamers* /
 
-    /*début users*/
+    / *début users* /
     else if($get_ind == "action") {
         include __DIR__.'/src/pages/action.php';
     }
@@ -159,19 +192,19 @@ if($get_ind != "connexion" && $get_ind != "inscription_traitement" && $get_ind !
     else if($get_ind == "reinitialisation_mdp") {
         include __DIR__.'/src/pages/reinitialisation_password.php';
     }
-    /*fin users*/
+    / *fin users* /
 
-    /*lien utile*/
+    / *lien utile* /
     else if($get_ind == "squadron"){
         include __DIR__.'/src/pages/squadron.php';
     }
-    /*fin lien*/
+    / *fin lien* /
 
     else if($get_ind == "gallerie") {
         include __DIR__.'/src/pages/gallerie.php';
     }
 
-    /*début rgpd*/
+    / *début rgpd* /
     else if($get_ind == "cgu") {
         include __DIR__.'/src/pages/rgpd/cgu.php';
     }
@@ -181,15 +214,9 @@ if($get_ind != "connexion" && $get_ind != "inscription_traitement" && $get_ind !
     else if($get_ind == "politique_confidentialite") {
         include __DIR__.'/src/pages/rgpd/politique_confi.php';
     }
-    /*fin rgpd*/
+    / *fin rgpd* /
 
     else if($get_ind == "contact") {
         include __DIR__.'/src/pages/contact.php';
     }
-
-    ?>
-<?php
-if($get_ind != "connexion" && $get_ind != "inscription_traitement" && $get_ind != "deconnexion") {
-    include __DIR__.'/src/pages/footer.php';
-}
-?>
+*/
