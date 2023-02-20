@@ -1,3 +1,4 @@
+"use strict";
 /* Lorsque l'utilisateur clique sur le bouton,
 basculer entre le masquage et l'affichage du contenu de la liste déroulante */
 function categorie() {

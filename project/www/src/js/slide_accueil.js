@@ -1,3 +1,4 @@
+"use strict";
 /* slide vidéo premiere section*/
 $('.slide-image').each(function() {
     var bg = $(this).data('bg');

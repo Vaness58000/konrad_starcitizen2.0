@@ -1,5 +1,5 @@
+"use strict";
 $(document).ready(function () {
-  "use strict";
   $('.menu > ul > li:has( > ul)').addClass('menu-dropdown-icon');
   $('.menu > ul > li > ul:not(:has(ul))').addClass('normal-sub');
   $(".menu > ul").before("<a href=\"#\" class=\"menu-mobile\"></a>");

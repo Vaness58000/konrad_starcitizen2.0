@@ -8,6 +8,7 @@ if(!isset($_SESSION['user'])) {
     header('Location: ./../?ind=login');
 }
 
+include __DIR__.'/../src/class/classSite/Config.php';
 include __DIR__.'/../src/class/classMain/TemplatePage.php';
 
 $templateIndex = new TemplatePage(__DIR__.'/src/template/header_footer.html');
@@ -21,7 +22,7 @@ $contenu = "";
 
 $templateMenuAdmin->addFileCss("./src/css/style_admin.css");
 
-if (!isset($_SESSION['user'])) {
+if (isset($_SESSION['user'])) {
     $menu_session = $one_session->html();
 }
 
@@ -31,7 +32,11 @@ if($get_ind == "acc") {
 } else if($get_ind == "partage") {
     include __DIR__.'/src/pages/partage.php';
 } else if($get_ind == "articles"){
+    $_GET["type"]=1;
     include __DIR__.'/src/pages/gameplay/articles.php';
+} else if($get_ind == "add_article" || $get_ind == "mod_article"){
+    $_GET["type"]=1;
+    include __DIR__.'/src/pages/gameplay/add_mod_article.php';
 } else {
     include __DIR__.'/src/pages/users/espace_user.php';
 }

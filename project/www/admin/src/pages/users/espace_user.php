@@ -36,7 +36,7 @@ $templatePage->addVarString("[#CITIZEN_USER_PSEUDO#]", $pseudo);
 $templatePage->addVarString("[#CITIZEN_USER_EMAIL#]", $email);
 $templatePage->addVarString("[#CITIZEN_USER_ERR#]", $err);
 
-$templatePage->addFileJs("../src/js/modale.js");
+$templatePage->addFileJs("./../src/js/modale.js");
 
 $js = $templatePage->js();
 $css = $templatePage->css();
