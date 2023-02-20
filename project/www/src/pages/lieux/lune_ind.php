@@ -20,7 +20,7 @@ $vaisseaux = $sth->fetchAll(PDO::FETCH_ASSOC);
                 <h1><?= $vaisseau['nom']; ?></h1>
                 <div class="description_generale">
 
-                    <img src="img/<?= $vaisseau['image']; ?>" alt="vaisseau<? $vaisseau['nom']; ?>">
+                    <img src="src/img/<?= $vaisseau['image']; ?>" alt="vaisseau<? $vaisseau['nom']; ?>">
                     <div class="description_generale">
                         <p><?= $vaisseau['paragraphe1']; ?></p>
                         <p><?= $vaisseau['paragraphe2']; ?></p>
@@ -75,8 +75,8 @@ $vaisseaux = $sth->fetchAll(PDO::FETCH_ASSOC);
 
 </div>
 <div class="gallery_planete">
-    <img src="img/<?= $vaisseau['image1']; ?>">
-    <img src="img/<?= $vaisseau['image2']; ?>">
+    <img src="src/img/<?= $vaisseau['image1']; ?>">
+    <img src="src/img/<?= $vaisseau['image2']; ?>">
 
 </div>
 <?php

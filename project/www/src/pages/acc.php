@@ -1,9 +1,11 @@
 <?php
 require __DIR__ . '/../../back/connexion.php';
 require __DIR__ . '/../../src/repository/ArticleRepository.php';
+require __DIR__ . '/../../src/repository/UsersRepository.php';
 $articleRepository = new ArticleRepository();
 $article = $articleRepository->findAllAndTypeUser(1);
-
+$usersRepository = new UsersRepository();
+//$users = $usersRepository->findAllUserId($id);
 ?>
 
 <!--SLIDE IMAGE-->
@@ -24,13 +26,13 @@ $article = $articleRepository->findAllAndTypeUser(1);
     </div>
     <ul class="slides">
         <li>
-            <div class="slide-image" data-bg="img/image1.jpg" data-flex-start="center center "></div>
+            <div class="slide-image" data-bg="src/img/image1.jpg" data-flex-start="center center "></div>
         </li>
         <li>
-            <div class="slide-image" data-bg="img/image2.jpg" data-flex-start="center center "></div>
+            <div class="slide-image" data-bg="src/img/image2.jpg" data-flex-start="center center "></div>
         </li>
         <li>
-            <div class="slide-image" data-bg="img/image3.jpg" data-flex-start="center center "></div>
+            <div class="slide-image" data-bg="src/img/image3.jpg" data-flex-start="center center "></div>
         </li>
     </ul>
 </div>
@@ -52,7 +54,7 @@ $article = $articleRepository->findAllAndTypeUser(1);
                     $article_img = $articleRepository->findAllImgArticle($construct["id"]);
                     if (count($article_img) >= 1) {
                     ?>
-                        <img class="postcard__img" src="img/<?= $article_img[0]['name'] ?>" alt="Image Title" />
+                        <img class="postcard__img" src="src/img/<?= $article_img[0]['name'] ?>" alt="Image Title" />
 
                     <?php } ?>
                 </a>
@@ -65,12 +67,12 @@ $article = $articleRepository->findAllAndTypeUser(1);
                         </time>
                     </div>
                     <div class="postcard__bar"></div>
-                    <div class="postcard__preview-txt"><?= $construct['resume']; ?></div>
+                    <div class="postcard__preview-txt"><?= $construct['resume'] ?></div>
                     <ul class="postcard__tagbox">
-                        <li class="tag__item">il y a 2 jours</li>
+                        <li class="tag__item"><a href="?ind=patch_note">Actualité</a></li>
 
                         <li class="tag__item auteur blue">
-                            <a href="?ind=actualite_ind&id=<?= $construct["id"]; ?>">Publié par <?= $construct['pseudo'] ?></a>
+                          <a href="?ind=streamer_ind&id=<?= $construct["id_user"] ?>">Publié par <?= $construct['pseudo'] ?>
                         </li>
                     </ul>
                 </div>
@@ -97,11 +99,11 @@ $article = $articleRepository->findAllAndTypeUser(1);
     <?php foreach ($article as $construct) { ?>
         <div class="patch-card">
             <div class="patch-card__thumbnail">
-                <a href="?ind=patch_ind&id=<?= $construct["id"]; ?>"> 
-                <?php
+                <a href="?ind=patch_ind&id=<?= $construct["id"]; ?>">
+                    <?php
                     $article_img = $articleRepository->findAllImgArticle($construct["id"]);
                     if (count($article_img) >= 1) {
-                    ?><img src="img/<?= $article_img[0]['name'] ?>" alt="" />
+                    ?><img src="src/img/<?= $article_img[0]['name'] ?>" alt="" />
                     <?php } ?>
                 </a>
             </div>
@@ -118,8 +120,17 @@ $article = $articleRepository->findAllAndTypeUser(1);
                 </div>
 
                 <div class="patch-card__meta">
-                    <span class="patch-card__timestamp"><i class="ion-clock"></i><?= date('d/m/Y', strtotime($construct['date'])); ?></span>
-                    <span class="patch-card__auteur"><?= $construct['pseudo'] ?><img src="img/avatar.png"/></span>
+                    <div>
+                    <span class="patch-card__timestamp"><i class="fas fa-calendar-alt mr-2"></i> <?= date('d/m/Y', strtotime($construct['date'])); ?></span>
+                    </div>
+                    <ul class="postcard__tagbox">
+                        <li class="tag__item"><a href="?ind=patch_note">Patch Notes</a></li>
+
+                        <li class="tag__item auteur blue">
+
+                                <a href="?ind=streamer_ind&id=<?= $construct["id_user"] ?>">Publié par <?= $construct['pseudo'] ?></a>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </div>
@@ -146,7 +157,7 @@ $article = $articleRepository->findAllAndTypeUser(1);
             <div class="news-slider__item swiper-slide">
 
                 <a href="?ind=article_streamer_ind" class="news__item">
-                    <img src="img/avatar.png" /><span>Konrad</span>
+                    <img src="src/img/avatar.png" /><span>Konrad</span>
                     <div class="news__title">
                         Lorem Ipsum Dolor Sit Amed
                     </div>
@@ -157,14 +168,14 @@ $article = $articleRepository->findAllAndTypeUser(1);
                     </p>
                     <span>12 février 2023</span>
                     <div class="news__img">
-                        <img src="img/gallerie.jpg" alt="news">
+                        <img src="src/img/gallerie.jpg" alt="news">
                     </div>
                 </a>
             </div>
 
             <div class="news-slider__item swiper-slide">
                 <a href="?ind=article_streamer_ind" class="news__item">
-                    <img src="img/avatar.png" /><span>Konrad</span>
+                    <img src="src/img/avatar.png" /><span>Konrad</span>
                     <div class="corner-borders corner-borders--left"></div>
                     <div class="corner-borders corner-borders--right"></div>
                     <div class="news__title">
@@ -176,14 +187,14 @@ $article = $articleRepository->findAllAndTypeUser(1);
                     </p>
                     <span>12 février 2023</span>
                     <div class="news__img">
-                        <img src="img/gallerie9.jpg" alt="news">
+                        <img src="src/img/gallerie9.jpg" alt="news">
                     </div>
                 </a>
             </div>
 
             <div class="news-slider__item swiper-slide">
                 <a href="?ind=article_streamer_ind" class="news__item">
-                    <img src="img/avatar.png" /><span>Konrad</span>
+                    <img src="src/img/avatar.png" /><span>Konrad</span>
                     <div class="corner-borders corner-borders--left"></div>
                     <div class="corner-borders corner-borders--right"></div>
                     <div class="news__title">
@@ -195,14 +206,14 @@ $article = $articleRepository->findAllAndTypeUser(1);
                     </p>
                     <span>12 février 2023</span>
                     <div class="news__img">
-                        <img src="img/gallerie10.jpg" alt="news">
+                        <img src="src/img/gallerie10.jpg" alt="news">
                     </div>
                 </a>
             </div>
 
             <div class="news-slider__item swiper-slide">
                 <a href="?ind=article_streamer_ind" class="news__item">
-                    <img src="img/avatar.png" /><span>Konrad</span>
+                    <img src="src/img/avatar.png" /><span>Konrad</span>
                     <div class="corner-borders corner-borders--left"></div>
                     <div class="corner-borders corner-borders--right"></div>
                     <div class="news__title">
@@ -214,14 +225,14 @@ $article = $articleRepository->findAllAndTypeUser(1);
                     </p>
                     <span>12 février 2023</span>
                     <div class="news__img">
-                        <img src="img/gallerie11.jpg" alt="news">
+                        <img src="src/img/gallerie11.jpg" alt="news">
                     </div>
                 </a>
             </div>
 
             <div class="news-slider__item swiper-slide">
                 <a href="?ind=article_streamer_ind" class="news__item">
-                    <img src="img/avatar.png" /><span>Konrad</span>
+                    <img src="src/img/avatar.png" /><span>Konrad</span>
                     <div class="corner-borders corner-borders--left"></div>
                     <div class="corner-borders corner-borders--right"></div>
                     <div class="news__title">
@@ -233,14 +244,14 @@ $article = $articleRepository->findAllAndTypeUser(1);
                     </p>
                     <span>12 février 2023</span>
                     <div class="news__img">
-                        <img src="img/gallerie6.jpg" alt="news">
+                        <img src="src/img/gallerie6.jpg" alt="news">
                     </div>
                 </a>
             </div>
 
             <div class="news-slider__item swiper-slide">
                 <a href="?ind=article_streamer_ind" class="news__item">
-                    <img src="img/avatar.png" /><span>Konrad</span>
+                    <img src="src/img/avatar.png" /><span>Konrad</span>
                     <div class="corner-borders corner-borders--left"></div>
                     <div class="corner-borders corner-borders--right"></div>
                     <div class="news__title">
@@ -252,7 +263,7 @@ $article = $articleRepository->findAllAndTypeUser(1);
                     </p>
                     <span>12 février 2023</span>
                     <div class="news__img">
-                        <img src="img/gallerie8.jpg" alt="news">
+                        <img src="src/img/gallerie8.jpg" alt="news">
                     </div>
                 </a>
             </div>

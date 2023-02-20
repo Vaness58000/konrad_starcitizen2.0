@@ -22,9 +22,8 @@ if (!class_exists('UsersRepository')) {
             return $this->setSql('SELECT * FROM utilisateurs'.
             'LEFT JOIN avatar ON utilisateurs.id_user = avatar.id_user')->fetchAllAssoc();
         }
-        public function findAllId(int $id):array {
-            return $this->setSql('SELECT * FROM utilisateurs'.
-            'LEFT JOIN avatar ON utilisateurs.id_user = avatar.id_user WHERE utilisateurs.id_user=:id')->setParamInt(":id", $id)->fetchAllAssoc();
+        public function findAllUserId(int $id):array {
+            return $this->setSql('SELECT * FROM avatar WHERE id_user=:id')->setParamInt(":id", $id)->fetchAssoc();
         }
 
     }

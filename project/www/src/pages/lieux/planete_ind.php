@@ -15,7 +15,7 @@ $planetes = $sth2->fetchAll(PDO::FETCH_ASSOC);
   <?php foreach ($planetes as $planete) { ?>
     <h1><?= $planete['nom']; ?></h1>
     <div class="info_generale">
-      <img src="img/<?= $planete['image']; ?>">
+      <img src="src/img/<?= $planete['image']; ?>">
       <p><?= $planete['paragraphe1']; ?></p>
       <p><?= $planete['paragraphe2']; ?></p>
       <p><?= $planete['paragraphe3']; ?></p>
@@ -24,12 +24,12 @@ $planetes = $sth2->fetchAll(PDO::FETCH_ASSOC);
       <p><?= $planete['paragraphe6']; ?></p>
     </div>
     <div class="gallery_planete">
-      <img src="img/<?= $planete['image1']; ?>">
-      <img src="img/<?= $planete['image2']; ?>">
-      <img src="img/<?= $planete['image3']; ?>">
-      <img src="img/<?= $planete['image4']; ?>">
-      <img src="img/<?= $planete['image5']; ?>">
-      <img src="img/<?= $planete['image6']; ?>">
+      <img src="src/img/<?= $planete['image1']; ?>">
+      <img src="src/img/<?= $planete['image2']; ?>">
+      <img src="src/img/<?= $planete['image3']; ?>">
+      <img src="src/img/<?= $planete['image4']; ?>">
+      <img src="src/img/<?= $planete['image5']; ?>">
+      <img src="src/img/<?= $planete['image6']; ?>">
 
     </div>
 

@@ -12,7 +12,7 @@ $planetes = $sth->fetchAll(PDO::FETCH_ASSOC);
   <div class="container_categorie">
     <?php foreach ($planetes as $planete) { ?>
       <div class="card">
-        <a href="?ind=planete_ind&id=<?= $planete['id']; ?>"><img src="img/<?= $planete['imageprincipale']; ?>">
+        <a href="?ind=planete_ind&id=<?= $planete['id']; ?>"><img src="src/img/<?= $planete['imageprincipale']; ?>">
           <div class="card__head"><?= $planete['nom']; ?></div>
         </a>
       </div>

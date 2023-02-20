@@ -9,10 +9,10 @@ $article = $screensRepository->findAllAndUser();
 <?php foreach ($article as $construct) {?>
     <div class="card_gallerie">
     
-      <img src="img/<?= $construct['image'] ?>" />
+      <img src="src/img/<?= $construct['image'] ?>" />
 
       <div class="detail_user">
-        <img id="avatar" src="img/avatar.png" alt="avatar utilisateur">
+        <img id="avatar" src="src/img/avatar.png" alt="avatar utilisateur">
         <h4><?= $construct['pseudo'] ?></h4>
        <!--<a href="action.php?t=1&id=<? $construct['id']?>">J'aime</a>-->
       </div>

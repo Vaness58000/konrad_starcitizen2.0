@@ -25,7 +25,7 @@ $constructs = $sth3->fetchAll(PDO::FETCH_ASSOC);
             <input type="text" placeholder="Recherche.." id="myInput" onkeyup="filterFunction()">
             <a href="vaisseau.php" id="construct"><img src="" alt="">Tous les vaisseaux</a></li>
             <?php foreach ($constructeurs as $constructeur) { ?>
-                <a href="?ind=vehicule_construct&id=<?= $constructeur['idConstructeur']; ?>"><img src="img/<?= $constructeur['logo']; ?>" alt="" width="50px"><?= $constructeur['nom']; ?></a>
+                <a href="?ind=vehicule_construct&id=<?= $constructeur['idConstructeur']; ?>"><img src="src/img/<?= $constructeur['logo']; ?>" alt="" width="50px"><?= $constructeur['nom']; ?></a>
             <?php
             }
             ?>
@@ -37,7 +37,7 @@ $constructs = $sth3->fetchAll(PDO::FETCH_ASSOC);
 
         <?php foreach ($vaisseaux as $vaisseau) { ?>
             <div class="equipement_indiv">
-                <a href="?ind=vaisseau_ind&id=<?= $vaisseau['id']; ?>"><img src="img/<?= $vaisseau['image_vaisseau']; ?>" alt="vaisseau<? $vaisseau['nom_vaisseau']; ?>"></a>
+                <a href="?ind=vaisseau_ind&id=<?= $vaisseau['id']; ?>"><img src="src/img/<?= $vaisseau['image_vaisseau']; ?>" alt="vaisseau<? $vaisseau['nom_vaisseau']; ?>"></a>
                 <div class="centered"><?= $vaisseau['nom_vaisseau']; ?></div>
             </div>
         <?php
@@ -45,4 +45,4 @@ $constructs = $sth3->fetchAll(PDO::FETCH_ASSOC);
         ?>
     </div>
 </section>
-<script src="./../../../js/script_filtre_vaisseau.js"></script>
+<script src="src/js/script_filtre_vaisseau.js"></script>
