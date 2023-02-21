@@ -156,3 +156,40 @@ th img {
 .th-admin-visible {
     width: 50px;
 }
+
+.admin-contenu img {
+    max-height: 350px;
+    max-width: 350px;
+}
+
+#img-art-add {
+    height: 150px;
+    width: 150px;
+    filter: invert(1);
+}
+
+.add-list-img {
+    margin: 10px;
+}
+
+.list_img {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.delete_img {
+    position: absolute;
+    filter: invert(1);
+    background-color: #00fffcd1;
+    padding: 3px;
+    width: 35px;
+    height: 35px;
+    border-radius: 5px;
+    margin-left: -35px;
+}
+
+#empty-table {
+    text-align: center;
+    padding: 15px;
+}

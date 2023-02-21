@@ -7,7 +7,7 @@
 
 if (!class_exists('SessionUser')) {
         
-    include_once dirname(__FILE__) . '/../../lelien-admin/src/repository/UserRepository.php';
+    include_once dirname(__FILE__) . '/../../repository/UsersRepository.php';
 
     /**
      * Creation de la class pour la recuperation des informations de l'entreprise
@@ -31,8 +31,8 @@ if (!class_exists('SessionUser')) {
                 $this->deconnected();
             }
             if(!empty($_SESSION) && array_key_exists('lelien_id_user', $_SESSION) && array_key_exists('lelien_jeton', $_SESSION)) {
-                $userRepository = new UserRepository();
-                if(!$userRepository->userValid(intval($_SESSION['lelien_id_user']), $_SESSION['lelien_jeton'])) {
+                $usersRepository = new UsersRepository();
+                if(!$usersRepository->userValid(intval($_SESSION['lelien_id_user']), $_SESSION['lelien_jeton'])) {
                     $this->deconnected();
                 }
             }
@@ -49,7 +49,7 @@ if (!class_exists('SessionUser')) {
          * verifier qu'on est bien admin
          */
         public function isAdmin():bool {
-            $userRepository = new UserRepository();
+            $userRepository = new UsersRepository();
             if(!empty($_SESSION) && !empty($_SESSION['lelien_id_user']) && $userRepository->isAdmin(intval($_SESSION['lelien_id_user']))) {
                 return true;
             }
@@ -155,7 +155,7 @@ if (!class_exists('SessionUser')) {
         /**
          * visualiser le nom
          */ 
-        public function getNom():?string
+        public function getPseudo():?string
         {
             if(!$this->isConnected()) {
                 return "";
@@ -168,7 +168,7 @@ if (!class_exists('SessionUser')) {
          *
          * @return  self
          */ 
-        public function setNom(?string $nom):self
+        public function setPseudo(?string $nom):self
         {
                 if(isset($_SESSION)) {
                     $_SESSION['lelien_nom'] = $nom;

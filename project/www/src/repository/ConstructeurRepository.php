@@ -36,6 +36,54 @@ if (!class_exists('ConstructeurRepository')) {
         public function findAllImgArticle(int $id):array {
             return $this->setSql('SELECT * FROM articles_image WHERE id_article=:id_article')->setParamInt(":id_article", $id)->fetchAllAssoc();
         }
+
+        /*Pour relier l'utilisateur au article*/
+        public function findAllAndUserIdPage(int $id, int $nmPage=0, int $nbArtPage=0):array {
+            $limit = "";
+            if(!empty($nbArtPage)) {
+                $nmStart = $nmPage*$nbArtPage;
+                $limit = " LIMIT $nbArtPage OFFSET $nmStart";
+            }
+            $sql = 'SELECT * FROM constructeur '.
+                    'INNER JOIN utilisateurs ON utilisateurs.id_user = constructeur.id_user '.
+                    'WHERE utilisateurs.id_user=:id_user ORDER BY constructeur.id_constructeur DESC'.$limit.'';
+            return $this->setSql($sql)
+                        ->setParamInt(":id_user", $id)
+                        ->fetchAllAssoc();
+        }
+
+        /*Pour relier l'utilisateur au article*/
+        public function findAllAndUserIdCount(int $id):int {
+            $sql = 'SELECT * FROM constructeur '.
+                    'INNER JOIN utilisateurs ON utilisateurs.id_user = constructeur.id_user '.
+                    'WHERE utilisateurs.id_user=:id_user ORDER BY constructeur.id_constructeur DESC';
+            return $this->setSql($sql)
+                        ->setParamInt(":id_user", $id)
+                        ->rowCount();
+        }
+
+        /*Pour relier l'utilisateur au article*/
+        public function findAllAndUserPage(int $nmPage=0, int $nbArtPage=0):array {
+            $limit = "";
+            if(!empty($nbArtPage)) {
+                $nmStart = $nmPage*$nbArtPage;
+                $limit = " LIMIT $nbArtPage OFFSET $nmStart";
+            }
+            $sql = 'SELECT * FROM constructeur '.
+                    'INNER JOIN utilisateurs ON utilisateurs.id_user = constructeur.id_user '.
+                    'ORDER BY constructeur.id_constructeur DESC'.$limit.'';
+            return $this->setSql($sql)
+                        ->fetchAllAssoc();
+        }
+
+        /*Pour relier l'utilisateur au article*/
+        public function findAllAndUserCount():int {
+            $sql = 'SELECT * FROM constructeur '.
+                    'INNER JOIN utilisateurs ON utilisateurs.id_user = constructeur.id_user '.
+                    'ORDER BY constructeur.id_constructeur DESC';
+            return $this->setSql($sql)
+                        ->rowCount();
+        }
     }
 }
 

@@ -36,13 +36,13 @@ if (!class_exists('ArticleRepository')) {
          * Recuperer toutes les donnees visibles de la table
          */
         public function findAllImgArticle(int $id):array {
-            return $this->setSql('SELECT *, articles.id AS id_article FROM articles_image '.
+            return $this->setSql('SELECT * FROM articles_image '.
                         'WHERE id_article=:id_article')
                         ->setParamInt(":id_article", $id)
                         ->fetchAllAssoc();
         }
 
-        public function findAllAndUserId(int $id):array {
+        public function findAllAndIdUser(int $id):array {
             return $this->setSql('SELECT *, articles.id AS id_article FROM articles '.
                         'INNER JOIN utilisateurs ON utilisateurs.id_user = articles.id_user '.
                         'WHERE articles.id=:id_article')
@@ -72,10 +72,50 @@ if (!class_exists('ArticleRepository')) {
         }
 
         /*Pour relier l'utilisateur au article*/
+        public function findAllAndUserIdPage(int $id, int $nmPage=0, int $nbArtPage=0):array {
+            $limit = "";
+            if(!empty($nbArtPage)) {
+                $nmStart = $nmPage*$nbArtPage;
+                $limit = " LIMIT $nbArtPage OFFSET $nmStart";
+            }
+            $sql = 'SELECT *, articles.id AS id_article FROM articles '.
+                    'INNER JOIN utilisateurs ON utilisateurs.id_user = articles.id_user '.
+                    'WHERE utilisateurs.id_user=:id_user'.$limit;
+            return $this->setSql($sql)
+                        ->setParamInt(":id_user", $id)
+                        ->fetchAllAssoc();
+        }
+
+        /*Pour relier l'utilisateur au article*/
+        public function findAllAndUserPage(int $nmPage=0, int $nbArtPage=0):array {
+            $limit = "";
+            if(!empty($nbArtPage)) {
+                $nmStart = $nmPage*$nbArtPage;
+                $limit = " LIMIT $nbArtPage OFFSET $nmStart";
+            }
+            $sql = 'SELECT *, articles.id AS id_article FROM articles '.
+                    'INNER JOIN utilisateurs ON utilisateurs.id_user = articles.id_user '.
+                    $limit;
+            return $this->setSql($sql)
+                        ->fetchAllAssoc();
+        }
+
+        /*Pour relier l'utilisateur au article*/
+        public function findAllAndUserId(int $id):array {
+            $sql = 'SELECT *, articles.id AS id_article FROM articles '.
+                    'INNER JOIN utilisateurs ON utilisateurs.id_user = articles.id_user '.
+                    'WHERE utilisateurs.id_user=:id_user';
+            return $this->setSql($sql)
+                        ->setParamInt(":id_user", $id)
+                        ->fetchAllAssoc();
+        }
+
+        /*Pour relier l'utilisateur au article*/
         public function findAllAndTypeUserIdPage(int $id, int $type, int $nmPage=0, int $nbArtPage=0):array {
             $limit = "";
             if(!empty($nbArtPage)) {
-                $limit = " LIMIT $nbArtPage OFFSET $nmPage";
+                $nmStart = $nmPage*$nbArtPage;
+                $limit = " LIMIT $nbArtPage OFFSET $nmStart";
             }
             $sql = 'SELECT *, articles.id AS id_article FROM articles '.
                     'INNER JOIN utilisateurs ON utilisateurs.id_user = articles.id_user '.
@@ -90,7 +130,8 @@ if (!class_exists('ArticleRepository')) {
         public function findAllAndTypeUserPage(int $type, int $nmPage=0, int $nbArtPage=0):array {
             $limit = "";
             if(!empty($nbArtPage)) {
-                $limit = " LIMIT $nbArtPage OFFSET $nmPage";
+                $nmStart = $nmPage*$nbArtPage;
+                $limit = " LIMIT $nbArtPage OFFSET $nmStart";
             }
             $sql = 'SELECT *, articles.id AS id_article FROM articles '.
                     'INNER JOIN utilisateurs ON utilisateurs.id_user = articles.id_user '.
@@ -98,6 +139,24 @@ if (!class_exists('ArticleRepository')) {
             return $this->setSql($sql)
                         ->setParamInt(":id_categorie_article", $type)
                         ->fetchAllAssoc();
+        }
+
+        /*Pour relier l'utilisateur au article*/
+        public function findAllAndUserIdCount(int $id):int {
+            $sql = 'SELECT *, articles.id AS id_article FROM articles '.
+                    'INNER JOIN utilisateurs ON utilisateurs.id_user = articles.id_user '.
+                    'WHERE utilisateurs.id_user=:id_user';
+            return $this->setSql($sql)
+                        ->setParamInt(":id_user", $id)
+                        ->rowCount();
+        }
+
+        /*Pour relier l'utilisateur au article*/
+        public function findAllAndUserCount():int {
+            $sql = 'SELECT *, articles.id AS id_article FROM articles '.
+                    'INNER JOIN utilisateurs ON utilisateurs.id_user = articles.id_user ';
+            return $this->setSql($sql)
+                        ->rowCount();
         }
 
         /*Pour relier l'utilisateur au article*/
@@ -127,6 +186,12 @@ if (!class_exists('ArticleRepository')) {
                         'INNER JOIN utilisateurs ON utilisateurs.id_user = articles.id_user '.
                         'WHERE articles.id_categorie_article=:id_categorie_article')
                         ->setParamInt(":id_categorie_article", $type)
+                        ->fetchAllAssoc();
+        }
+
+        /*pour relier le type */
+        public function findAllCat():array {
+            return $this->setSql('SELECT * FROM categories_articles')
                         ->fetchAllAssoc();
         }
     } 

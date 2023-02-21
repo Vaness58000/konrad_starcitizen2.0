@@ -10,6 +10,7 @@ if(!isset($_SESSION['user'])) {
 
 include __DIR__.'/../src/class/classSite/Config.php';
 include __DIR__.'/../src/class/classMain/TemplatePage.php';
+include __DIR__.'/../src/repository/UsersRepository.php';
 
 $templateIndex = new TemplatePage(__DIR__.'/src/template/header_footer.html');
 $templateMenuAdmin = new TemplatePage(__DIR__.'/src/template/menu_admin.html');
@@ -19,24 +20,89 @@ $menu_session = $no_session->html();
 $js = "";
 $css = "";
 $contenu = "";
+$add_menu_admin = "";
+
+$usersRepository = new UsersRepository();
+$user = $usersRepository->findAllId($_SESSION['utilisateur']['id']);
+$id_role = intval($user["id_role"]);
+$isAdmin = $id_role == 2;
 
 $templateMenuAdmin->addFileCss("./src/css/style_admin.css");
+
+if($isAdmin) {
+    $add_admin_session = new TemplatePage(__DIR__.'/src/template/session/add_admin.html');
+    $add_menu_admin = $add_admin_session->html();
+}
 
 if (isset($_SESSION['user'])) {
     $menu_session = $one_session->html();
 }
 
+/*
+./?ind=espace_user">Mon compte</a></li>
+            <li><a class="radio" href="./?ind=articles">Les articles</a></li>
+            <li><a class="radio" href="./?ind=screens">Les screens</a></li>
+            <li><a class="radio" href="./?ind=arm_fps">L'armement FPS</a></li>
+            <li><a class="radio" href="./?ind=arm_vaiss">L'armement vaisseau</a></li>
+            <li><a class="radio" href="./?ind=lieux">Lieux</a></li>
+            <li><a class="radio" href="./?ind=especes">Espèces</a></li>
+            <li><a class="radio" href="./?ind=construct">Constructeurs</a></li>
+            <li><a class="radio" href="./?ind=transports">Transports</a></li>
+            <li><a class="radio" href="./?ind=proprietaires">Propriétaires</a></li>
+            <li><a class="radio" href="./?ind=services">Services</a></li>
+            <li><a class="radio" href="./?ind=messages">Messages</a></li>
+            <li><a class="radio" href="./?ind=utilisateurs
+*/
 if($get_ind == "acc") {
 } else if($get_ind == "espace_user") {
     include __DIR__.'/src/pages/users/espace_user.php';
-} else if($get_ind == "partage") {
-    include __DIR__.'/src/pages/partage.php';
-} else if($get_ind == "articles"){
-    $_GET["type"]=1;
+} else if($get_ind == "screens" || $get_ind == "screens_all"){
+    //$_GET["type"]=1;
+    $_GET["tab_all"]=($get_ind == "screens_all");
+    include __DIR__.'/src/pages/gameplay/screens.php';
+} else if($get_ind == "articles" || $get_ind == "articles_all"){
+    //$_GET["type"]=1;
+    $_GET["tab_all"]=($get_ind == "articles_all");
     include __DIR__.'/src/pages/gameplay/articles.php';
 } else if($get_ind == "add_article" || $get_ind == "mod_article"){
-    $_GET["type"]=1;
+    //$_GET["type"]=1;
     include __DIR__.'/src/pages/gameplay/add_mod_article.php';
+} else if($get_ind == "arm_fps" || $get_ind == "arm_fps_all"){
+    //$_GET["type"]=1;
+    $_GET["tab_all"]=($get_ind == "arm_fps_all");
+    include __DIR__.'/src/pages/objet/arm_fps.php';
+} else if($get_ind == "arm_vaiss" || $get_ind == "arm_vaiss_all"){
+    //$_GET["type"]=1;
+    $_GET["tab_all"]=($get_ind == "arm_vaiss_all");
+    include __DIR__.'/src/pages/objet/arm_vaiss.php';
+} else if($get_ind == "lieux" || $get_ind == "lieux_all"){
+    //$_GET["type"]=1;
+    $_GET["tab_all"]=($get_ind == "lieux_all");
+    include __DIR__.'/src/pages/objet/lieux.php';
+} else if($get_ind == "construct" || $get_ind == "construct_all"){
+    //$_GET["type"]=1;
+    $_GET["tab_all"]=($get_ind == "construct_all");
+    include __DIR__.'/src/pages/gameplay/construct.php';
+} else if($get_ind == "transports" || $get_ind == "transports_all"){
+    //$_GET["type"]=1;
+    $_GET["tab_all"]=($get_ind == "transports_all");
+    include __DIR__.'/src/pages/objet/transports.php';
+} else if($get_ind == "especes" || $get_ind == "especes_all"){
+    //$_GET["type"]=1;
+    $_GET["tab_all"]=($get_ind == "especes_all");
+    include __DIR__.'/src/pages/objet/especes.php';
+} else if($get_ind == "proprietaires" || $get_ind == "proprietaires_all"){
+    //$_GET["type"]=1;
+    $_GET["tab_all"]=($get_ind == "proprietaires_all");
+    include __DIR__.'/src/pages/objet/proprietaires.php';
+} else if($get_ind == "services" || $get_ind == "services_all"){
+    //$_GET["type"]=1;
+    $_GET["tab_all"]=($get_ind == "services_all");
+    include __DIR__.'/src/pages/objet/services.php';
+} else if($get_ind == "messages" && $isAdmin) {
+    include __DIR__.'/src/pages/gameplay/messages.php';
+} else if($get_ind == "utilisateurs" && $isAdmin) {
+    include __DIR__.'/src/pages/gameplay/users.php';
 } else {
     include __DIR__.'/src/pages/users/espace_user.php';
 }
@@ -48,6 +114,7 @@ if($get_ind != "connexion" && $get_ind != "inscription_traitement" && $get_ind !
     $templateIndex->addVarString("[#CITIZEN_INDEX_CSS#]", $templateMenuAdmin->css().$css);
     $templateIndex->addVarString("[#CITIZEN_INDEX_PAGE#]", $contenu);
     $templateIndex->addVarString("[#CITIZEN_INDEX_JS#]", $templateMenuAdmin->js().$js);
+    $templateIndex->addVarString("[#CITIZEN_INDEX_ADD_MENU_ADMIN#]", $add_menu_admin);
     echo $templateIndex->html();
 }
 

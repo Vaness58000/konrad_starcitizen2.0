@@ -1,6 +1,5 @@
 <?php
 include __DIR__.'/../../../../src/class/classMain/TemplatePage.php';
-include __DIR__.'/../../../../src/repository/ArticleRepository.php';
 include __DIR__.'/../../function/table-admin.php';
 include __DIR__.'/../../../../src/repository/UsersRepository.php';
 // si la session existe pas soit si l'on est pas connecté on redirige
@@ -26,38 +25,25 @@ $nb_par_pg = 10;
 $choix_tab = "";
 $isAll = false;
 
-if($isAdmin) {
-    $choix_tab = '<div class="card-buttons_user">'.
-                    '<a href="./?ind=articles">Mes contributions</a>'.
-                    '<a href="./?ind=articles_all">Toutes les contributions</a>'.
-                '</div>';
-}
+$role_all = $usersRepository->findRoleAll();
 
-$articleRepository = new ArticleRepository();
-$templatePage = new TemplatePage(__DIR__.'/../../template/articles.html');
-$count = ceil($articleRepository->findAllAndUserIdCount($id)/$nb_par_pg);
-$articles = $articleRepository->findAllAndUserIdPage($id, $page, $nb_par_pg);
+$templatePage = new TemplatePage(__DIR__.'/../../template/users.html');
+$count = ceil($usersRepository->findAllAndUserNoIdCount($id)/$nb_par_pg);
+$articles = $usersRepository->findAllAndUserNoIdPage($id, $page, $nb_par_pg);
 $tab_all = "";
-if($isAdmin && !empty($_GET) && array_key_exists('tab_all', $_GET) && !empty($_GET["tab_all"])) {
-    $isAll = true;
-    $templatePage = new TemplatePage(__DIR__.'/../../template/articles_all.html');
-    $count = ceil($articleRepository->findAllAndUserCount()/$nb_par_pg);
-    $articles = $articleRepository->findAllAndUserPage($page, $nb_par_pg);
-}
 
 if(!empty($articles)) {
     foreach ($articles as $value) {
-        $tab_all .= "\n".addTdMain($value['id_article'], $value['titre'], intval($value['validation'])==1, $isAdmin, $isAll);
+        $tab_all .= "\n".addTdUserMain(intval($value['id_user']), $value['pseudo'], $value['email'], intval($value['id_role']), $role_all);
     }
 }
-
 
 $templatePage->addVarString("[#CITIZEN_TAB_ALL#]", $tab_all);
 $templatePage->addVarString("[#CITIZEN_TAB_NBPG#]", $count);
 $templatePage->addVarString("[#CITIZEN_TAB_NMPG#]", ($page+1));
 $templatePage->addVarString("[#CITIZEN_TAB_CHOICE#]", $choix_tab);
 
-$templatePage->addFileJs("./src/js/articles.js");
+$templatePage->addFileJs("./src/js/users.js");
 $templatePage->addFileJs("./src/js/tab_display_all.js");
 $templatePage->addFileJs("./src/js/pagination.js");
 $templatePage->addFileCss("./src/css/pagination.css");
