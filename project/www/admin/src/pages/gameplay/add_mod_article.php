@@ -26,6 +26,8 @@ $contenu = "";
 $resume = "";
 $all_img = "";
 $validation = false;
+$isProprietaire = false;
+$isModif = " disabled";
 
 
 $articleRepository = new ArticleRepository();
@@ -34,6 +36,7 @@ if (!empty($_GET) && array_key_exists('id', $_GET) && !empty($_GET['id'])) {
     
     $article = $articleRepository->findAllAndIdUser(intval($_GET['id']));
     if(count($article)>0){
+        $isProprietaire = $article['id_user'] == $id;
         $titre = $article['titre'];
         $video = $article['video'];
         $categorie = intval($article['id_categorie_article']);
@@ -48,6 +51,17 @@ if (!empty($_GET) && array_key_exists('id', $_GET) && !empty($_GET['id'])) {
             $all_img .= "\n".addImg($value['id'], 'articles', $value['src'], $value['alt']);
         }
     }
+} else {
+    $isProprietaire = true;
+}
+
+if (!($isProprietaire || $isAdmin)) {
+    header('Location: ./?ind=articles');
+    die();
+}
+
+if ($isProprietaire) {
+    $isModif = "";
 }
 
 $modif_check = ($validation) ? " checked" : "";
@@ -70,6 +84,7 @@ $templatePage->addVarString("[#CITIZEN_ARTI_RESUME#]", $resume);
 $templatePage->addVarString("[#CITIZEN_ARTI_CAT#]", $categorieList);
 $templatePage->addVarString("[#CITIZEN_ARTI_MODIF_CHECK#]", $modif_check);
 $templatePage->addVarString("[#CITIZEN_ARTI_IMG#]", $all_img);
+$templatePage->addVarString("[#CITIZEN_ARTI_ISPRO#]", $isModif);
 
 $templatePage->addFileJs("./src/js/articles.js");
 $templatePage->addFileJs("./src/js/all_img_user.js");

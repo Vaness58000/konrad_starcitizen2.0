@@ -39,8 +39,8 @@ $count = ceil($articleRepository->findAllAndUserIdCount($id)/$nb_par_pg);
 $articles = $articleRepository->findAllAndUserIdPage($id, $page, $nb_par_pg);
 $tab_all = "";
 if($isAdmin && !empty($_GET) && array_key_exists('tab_all', $_GET) && !empty($_GET["tab_all"])) {
-    $isAll = true;
-    $templatePage = new TemplatePage(__DIR__.'/../../template/articles_all.html');
+    /*$isAll = true;
+    $templatePage = new TemplatePage(__DIR__.'/../../template/articles_all.html');*/
     $count = ceil($articleRepository->findAllAndUserCount()/$nb_par_pg);
     $articles = $articleRepository->findAllAndUserPage($page, $nb_par_pg);
 }
