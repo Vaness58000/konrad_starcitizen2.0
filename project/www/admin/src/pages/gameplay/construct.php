@@ -27,10 +27,7 @@ $choix_tab = "";
 $isAll = false;
 
 if($isAdmin) {
-    $choix_tab = '<div class="card-buttons_user">'.
-                    '<a href="./?ind=construct">Mes contributions</a>'.
-                    '<a href="./?ind=construct_all">Toutes les contributions</a>'.
-                '</div>';
+    $choix_tab = choiceTab("./?ind=construct", "./?ind=construct_all");
 }
 
 $constructeurRepository = new ConstructeurRepository();

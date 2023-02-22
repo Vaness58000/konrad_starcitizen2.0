@@ -9,10 +9,7 @@ $count_obj = ceil($proprietairesRepository->findAllAndUserIdCount($id_type, intv
 $objets = $proprietairesRepository->findAllAndUserIdPage($id_type, intval($id), $page, $nb_par_pg);
 
 if($isAdmin) {
-    $choix_tab = '<div class="card-buttons_user">'.
-                    '<a href="./?ind=proprietaires">Mes contributions</a>'.
-                    '<a href="./?ind=proprietaires_all">Toutes les contributions</a>'.
-                '</div>';
+    $choix_tab = choiceTab("./?ind=proprietaires", "./?ind=proprietaires_all");
 }
 
 if($isAdmin && !empty($_GET) && array_key_exists('tab_all', $_GET) && !empty($_GET["tab_all"])) {

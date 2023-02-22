@@ -23,7 +23,7 @@ $logo = "./src/images/plus-square.svg";
 $img = "./src/images/plus-square.svg";
 $contenu = "";
 $nom = "";
-$lieu = "";
+$tab_lieu = "";
 $validation = false;
 $isProprietaire = false;
 $isModif = " disabled";
@@ -48,6 +48,13 @@ if (!empty($_GET) && array_key_exists('id', $_GET) && !empty($_GET['id'])) {
         $nom = $constructeur['nom'];
         //$lieu = $screen['image'];
         $validation = (intval($constructeur['validation']) == 1);
+
+        $lieux = $constructeurRepository->findAllIdAndLieux(intval($_GET['id']));
+        if(!empty($lieux)) {
+            foreach ($lieux as $value) {
+                $tab_lieu .= "\n".addTdTabSupl($value['id_const_lieu'], $value['nom_lieu'], 'lieu');
+            }
+        }
     }
 } else {
     $isProprietaire = true;
@@ -80,7 +87,7 @@ $templatePage->addVarString("[#CITIZEN_CONST_LOGO#]", $logo);
 $templatePage->addVarString("[#CITIZEN_CONST_IMG#]", $img);
 $templatePage->addVarString("[#CITIZEN_CONST_CONTENU#]", $contenu);
 $templatePage->addVarString("[#CITIZEN_CONST_NOM#]", $nom);
-$templatePage->addVarString("[#CITIZEN_CONST_TAB_LIEU#]", $lieu);
+$templatePage->addVarString("[#CITIZEN_CONST_TAB_LIEU#]", $tab_lieu);
 
 $templatePage->addFileJs("./src/js/construct.js");
 $templatePage->addFileJs("./src/js/all_img_user.js");

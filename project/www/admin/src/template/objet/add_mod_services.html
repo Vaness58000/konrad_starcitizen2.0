@@ -1,0 +1,49 @@
+<div class="display-admin">
+    <div class="card-admin" data-state="#about">
+        <div class="admin-title"><h1>Service</h1></div>
+        <div class="admin-contenu">
+            <input type="hidden" name="id" value="[#CITIZEN_SERV_ID#]" />
+            <div class="two-column">
+                <input type="checkbox" class="darkSwitch two-column"[#CITIZEN_SERV_MODIF_CHECK#]>
+            </div>
+            <div class="two-column add-list-img">
+                <img class="img-add" id="img-art-add" src="./src/images/plus-square-dotted.svg" alt="add img"[#CITIZEN_SERV_ISPRO#]>
+                <div class="list_img">[#CITIZEN_SERV_IMG#]</div>
+            </div>
+            <img src="" alt="" class="two-column">
+            <label for="label-1">nom</label><input type="text" name="" id="" value="[#CITIZEN_SERV_NOM#]" class="input-admin"[#CITIZEN_SERV_ISPRO#]>
+            <label for="label-1">contenu</label><textarea name="" id="" cols="30" rows="10" class="input-admin text-bbcode"[#CITIZEN_SERV_ISPRO#]>[#CITIZEN_SERV_CONTENU#]</textarea>
+            <div id="div-all-tab" class="two-column">
+                <div>
+                    <h2>Informations</h2>
+                    <button class="sauvegarde" id="add-lieu">Ajouter une information</button>
+                    <table id="tab-all">
+                        <tr>
+                            <th>Informations</th>
+                            <th class="th-admin"><img src="./src/images/pencil-fill.svg" alt=""></th>
+                            <th class="th-admin"><img src="./src/images/trash3-fill.svg" alt=""></th>
+                        </tr>
+                        <tbody class="tab-body-td" id="tab-body-all">
+                            [#CITIZEN_SERV_TAB_INFO#]
+                        </tbody>
+                    </table>
+                </div>
+                <div>
+                    <h2>Lieux</h2>
+                    <button class="sauvegarde" id="add-lieu">Ajouter un lieu</button>
+                    <table id="tab-all">
+                        <tr>
+                            <th>Nom</th>
+                            <th class="th-admin"><img src="./src/images/pencil-fill.svg" alt=""></th>
+                            <th class="th-admin"><img src="./src/images/trash3-fill.svg" alt=""></th>
+                        </tr>
+                        <tbody class="tab-body-td" id="tab-body-all">
+                            [#CITIZEN_SERV_TAB_LIEU#]
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <button class="two-column sauvegarde" id="validation">Validation</button>
+        </div>
+    </div>
+</div>

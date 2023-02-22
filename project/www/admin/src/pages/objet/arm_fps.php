@@ -9,10 +9,7 @@ $count_obj = ceil($armeFpsRepository->findAllAndUserIdCount($id_type, intval($id
 $objets = $armeFpsRepository->findAllAndUserIdPage($id_type, intval($id), $page, $nb_par_pg);
 
 if($isAdmin) {
-    $choix_tab = '<div class="card-buttons_user">'.
-                    '<a href="./?ind=arm_fps">Mes contributions</a>'.
-                    '<a href="./?ind=arm_fps_all">Toutes les contributions</a>'.
-                '</div>';
+    $choix_tab = choiceTab("./?ind=arm_fps", "./?ind=arm_fps_all");
 }
 
 if($isAdmin && !empty($_GET) && array_key_exists('tab_all', $_GET) && !empty($_GET["tab_all"])) {

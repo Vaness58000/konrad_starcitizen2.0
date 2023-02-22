@@ -27,10 +27,7 @@ $choix_tab = "";
 $isAll = false;
 
 if($isAdmin) {
-    $choix_tab = '<div class="card-buttons_user">'.
-                    '<a href="./?ind=articles">Mes contributions</a>'.
-                    '<a href="./?ind=articles_all">Toutes les contributions</a>'.
-                '</div>';
+    $choix_tab = choiceTab("./?ind=articles", "./?ind=articles_all");
 }
 
 $articleRepository = new ArticleRepository();

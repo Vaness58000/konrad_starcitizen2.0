@@ -9,10 +9,7 @@ $count_obj = ceil($lieuxRepository->findAllAndUserIdCount($id_type, intval($id))
 $objets = $lieuxRepository->findAllAndUserIdPage($id_type, intval($id), $page, $nb_par_pg);
 
 if($isAdmin) {
-    $choix_tab = '<div class="card-buttons_user">'.
-                    '<a href="./?ind=lieux">Mes contributions</a>'.
-                    '<a href="./?ind=lieux_all">Toutes les contributions</a>'.
-                '</div>';
+    $choix_tab = choiceTab("./?ind=lieux", "./?ind=lieux_all");
 }
 
 if($isAdmin && !empty($_GET) && array_key_exists('tab_all', $_GET) && !empty($_GET["tab_all"])) {

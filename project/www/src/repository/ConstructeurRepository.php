@@ -94,6 +94,17 @@ if (!class_exists('ConstructeurRepository')) {
             return $this->setSql($sql)
                         ->rowCount();
         }
+
+        public function findAllIdAndLieux(int $id):array {
+            $sql = 'SELECT *, objet.id AS id_lieu, constructeur_lieu.id AS id_const_lieu, objet.nom AS nom_lieu FROM objet '.
+                    'INNER JOIN lieux ON lieux.id_objet = objet.id '.
+                    'INNER JOIN constructeur_lieu ON constructeur_lieu.id_lieu = lieux.id_lieu '.
+                    'INNER JOIN utilisateurs ON utilisateurs.id_user = objet.id_user '.
+                    'WHERE constructeur_lieu.id=:id && objet.validation=1 ORDER BY constructeur_lieu.id DESC';
+            return $this->setSql($sql)
+                        ->setParamInt(":id", $id)
+                        ->fetchAllAssoc();
+        }
     }
 }
 

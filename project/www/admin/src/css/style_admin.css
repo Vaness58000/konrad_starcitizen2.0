@@ -147,7 +147,7 @@ footer {
   .darkSwitch:checked::after {
     transform: translateX(200%);
   }
-th img {
+th img, td img {
     filter: invert(1);
 }
 .th-admin {
@@ -189,7 +189,17 @@ th img {
     margin-left: -35px;
 }
 
-#empty-table {
+.empty-table {
     text-align: center;
     padding: 15px;
+}
+
+.admin-contenu h2 {
+    margin-top: 15px;
+}
+
+#div-all-tab {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-around;
 }

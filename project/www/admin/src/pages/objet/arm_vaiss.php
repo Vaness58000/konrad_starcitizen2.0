@@ -9,10 +9,7 @@ $count_obj = ceil($armeVaissRepository->findAllAndUserIdCount($id_type, intval($
 $objets = $armeVaissRepository->findAllAndUserIdPage($id_type, intval($id), $page, $nb_par_pg);
 
 if($isAdmin) {
-    $choix_tab = '<div class="card-buttons_user">'.
-                    '<a href="./?ind=arm_vaiss">Mes contributions</a>'.
-                    '<a href="./?ind=arm_vaiss_all">Toutes les contributions</a>'.
-                '</div>';
+    $choix_tab = choiceTab("./?ind=arm_vaiss", "./?ind=arm_vaiss_all");
 }
 
 if($isAdmin && !empty($_GET) && array_key_exists('tab_all', $_GET) && !empty($_GET["tab_all"])) {

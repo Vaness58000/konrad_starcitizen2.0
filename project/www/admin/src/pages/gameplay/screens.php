@@ -27,10 +27,7 @@ $choix_tab = "";
 $isAll = false;
 
 if($isAdmin) {
-    $choix_tab = '<div class="card-buttons_user">'.
-                    '<a href="./?ind=screens">Mes contributions</a>'.
-                    '<a href="./?ind=screens_all">Toutes les contributions</a>'.
-                '</div>';
+    $choix_tab = choiceTab("./?ind=screens", "./?ind=screens_all");
 }
 
 $screensRepository = new ScreensRepository();

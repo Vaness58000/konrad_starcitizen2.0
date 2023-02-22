@@ -9,10 +9,7 @@ $count_obj = ceil($especesRepository->findAllAndUserIdCount($id_type, intval($id
 $objets = $especesRepository->findAllAndUserIdPage($id_type, intval($id), $page, $nb_par_pg);
 
 if($isAdmin) {
-    $choix_tab = '<div class="card-buttons_user">'.
-                    '<a href="./?ind=especes">Mes contributions</a>'.
-                    '<a href="./?ind=especes_all">Toutes les contributions</a>'.
-                '</div>';
+    $choix_tab = choiceTab("./?ind=especes", "./?ind=especes_all");
 }
 
 if($isAdmin && !empty($_GET) && array_key_exists('tab_all', $_GET) && !empty($_GET["tab_all"])) {

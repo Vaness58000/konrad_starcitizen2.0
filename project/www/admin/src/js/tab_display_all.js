@@ -24,7 +24,7 @@ document.getElementById("add-tab").addEventListener("click", function(event) {
     event.preventDefault();
     window.location.href = "./?ind="+add_line_tab;
 })
-let valueTab = document.getElementById("tab-body-all").innerHTML;
+/*let valueTab = document.getElementById("tab-body-all").innerHTML;
 if(valueTab.trim() == "") {
     let parentDiv = document.getElementById("tab-all").parentNode;
     let tab = document.getElementById("tab-all")
@@ -33,4 +33,4 @@ if(valueTab.trim() == "") {
     tabVide.id = "empty-table";
     parentDiv.insertBefore(tabVide, tab);
     tab.remove();
-}
+}*/
