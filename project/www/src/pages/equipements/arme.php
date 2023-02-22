@@ -18,9 +18,6 @@ $armeFps = $armeFpsRepository->findAll();
           <img src="src/img/<?= $armeFps_img[0]['name'] ?>" alt="<?= $construct['nom_arm'] ?>"></a>
           <?php } ?>
         <div class="centered"><?= $construct['nom_arm'] ?></div>
-        <div class="categorie_equipement">
-          <?= $construct['nom_cat'] ?>
-        </div>
 
       </div>
     <?php

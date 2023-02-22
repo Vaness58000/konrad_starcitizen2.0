@@ -18,7 +18,11 @@
           <div class="card__head">Armes</div>
         </a>
       </div>
-
+      <div class="card">
+        <a href="?ind=arme_vaisseau"><img src="src/img/armement_illustration.png">
+          <div class="card__head">armements vaisseaux</div>
+        </a>
+      </div>
 
   </div>
 </section>

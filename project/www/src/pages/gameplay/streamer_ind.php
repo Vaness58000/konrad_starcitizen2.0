@@ -5,19 +5,20 @@ require __DIR__ . '/../../../src/repository/UsersRepository.php';
 $articleRepository = new ArticleRepository();
 $article = $articleRepository->findAllAndTypeUser(1);
 $usersRepository = new UsersRepository();
+$user = $usersRepository->findAllUserId($_GET['id']);
 ?>
 <div class="streamer">
-  <?php foreach ($article as $construct) { ?>
+  <?php if (count($user)) { ?>
     <div class="card_streamer" data-state="#about">
       <div class="card-header">
         <?php
-        $user = $usersRepository->findAllUserId($construct["id_user"]);
-        if (count($user) <= 0) { ?>
-          <img class="card-avatar" src="src/img/avatar.png" alt="avatar de <?= $construct['pseudo'] ?>"></a>
-        <?php } else if (count($user) >= 1) { ?>
-          <img class="card-avatar" src="upload/<?= $user["src"] ?>" alt="avatar de <?= $construct['pseudo'] ?>"></a>
+        $user_avatar = $usersRepository->findAllUserAvatarId($user["id_user"]);
+        if (count($user_avatar) <= 0) { ?>
+          <img class="card-avatar" src="src/img/avatar.png" alt="avatar de <?= $user['pseudo'] ?>"></a>
+        <?php } else if (count($user_avatar) >= 1) { ?>
+          <img class="card-avatar" src="upload/<?= $user_avatar["src"] ?>" alt="avatar de <?= $user['pseudo'] ?>"></a>
         <?php } ?>
-        <h1 class="card-fullname"><?= $construct['pseudo'] ?></h1>
+        <h1 class="card-fullname"><?= $user['pseudo'] ?></h1>
         <h2 class="card-jobtitle">Streamer Star Citizen</h2>
 
 

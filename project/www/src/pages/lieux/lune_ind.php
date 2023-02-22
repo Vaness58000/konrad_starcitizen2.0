@@ -1,82 +1,54 @@
 <?php
 require __DIR__ . '/../../../back/connexion.php';
-$id = strip_tags($_GET["id"]);
-$sth = $dbco->prepare(" 
-SELECT * 
-FROM lunes WHERE id=:id");
-$sth->bindValue(":id", $id, PDO::PARAM_INT);
-$sth->execute();
-/*Retourne un tableau associatif pour chaque entrée de notre table
-*avec le nom des colonnes sélectionnées en clefs*/
-$vaisseaux = $sth->fetchAll(PDO::FETCH_ASSOC);
-
+require __DIR__ . '/../../../src/repository/LieuxRepository.php';
+$lieuxLuneRepository = new LieuxRepository();
+$lieuxLune = $lieuxLuneRepository->findAllCatId($_GET['id'], 4);
 ?>
 
 
 <div class="block">
     <section class="page_generale">
-        <?php foreach ($vaisseaux as $vaisseau) { ?>
+        <?php foreach ($lieuxLune as $lune) { ?>
             <div class="info_generale">
-                <h1><?= $vaisseau['nom']; ?></h1>
+                <h1><?= $lune['nom_lieu'] ?></h1>
                 <div class="description_generale">
 
-                    <img src="src/img/<?= $vaisseau['image']; ?>" alt="vaisseau<? $vaisseau['nom']; ?>">
+                    <?php
+                    $lieuxLune_img = $lieuxLuneRepository->findAllImgObj($lune["id_objet"]);
+                    if (count($lieuxLune_img) >= 1) {
+                    ?>
+                        <img src="src/img/<?= $lieuxLune_img[0]['name'] ?>" alt="<?= $lieuxLune_img[0]['alt'] ?>"></a>
+                    <?php } ?>
                     <div class="description_generale">
-                        <p><?= $vaisseau['paragraphe1']; ?></p>
-                        <p><?= $vaisseau['paragraphe2']; ?></p>
-                        <p><?= $vaisseau['paragraphe3']; ?></p>
+                        <p><?= str_replace("\n", "<br/>", $lune['contenu']) ?></p>
+
                     </div>
                 </div>
     </section>
 </div>
 <div class="caracteristique">
     <table>
-        <tr>
-            <th>Orbite autour de </th>
-            <th><?= $vaisseau['orbite']; ?></th>
-        </tr>
-        <tr>
-            <td>Affiliation</td>
-            <td><?= $vaisseau['affiliation']; ?></td>
-        </tr>
-        <tr>
-            <td>Rayon</td>
-            <td><?= $vaisseau['rayon']; ?></td>
-        </tr>
-        <tr>
-            <td>Gravité</td>
-            <td><?= $vaisseau['gravite']; ?></td>
-        </tr>
-        <tr>
-            <td>Air respirable</td>
-            <td><?= $vaisseau['air']; ?></td>
-        </tr>
-        <tr>
-            <td>Altitude de l'atmosphère</td>
-            <td><?= $vaisseau['altitude']; ?></td>
-        </tr>
-        <tr>
-            <td>Composition de l'atmosphère</td>
-            <td><?= $vaisseau['atmosphere']; ?></td>
-        </tr>
-        <tr>
-            <td>Période de rotation</td>
-            <td><?= $vaisseau['rotation']; ?></td>
-        </tr>
-        <tr>
-            <td>Période de révolution</td>
-            <td><?= $vaisseau['revolution']; ?></td>
-        </tr>
-        <tr>
-            <td>Nombre de satellites artificiels</td>
-            <td><?= $vaisseau['satellite']; ?></td>
-        </tr>
+        <?php
+            $lieuxLune_info_img = $lieuxLuneRepository->findAllInfObj($lune["id_objet"]);
+
+            foreach ($lieuxLune_info_img as $construct_inf) { ?>
+            <tr>
+                <td><?= $construct_inf['nom'] ?></td>
+                <td class="td_text_pad">
+                    <div class="td_text"><?= str_replace("\n", "<br/>", $construct_inf['info']) ?></div>
+                </td>
+            </tr>
+        <?php } ?>
     </table>
 
 </div>
 <div class="gallery_planete">
-    <img src="src/img/<?= $vaisseau['image1']; ?>">
-    <img src="src/img/<?= $vaisseau['image2']; ?>">
+    <?php
+            $lieuxLune_img = $lieuxLuneRepository->findAllImgObj($lune["id_objet"]);
+
+            foreach ($lieuxLune_img as $construct_img) { ?>
+        <img src="src/img/<?= $construct_img['name'] ?>" alt="lune <? $lune['nom_lieu'] ?>" />
+    <?php } ?>
 
 </div>
 <?php

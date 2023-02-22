@@ -30,7 +30,7 @@ $usersRepository = new UsersRepository();
           </a>
           <div class="user_article">
             <?php
-            $user = $usersRepository->findAllUserId($construct["id_user"]);
+            $user = $usersRepository->findAllUserAvatarId($construct["id_user"]);
             if (count($user) <= 0) { ?>
               <img src="src/img/avatar.png" alt="<?= $construct['pseudo'] ?>" />
 

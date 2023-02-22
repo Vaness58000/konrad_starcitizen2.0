@@ -21,7 +21,7 @@ $tous_article = $articleRepository->findAllAndTypeUser(1);
                 <div class="card_article_ind first">
                     <div class="user_article">
                         <?php
-                        $user = $usersRepository->findAllUserId($construct["id_user"]);
+                        $user = $usersRepository->findAllUserAvatarId($construct["id_user"]);
                         if (count($user) <= 0) { ?>
                             <img src="src/img/avatar.png" alt="<?= $construct['pseudo'] ?>" />
 
@@ -46,32 +46,33 @@ $tous_article = $articleRepository->findAllAndTypeUser(1);
 
                     <?php } ?>
                 <?php } ?>
-                
-                <h2 class="centered">Voir aussi</h2>
-                <?php foreach ($tous_article as $tous) { ?>
-                    <div class="blog-card">
+                <div class="voir_aussi">
+                    <h2 class="centered">Voir aussi</h2>
+                    <?php foreach ($tous_article as $tous) { ?>
+                        <div class="blog-card">
 
-                        <div class="meta">
-                            <?php
-                            $article_img = $articleRepository->findAllImgArticle($tous["id"]);
-                            if (count($article_img) >= 1) {
-                            ?>
-                                <div class="photo" style="background-image: url(src/img/<?= $article_img[0]['name'] ?>" ;><a href="?ind=patch_ind&id=<?= $tous["id"]; ?>"></a></div>
-                            <?php } ?>
+                            <div class="meta">
+                                <?php
+                                $article_img = $articleRepository->findAllImgArticle($tous["id"]);
+                                if (count($article_img) >= 1) {
+                                ?>
+                                    <div class="photo" style="background-image: url(src/img/<?= $article_img[0]['name'] ?>" ;><a href="?ind=patch_ind&id=<?= $tous["id"]; ?>"></a></div>
+                                <?php } ?>
 
+                            </div>
+                            <div class="description">
+                                <h2><a href="?ind=patch_ind&id=<?= $tous["id"]; ?>"><?= $tous['titre']; ?></a></h2>
+                                <ul class="postcard__tagbox">
+                                    <li class="tag__item">Patch notes</li>
+
+                                    <li class="tag__item auteur blue">
+                                        <a href="?ind=streamer_ind&id=<?= $construct["id"]; ?>">Publié par <?= $construct['pseudo'] ?></a>
+                                    </li>
+                                </ul>
+                            </div>
                         </div>
-                        <div class="description">
-                            <h2><a href="?ind=patch_ind&id=<?= $tous["id"]; ?>"><?= $tous['titre']; ?></a></h2>
-                            <ul class="postcard__tagbox">
-                                <li class="tag__item">Patch notes</li>
-
-                                <li class="tag__item auteur blue">
-                                    <a href="?ind=streamer_ind&id=<?= $construct["id"]; ?>">Publié par <?= $construct['pseudo'] ?></a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                <?php } ?>
+                    <?php } ?>
+                </div>
             </div>
         </section>
 

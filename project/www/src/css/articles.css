@@ -78,9 +78,6 @@
     
 }
 
-
-
-
 .page_generale {
     color: aliceblue;
     display: flex;
@@ -221,6 +218,9 @@ iframe {
         margin: 20px 0px;
         width: 100%;
     }
+}
+.voir_aussi{
+    padding-top: 50px;
 }
 .blog-card {
     display: flex;

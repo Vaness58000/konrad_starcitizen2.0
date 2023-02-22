@@ -1,18 +1,23 @@
 <?php
-require __DIR__.'/../../../back/connexion.php';
-
-$sth = $dbco->prepare("SELECT * FROM lunes");
-$sth->execute();
-$lunes = $sth->fetchAll(PDO::FETCH_ASSOC);
+require __DIR__ . '/../../../back/connexion.php';
+require __DIR__ . '/../../../src/repository/LieuxRepository.php';
+$lieuxLuneRepository = new LieuxRepository();
+$lieuxLune = $lieuxLuneRepository->findAllCat(4);
 /*css systeme.css*/
 ?>
 
 <div class="container_lune">
 
-    <?php foreach ($lunes as $lune) { ?>
+    <?php foreach ($lieuxLune as $construct) { ?>
         <div class="equipement_indiv">
-            <a href="?ind=lune_ind&id=<?= $lune['id']; ?>"><img src="src/img/<?= $lune['image']; ?>" alt="lune<? $lune['nom']; ?>"></a>
-            <div class="centered"><?= $lune['nom']; ?></div>
+            <a href="?ind=lune_ind&id=<?= $construct['id']; ?>">
+                <?php
+                $lieuxLune_img = $lieuxLuneRepository->findAllImgObj($construct["id_objet"]);
+                if (count($lieuxLune_img) >= 1) {
+              ?>
+                <img src="src/img/<?= $lieuxLune_img[0]['name'] ?>" alt="<?= $lieuxLune_img[0]['alt'] ?>"></a>
+                <?php } ?>
+            <div class="centered"><?= $construct['nom_lieu'] ?></div>
         </div>
     <?php
     }

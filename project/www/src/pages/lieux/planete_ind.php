@@ -1,39 +1,56 @@
 <?php
 require __DIR__.'/../../../back/connexion.php';
-$id = strip_tags($_GET["id"]);
-$sth2 = $dbco->prepare(" 
-SELECT * 
-FROM lieux WHERE id=:id");
-$sth2->bindValue(":id", $id, PDO::PARAM_INT);
-$sth2->execute();
-/*Retourne un tableau associatif pour chaque entrée de notre table
-*avec le nom des colonnes sélectionnées en clefs*/
-$planetes = $sth2->fetchAll(PDO::FETCH_ASSOC);
+require __DIR__ . '/../../../back/connexion.php';
+require __DIR__ . '/../../../src/repository/LieuxRepository.php';
+$lieuxPlaneteRepository = new LieuxRepository();
+$lieuxPlanete = $lieuxPlaneteRepository->findAllCatId($_GET['id'], 6);
 
 ?>
-<section class="lieu">
-  <?php foreach ($planetes as $planete) { ?>
-    <h1><?= $planete['nom']; ?></h1>
-    <div class="info_generale">
-      <img src="src/img/<?= $planete['image']; ?>">
-      <p><?= $planete['paragraphe1']; ?></p>
-      <p><?= $planete['paragraphe2']; ?></p>
-      <p><?= $planete['paragraphe3']; ?></p>
-      <p><?= $planete['paragraphe4']; ?></p>
-      <p><?= $planete['paragraphe5']; ?></p>
-      <p><?= $planete['paragraphe6']; ?></p>
-    </div>
-    <div class="gallery_planete">
-      <img src="src/img/<?= $planete['image1']; ?>">
-      <img src="src/img/<?= $planete['image2']; ?>">
-      <img src="src/img/<?= $planete['image3']; ?>">
-      <img src="src/img/<?= $planete['image4']; ?>">
-      <img src="src/img/<?= $planete['image5']; ?>">
-      <img src="src/img/<?= $planete['image6']; ?>">
+<div class="block">
+    <section class="page_generale">
+        <?php foreach ($lieuxPlanete as $planete) { ?>
+            <div class="info_generale">
+                <h1><?= $planete['nom_lieu'] ?></h1>
+                <div class="description_generale">
 
-    </div>
+                    <?php
+                    $lieuxPlanete_img = $lieuxPlaneteRepository->findAllImgObj($planete["id_objet"]);
+                    if (count($lieuxPlanete_img) >= 1) {
+                    ?>
+                        <img src="src/img/<?= $lieuxPlanete_img[0]['name'] ?>" alt="<?= $lieuxPlanete_img[0]['alt'] ?>"></a>
+                    <?php } ?>
+                    <div class="description_generale">
+                        <p><?= str_replace("\n", "<br/>", $planete['contenu']) ?></p>
 
-  <?php
-  }
-  ?>
-</section>
+                    </div>
+                </div>
+    </section>
+</div>
+<div class="caracteristique">
+    <table>
+        <?php
+            $lieuxPlanete_info_img = $lieuxPlaneteRepository->findAllInfObj($planete["id_objet"]);
+
+            foreach ($lieuxPlanete_info_img as $construct_inf) { ?>
+            <tr>
+                <td><?= $construct_inf['nom'] ?></td>
+                <td class="td_text_pad">
+                    <div class="td_text"><?= str_replace("\n", "<br/>", $construct_inf['info']) ?></div>
+                </td>
+            </tr>
+        <?php } ?>
+    </table>
+
+</div>
+<div class="gallery_planete">
+    <?php
+            $lieuxPlanete_img = $lieuxPlaneteRepository->findAllImgObj($planete["id_objet"]);
+
+            foreach ($lieuxPlanete_img as $construct_img) { ?>
+        <img src="src/img/<?= $construct_img['name'] ?>" alt="planete <? $planete['nom_lieu'] ?>" />
+    <?php } ?>
+
+</div>
+<?php
+        }
+?>

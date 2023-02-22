@@ -4,7 +4,7 @@ require __DIR__.'/../../../src/repository/VaisseauRepository.php';
 require __DIR__.'/../../../src/repository/ConstructeurRepository.php';
 
 $vaisseauRepository = new VaisseauRepository();
-$vaisseau = $vaisseauRepository->findAll();
+$vaisseau = $vaisseauRepository->findAllType(1);
 
 $constructeurRepository = new ConstructeurRepository();
 $construct_tab = $constructeurRepository->findAll();
