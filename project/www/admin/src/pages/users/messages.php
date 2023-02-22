@@ -34,7 +34,7 @@ if($isAdmin) {
 }
 
 $constructeurRepository = new ConstructeurRepository();
-$templatePage = new TemplatePage(__DIR__.'/../../template/messages.html');
+$templatePage = new TemplatePage(__DIR__.'/../../template/users/messages.html');
 /*$count = ceil($constructeurRepository->findAllAndUserIdCount($id)/$nb_par_pg);
 $articles = $constructeurRepository->findAllAndUserIdPage($id, $page, $nb_par_pg);*/
 $tab_all = "";

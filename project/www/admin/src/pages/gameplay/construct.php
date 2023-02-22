@@ -34,13 +34,13 @@ if($isAdmin) {
 }
 
 $constructeurRepository = new ConstructeurRepository();
-$templatePage = new TemplatePage(__DIR__.'/../../template/construct.html');
+$templatePage = new TemplatePage(__DIR__.'/../../template/gameplay/construct.html');
 $count = ceil($constructeurRepository->findAllAndUserIdCount($id)/$nb_par_pg);
 $articles = $constructeurRepository->findAllAndUserIdPage($id, $page, $nb_par_pg);
 $tab_all = "";
 if($isAdmin && !empty($_GET) && array_key_exists('tab_all', $_GET) && !empty($_GET["tab_all"])) {
-    $isAll = true;
-    $templatePage = new TemplatePage(__DIR__.'/../../template/construct_all.html');
+    /*$isAll = true;
+    $templatePage = new TemplatePage(__DIR__.'/../../template/gameplay/construct_all.html');*/
     $count = ceil($constructeurRepository->findAllAndUserCount()/$nb_par_pg);
     $articles = $constructeurRepository->findAllAndUserPage($page, $nb_par_pg);
 }

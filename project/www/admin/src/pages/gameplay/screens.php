@@ -34,13 +34,13 @@ if($isAdmin) {
 }
 
 $screensRepository = new ScreensRepository();
-$templatePage = new TemplatePage(__DIR__.'/../../template/screens.html');
+$templatePage = new TemplatePage(__DIR__.'/../../template/gameplay/screens.html');
 $count = ceil($screensRepository->findAllAndUserIdCount($id)/$nb_par_pg);
 $articles = $screensRepository->findAllAndUserIdPage($id, $page, $nb_par_pg);
 $tab_all = "";
 if($isAdmin && !empty($_GET) && array_key_exists('tab_all', $_GET) && !empty($_GET["tab_all"])) {
-    $isAll = true;
-    $templatePage = new TemplatePage(__DIR__.'/../../template/screens_all.html');
+    /*$isAll = true;
+    $templatePage = new TemplatePage(__DIR__.'/../../template/gameplay/screens_all.html');*/
     $count = ceil($screensRepository->findAllAndUserCount()/$nb_par_pg);
     $articles = $screensRepository->findAllAndUserPage($page, $nb_par_pg);
 }

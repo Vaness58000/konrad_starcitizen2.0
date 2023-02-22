@@ -33,6 +33,16 @@ if (!class_exists('ConstructeurRepository')) {
         /**
          * Recuperer toutes les donnees visibles de la table
          */
+        public function findAllAndIdUser($id):array {
+            return $this->setSql('SELECT * FROM constructeur '.
+                'INNER JOIN utilisateurs ON utilisateurs.id_user = constructeur.id_user '.
+                'WHERE constructeur.id_constructeur=:id_const')
+                ->setParamInt(":id_const", $id)->fetchAssoc();
+        }
+
+        /**
+         * Recuperer toutes les donnees visibles de la table
+         */
         public function findAllImgArticle(int $id):array {
             return $this->setSql('SELECT * FROM articles_image WHERE id_article=:id_article')->setParamInt(":id_article", $id)->fetchAllAssoc();
         }

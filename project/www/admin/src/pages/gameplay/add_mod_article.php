@@ -28,6 +28,7 @@ $all_img = "";
 $validation = false;
 $isProprietaire = false;
 $isModif = " disabled";
+$id_article = 0;
 
 
 $articleRepository = new ArticleRepository();
@@ -36,6 +37,7 @@ if (!empty($_GET) && array_key_exists('id', $_GET) && !empty($_GET['id'])) {
     
     $article = $articleRepository->findAllAndIdUser(intval($_GET['id']));
     if(count($article)>0){
+        $id_article = intval($_GET['id']);
         $isProprietaire = $article['id_user'] == $id;
         $titre = $article['titre'];
         $video = $article['video'];
@@ -74,9 +76,7 @@ if(!empty($category)) {
     }
 }
 
-$templatePage = new TemplatePage(__DIR__.'/../../template/add_mod_article.html');
-$templatePage->addVarString("[#CITIZEN_USER_ID#]", $id);
-$templatePage->addVarString("[#CITIZEN_USER_PSEUDO#]", $pseudo);
+$templatePage = new TemplatePage(__DIR__.'/../../template/gameplay/add_mod_article.html');
 $templatePage->addVarString("[#CITIZEN_ARTI_TITRE#]", $titre);
 $templatePage->addVarString("[#CITIZEN_ARTI_VIDEO#]", $video);
 $templatePage->addVarString("[#CITIZEN_ARTI_CONTENU#]", $contenu);
@@ -85,6 +85,7 @@ $templatePage->addVarString("[#CITIZEN_ARTI_CAT#]", $categorieList);
 $templatePage->addVarString("[#CITIZEN_ARTI_MODIF_CHECK#]", $modif_check);
 $templatePage->addVarString("[#CITIZEN_ARTI_IMG#]", $all_img);
 $templatePage->addVarString("[#CITIZEN_ARTI_ISPRO#]", $isModif);
+$templatePage->addVarString("[#CITIZEN_ARTI_ID#]", $id_article);
 
 $templatePage->addFileJs("./src/js/articles.js");
 $templatePage->addFileJs("./src/js/all_img_user.js");

@@ -26,8 +26,8 @@ $choix_tab = "";
 $nom_pg = "";
 $isAll = false;
 
-$templatePage = new TemplatePage(__DIR__.'/../../template/objet.html');
-if($isAdmin && !empty($_GET) && array_key_exists('tab_all', $_GET) && !empty($_GET["tab_all"])) {
+$templatePage = new TemplatePage(__DIR__.'/../../template/objet/objet.html');
+/*if($isAdmin && !empty($_GET) && array_key_exists('tab_all', $_GET) && !empty($_GET["tab_all"])) {
     $isAll = true;
-    $templatePage = new TemplatePage(__DIR__.'/../../template/objet_all.html');
-}
+    $templatePage = new TemplatePage(__DIR__.'/../../template/objet/objet_all.html');
+}*/

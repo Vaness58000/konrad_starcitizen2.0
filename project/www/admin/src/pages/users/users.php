@@ -27,7 +27,7 @@ $isAll = false;
 
 $role_all = $usersRepository->findRoleAll();
 
-$templatePage = new TemplatePage(__DIR__.'/../../template/users.html');
+$templatePage = new TemplatePage(__DIR__.'/../../template/users/users.html');
 $count = ceil($usersRepository->findAllAndUserNoIdCount($id)/$nb_par_pg);
 $articles = $usersRepository->findAllAndUserNoIdPage($id, $page, $nb_par_pg);
 $tab_all = "";

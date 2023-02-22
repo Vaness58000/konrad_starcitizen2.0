@@ -1,0 +1,31 @@
+<div class="display-admin">
+    <div class="card-admin" data-state="#about">
+        <div class="admin-title"><h1>Constructeur</h1></div>
+        <div class="admin-contenu">
+            <input type="hidden" name="id" value="[#CITIZEN_CONST_ID#]" />
+            <div class="two-column">
+                <input type="checkbox" class="darkSwitch two-column"[#CITIZEN_CONST_MODIF_CHECK#]>
+            </div>
+            <div class="two-column add-list-img">
+                <img class="img-add" id="img-logo" src="[#CITIZEN_CONST_LOGO#]" alt="add img"[#CITIZEN_CONST_ISPRO#]>
+                <img class="img-add" id="img-construct-add" src="[#CITIZEN_CONST_IMG#]" alt="add img"[#CITIZEN_CONST_ISPRO#]>
+            </div>
+            <img src="" alt="" class="two-column">
+            <label for="label-1">nom</label><input type="text" name="" id="" value="[#CITIZEN_CONST_NOM#]" class="input-admin"[#CITIZEN_CONST_ISPRO#]>
+            <label for="label-1">contenu</label><textarea name="" id="" cols="30" rows="10" class="input-admin text-bbcode"[#CITIZEN_CONST_ISPRO#]>[#CITIZEN_CONST_CONTENU#]</textarea>
+            <h2 class="two-column">Lieux</h2>
+            <button class="two-column sauvegarde" id="add-lieu">Ajouter un lieu</button>
+            <table id="tab-all" class="two-column">
+                <tr>
+                    <th>Nom</th>
+                    <th class="th-admin"><img src="./src/images/pencil-fill.svg" alt=""></th>
+                    <th class="th-admin"><img src="./src/images/trash3-fill.svg" alt=""></th>
+                </tr>
+                <tbody id="tab-body-all">
+                    [#CITIZEN_CONST_TAB_LIEU#]
+                </tbody>
+            </table>
+            <button class="two-column sauvegarde" id="validation">Validation</button>
+        </div>
+    </div>
+</div>

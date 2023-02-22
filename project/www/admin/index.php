@@ -60,6 +60,9 @@ if($get_ind == "acc") {
     //$_GET["type"]=1;
     $_GET["tab_all"]=($get_ind == "screens_all");
     include __DIR__.'/src/pages/gameplay/screens.php';
+} else if($get_ind == "add_screen" || $get_ind == "mod_screen"){
+    //$_GET["type"]=1;
+    include __DIR__.'/src/pages/gameplay/add_mod_screens.php';
 } else if($get_ind == "articles" || $get_ind == "articles_all"){
     //$_GET["type"]=1;
     $_GET["tab_all"]=($get_ind == "articles_all");
@@ -83,6 +86,9 @@ if($get_ind == "acc") {
     //$_GET["type"]=1;
     $_GET["tab_all"]=($get_ind == "construct_all");
     include __DIR__.'/src/pages/gameplay/construct.php';
+} else if($get_ind == "add_construct" || $get_ind == "mod_construct"){
+    //$_GET["type"]=1;
+    include __DIR__.'/src/pages/gameplay/add_mod_construct.php';
 } else if($get_ind == "transports" || $get_ind == "transports_all"){
     //$_GET["type"]=1;
     $_GET["tab_all"]=($get_ind == "transports_all");
@@ -100,9 +106,9 @@ if($get_ind == "acc") {
     $_GET["tab_all"]=($get_ind == "services_all");
     include __DIR__.'/src/pages/objet/services.php';
 } else if($get_ind == "messages" && $isAdmin) {
-    include __DIR__.'/src/pages/gameplay/messages.php';
+    include __DIR__.'/src/pages/users/messages.php';
 } else if($get_ind == "utilisateurs" && $isAdmin) {
-    include __DIR__.'/src/pages/gameplay/users.php';
+    include __DIR__.'/src/pages/users/users.php';
 } else {
     include __DIR__.'/src/pages/users/espace_user.php';
 }

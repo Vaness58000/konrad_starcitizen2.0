@@ -30,6 +30,17 @@ if (!class_exists('ScreensRepository')) {
                     'INNER JOIN utilisateurs ON utilisateurs.id_user = screens.id_user')->fetchAllAssoc();
         }
 
+        /**
+         * Recuperer toutes les donnees visibles de la table
+         */
+        public function findAllAndIdUser(int $id):array {
+            return $this->setSql('SELECT * FROM screens '.
+                    'INNER JOIN utilisateurs ON utilisateurs.id_user = screens.id_user '.
+                    'WHERE screens.id_screen=:id_screen')
+                    ->setParamInt(":id_screen", $id)
+                    ->fetchAssoc();
+        }
+
         /*Pour relier l'utilisateur au article*/
         public function findAllAndUserIdPage(int $id, int $nmPage=0, int $nbArtPage=0):array {
             $limit = "";
