@@ -157,16 +157,16 @@ th img, td img {
     width: 50px;
 }
 
-.admin-contenu img {
-    max-height: 350px;
-    max-width: 350px;
+.admin-contenu img, .img-add {
+    max-height: 300px;
+    max-width: 300px;
 }
 
-.img-add {
+/*.img-add {
     height: 150px;
-    width: 150px;
-    filter: invert(1);
-}
+    / *width: 150px;* /
+    / *filter: invert(1);* /
+}*/
 
 .add-list-img {
     margin: 10px;
@@ -176,6 +176,14 @@ th img, td img {
     display: flex;
     align-items: center;
     justify-content: space-around;
+
+    width: 100%;
+    box-sizing: border-box;
+    overflow: hidden;
+    overflow-x: auto;
+
+
+    flex-wrap: wrap;
 }
 
 .delete_img {

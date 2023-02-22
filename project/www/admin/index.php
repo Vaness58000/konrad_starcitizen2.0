@@ -82,6 +82,9 @@ if($get_ind == "acc") {
     //$_GET["type"]=1;
     $_GET["tab_all"]=($get_ind == "lieux_all");
     include __DIR__.'/src/pages/objet/lieux.php';
+} else if($get_ind == "add_lieu" || $get_ind == "mod_lieu"){
+    //$_GET["type"]=1;
+    include __DIR__.'/src/pages/objet/add_mod_lieux.php';
 } else if($get_ind == "construct" || $get_ind == "construct_all"){
     //$_GET["type"]=1;
     $_GET["tab_all"]=($get_ind == "construct_all");

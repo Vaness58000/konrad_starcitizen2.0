@@ -2,17 +2,18 @@
     <div class="card-admin" data-state="#about">
         <div class="admin-title"><h1>Propriétaire</h1></div>
         <div class="admin-contenu">
-            <input type="hidden" name="id" value="[#CITIZEN_SERV_ID#]" />
+            <input type="hidden" name="id" value="[#CITIZEN_PROPR_ID#]" />
             <div class="two-column">
-                <input type="checkbox" class="darkSwitch two-column"[#CITIZEN_SERV_MODIF_CHECK#]>
+                <input type="checkbox" class="darkSwitch two-column"[#CITIZEN_PROPR_MODIF_CHECK#]>
             </div>
             <div class="two-column add-list-img">
-                <img class="img-add" id="img-art-add" src="./src/images/plus-square-dotted.svg" alt="add img"[#CITIZEN_SERV_ISPRO#]>
-                <div class="list_img">[#CITIZEN_SERV_IMG#]</div>
+                <img class="img-add" id="img-logo" src="[#CITIZEN_PROPR_LOGO#]" alt="add img"[#CITIZEN_PROPR_ISPRO#]>
+                <img class="img-add" id="img-art-add" src="./src/images/plus-square-dotted.svg" alt="add img"[#CITIZEN_PROPR_ISPRO#]>
+                <div class="list_img">[#CITIZEN_PROPR_IMG#]</div>
             </div>
             <img src="" alt="" class="two-column">
-            <label for="label-1">nom</label><input type="text" name="" id="" value="[#CITIZEN_SERV_NOM#]" class="input-admin"[#CITIZEN_SERV_ISPRO#]>
-            <label for="label-1">contenu</label><textarea name="" id="" cols="30" rows="10" class="input-admin text-bbcode"[#CITIZEN_SERV_ISPRO#]>[#CITIZEN_SERV_CONTENU#]</textarea>
+            <label for="label-1">nom</label><input type="text" name="" id="" value="[#CITIZEN_PROPR_NOM#]" class="input-admin"[#CITIZEN_PROPR_ISPRO#]>
+            <label for="label-1">contenu</label><textarea name="" id="" cols="30" rows="10" class="input-admin text-bbcode"[#CITIZEN_PROPR_ISPRO#]>[#CITIZEN_PROPR_CONTENU#]</textarea>
             <div id="div-all-tab" class="two-column">
                 <div>
                     <h2>Informations</h2>
@@ -24,7 +25,7 @@
                             <th class="th-admin"><img src="./src/images/trash3-fill.svg" alt=""></th>
                         </tr>
                         <tbody class="tab-body-td" id="tab-body-all">
-                            [#CITIZEN_SERV_TAB_INFO#]
+                            [#CITIZEN_PROPR_TAB_INFO#]
                         </tbody>
                     </table>
                 </div>
@@ -38,7 +39,7 @@
                             <th class="th-admin"><img src="./src/images/trash3-fill.svg" alt=""></th>
                         </tr>
                         <tbody class="tab-body-td" id="tab-body-all">
-                            [#CITIZEN_SERV_TAB_LIEU#]
+                            [#CITIZEN_PROPR_TAB_LIEU#]
                         </tbody>
                     </table>
                 </div>

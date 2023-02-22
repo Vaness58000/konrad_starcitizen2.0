@@ -45,12 +45,12 @@ if (!empty($_GET) && array_key_exists('id', $_GET) && !empty($_GET['id'])) {
         $contenu = $article['contenu'];
         $resume = $article['resume'];
         $validation = (intval($article['validation']) == 1);
-    }
 
-    $imgs = $articleRepository->findAllImgArticle(intval($_GET['id']));
-    if(!empty($imgs)) {
-        foreach ($imgs as $value) {
-            $all_img .= "\n".addImg($value['id'], 'articles', $value['src'], $value['alt']);
+        $imgs = $articleRepository->findAllImgArticle(intval($_GET['id']));
+        if(!empty($imgs)) {
+            foreach ($imgs as $value) {
+                $all_img .= "\n".addImg($value['id'], 'articles', $value['src'], $value['alt']);
+            }
         }
     }
 } else {

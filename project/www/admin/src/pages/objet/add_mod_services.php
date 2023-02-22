@@ -29,36 +29,36 @@ $isModif = " disabled";
 $id_service = 0;
 
 
-$servicesRepository = new ServicesRepository();
+$objetRepository = new ServicesRepository();
 
 if (!empty($_GET) && array_key_exists('id', $_GET) && !empty($_GET['id'])) {
     
-    $service = $servicesRepository->findAllAndIdUser(intval($_GET['id']));
-    if(count($service)>0){
+    $objet = $objetRepository->findAllAndIdUser(intval($_GET['id']));
+    if(count($objet)>0){
         $id_service = intval($_GET['id']);
-        $nom = $service['nom'];
-        $contenu = $service['contenu'];
-        $isProprietaire = $service['id_user'] == $id;
-        $validation = (intval($service['validation']) == 1);
+        $nom = $objet['nom'];
+        $contenu = $objet['contenu'];
+        $isProprietaire = $objet['id_user'] == $id;
+        $validation = (intval($objet['validation']) == 1);
 
-        $imgs = $servicesRepository->findAllImgObj($id_service);
+        $imgs = $objetRepository->findAllImgObj($id_service);
         if(!empty($imgs)) {
             foreach ($imgs as $value) {
-                $all_img .= "\n".addImg($value['id'], 'articles', $value['src'], $value['alt']);
+                $all_img .= "\n".addImg($value['id_image_obj'], 'services', $value['src'], $value['alt']);
             }
         }
 
-        $infos = $servicesRepository->findAllInfObj($id_service);
+        $infos = $objetRepository->findAllInfObj($id_service);
         if(!empty($infos)) {
             foreach ($infos as $value) {
                 $tab_info .= "\n".addTdTabSupl($value['id'], $value['nom'], 'info');
             }
         }
 
-        $lieux = $servicesRepository->findAllIdAndLieux($service['id_service']);
+        $lieux = $objetRepository->findAllIdAndLieux($objet['id_service']);
         if(!empty($lieux)) {
             foreach ($lieux as $value) {
-                $tab_lieu .= "\n".addTdTabSupl($value['id_serv_lieu'], $value['nom_lieu'], 'lieu');
+                $tab_lieu .= "\n".addTdTabSupl($value['id_serv_lieu'], $value['nom_lieu'], 'services');
             }
         }
     }
