@@ -52,7 +52,7 @@ services:
             - ./config/.htaccess:/usr/local/apache2/www/.htaccess:rw
             - ./config/sgbd_connexion.php:/usr/local/apache2/www/back/sgbd_connexion.php:rw
             - ./config/sgbd_connexion_new.php:/usr/local/apache2/www/back/sgbd_connexion_new.php:rw
-            - ./config/config_def.ini:/usr/local/apache2/www/data/config/config_def.ini:rw
+            - ./config/config_def.ini:/usr/local/apache2/www/config/config_def.ini:rw
             #- ./.docker/config/sgbd_config.php:/usr/local/apache2/www/config/sgbd_config.php:rw
             #- ./.docker/config/config.php:/usr/local/apache2/www/config/config.php:rw
             #- ./.docker/config/.env.local:/usr/local/apache2/www/.env.local:rw

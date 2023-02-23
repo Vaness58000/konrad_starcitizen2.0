@@ -19,19 +19,114 @@ if (!class_exists('LieuxRepository')) {
          * Recuperer toutes les donnees visibles de la table
          */
         public function findAll():array {
-            return $this->setSql('SELECT *, objet.id AS id_objet, objet.nom AS nom_lieu, categories_lieux.nom AS nom_cat FROM objet '.
+            return $this->setSql('SELECT *, lieux.id_lieu AS id_lieu_princ, objet.id AS id_objet, objet.nom AS nom_obj, categories_lieux.nom AS nom_cat FROM objet '.
                     'INNER JOIN lieux ON lieux.id_objet = objet.id '.
+                    'LEFT JOIN lieux_risque ON lieux.id_lieu = lieux_risque.id_lieux '.
+                    'LEFT JOIN lier_lieu ON lieux.id_lieu = lier_lieu.id_lieu '.
                     'INNER JOIN categories_lieux ON categories_lieux.id_categ_lieu = lieux.id_categ_lieu')->fetchAllAssoc();
+        }
+
+        public function findListRisq() {
+            return $this->setSql('SELECT * FROM risque')->fetchAllAssoc();
+        }
+
+        public function findListCat() {
+            return $this->setSql('SELECT * FROM categories_lieux')->fetchAllAssoc();
         }
 
         /**
          * Recuperer toutes les donnees visibles de la table
          */
-        public function findAllCat(int $id_cat):array {
-            return $this->setSql('SELECT *, objet.id AS id_objet, objet.nom AS nom_lieu, categories_lieux.nom AS nom_cat FROM objet '.
+        public function findAllCatId(int $id_cat):array {
+            return $this->setSql('SELECT *, lieux.id_lieu AS id_lieu_princ, objet.id AS id_objet, objet.nom AS nom_obj, categories_lieux.nom AS nom_cat FROM objet '.
                     'INNER JOIN lieux ON lieux.id_objet = objet.id '.
+                    'LEFT JOIN lieux_risque ON lieux.id_lieu = lieux_risque.id_lieux '.
+                    'LEFT JOIN lier_lieu ON lieux.id_lieu = lier_lieu.id_lieu '.
                     'INNER JOIN categories_lieux ON categories_lieux.id_categ_lieu = lieux.id_categ_lieu '.
                     'WHERE categories_lieux.id_categ_lieu=:id_cat')->setParamInt(":id_cat", $id_cat)->fetchAllAssoc();
+        }
+
+        /**
+         * Recuperer toutes les donnees visibles de la table
+         */
+        public function findAllAndIdUser(int $id):array {
+            return $this->setSql('SELECT *, lieux.id_lieu AS id_lieu_princ, objet.id AS id_objet, objet.nom AS nom_obj, categories_lieux.nom AS nom_cat FROM objet '.
+            'INNER JOIN utilisateurs ON utilisateurs.id_user = objet.id_user '.
+            'INNER JOIN lieux ON lieux.id_objet = objet.id '.
+            'LEFT JOIN lieux_risque ON lieux.id_lieu = lieux_risque.id_lieux '.
+            'LEFT JOIN lier_lieu ON lieux.id_lieu = lier_lieu.id_lieu '.
+            'INNER JOIN categories_lieux ON categories_lieux.id_categ_lieu = lieux.id_categ_lieu '.
+            'WHERE objet.id=:id')
+                ->setParamInt(":id", $id)
+                ->fetchAssoc();
+        }
+
+        /*Pour relier l'utilisateur au article*/
+        public function findAllAndUserIdPage(int $id_type, int $id, int $nmPage=0, int $nbArtPage=0):array {
+            $limit = "";
+            if(!empty($nbArtPage)) {
+                $nmStart = $nmPage*$nbArtPage;
+                $limit = " LIMIT $nbArtPage OFFSET $nmStart";
+            }
+            $sql = 'SELECT *, lieux.id_lieu AS id_lieu_princ, objet.id AS id_objet, objet.nom AS nom_obj, categories_lieux.nom AS nom_cat FROM objet '.
+            'INNER JOIN utilisateurs ON utilisateurs.id_user = objet.id_user '.
+            'INNER JOIN lieux ON lieux.id_objet = objet.id '.
+            'LEFT JOIN lieux_risque ON lieux.id_lieu = lieux_risque.id_lieux '.
+            'LEFT JOIN lier_lieu ON lieux.id_lieu = lier_lieu.id_lieu '.
+            'INNER JOIN categories_lieux ON categories_lieux.id_categ_lieu = lieux.id_categ_lieu '.
+            'WHERE objet.id_objet_type=:id_type && utilisateurs.id_user=:id_user ORDER BY objet.id DESC'.$limit.'';
+            return $this->setSql($sql)
+                        ->setParamInt(":id_user", $id)
+                        ->setParamInt(":id_type", $id_type)
+                        ->fetchAllAssoc();
+        }
+
+        /*Pour relier l'utilisateur au article*/
+        public function findAllAndUserIdCount(int $id_type, int $id):int {
+            $sql = 'SELECT *, lieux.id_lieu AS id_lieu_princ, objet.id AS id_objet, objet.nom AS nom_obj, categories_lieux.nom AS nom_cat FROM objet '.
+                    'INNER JOIN utilisateurs ON utilisateurs.id_user = objet.id_user '.
+                    'INNER JOIN lieux ON lieux.id_objet = objet.id '.
+                    'LEFT JOIN lieux_risque ON lieux.id_lieu = lieux_risque.id_lieux '.
+                    'LEFT JOIN lier_lieu ON lieux.id_lieu = lier_lieu.id_lieu '.
+                    'INNER JOIN categories_lieux ON categories_lieux.id_categ_lieu = lieux.id_categ_lieu '.
+                    'WHERE objet.id_objet_type=:id_type && utilisateurs.id_user=:id_user ORDER BY objet.id DESC';
+            return $this->setSql($sql)
+                        ->setParamInt(":id_user", $id)
+                        ->setParamInt(":id_type", $id_type)
+                        ->rowCount();
+        }
+
+        /*Pour relier l'utilisateur au article*/
+        public function findAllAndUserPage(int $id_type, int $nmPage=0, int $nbArtPage=0):array {
+            $limit = "";
+            if(!empty($nbArtPage)) {
+                $nmStart = $nmPage*$nbArtPage;
+                $limit = " LIMIT $nbArtPage OFFSET $nmStart";
+            }
+            $sql = 'SELECT *, lieux.id_lieu AS id_lieu_princ, objet.id AS id_objet, objet.nom AS nom_obj, categories_lieux.nom AS nom_cat FROM objet '.
+            'INNER JOIN utilisateurs ON utilisateurs.id_user = objet.id_user '.
+            'INNER JOIN lieux ON lieux.id_objet = objet.id '.
+            'LEFT JOIN lieux_risque ON lieux.id_lieu = lieux_risque.id_lieux '.
+            'LEFT JOIN lier_lieu ON lieux.id_lieu = lier_lieu.id_lieu '.
+            'INNER JOIN categories_lieux ON categories_lieux.id_categ_lieu = lieux.id_categ_lieu '.
+            'WHERE objet.id_objet_type=:id_type ORDER BY objet.id DESC'.$limit.'';
+            return $this->setSql($sql)
+                        ->setParamInt(":id_type", $id_type)
+                        ->fetchAllAssoc();
+        }
+
+        /*Pour relier l'utilisateur au article*/
+        public function findAllAndUserCount(int $id_type):int {
+            $sql = 'SELECT *, lieux.id_lieu AS id_lieu_princ, objet.id AS id_objet, objet.nom AS nom_obj, categories_lieux.nom AS nom_cat FROM objet '.
+                    'INNER JOIN utilisateurs ON utilisateurs.id_user = objet.id_user '.
+                    'INNER JOIN lieux ON lieux.id_objet = objet.id '.
+                    'LEFT JOIN lieux_risque ON lieux.id_lieu = lieux_risque.id_lieux '.
+                    'LEFT JOIN lier_lieu ON lieux.id_lieu = lier_lieu.id_lieu '.
+                    'INNER JOIN categories_lieux ON categories_lieux.id_categ_lieu = lieux.id_categ_lieu '.
+                    'WHERE objet.id_objet_type=:id_type ORDER BY objet.id DESC';
+            return $this->setSql($sql)
+                        ->setParamInt(":id_type", $id_type)
+                        ->rowCount();
         }
 
     }

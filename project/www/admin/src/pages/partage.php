@@ -1,5 +1,6 @@
 <?php
 require __DIR__ . '/../../../back/connexion.php';
+include __DIR__.'/../../../src/class/classMain/TemplatePage.php';
 $sth4 = $dbco->prepare("SELECT * FROM images WHERE id_client = :id");
 $sth4->execute([":id" => $_SESSION['utilisateur']['id']]);
 
@@ -13,7 +14,14 @@ $req = $dbco->prepare('SELECT * FROM utilisateurs WHERE token = ?');
 $req->execute(array($_SESSION['user']));
 $data = $req->fetch(PDO::FETCH_ASSOC);
 
-?>
+$templatePage = new TemplatePage(__DIR__.'/../template/partage.html');
+$templatePage->addVarString("[#CITIZEN_USER_PSEUDO#]", $data['pseudo']);
+
+$js = $templatePage->js();
+$css = $templatePage->css();
+$contenu = $templatePage->html();
+
+/*?>
 <section id="page_user">
     <div class="user">
 
@@ -75,4 +83,4 @@ $data = $req->fetch(PDO::FETCH_ASSOC);
     </div>
 
 
-</section>
+</section>*/

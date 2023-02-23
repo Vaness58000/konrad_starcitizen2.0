@@ -1,14 +1,5 @@
-# pixel-up
+# citizen
 
-$ cd project/www
-
-$ cd my-project
-$ composer install
-$ symfony console doctrine:database:create
-$ symfony console doctrine:migrations:migrate
-$ symfony server:ca:install
-$ php bin/console assets:install public
-$ symfony serve -d
-
-
-$ symfony serve:stop
+ALTER TABLE `constructeur` ADD `validation` BOOLEAN NOT NULL DEFAULT FALSE AFTER `id_user`;
+ALTER TABLE `screens` ADD `validation` BOOLEAN NOT NULL DEFAULT FALSE AFTER `date`;
+INSERT INTO `objet_type` (`id`, `nom`, `id_user`, `date`) VALUES (NULL, 'propriétaire', '2', current_timestamp()), (NULL, 'service', '2', current_timestamp());

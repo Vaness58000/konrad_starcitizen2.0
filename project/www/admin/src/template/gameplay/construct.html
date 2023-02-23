@@ -1,0 +1,23 @@
+<div class="display-admin">
+    <div class="card-admin" data-state="#about">
+        [#CITIZEN_TAB_CHOICE#]
+        <div class="admin-title"><h1>Constructeurs</h1></div>
+        <div class="admin-contenu-tab">
+            <input type="hidden" name="nbpg" id="nbpg" value="[#CITIZEN_TAB_NBPG#]">
+            <input type="hidden" name="nmpg" id="nmpg" value="[#CITIZEN_TAB_NMPG#]">
+            <button id="add-tab" class="two-column sauvegarde">Ajouter</button>
+            <table id="tab-all">
+                <tr>
+                    <th>Nom</th>
+                    <th class="th-admin-visible">Visible</th>
+                    <th class="th-admin"><img src="./src/images/pencil-fill.svg" alt=""></th>
+                    <th class="th-admin"><img src="./src/images/trash3-fill.svg" alt=""></th>
+                </tr>
+                <tbody class="tab-body-td" id="tab-body-all">
+                    [#CITIZEN_TAB_ALL#]
+                </tbody>
+            </table>
+            <div id="pagination"></div>
+        </div>
+    </div>
+</div>

@@ -33,8 +33,77 @@ if (!class_exists('ConstructeurRepository')) {
         /**
          * Recuperer toutes les donnees visibles de la table
          */
+        public function findAllAndIdUser($id):array {
+            return $this->setSql('SELECT * FROM constructeur '.
+                'INNER JOIN utilisateurs ON utilisateurs.id_user = constructeur.id_user '.
+                'WHERE constructeur.id_constructeur=:id_const')
+                ->setParamInt(":id_const", $id)->fetchAssoc();
+        }
+
+        /**
+         * Recuperer toutes les donnees visibles de la table
+         */
         public function findAllImgArticle(int $id):array {
             return $this->setSql('SELECT * FROM articles_image WHERE id_article=:id_article')->setParamInt(":id_article", $id)->fetchAllAssoc();
+        }
+
+        /*Pour relier l'utilisateur au article*/
+        public function findAllAndUserIdPage(int $id, int $nmPage=0, int $nbArtPage=0):array {
+            $limit = "";
+            if(!empty($nbArtPage)) {
+                $nmStart = $nmPage*$nbArtPage;
+                $limit = " LIMIT $nbArtPage OFFSET $nmStart";
+            }
+            $sql = 'SELECT * FROM constructeur '.
+                    'INNER JOIN utilisateurs ON utilisateurs.id_user = constructeur.id_user '.
+                    'WHERE utilisateurs.id_user=:id_user ORDER BY constructeur.id_constructeur DESC'.$limit.'';
+            return $this->setSql($sql)
+                        ->setParamInt(":id_user", $id)
+                        ->fetchAllAssoc();
+        }
+
+        /*Pour relier l'utilisateur au article*/
+        public function findAllAndUserIdCount(int $id):int {
+            $sql = 'SELECT * FROM constructeur '.
+                    'INNER JOIN utilisateurs ON utilisateurs.id_user = constructeur.id_user '.
+                    'WHERE utilisateurs.id_user=:id_user ORDER BY constructeur.id_constructeur DESC';
+            return $this->setSql($sql)
+                        ->setParamInt(":id_user", $id)
+                        ->rowCount();
+        }
+
+        /*Pour relier l'utilisateur au article*/
+        public function findAllAndUserPage(int $nmPage=0, int $nbArtPage=0):array {
+            $limit = "";
+            if(!empty($nbArtPage)) {
+                $nmStart = $nmPage*$nbArtPage;
+                $limit = " LIMIT $nbArtPage OFFSET $nmStart";
+            }
+            $sql = 'SELECT * FROM constructeur '.
+                    'INNER JOIN utilisateurs ON utilisateurs.id_user = constructeur.id_user '.
+                    'ORDER BY constructeur.id_constructeur DESC'.$limit.'';
+            return $this->setSql($sql)
+                        ->fetchAllAssoc();
+        }
+
+        /*Pour relier l'utilisateur au article*/
+        public function findAllAndUserCount():int {
+            $sql = 'SELECT * FROM constructeur '.
+                    'INNER JOIN utilisateurs ON utilisateurs.id_user = constructeur.id_user '.
+                    'ORDER BY constructeur.id_constructeur DESC';
+            return $this->setSql($sql)
+                        ->rowCount();
+        }
+
+        public function findAllIdAndLieux(int $id):array {
+            $sql = 'SELECT *, objet.id AS id_lieu, constructeur_lieu.id AS id_const_lieu, objet.nom AS nom_lieu FROM objet '.
+                    'INNER JOIN lieux ON lieux.id_objet = objet.id '.
+                    'INNER JOIN constructeur_lieu ON constructeur_lieu.id_lieu = lieux.id_lieu '.
+                    'INNER JOIN utilisateurs ON utilisateurs.id_user = objet.id_user '.
+                    'WHERE constructeur_lieu.id=:id && objet.validation=1 ORDER BY constructeur_lieu.id DESC';
+            return $this->setSql($sql)
+                        ->setParamInt(":id", $id)
+                        ->fetchAllAssoc();
         }
     }
 }

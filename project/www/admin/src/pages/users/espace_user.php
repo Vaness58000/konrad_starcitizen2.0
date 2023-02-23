@@ -1,7 +1,9 @@
 <?php
+include __DIR__.'/../../../../src/class/classMain/TemplatePage.php';
 require __DIR__.'/../../../../back/connexion.php'; // ajout connexion bdd 
 // si la session existe pas soit si l'on est pas connecté on redirige
-if (!isset($_SESSION['user'])) {
+if (!(!empty($_SESSION) && array_key_exists('utilisateur', $_SESSION) && !empty($_SESSION['utilisateur']) && 
+    array_key_exists('id', $_SESSION['utilisateur']) && !empty($_SESSION['utilisateur']['id']))) {
     header('Location: ../?ind=login');
     die();
 }
@@ -29,9 +31,14 @@ if (isset($_GET['err'])) {
     }
 }
 
-$html = file_get_contents(__DIR__.'/../../template/profile.html', "r");
-$html = str_replace("[#CITIZEN_USER_ID#]", $id, $html);
-$html = str_replace("[#CITIZEN_USER_PSEUDO#]", $pseudo, $html);
-$html = str_replace("[#CITIZEN_USER_EMAIL#]", $email, $html);
-$html = str_replace("[#CITIZEN_USER_ERR#]", $err, $html);
-echo $html;
+$templatePage = new TemplatePage(__DIR__.'/../../template/users/profile.html');
+$templatePage->addVarString("[#CITIZEN_USER_ID#]", $id);
+$templatePage->addVarString("[#CITIZEN_USER_PSEUDO#]", $pseudo);
+$templatePage->addVarString("[#CITIZEN_USER_EMAIL#]", $email);
+$templatePage->addVarString("[#CITIZEN_USER_ERR#]", $err);
+
+$templatePage->addFileJs("./../src/js/modale.js");
+
+$js = $templatePage->js();
+$css = $templatePage->css();
+$contenu = $templatePage->html();
