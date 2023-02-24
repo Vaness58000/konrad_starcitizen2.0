@@ -2,7 +2,7 @@
 require __DIR__ . '/../../../back/connexion.php';
 require __DIR__ . '/../../../src/repository/LieuxRepository.php';
 $lieuxLuneRepository = new LieuxRepository();
-$lieuxLune = $lieuxLuneRepository->findAllCatId($_GET['id'], 4);
+$lieuxLune = $lieuxLuneRepository->findAllCatIdLieuId($_GET['id'], 4);
 ?>
 
 
@@ -47,7 +47,7 @@ $lieuxLune = $lieuxLuneRepository->findAllCatId($_GET['id'], 4);
             $lieuxLune_img = $lieuxLuneRepository->findAllImgObj($lune["id_objet"]);
 
             foreach ($lieuxLune_img as $construct_img) { ?>
-        <img src="src/img/<?= $construct_img['name'] ?>" alt="lune <? $lune['nom_lieu'] ?>" />
+        <img src="src/img/<?= $construct_img['name'] ?>" alt="lune <? $lune['nom_obj'] ?>" />
     <?php } ?>
 
 </div>

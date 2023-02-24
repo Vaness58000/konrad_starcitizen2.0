@@ -41,6 +41,10 @@ if (!class_exists('UsersRepository')) {
             return $this->setSql('SELECT * FROM type_role')->fetchAllAssoc();
         }
         
+        public function findAllUserAvatarId(int $id):array {
+            return $this->setSql('SELECT * FROM avatar WHERE id_user=:id')->setParamInt(":id", $id)->fetchAssoc();
+        }
+
         /*Pour relier l'utilisateur au article*/
         public function findAllAndUserNoIdPage(int $id, int $nmPage=0, int $nbArtPage=0):array {
             $limit = "";

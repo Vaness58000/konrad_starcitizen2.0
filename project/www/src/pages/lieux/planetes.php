@@ -2,7 +2,7 @@
 require __DIR__ . '/../../../back/connexion.php';
 include __DIR__ . '/../../../src/repository/LieuxRepository.php';
 $lieuxVilleRepository = new LieuxRepository();
-$ville = $lieuxVilleRepository->findAllCat(6);
+$ville = $lieuxVilleRepository->findAllCatId(6);
 /*css planete.css*/
 ?>
 <section class="page_presentation">
@@ -10,14 +10,14 @@ $ville = $lieuxVilleRepository->findAllCat(6);
   <div class="container_categorie">
     <?php foreach ($ville as $construct) { ?>
       <div class="card">
-        <a href="?ind=planete_ind&id=<?= $construct['id']; ?>">
+        <a href="?ind=planete_ind&id=<?= $construct['id_objet']; ?>">
           <?php
           $lieuxVille_img = $lieuxVilleRepository->findAllImgObj($construct["id_objet"]);
           if (count($lieuxVille_img) >= 1) {
           ?>
             <img src="src/img/<?= $lieuxVille_img[0]['name'] ?>" alt="<?= $lieuxVille_img[0]['alt'] ?>"></a>
       <?php } ?>
-      <div class="card__head"><?= $construct['nom_lieu'] ?></div>
+      <div class="card__head"><?= $construct['nom_obj'] ?></div>
       </a>
       </div>
 
