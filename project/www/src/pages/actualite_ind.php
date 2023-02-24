@@ -5,7 +5,7 @@ require __DIR__ . '/../../src/repository/UsersRepository.php';
 $articleRepository = new ArticleRepository();
 $article = $articleRepository->findAllAndTypeUserId($_GET['id'], 1);
 $usersRepository = new UsersRepository();
-$tous_article = $articleRepository->findAllAndTypeUser(1);
+$tous_article = $articleRepository->findAllAndTypeUserNoId(1, $_GET["id"]);
 ?>
 <div class="page_actu">
     <?php 
