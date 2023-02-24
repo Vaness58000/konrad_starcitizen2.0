@@ -19,7 +19,7 @@ if (!class_exists('UsersRepository')) {
          * Recuperer toutes les donnees visibles de la table
          */
         public function findAll():array {
-            return $this->setSql('SELECT * FROM utilisateurs'.
+            return $this->setSql('SELECT * FROM utilisateurs '.
             'LEFT JOIN avatar ON utilisateurs.id_user = avatar.id_user')->fetchAllAssoc();
         }
         public function findAllUserAvatarId(int $id):array {

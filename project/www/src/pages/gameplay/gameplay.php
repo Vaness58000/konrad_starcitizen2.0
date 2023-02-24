@@ -8,14 +8,15 @@ $users = $usersRepository->findAll();
 
 <div class="wrapper_profil">
 
-    <?php //foreach ($users as $user) { ?>
+    <?php foreach ($users as $user) { ?>
         <div class="profile-card -profile-card">
             <div class="profile-card__img">
                 <img src="src/img/avatar.png" alt="profile card">
             </div>
 
             <div class="profile-card__cnt -profile-cnt">
-                <div class="profile-card__name"><?php //$user['pseudo'] ?></div>
+                <div class="profile-card__name">
+                    <?= $user['pseudo'] ?></div>
                 <div class="profile-card__txt">Streamer <strong>Star Citizen</strong></div>
 
                 <div class="profile-card-inf">
@@ -64,12 +65,12 @@ $users = $usersRepository->findAll();
                 </div>
 
                 <div class="profile-card-ctr">
-                    <a href="?ind=streamer_ind&id=<?php //$user["id_user"] ?>" class="profile-card__button button--blue -message-btn">Articles</a>
-                    <a href="?ind=streamer_a_propos&id=<?php // $user["id_user"] ?>" class="profile-card__button button--orange">A propos</a>
+                    <a href="?ind=streamer_ind&id=<?= $user["id_user"] ?>" class="profile-card__button button--blue -message-btn">Articles</a>
+                    <a href="?ind=streamer_a_propos&id=<?= $user["id_user"] ?>" class="profile-card__button button--orange">A propos</a>
                 </div>
             </div>
 
         </div>
-<?php // } ?>
+<?php } ?>
 
 </div>
