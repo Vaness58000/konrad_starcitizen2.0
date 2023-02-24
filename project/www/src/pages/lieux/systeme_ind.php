@@ -5,7 +5,7 @@ require __DIR__.'/../../../back/connexion.php';
 
     <h1>Système Stanton</h1>
     <div class="info_planete">
-        <img src="img/stanton.png">
+        <img src="src/img/stanton.png">
 
         <p>Stanton est le premier système jouable dans Star Citizen. Il s'agence autour d'une étoile naine et regroupe quatre planètes et douze lunes chacune d'entre elles ayant été colonisée par l'homme et présentant donc des points d'intérêts allant de la mégalopole, aux centres miniers perdus au fin fond du système.</p>
     </div>
@@ -23,11 +23,11 @@ require __DIR__.'/../../../back/connexion.php';
         <p>Hurston possède quatre Lunes : Ita, Magda Aberdeen et Arial. Lorville est la zone d'atterrissage principale de la planète. C'est la planète de la firme Hurston Dynamics.</p>
         <div class="systeme">
             <div class="system1">
-                <img src="img/systeme1.png" alt="hurston">
+                <img src="src/img/systeme1.png" alt="hurston">
                 <p>Hurston</p>
             </div>
             <div class="system1">
-                <img src="img/systeme2.jpg" alt="hurston">
+                <img src="src/img/systeme2.jpg" alt="hurston">
                 <p>Lorville</p>
             </div>
         </div>
@@ -35,19 +35,19 @@ require __DIR__.'/../../../back/connexion.php';
         <h3>Stanton I : Hurston : Ses lunes</h3>
         <div class="systeme">
             <div class="system1">
-                <img src="img/systeme3.png" alt="hurston">
+                <img src="src/img/systeme3.png" alt="hurston">
                 <p>Arial</p>
             </div>
             <div class="system1">
-                <img src="img/systeme4.png" alt="hurston">
+                <img src="src/img/systeme4.png" alt="hurston">
                 <p>Aberdeen</p>
             </div>
             <div class="system1">
-                <img src="img/systeme5.png" alt="hurston">
+                <img src="src/img/systeme5.png" alt="hurston">
                 <p>Magda</p>
             </div>
             <div class="system1">
-                <img src="img/systeme6.png" alt="hurston">
+                <img src="src/img/systeme6.png" alt="hurston">
                 <p>Ita</p>
             </div>
         </div>
@@ -56,11 +56,11 @@ require __DIR__.'/../../../back/connexion.php';
         <p>Crusader possède trois lunes et quatre stations spatiales : Cellin, Daymar et Yela sont les lunes. Port Olisar, Grim Hex, Covalex Gundo et Security Post Kareah sont les stations spatiales. Orison, la ville flottante, est la zone d’atterrissage principale de la planète. C'est la planète de Crusader Industries.</p>
         <div class="systeme">
             <div class="system1">
-                <img src="img/systeme7.png" alt="hurston">
+                <img src="src/img/systeme7.png" alt="hurston">
                 <p>Crusader</p>
             </div>
             <div class="system1">
-                <img src="img/systeme8.jpg" alt="hurston">
+                <img src="src/img/systeme8.jpg" alt="hurston">
                 <p>Orison</p>
             </div>
         </div>
@@ -69,15 +69,15 @@ require __DIR__.'/../../../back/connexion.php';
 
         <div class="systeme">
             <div class="system1">
-                <img src="img/systeme9.png" alt="hurston">
+                <img src="src/img/systeme9.png" alt="hurston">
                 <p>Cellin</p>
             </div>
             <div class="system1">
-                <img src="img/systeme10.png" alt="hurston">
+                <img src="src/img/systeme10.png" alt="hurston">
                 <p>Daymar</p>
             </div>
             <div class="system1">
-                <img src="img/systeme11.png" alt="hurston">
+                <img src="src/img/systeme11.png" alt="hurston">
                 <p>Yela</p>
             </div>
         </div>
@@ -85,19 +85,19 @@ require __DIR__.'/../../../back/connexion.php';
         <h3>Stanton II : Crusader : Ses stations</h3>
         <div class="systeme">
             <div class="system1">
-                <img src="img/systeme12.jpg" alt="hurston">
+                <img src="src/img/systeme12.jpg" alt="hurston">
                 <p>Port Olisar</p>
             </div>
             <div class="system1">
-                <img src="img/systeme13.png" alt="hurston">
+                <img src="src/img/systeme13.png" alt="hurston">
                 <p>Grim Hex</p>
             </div>
             <div class="system1">
-                <img src="img/systeme14.jpg" alt="hurston">
+                <img src="src/img/systeme14.jpg" alt="hurston">
                 <p>Covalex Shipping Hub Gundo</p>
             </div>
             <div class="system1">
-                <img src="img/systeme15.jpg" alt="hurston">
+                <img src="src/img/systeme15.jpg" alt="hurston">
                 <p>Security Post Kareah</p>
             </div>
         </div>
@@ -107,11 +107,11 @@ require __DIR__.'/../../../back/connexion.php';
         <div class="systeme">
 
             <div class="system1">
-                <img src="img/systeme16.png" alt="hurston">
+                <img src="src/img/systeme16.png" alt="hurston">
                 <p>ArcCorp</p>
             </div>
             <div class="system1">
-                <img src="img/systeme17.jpg" alt="hurston">
+                <img src="src/img/systeme17.jpg" alt="hurston">
                 <p>Area18</p>
             </div>
 
@@ -121,11 +121,11 @@ require __DIR__.'/../../../back/connexion.php';
         <div class="systeme">
 
             <div class="system1">
-                <img src="img/systeme18.png" alt="hurston">
+                <img src="src/img/systeme18.png" alt="hurston">
                 <p>Lyria</p>
             </div>
             <div class="system1">
-                <img src="img/systeme19.png" alt="hurston">
+                <img src="src/img/systeme19.png" alt="hurston">
                 <p>Wala</p>
             </div>
 
@@ -136,11 +136,11 @@ require __DIR__.'/../../../back/connexion.php';
         <div class="systeme">
 
             <div class="system1">
-                <img src="img/systeme20.png" alt="hurston">
+                <img src="src/img/systeme20.png" alt="hurston">
                 <p>Microtech</p>
             </div>
             <div class="system1">
-                <img src="img/systeme21.jpg" alt="hurston">
+                <img src="src/img/systeme21.jpg" alt="hurston">
                 <p>New Babbage</p>
             </div>
 
@@ -150,15 +150,15 @@ require __DIR__.'/../../../back/connexion.php';
         <div class="systeme">
 
             <div class="system1">
-                <img src="img/systeme22.jpg" alt="hurston">
+                <img src="src/img/systeme22.jpg" alt="hurston">
                 <p>Calliope</p>
             </div>
             <div class="system1">
-                <img src="img/systeme23.jpg" alt="hurston">
+                <img src="src/img/systeme23.jpg" alt="hurston">
                 <p>Clio</p>
             </div>
             <div class="system1">
-                <img src="img/systeme24.jpg" alt="hurston">
+                <img src="src/img/systeme24.jpg" alt="hurston">
                 <p>Euterpe</p>
             </div>
 

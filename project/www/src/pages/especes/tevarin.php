@@ -4,16 +4,16 @@ require __DIR__.'/../../../back/connexion.php';
 
 <section class="page_generale">
 
-    <h1><img src="img/account_corners.png" alt="deco">&ensp; Tevarin</h1>
+    <h1><img src="src/img/account_corners.png" alt="deco">&ensp; Tevarin</h1>
     <div class="info_generale">
         <p>Les Tevarin ( Phon. TEV-are-inn) sont une espèce alien. C'est la première que l'humanité affronte, d'abord lors de la Première Guerre Tevarin, qui permet l’émergence d'Ivar Messer, puis lors de Seconde Guerre Tevarin, tentative désespérée des Tevarin pour tenter de prendre leur revanche.</p>
-        <img src="img/tevarin.jpg" alt="tevarin">
+        <img src="src/img/tevarin.jpg" alt="tevarin">
     </div>
     <div class="info_generale">
         <h2>Histoire</h2>
         <h4>2541 à 2545 : La guerre de 4 ans</h4>
         <p>L'UPE a établi le contact pour la première fois avec cette civilisation en 2541. Bien que la technologie Tevarin n'était pas aussi avancée que celle de l'humanité, les Tevarin commençaient à s'étendre dans l'univers. Une société martiale et fière, les Tevarin désirèrent les possessions de l'humanité et attaquèrent les premiers. Bien que les conflits ne menacèrent jamais la Terre ou Terra, ce qui manquait aux Tevarin d'un point de vue technologique était amplement compensé par leur génie stratégique et leur endurance, ce qui eu pour conséquence de faire durer la guerre pendant plus de quatre années.</p>
-        <img src="img/tevarin2.jpg" alt="tevarin">
+        <img src="src/img/tevarin2.jpg" alt="tevarin">
         <h4>1er octobre 2544 : La bataille d'Idris IV</h4>
         <p>Le tournant du conflit fut la célèbre bataille d'Idris IV qui révéla à la population de l'UPE un jeune officier : Ivar Messer. La guerre des Tevarin faisait rage depuis plus d'un an. Bien que l'Union des Planètes Terriennes était parvenue à arracher quelques victoires décisives, les Tevarin progressaient de façon implacable; ils gagnaient du terrain dans le système Centauri et avaient repoussé les forces de l'UPE jusqu'au système Ferron. Les Tevarin lancèrent une frappe dévastatrice contre la flotte en orbite au-dessus d'Idris IV.</p>
         <p>À l'écoute des rapports des vaisseaux, les troupes du 112ème régiment comprirent qu'elles allaient très vite se retrouver seules. Leur escorte mécanisée avait déjà perdu cinquante pour cent de ses effectifs de départ. Le jeune et ambitieux Capitaine Ivar Messer, prit alors le commandement de la compagnie le Major Michael Colorry de la compagnie Charlie du 112ème bat.ayant été tué par un tireur embusqué. Le groupe s'empara d'un skiff Tevarin abattu et se faufila entre les lignes ennemies. L'équipe d'infiltration, menée par le Sergent Adam Corr, parvint non seulement à localiser le centre de contrôle du système de défense planétaire mais alla même jusqu'à s'en emparer. Ils retournèrent l'arme dévastatrice contre la flotte Tevarin en train de se regrouper,juste assez longtemps pour permettre aux renforts de la Navy de l'UPE de pénétrer dans le système. Les forces Tevarin commencèrent à reculer. L'arrivé des renforts retourna l'offensive.</p>
@@ -37,7 +37,7 @@ require __DIR__.'/../../../back/connexion.php';
     <div class="info_generale">
         <h2>Politique</h2>
         <p>Chaque clan vivant selon ses propres règles et lois, entretenir un contact diplomatique sur l’ensemble de l’espèce est impossible. Ceci explique l’échec des précédentes tentatives de l’UEE, et de manière générale, qu'il soit aussi délicat que compliqué de parler de "diplomatie" chez les tevarin. En effet, leur culture ne comporte visiblement pas d’équivalent, étant fondamentalement axée sur la guerre et le conflit. D’une certaine manière, les tevarin considèrent ce que les humains déplorent et subissent comme quelque chose de normal ; qui est tellement profondément ancré dans leur société qu’avant d’être une guerre, le conflit humain/tevarin est d’abord un choc culturel.</p>
-        <img src="img/tevarin6.jpg" alt="tevarin">
+        <img src="src/img/tevarin6.jpg" alt="tevarin">
 
     </div>
     <div class="info_generale">
@@ -48,14 +48,14 @@ require __DIR__.'/../../../back/connexion.php';
     <div class="info_generale">
         <h2>Armée</h2>
         <p>Bien que la Seconde Guerre Tevarin ait pris fin en 2610, il y a à ce jour toujours un ressenti étendu presque à l'ensemble de la culture vis-à-vis des forces militaires de l'UEE et le nombre de volontaires dans l'armée de l'UEE est par conséquent très faible.</p>
-        <img src="img/tevarin3.png" alt="tevarin">
+        <img src="src/img/tevarin3.png" alt="tevarin">
         <p>La majorité des Tevarin dans l'armée viennent du système judiciaire de l'UEE. Certains criminels Tevarin se voient proposer un choix : purger une peine ou effectuer un certain nombre de déploiements au sein d'une escouade sur la ligne de front en tant que chair à canon où sont généralement regroupés détenus humains et Tevarin. Il est possible pour un Tevarin qui fait partie d'une de ces escouades d'être promu et d'intégrer l'une des branches plus « légitimes » des forces militaires de l'UEE, même si c'est rare.</p>
 
     </div>
     <div class="info_generale">
         <h2>Personnalité</h2>
         <p>La plupart des Tevarin ressentent une profonde tristesse et de la colère ; le sentiment mélancolique que leur espèce est sur le déclin. Après la perte de leur planète natale, de nombreux Tevarin canalisèrent leur nature agressive dans des addictions et la violence. Les mercenaires Tevarin sont réputés pour leur cruauté et leur absence de toute peur. Disparus sont les guerriers spirituels liés par l'honneur d'antan ; les tueurs sont tout ce qui reste.</p>
-        <img src="img/tevarin4.png" alt="tevarin">
+        <img src="src/img/tevarin4.png" alt="tevarin">
         <p>Le Tevarin lambda n'éprouve que peu de joie ces derniers temps. Lorsqu'ils interagissent avec eux, la plupart des humains les trouvent laconiques et cyniques.</p>
     </div>
     <div class="info_generale">

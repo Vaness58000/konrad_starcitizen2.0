@@ -5,7 +5,7 @@
 
         <div class="footer-top">
             <div class="logo_footer">
-                <img src="img/logo_test.png" alt="logo star citizen">
+                <img src="src/img/logo_test.png" alt="logo star citizen">
                 <h1>Communauté Star Citizen France</h1>
             </div>
             <p>Il s’agit d’un site de fans non officiel de Star Citizen, non affilié au groupe de sociétés Cloud Imperium. Tout le contenu de ce site qui n’est pas créé par son hôte ou ses utilisateurs est la propriété de leurs propriétaires respectifs. </p>

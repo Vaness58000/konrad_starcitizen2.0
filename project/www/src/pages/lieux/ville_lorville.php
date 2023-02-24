@@ -6,9 +6,9 @@ require __DIR__.'/../../../back/connexion.php';
     <h1>Lorville</h1>
     <div class="info_generale">
         <p>Il existe plusieurs villes dans Star Citizen. La première à avoir été implémentée dans le jeu est Lorville. Elle est située sur Hurston et est le centre d'opération d'Hurston Dynamics dans le système Stanton. On y trouvera de nombreux commerces, notamment le magasin de vaisseaux le mieux fourni.</p>
-        <img src="img/ville22.jpg" alt="ville Lorville">
+        <img src="src/img/ville22.jpg" alt="ville Lorville">
         <p>Dans Star Citizen, Lorville est le système nerveux central de la firme Hurston Dynamics dans le système Stanton. Elle remplit plusieurs fonctions et principalement celle de centre d'hébergement pour les travailleurs, de plateforme commerciale où de nombreux biens peuvent être échangés, et celle de superviser les travaux de minage et de raffinerie sur la planète et les satellites dont la compagnie a la propriété. La ville est souvent symbolisée par sa tour centrale, repérable à des kilomètres alentours et est connue pour ses conditions de vie déplorables. En effet la ville est située sur le biome appelé Côte Polluée, qui est l'un des plus représentatifs de la pollution par l'industrialisation de la totalité de la planète Hurston.</p>
-        <img src="img/ville24.jpg" alt="ville Lorville">
+        <img src="src/img/ville24.jpg" alt="ville Lorville">
 
     </div>
     <div class="info_generale">
@@ -16,7 +16,7 @@ require __DIR__.'/../../../back/connexion.php';
         <p>Le Spatioport de Teasa est la seule zone d'atterrissage de Lorville. En effet, une zone d’interdiction de vol couvre la totalité de la ville à l'exeption de Teasa et de la cime de Central. S'il est possible cependant d'atterrir à quelques pas des portes de la ville, aucune aire d’atterrissage n'y sont présentes, uniquement des garages terrestres. Le Spatioport de Teasa présente 8 hangars de toutes les tailles et on pourra ainsi y poser et en faire décoller n'importe quel vaisseau. Y sont proposés également tous les services de réparations et d'approvisionnement de vaisseau.<br>
             A l'heure actuelle, seul le terminal 5 Archimedes Flight est accessible. On y trouvera les écrans de gestion de flotte, le salon du Chairman's Club,l'un des futurs kiosques de location: Vantage rentals, mais surtout New Deal, le plus grand magasin de vaisseaux en jeu actuellement (3.6), avec près de 40 vaisseaux disponibles à l'achat.</p><br><br>
         <p>Avant de définitivement entrer à Lorville, vous devrez passer la sécurité qui vérifiera votre CrimeStat. Puis vous pourrez enfin vous diriger vers la station de transit du spatioport pour continuer votre périple dans la ville-mine.</p>
-        <img src="img/ville25.jpg" alt="ville Lorville">
+        <img src="src/img/ville25.jpg" alt="ville Lorville">
 
 
     </div>
@@ -29,7 +29,7 @@ require __DIR__.'/../../../back/connexion.php';
         <li>Metro Center et Teasa Spaceport : Spaceport Line</li>
         <li>Metro Center et Portes 1, 2, 3 : Perimeter Line East</li>
         <li>Metro Center et Portes 4, 5, 6 : Perimeter Line West</li>
-        <img src="img/ville26.jpg" alt="ville Lorville">
+        <img src="src/img/ville26.jpg" alt="ville Lorville">
 
     </div>
     <div class="info_generale">
@@ -44,16 +44,16 @@ require __DIR__.'/../../../back/connexion.php';
         <li>La porte 4 est située plein sud, mais fait partie de la ligne de métro Ouest.</li>
         <li>Les portes 5 et 6 sont situées à l'Ouest.</li>
 
-        <img src="img/ville27.jpg" alt="ville Lorville">
+        <img src="src/img/ville27.jpg" alt="ville Lorville">
 
     </div>
     <div class="info_generale">
         <h2>Central Business District</h2>
         <p>Central Buisiness district est situé, comme son nom l'indique, proche de la tour de Lorville: Central. C'est le centre des affaires de Lorville. On y trouvera la bourse avec ses écrans d'échange et de chargement de vaisseaux, HD Showcase présentant en grande pompe, la pointe de la technologie d'armement de vaisseaux, notamment les canons laser "Dominance" et les tourelles "Attrition", fer de lance de la production d'Hurston Dynamics; le mémorial Archibald Hurston, dont la gigantesque statue domine la base de Central d'un air partiarcal. On notera rapidement la différence en matière d'entretien et d'investissements, entre Central et le reste de la ville.</p>
         <div class="gallery_ville">
-            <img src="img/ville28.jpg" alt="ville Lorville">
-            <img src="img/ville29.jpg" alt="ville Lorville">
-            <img src="img/ville30.jpg" alt="ville Lorville">
+            <img src="src/img/ville28.jpg" alt="ville Lorville">
+            <img src="src/img/ville29.jpg" alt="ville Lorville">
+            <img src="src/img/ville30.jpg" alt="ville Lorville">
 
         </div>
     </div>
@@ -65,8 +65,8 @@ require __DIR__.'/../../../back/connexion.php';
         <li>Shaw est un advocate, supposé appliquer les lois de l'UEE aux confins de l'espace. Cependant il faudra vous adresser à lui si vous voulez faire entrer ou sortir des marchandises de contrebande à Lorville. Shaw n'est actuellement pas présent physiquement dans le jeu.</li>
 
         <div class="gallery_ville">
-            <img src="img/ville31.jpg" alt="ville Lorville">
-            <img src="img/ville32.jpg" alt="ville Lorville">
+            <img src="src/img/ville31.jpg" alt="ville Lorville">
+            <img src="src/img/ville32.jpg" alt="ville Lorville">
         </div>
 
     </div>

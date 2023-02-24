@@ -1,40 +1,49 @@
 <?php
 require __DIR__ . '/../../../back/connexion.php';
 require __DIR__ . '/../../../src/repository/ArticleRepository.php';
+require __DIR__ . '/../../../src/repository/UsersRepository.php';
 $articleRepository = new ArticleRepository();
 $article = $articleRepository->findAllAndTypeUser(1);
-
+$usersRepository = new UsersRepository();
 ?>
-
-<div class="grid_article">
-  <?php foreach ($article as $construct) { ?>
-    <div class="grid-item">
+<section class="page_article">
+  <div class="container_article">
+    <?php foreach ($article as $construct) { ?>
       <div class="card_article">
-        <a href="?ind=article_streamer_ind&id=<?= $construct["id"] ?>">
-          <?php
-          $article_img = $articleRepository->findAllImgArticle($construct["id"]);
-          if (count($article_img) >= 1) {
-          ?>
-            <img class="card_article-img" src="img/<?= $article_img[0]['name'] ?>" alt="<?= $article_img[0]['alt'] ?>" />
+        <div class="card-header_article">
+          <a href="?ind=article_streamer_ind&id=<?= $construct["id"] ?>">
+            <?php
+            $article_img = $articleRepository->findAllImgArticle($construct["id"]);
+            if (count($article_img) >= 1) {
+            ?>
+              <img src="src/img/<?= $article_img[0]['name'] ?>" alt="<?= $article_img[0]['alt'] ?>" />
 
-          <?php } ?>
-          <div class="card_article-content">
-            <div id="streamer">
-              <img src="img/avatar.png" alt="">
-              <h3><?= $construct['pseudo'] ?></h3>
-              <span class="patch-card__timestamp"><i class="ion-clock"></i> <?= date('d/m/Y', strtotime($construct['date'])); ?></span>
+            <?php } ?>
+
+        </div>
+        <div class="card-body_article">
+          <span class="tag tag-teal">GamePlay</span>
+          <h4><?= $construct['titre'] ?></h4>
+          <p>
+            <?= $construct['resume'] ?>
+          </p>
+          </a>
+          <div class="user_article">
+            <?php
+            $user = $usersRepository->findAllUserAvatarId($construct["id_user"]);
+            if (count($user) <= 0) { ?>
+              <img src="src/img/avatar.png" alt="<?= $construct['pseudo'] ?>" />
+
+            <?php } else if (count($user) >= 1) { ?>
+              <img src="upload/<?= $user["src"] ?>" alt="avatar de <?= $construct['pseudo'] ?>" />
+            <?php } ?>
+            <div class="user-info">
+              <h5><?= $construct['pseudo'] ?></h5>
+              <small class="date"><?= date('d/m/Y', strtotime($construct['date'])); ?></small>
             </div>
-
-            <a href="?ind=article_streamer_ind&id=<?= $construct["id"] ?>">
-              <h1 class="card_article-header"><?= $construct['titre'] ?></h1>
-            </a>
-            <p class="card_article-text">
-              <?= $construct['resume'] ?>
-            </p>
-            <a href="?ind=article_streamer_ind&id=<?= $construct["id"] ?>" class="card_article-btn">Lire<span>&rarr;</span></a>
           </div>
+        </div>
       </div>
-    </div>
-  <?php } ?>
-
-</div>
+    <?php } ?>
+  </div>
+</section>

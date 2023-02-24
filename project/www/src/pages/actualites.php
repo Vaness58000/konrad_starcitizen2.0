@@ -17,7 +17,7 @@ $article = $articleRepository->findAllAndTypeUser(1);
                     $article_img = $articleRepository->findAllImgArticle($construct["id"]);
                     if (count($article_img) >= 1) {
                     ?>
-                        <img class="postcard__img" src="img/<?= $article_img[0]['name'] ?>" alt="<?= $article_img[0]['alt'] ?>" />
+                        <img class="postcard__img" src="src/img/<?= $article_img[0]['name'] ?>" alt="<?= $article_img[0]['alt'] ?>" />
 
                     <?php } ?>
                 </a>
@@ -32,7 +32,7 @@ $article = $articleRepository->findAllAndTypeUser(1);
                     <div class="postcard__bar"></div>
                     <div class="postcard__preview-txt"><?= $construct['resume']; ?></div>
                     <ul class="postcard__tagbox">
-                        <li class="tag__item">il y a 2 jours</li>
+                        <li class="tag__item">Actualité</li>
 
                         <li class="tag__item auteur blue">
                             <a href="?ind=actualite_ind&id=<?= $construct["id"]; ?>">Publié par <?= $construct['pseudo'] ?></a>

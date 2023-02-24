@@ -6,7 +6,7 @@ require __DIR__.'/../../../back/connexion.php';
 
     <h1>Civilisations</h1>
     <div class="info_generale">
-      <img src="img/civil8.jpg">
+      <img src="src/img/civil8.jpg">
 
       <p>Les espèces avancées, au sein du dantesque arbre des espèces de la galaxie, sont celles qui, par leur développement du fait de facteurs particuliers, ont développé une intelligence qui dépasse la simple sentience animale. Ces espèces interagissent au travers de schémas sociaux complexes, et utilisent des objets plutôt que ce dont la nature les a doté, afin d'optimiser un travail. Leur complexité et leur prise de conscience d'eux-même les a placé sur une pente ascendante vers le rang d'espèce à la supériorité intellectuelle indéniable.</p>
     </div>
@@ -16,46 +16,46 @@ require __DIR__.'/../../../back/connexion.php';
       <div class="civilisation">
         <div class="gallery">
           <a href="humain.php">
-            <img src="img/civil1.jpg" alt="humain star citizen" width="600" height="400">
+            <img src="src/img/civil1.jpg" alt="humain star citizen" width="600" height="400">
           </a>
           <div class="desc">Humains</div>
         </div>
 
         <div class="gallery">
           <a href="vanduul.php">
-            <img src="img/civil2.jpg" alt="vanduul" width="600" height="400">
+            <img src="src/img/civil2.jpg" alt="vanduul" width="600" height="400">
           </a>
           <div class="desc">Vanduul</div>
         </div>
 
         <div class="gallery">
           <a href="banu.php">
-            <img src="img/civil3.jpg" alt="banu" width="600" height="400">
+            <img src="src/img/civil3.jpg" alt="banu" width="600" height="400">
           </a>
           <div class="desc">Banu</div>
         </div>
 
         <div class="gallery">
           <a href="xian.php">
-            <img src="img/civil4.jpg" alt="Xi'an" width="600" height="400">
+            <img src="src/img/civil4.jpg" alt="Xi'an" width="600" height="400">
           </a>
           <div class="desc">Xi'an</div>
         </div>
         <div class="gallery">
           <a href="tevarin.php">
-            <img src="img/civil5.jpg" alt="Tevarin" width="600" height="400">
+            <img src="src/img/civil5.jpg" alt="Tevarin" width="600" height="400">
           </a>
           <div class="desc">Tevarin</div>
         </div>
         <div class="gallery">
           <a href="hadesien.php">
-            <img src="img/civil6.jpg" alt="? on ne sait pas à quoi il ressemble" width="600" height="400">
+            <img src="src/img/civil6.jpg" alt="? on ne sait pas à quoi il ressemble" width="600" height="400">
           </a>
           <div class="desc">Hadésien</div>
         </div>
         <div class="gallery">
           <a href="krthak.php">
-            <img src="img/civil6.jpg" alt="? on ne sait pas à quoi il ressemble" width="600" height="400">
+            <img src="src/img/civil6.jpg" alt="? on ne sait pas à quoi il ressemble" width="600" height="400">
           </a>
           <div class="desc">Kr'Thak</div>
         </div>
@@ -70,16 +70,16 @@ require __DIR__.'/../../../back/connexion.php';
 
       <div class="civilisation">
         <div class="gallery">
-          <img src="img/civil6.jpg" alt="Osoïen" width="600" height="400">
+          <img src="src/img/civil6.jpg" alt="Osoïen" width="600" height="400">
           <div class="desc">Osoïen</div>
         </div>
         <div class="gallery">
-          <img src="img/civil6.jpg" alt="? on ne sait pas à quoi il ressemble" width="600" height="400">
+          <img src="src/img/civil6.jpg" alt="? on ne sait pas à quoi il ressemble" width="600" height="400">
           <div class="desc">Orm</div>
         </div>
 
         <div class="gallery">
-          <img src="img/civil6.jpg" alt="? on ne sait pas à quoi il ressemble" width="600" height="400">
+          <img src="src/img/civil6.jpg" alt="? on ne sait pas à quoi il ressemble" width="600" height="400">
           <div class="desc">Genésien</div>
         </div>
 

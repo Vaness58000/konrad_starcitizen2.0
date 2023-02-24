@@ -23,26 +23,24 @@ td {
 
 @media screen and (max-width: 885px) {
 	
-	.info_vaisseau {
-		width: 100%;
+	.info_generale {
 		margin: 10px;
 	}
 
-	.info_vaisseau .description {
+	.info_generale .description {
 		width: 100%;
 		color: aliceblue;
 		text-align: justify;
 		line-height: 1.8em;
 	}
 
-	.description_vaisseau {
+	.description_generale {
 		margin: 0;
 		margin-bottom: 40px;
-		padding: 30px;
 		width: 100%;
 	}
 
-	.info_vaisseau img {
+	.info_generale img {
 		width: 400px;
 	}
 
@@ -61,25 +59,17 @@ td {
 }
 
 @media screen and (min-width: 885px) and (max-width: 1140px) {
-	.block {
 
-		padding: 10px;
-	}
-
-	.description_vaisseau {
+	.description_generale {
 		width: 100%;
 		margin-bottom: 40px;
 	}
 
-	.info_vaisseau img {
+	.info_generale img {
 		width: 400px;
 	}
 
-	.info_vaisseau {
-		width: 100%;
-	}
-
-	.info_vaisseau .description {
+	.info_generale .description {
 		width: 40%;
 	}
 
@@ -91,7 +81,7 @@ td {
 }
 
 @media screen and (max-width: 460px) {
-	.info_vaisseau img {
+	.info_generale img {
 		width: 320px;
 		margin: 20px 0;
 	}

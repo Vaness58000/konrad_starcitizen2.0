@@ -48,7 +48,7 @@
       <input type="checkbox" id="show-menu">
       <label for="show-menu" class="menu-icon"><i class="fas fa-bars"></i></label>
       <div class="content">
-        <div class="logo"><a href="./"><img src="img/logo_test.png" alt=""></a></div>
+        <div class="logo"><a href="./"><img src="./src/img/logo_test.png" alt=""></a></div>
         <ul class="links">
           <li><a class="radio" href="./">Accueil</a></li>
           <li>
@@ -175,7 +175,7 @@
   </div>-->
 
   <div>
-    <button onclick="retourHaut()" id="haut" title="Retour haut de page"><img src="img/fleche.png" alt="fleche retour haut de page"></button>
+    <button onclick="retourHaut()" id="haut" title="Retour haut de page"><img src="src/img/fleche.png" alt="fleche retour haut de page"></button>
   </div>
   <div class="page">
     <script>

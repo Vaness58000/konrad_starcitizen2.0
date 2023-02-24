@@ -53,10 +53,10 @@ $tousConstrus = $sth4->fetchAll(PDO::FETCH_ASSOC);
     <?php foreach ($constructeurs as $constructeur) { ?>
         <div class="container_contructeur">
 
-            <h1><img src="img/<?= $constructeur['logo']; ?>"><?= $constructeur['nom']; ?></h1>
+            <h1><img src="src/img/<?= $constructeur['logo']; ?>"><?= $constructeur['nom']; ?></h1>
 
             <div class="info_construct">
-                <img src="img/<?= $constructeur['image']; ?>" alt="<?= $constructeur['nom']; ?>">
+                <img src="src/img/<?= $constructeur['image']; ?>" alt="<?= $constructeur['nom']; ?>">
                 <label class="btn btn--blue" for="modal-2">+ d'infos sur <?= $constructeur['nom']; ?> </label>
                 <input class="modal-state" id="modal-2" type="checkbox" />
                 <div class="modal">
@@ -64,7 +64,7 @@ $tousConstrus = $sth4->fetchAll(PDO::FETCH_ASSOC);
                     <div class="modal__inner">
                         <label class="modal__close" for="modal-2"></label>
                         <h2><?= $constructeur['nom']; ?></h2>
-                        <p><img src="img/<?= $constructeur['image']; ?>" alt="<?= $constructeur['nom']; ?>">
+                        <p><img src="src/img/<?= $constructeur['image']; ?>" alt="<?= $constructeur['nom']; ?>">
                         <p><?= $constructeur['paragraphe1']; ?></p>
                         <p><?= $constructeur['paragraphe2']; ?></p>
                         <p><?= $constructeur['paragraphe3']; ?></p>
@@ -86,7 +86,7 @@ $tousConstrus = $sth4->fetchAll(PDO::FETCH_ASSOC);
 
         <?php foreach ($constructs as $construct) { ?>
             <div class="vaisseau_indiv">
-                <a href="?ind=vaisseau_ind&id=<?= $construct['id']; ?>"><img src="img/<?= $construct['image_vaisseau']; ?>" alt="vaisseau<? $construct['nom_vaisseau']; ?>"></a>
+                <a href="?ind=vaisseau_ind&id=<?= $construct['id']; ?>"><img src="src/img/<?= $construct['image_vaisseau']; ?>" alt="vaisseau<? $construct['nom_vaisseau']; ?>"></a>
                 <div class="centered"><?= $construct['nom_vaisseau']; ?></div>
             </div>
         <?php
@@ -94,4 +94,4 @@ $tousConstrus = $sth4->fetchAll(PDO::FETCH_ASSOC);
         ?>
     </div>
 </section>
-<script src="./../../../js/script_filtre_vaisseau.js"></script>
+<script src="src/js/script_filtre_vaisseau.js"></script>

@@ -15,7 +15,7 @@ $armeFps = $armeFpsRepository->findAllId($_GET['id']);
                         $armeFps_img = $armeFpsRepository->findAllImgObj($construct["id_objet"]);
 
                         foreach ($armeFps_img as $construct_img) {?>
-                                <img src="img/<?= $construct_img['name'] ?>" class="image" alt="<?= $construct['nom_arm'] ?>"/>
+                                <img src="src/img/<?= $construct_img['name'] ?>" class="image" alt="<?= $construct['nom_arm'] ?>"/>
                         <?php } ?>
             <p><?= str_replace("\n", "<br/>",$construct['contenu']) ?></p>
            

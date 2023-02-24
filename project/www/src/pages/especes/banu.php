@@ -4,15 +4,15 @@ require __DIR__.'/../../../back/connexion.php';
 
 <section class="page_generale">
 
-    <h1><img src="img/account_corners.png" alt="deco">&ensp; Banu</h1>
+    <h1><img src="src/img/account_corners.png" alt="deco">&ensp; Banu</h1>
     <div class="info_generale">
         <p>Les Banu sont non seulement la première espèce extraterrestre consciente et technologiquement évoluée que l’humanité a rencontrée, mais ils sont des voisins pacifiques et respectueux qui ont favorisé une relation étroite avec l’UEE et ses citoyens au travers d’échanges commerciaux et culturels.</p>
-        <img src="img/banu.jpg" alt="banu">
+        <img src="src/img/banu.jpg" alt="banu">
     </div>
     <div class="info_generale">
         <h2>Histoire</h2>
         <p>Les Banu ont été découvert par un explorateur nommé Vernon Tar en 2438, qui a failli déclencher une guerre en tirant sur un pilote Banu. Ce Banu était en réalité en train de fuir les autorités locales suite à une affaire de détournement de fonds.</p>
-        <img src="img/banu2.jpg" alt="banu">
+        <img src="src/img/banu2.jpg" alt="banu">
         <p>Deux semaines plus tard, une délégation alien apparut dans le système Davien et établit le contact avec Socolovich. Durant les mois qui suivirent, les deux races travaillèrent ensemble pour casser la barrière de la langue. Quand finalement il fut possible de communiquer, en octobre 2438, Socolovich et les autres délégués de la race humaine signèrent le premier Pacte de Commerce et de Paix avec les Banu.</p>
 
         <p>Suite à cet accord, l'humanité a commencé à échanger nos technologies et à nous aider mutuellement. Après l'expansion Banu, ceux-ci formèrent le Protectorat Banu afin de superviser l'ensemble de leurs systèmes.</p>
@@ -22,12 +22,12 @@ require __DIR__.'/../../../back/connexion.php';
     <div class="info_generale">
         <h2>Monde d'origine</h2>
         <p>Supposé être Baachus par l'UEE parce qu'il s'agit du monde où les Banu se réunissent pour leurs Assemblées. Les Banu évitent soigneusement d'évoquer leur monde d'origine en présence d'inconnus.</p>
-        <img src="img/banu5.jpg" alt="banu">
+        <img src="src/img/banu5.jpg" alt="banu">
     </div>
     <div class="info_generale">
         <h2>Traits de personnalité et paysage social</h2>
         <p>Plus particulièrement connus pour leur nature entrepreneuse, les Banu sont fiers de leur savoir-faire artisanal ainsi que de leur sens des affaires. À la différence des unités familiales ou corporatistes que l’on retrouve chez les humains, les Banu, eux, ont une structure sociétale qui combine les deux dans une seule unité : la Souli. Souvent traduite par “guilde”, la Souli est le fondement de la vie au sein du Protectorat, c’est l’endroit où les Banu vivent et travaillent ensemble. Chaque Souli est spécialisée dans un domaine spécifique qui peut grandement varier, depuis la Souli fabricante de vaisseaux à la Souli de commerce, il y a même des Souli pour élever les jeunes Banu. Cette division du travail se retrouve directement dans le haut savoir-faire des mondes Banu, sur les marchés et dans leurs vaisseaux de commerce, ce qui en fait des endroits particulièrement intéressant à découvrir.</p>
-        <img src="img/banu3.jpg" alt="banu">
+        <img src="src/img/banu3.jpg" alt="banu">
         <p>Le commerce est au cœur des systèmes Banu. Même si chaque planète vante les mérites de sa propre culture et tradition, toutes sont liées par le désir de l'argent et du commerce. Les mondes Banu débordent d'énergie et sont des endroits dangereux où les criminels et les aristocrates se croisent sur les différents marchés. Tout peut être trouvé chez les Banu si vous avez les crédits.</p>
         <p>Bien sûr, les Banu ne passent pas tout leur temps à travailler et à commercer. Avec la conviction que l’on doit vivre dans l’instant et se focaliser sur le présent, ils considèrent leurs moments de détente presque aussi sérieusement que leur travail. Il existe de nombreuses possibilités pour la détente et il y en a presque pour tous les goûts : salles de jeux animées où s’échangent des marchandises exubérantes dans les jeux de hasard. Les Banu sont de fervents adeptes du jeu humain de Sataball et il existe de nombreux stades dans tout le Protectorat – il faut juste savoir qu’il est courant pour un Banu d’encourager les deux équipes d’un même match.</p>
 
@@ -57,13 +57,13 @@ require __DIR__.'/../../../back/connexion.php';
     <div class="info_generale">
         <h2>Forces militaires</h2>
         <p>Les Banu peuvent mettre sur pied une formidable force de frappe si nécessaire mais ils ne possèdent pas d'armée régulière. A la place, la milice Banu maintient la paix (relative) au jour le jour au sein des systèmes Banu. La milice opère par rotations et enrôle des volontaires (voire certains criminels) des différentes planètes habitées du système afin de garder un œil sur ce qui se passe dans l'espace. Dire que leur conception de l'application de la loi est chaotique est un euphémisme.</p>
-        <img src="img/banu6.png" alt="banu">
+        <img src="src/img/banu6.png" alt="banu">
     </div>
     <div class="info_generale">
         <h2>Vaisseaux</h2>
         <p>Merchantman (transporteur de marchandise)<br>
             Defender (Chasseur léger bi-place)</p>
-        <img src="img/banu4.jpg" alt="banu">
+        <img src="src/img/banu4.jpg" alt="banu">
     </div>
     <div class="info_generale">
         <h2>Criminalité</h2>

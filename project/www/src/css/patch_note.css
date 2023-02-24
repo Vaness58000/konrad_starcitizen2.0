@@ -66,12 +66,7 @@
     display: inline-block;
     font-size: 15px;
 }
-.patch-card__auteur img {
-    width: 40px;
-}
-.patch-card__auteur{
-    margin-right: 10px;
-}
+
 .patch-card__timestamp {
     display: inline-block;
     margin-right: 15px;

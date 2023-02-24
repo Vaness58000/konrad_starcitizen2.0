@@ -46,6 +46,12 @@ if($get_ind != "connexion" && $get_ind != "inscription_traitement" && $get_ind !
     else if($get_ind == "arme_ind") {
         include __DIR__.'/src/pages/equipements/arme_ind.php';
     }
+    else if($get_ind == "arme_vaisseau"){
+        include __DIR__.'/src/pages/equipements/arme_vaisseau.php';
+    } 
+    else if($get_ind == "arme_vaisseau_ind") {
+        include __DIR__.'/src/pages/equipements/arme_vaisseau_ind.php';
+    }
     else if($get_ind == "verif_form") {
         include __DIR__.'/src/pages/equipements/verif-form.php';
     }
