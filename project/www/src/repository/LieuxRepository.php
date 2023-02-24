@@ -33,7 +33,12 @@ if (!class_exists('LieuxRepository')) {
         public function findListCat() {
             return $this->setSql('SELECT * FROM categories_lieux')->fetchAllAssoc();
         }
-
+        public function findAllCatIdLieuId(int $id, int $id_cat):array {
+            return $this->setSql('SELECT *, objet.id AS id_objet, objet.nom AS nom_lieu, categories_lieux.nom AS nom_cat FROM objet '.
+                    'INNER JOIN lieux ON lieux.id_objet = objet.id '.
+                    'INNER JOIN categories_lieux ON categories_lieux.id_categ_lieu = lieux.id_categ_lieu '.
+                    'WHERE categories_lieux.id_categ_lieu=:id_cat AND objet.id=:id')->setParamInt(":id_cat", $id_cat)->setParamInt(":id", $id)->fetchAllAssoc();
+        }
         /**
          * Recuperer toutes les donnees visibles de la table
          */
@@ -45,13 +50,7 @@ if (!class_exists('LieuxRepository')) {
                     'INNER JOIN categories_lieux ON categories_lieux.id_categ_lieu = lieux.id_categ_lieu '.
                     'WHERE categories_lieux.id_categ_lieu=:id_cat')->setParamInt(":id_cat", $id_cat)->fetchAllAssoc();
         }
-        public function findAllCatId(int $id, int $id_cat):array {
-            return $this->setSql('SELECT *, objet.id AS id_objet, objet.nom AS nom_lieu, categories_lieux.nom AS nom_cat FROM objet '.
-                    'INNER JOIN lieux ON lieux.id_objet = objet.id '.
-                    'INNER JOIN categories_lieux ON categories_lieux.id_categ_lieu = lieux.id_categ_lieu '.
-                    'WHERE categories_lieux.id_categ_lieu=:id_cat AND objet.id=:id')->setParamInt(":id_cat", $id_cat)->setParamInt(":id", $id)->fetchAllAssoc();
-        }
-
+        
         /**
          * Recuperer toutes les donnees visibles de la table
          */
