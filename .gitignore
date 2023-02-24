@@ -9,6 +9,7 @@
 /project/www/forum/config.php
 /project/www/src/config/config.php
 /project/www/upload
+/project/www/data
 /project/www/config/config_def.ini
 /project/www/config/informations.json
 /project/www/.htaccess
