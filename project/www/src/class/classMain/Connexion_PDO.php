@@ -43,9 +43,9 @@ if (!function_exists('Connexion_PDO')) {
             $this->errorFile = new Error_Log();
 
             // verifier l'existance du fichier pour ouvrir la base de donnees
-            if(file_exists(dirname(__FILE__) . '/../config/sgbd_config.php')) {
+            if(file_exists(dirname(__FILE__) . '/../../config/sgbd_config.php')) {
                 // recupere les valeurs de connexion a la base de donnees.
-                include dirname(__FILE__) . '/../config/sgbd_config.php';
+                include dirname(__FILE__) . '/../../config/sgbd_config.php';
             }
 
             $config = new Config_SGBD($file_config);
@@ -92,13 +92,13 @@ if (!function_exists('Connexion_PDO')) {
                 } else {
                     parent::__construct($line);
                 }
-            } catch (PDOException $e) {
+            } catch (PDOException $e) {             
                 // en cas d'erreur de connexion, on place le message dans le fichier "errors.log".
                 $this->is_error = true;
                 $this->nmError = 1005000000;
                 $error_message = $e;
                 $this->errorFile->addError($error_message, $this->nmError);
-            } catch (Exception $e) {
+            } catch (Exception $e) {  
                 // en cas d'erreur de connexion, on place le message dans le fichier "errors.log".
                 $this->is_error = true;
                 $this->nmError = 1005000001;
