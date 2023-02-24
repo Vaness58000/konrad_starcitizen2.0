@@ -3,7 +3,7 @@ require __DIR__ . '/../../back/connexion.php';
 require __DIR__ . '/../../src/repository/ArticleRepository.php';
 require __DIR__ . '/../../src/repository/UsersRepository.php';
 $articleRepository = new ArticleRepository();
-$article = $articleRepository->findAllAndTypeUser(1);
+$article = $articleRepository->findAllAndTypeUser(3);
 $usersRepository = new UsersRepository();
 
 ?>

@@ -3,9 +3,9 @@ require __DIR__ . '/../../../back/connexion.php';
 require __DIR__ . '/../../../src/repository/ArticleRepository.php';
 require __DIR__ . '/../../../src/repository/UsersRepository.php';
 $articleRepository = new ArticleRepository();
-$article = $articleRepository->findAllAndTypeUser(1);
+$article = $articleRepository->findAll();
 $usersRepository = new UsersRepository();
-$user = $usersRepository->findAllUserId($_GET['id']);
+$user = $usersRepository->findAllUserAvatarId($_GET['id']);
 ?>
 <div class="streamer">
   <?php if (count($user)) { ?>
@@ -46,7 +46,7 @@ $user = $usersRepository->findAllUserId($_GET['id']);
 
         <?php foreach ($article as $construct) { ?>
           <article class="postcard dark blue">
-            <a class="postcard__img_link" href="?ind=actualite_ind&id=<?= $construct["id"]; ?>">
+            <a class="postcard__img_link" href="?ind=article_streamer_ind&id=<?= $construct["id"]; ?>">
 
               <?php
               $article_img = $articleRepository->findAllImgArticle($construct["id"]);
@@ -58,7 +58,7 @@ $user = $usersRepository->findAllUserId($_GET['id']);
             </a>
             <div class="postcard__text">
 
-              <h1 class="postcard__title blue"><a href="?ind=actualite_ind&id=<?= $construct["id"]; ?>"><?= $construct['titre']; ?></a></h1>
+              <h1 class="postcard__title blue"><a href="?ind=article_streamer_ind&id=<?= $construct["id"]; ?>"><?= $construct['titre']; ?></a></h1>
               <div class="postcard__subtitle small">
                 <time datetime="2020-05-25 12:00:00">
                   <i class="fas fa-calendar-alt mr-2"></i> <?= date('d/m/Y H:i:s', strtotime($construct['date'])); ?>
@@ -67,10 +67,10 @@ $user = $usersRepository->findAllUserId($_GET['id']);
               <div class="postcard__bar"></div>
               <div class="postcard__preview-txt"><?= $construct['resume']; ?></div>
               <ul class="postcard__tagbox">
-                <li class="tag__item">il y a 2 jours</li>
+                <li class="tag__item">Gameplay</li>
 
                 <li class="tag__item auteur blue">
-                  <a href="?ind=actualite_ind&id=<?= $construct["id"]; ?>">Publié par <?= $construct['pseudo'] ?></a>
+                  Publié par <?= $construct['pseudo'] ?>
                 </li>
               </ul>
             </div>

@@ -3,7 +3,9 @@ require __DIR__ . '/../../back/connexion.php';
 require __DIR__ . '/../../src/repository/ArticleRepository.php';
 require __DIR__ . '/../../src/repository/UsersRepository.php';
 $articleRepository = new ArticleRepository();
-$article = $articleRepository->findAllAndTypeUserPage(1,0,2);
+$article_actu = $articleRepository->findAllAndTypeUserPage(2, 0, 5);
+$article_patch = $articleRepository->findAllAndTypeUserPage(3, 0, 5);
+$article = $articleRepository->findAllAndTypeUserPage(1, 0, 6);
 $usersRepository = new UsersRepository();
 //$users = $usersRepository->findAllUserId($id);
 ?>
@@ -47,7 +49,7 @@ $usersRepository = new UsersRepository();
 
     <div class="container_postcard">
 
-        <?php foreach ($article as $construct) { ?>
+        <?php foreach ($article_actu as $construct) { ?>
             <article class="postcard dark blue">
                 <a class="postcard__img_link" href="?ind=actualite_ind&id=<?= $construct["id"]; ?>">
                     <?php
@@ -72,7 +74,7 @@ $usersRepository = new UsersRepository();
                         <li class="tag__item"><a href="?ind=patch_note">Actualité</a></li>
 
                         <li class="tag__item auteur blue">
-                          <a href="?ind=streamer_ind&id=<?= $construct["id_user"] ?>">Publié par <?= $construct['pseudo'] ?>
+                            <a href="?ind=streamer_ind&id=<?= $construct["id_user"] ?>">Publié par <?= $construct['pseudo'] ?>
                         </li>
                     </ul>
                 </div>
@@ -96,7 +98,7 @@ $usersRepository = new UsersRepository();
     <hr>
 </div>
 <div class="patch">
-    <?php foreach ($article as $construct) { ?>
+    <?php foreach ($article_patch as $construct) { ?>
         <div class="patch-card">
             <div class="patch-card__thumbnail">
                 <a href="?ind=patch_ind&id=<?= $construct["id"]; ?>">
@@ -121,14 +123,14 @@ $usersRepository = new UsersRepository();
 
                 <div class="patch-card__meta">
                     <div>
-                    <span class="patch-card__timestamp"><i class="fas fa-calendar-alt mr-2"></i> <?= date('d/m/Y', strtotime($construct['date'])); ?></span>
+                        <span class="patch-card__timestamp"><i class="fas fa-calendar-alt mr-2"></i> <?= date('d/m/Y', strtotime($construct['date'])); ?></span>
                     </div>
                     <ul class="postcard__tagbox">
                         <li class="tag__item"><a href="?ind=patch_note">Patch Notes</a></li>
 
                         <li class="tag__item auteur blue">
 
-                                <a href="?ind=streamer_ind&id=<?= $construct["id_user"] ?>">Publié par <?= $construct['pseudo'] ?></a>
+                            <a href="?ind=streamer_ind&id=<?= $construct["id_user"] ?>">Publié par <?= $construct['pseudo'] ?></a>
                         </li>
                     </ul>
                 </div>
@@ -153,120 +155,39 @@ $usersRepository = new UsersRepository();
     <div class="news-slider">
 
         <div class="news-slider__wrp swiper-wrapper">
+            <?php foreach ($article as $construct) { ?>
+                <div class="news-slider__item swiper-slide">
 
-            <div class="news-slider__item swiper-slide">
+                    <a href="?ind=article_streamer_ind&id=<?= $construct["id"]; ?>" class="news__item">
+                    <?php
+                        $user = $usersRepository->findAllUserAvatarId($construct["id_user"]);
+                        if (count($user) <= 0) { ?>
+                            <img src="src/img/avatar.png" alt="<?= $construct['pseudo'] ?>" />
 
-                <a href="?ind=article_streamer_ind" class="news__item">
-                    <img src="src/img/avatar.png" /><span>Konrad</span>
-                    <div class="news__title">
-                        Lorem Ipsum Dolor Sit Amed
-                    </div>
-                    <div class="corner-borders corner-borders--left"></div>
-                    <div class="corner-borders corner-borders--right"></div>
-                    <p class="news__txt">
-                        Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                    </p>
-                    <span>12 février 2023</span>
-                    <div class="news__img">
-                        <img src="src/img/gallerie.jpg" alt="news">
-                    </div>
-                </a>
-            </div>
+                        <?php } else if (count($user) >= 1) { ?>
+                            <img src="upload/<?= $user["src"] ?>" alt="avatar de <?= $construct['pseudo'] ?>" />
+                        <?php } ?>
+                        <span><?= $construct['pseudo'] ?></span>
+                        <div class="news__title">
+                            <?= $construct['titre']; ?>
+                        </div>
+                        <div class="corner-borders corner-borders--left"></div>
+                        <div class="corner-borders corner-borders--right"></div>
+                        <p class="news__txt">
+                            <?= $construct['resume']; ?>
+                        </p>
+                        <span><?= date('d/m/Y', strtotime($construct['date'])); ?></span>
+                        <div class="news__img">
+                            <?php
+                            $article_img = $articleRepository->findAllImgArticle($construct["id"]);
+                            if (count($article_img) >= 1) {
+                            ?><img src="src/img/<?= $article_img[0]['name'] ?>" alt="" />
+                            <?php } ?>
+                        </div>
+                    </a>
+                </div>
+            <?php } ?>
 
-            <div class="news-slider__item swiper-slide">
-                <a href="?ind=article_streamer_ind" class="news__item">
-                    <img src="src/img/avatar.png" /><span>Konrad</span>
-                    <div class="corner-borders corner-borders--left"></div>
-                    <div class="corner-borders corner-borders--right"></div>
-                    <div class="news__title">
-                        Lorem Ipsum Dolor Sit Amed
-                    </div>
-
-                    <p class="news__txt">
-                        Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                    </p>
-                    <span>12 février 2023</span>
-                    <div class="news__img">
-                        <img src="src/img/gallerie9.jpg" alt="news">
-                    </div>
-                </a>
-            </div>
-
-            <div class="news-slider__item swiper-slide">
-                <a href="?ind=article_streamer_ind" class="news__item">
-                    <img src="src/img/avatar.png" /><span>Konrad</span>
-                    <div class="corner-borders corner-borders--left"></div>
-                    <div class="corner-borders corner-borders--right"></div>
-                    <div class="news__title">
-                        Lorem Ipsum Dolor Sit Amed
-                    </div>
-
-                    <p class="news__txt">
-                        Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                    </p>
-                    <span>12 février 2023</span>
-                    <div class="news__img">
-                        <img src="src/img/gallerie10.jpg" alt="news">
-                    </div>
-                </a>
-            </div>
-
-            <div class="news-slider__item swiper-slide">
-                <a href="?ind=article_streamer_ind" class="news__item">
-                    <img src="src/img/avatar.png" /><span>Konrad</span>
-                    <div class="corner-borders corner-borders--left"></div>
-                    <div class="corner-borders corner-borders--right"></div>
-                    <div class="news__title">
-                        Lorem Ipsum Dolor Sit Amed
-                    </div>
-
-                    <p class="news__txt">
-                        Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                    </p>
-                    <span>12 février 2023</span>
-                    <div class="news__img">
-                        <img src="src/img/gallerie11.jpg" alt="news">
-                    </div>
-                </a>
-            </div>
-
-            <div class="news-slider__item swiper-slide">
-                <a href="?ind=article_streamer_ind" class="news__item">
-                    <img src="src/img/avatar.png" /><span>Konrad</span>
-                    <div class="corner-borders corner-borders--left"></div>
-                    <div class="corner-borders corner-borders--right"></div>
-                    <div class="news__title">
-                        Lorem Ipsum Dolor Sit Amed
-                    </div>
-
-                    <p class="news__txt">
-                        Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                    </p>
-                    <span>12 février 2023</span>
-                    <div class="news__img">
-                        <img src="src/img/gallerie6.jpg" alt="news">
-                    </div>
-                </a>
-            </div>
-
-            <div class="news-slider__item swiper-slide">
-                <a href="?ind=article_streamer_ind" class="news__item">
-                    <img src="src/img/avatar.png" /><span>Konrad</span>
-                    <div class="corner-borders corner-borders--left"></div>
-                    <div class="corner-borders corner-borders--right"></div>
-                    <div class="news__title">
-                        Lorem Ipsum Dolor Sit Amed
-                    </div>
-
-                    <p class="news__txt">
-                        Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                    </p>
-                    <span>12 février 2023</span>
-                    <div class="news__img">
-                        <img src="src/img/gallerie8.jpg" alt="news">
-                    </div>
-                </a>
-            </div>
         </div>
 
         <div class="news-slider__ctr">

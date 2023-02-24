@@ -21,7 +21,6 @@ $users = $usersRepository->findAll();
 
                 <div class="profile-card-inf">
 
-
                     <div class="profile-card-inf__item">
                         <div class="profile-card-inf__title">123</div>
                         <div class="profile-card-inf__txt">Articles</div>
@@ -42,8 +41,6 @@ $users = $usersRepository->findAll();
                             <i class="fab fa-discord"></i>
                         </span>
                     </a>
-
-
 
                     <a href="#" class="profile-card-social__item instagram" target="_blank">
                         <span class="icon-font">
@@ -66,7 +63,7 @@ $users = $usersRepository->findAll();
 
                 <div class="profile-card-ctr">
                     <a href="?ind=streamer_ind&id=<?= $user["id_user"] ?>" class="profile-card__button button--blue -message-btn">Articles</a>
-                    <a href="?ind=streamer_a_propos&id=<?= $user["id_user"] ?>" class="profile-card__button button--orange">A propos</a>
+                    <a href="?ind=streamer_ind&id=<?= $user["id_user"] ?>" class="profile-card__button button--orange">A propos</a>
                 </div>
             </div>
 
