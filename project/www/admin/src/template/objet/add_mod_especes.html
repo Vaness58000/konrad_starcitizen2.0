@@ -1,0 +1,80 @@
+<div class="display-admin">
+    <div class="card-admin" data-state="#about">
+        <div class="admin-title"><h1>Espèce</h1></div>
+        <div class="admin-contenu">
+            <input type="hidden" name="id" value="[#CITIZEN_ESPECES_ID#]" />
+            <div class="two-column">
+                <input type="checkbox" class="darkSwitch two-column"[#CITIZEN_ESPECES_MODIF_CHECK#]>
+            </div>
+            <div class="two-column add-list-img">
+                <img class="img-add" id="img-art-add" src="./src/images/plus-square-dotted.svg" alt="add img"[#CITIZEN_ESPECES_ISPRO#]>
+                <div class="list_img">[#CITIZEN_ESPECES_IMG#]</div>
+            </div>
+            <img src="" alt="" class="two-column">
+            <label for="label-1">nom</label><input type="text" name="" id="" value="[#CITIZEN_ESPECES_NOM#]" class="input-admin"[#CITIZEN_ESPECES_ISPRO#]>
+            <label for="label-1">catégorie</label>
+            <select name="categorie" id="categorie-select" class="input-admin"[#CITIZEN_ESPECES_ISPRO#]>
+                <option value=""></option>[#CITIZEN_ESPECES_CAT#]
+            </select>
+            <label for="label-1">lieu</label>
+            <select name="categorie" id="categorie-select" class="input-admin"[#CITIZEN_ESPECES_ISPRO#]>
+                <option value=""></option>[#CITIZEN_ESPECES_LIEU#]
+            </select>
+            <label for="label-1">gouvernence</label><input type="text" name="" id="" value="[#CITIZEN_ESPECES_GOUV#]" class="input-admin"[#CITIZEN_ESPECES_ISPRO#]>
+            <label for="label-1">souverainete</label><input type="text" name="" id="" value="[#CITIZEN_ESPECES_SOUV#]" class="input-admin"[#CITIZEN_ESPECES_ISPRO#]>
+            <label for="label-1">philosophie</label><input type="text" name="" id="" value="[#CITIZEN_ESPECES_PHILO#]" class="input-admin"[#CITIZEN_ESPECES_ISPRO#]>
+            <label for="label-1">religion</label><input type="text" name="" id="" value="[#CITIZEN_ESPECES_RELIGION#]" class="input-admin"[#CITIZEN_ESPECES_ISPRO#]>
+            <label for="label-1">premier cont</label><input type="text" name="" id="" value="[#CITIZEN_ESPECES_PRCT#]" class="input-admin"[#CITIZEN_ESPECES_ISPRO#]>
+            <label for="label-1">origine</label><input type="text" name="" id="" value="[#CITIZEN_ESPECES_ORIGINE#]" class="input-admin"[#CITIZEN_ESPECES_ISPRO#]>
+            <label for="label-1">contenu</label><textarea name="" id="" cols="30" rows="10" class="input-admin text-bbcode"[#CITIZEN_ESPECES_ISPRO#]>[#CITIZEN_ESPECES_CONTENU#]</textarea>
+            <div id="div-all-tab" class="two-column">
+                <div>
+                    <h2>Informations</h2>
+                    <button class="sauvegarde" id="add-lieu">Ajouter une information</button>
+                    <table id="tab-all">
+                        <tr>
+                            <th>Informations</th>
+                            <th class="th-admin"><img src="./src/images/pencil-fill.svg" alt=""></th>
+                            <th class="th-admin"><img src="./src/images/trash3-fill.svg" alt=""></th>
+                        </tr>
+                        <tbody class="tab-body-td" id="tab-body-all">
+                            [#CITIZEN_ESPECES_TAB_INFO#]
+                        </tbody>
+                    </table>
+                </div>
+                <div>
+                    <h2>Diplomatie</h2>
+                    <button class="sauvegarde" id="add-diplomatie">Ajouter une diplomatie</button>
+                    <table id="tab-all">
+                        <tr>
+                            <th>Nom</th>
+                            <th class="th-admin"><img src="./src/images/pencil-fill.svg" alt=""></th>
+                            <th class="th-admin"><img src="./src/images/trash3-fill.svg" alt=""></th>
+                        </tr>
+                        <tbody class="tab-body-td" id="tab-body-all">
+                            [#CITIZEN_ESPECES_TAB_DIPLO#]
+                        </tbody>
+                    </table>
+                </div>
+                <div>
+                    <h2>Controller</h2>
+                    <button class="sauvegarde" id="add-controle">Ajouter un contrôle</button>
+                    <table id="tab-all">
+                        <tr>
+                            <th>Nom</th>
+                            <th class="th-admin"><img src="./src/images/pencil-fill.svg" alt=""></th>
+                            <th class="th-admin"><img src="./src/images/trash3-fill.svg" alt=""></th>
+                        </tr>
+                        <tbody class="tab-body-td" id="tab-body-all">
+                            [#CITIZEN_ESPECES_TAB_CONTROLLER#]
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="two-column add-mod-bt">
+                <button class="sauvegarde" id="annuler">annuler</button>
+                <button class="sauvegarde" id="validation">Validation</button>
+            </div>
+        </div>
+    </div>
+</div>

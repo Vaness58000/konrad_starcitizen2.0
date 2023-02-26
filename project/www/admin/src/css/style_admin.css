@@ -13,6 +13,7 @@
     --light-black-color: #1a252d;
     --shadow-color: #0074c2;
     --transparent-color: transparent;
+    --width-menu-admin: 250px;
 }
 
 /*#admin_contenu_menu {
@@ -24,9 +25,10 @@
     position: fixed;
     padding: 10px;
     background: var(--light-color);
-    width: 220px;
+    width: var(--width-menu-admin);
     height: 100vh;
     border: #0a5688 1px solid;
+    overflow-y:auto;
 }
 
 #admin_menu ul {
@@ -39,11 +41,11 @@
 }
 
 #admin_contenu {
-    margin-left: 220px;
+    margin-left: var(--width-menu-admin);
 }
 
 footer {
-    margin-left: 220px;
+    margin-left: var(--width-menu-admin);
     box-sizing: border-box;
     width: unset;
 }
@@ -210,4 +212,10 @@ th img, td img {
     display: flex;
     align-items: flex-start;
     justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.add-mod-bt {
+    display: flex;
+    justify-content: center;
 }

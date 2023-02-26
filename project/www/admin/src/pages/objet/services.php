@@ -2,9 +2,9 @@
 require __DIR__.'/header_objet.php';
 include __DIR__.'/../../../../src/repository/ServicesRepository.php';
 
-$id_type = 6;
-$nom_pg = "Services";
 $servicesRepository = new ServicesRepository();
+$id_type = $servicesRepository->findIdTypeServices();
+$nom_pg = "Services";
 $count_obj = ceil($servicesRepository->findAllAndUserIdCount($id_type, intval($id))/$nb_par_pg);
 $objets = $servicesRepository->findAllAndUserIdPage($id_type, intval($id), $page, $nb_par_pg);
 

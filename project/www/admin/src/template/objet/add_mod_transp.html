@@ -1,0 +1,116 @@
+<div class="display-admin">
+    <div class="card-admin" data-state="#about">
+        <div class="admin-title"><h1>Transport</h1></div>
+        <div class="admin-contenu">
+            <input type="hidden" name="id" value="[#CITIZEN_TRANSP_ID#]" />
+            <div class="two-column">
+                <input type="checkbox" class="darkSwitch two-column"[#CITIZEN_TRANSP_MODIF_CHECK#]>
+            </div>
+            <div class="two-column add-list-img">
+                <img class="img-add" id="img-art-add" src="./src/images/plus-square-dotted.svg" alt="add img"[#CITIZEN_TRANSP_ISPRO#]>
+                <div class="list_img">[#CITIZEN_TRANSP_IMG#]</div>
+            </div>
+            <img src="" alt="" class="two-column">
+            <label for="label-1">nom</label><input type="text" name="" id="" value="[#CITIZEN_TRANSP_NOM#]" class="input-admin"[#CITIZEN_TRANSP_ISPRO#]>
+            <label for="label-1">catégorie</label>
+            <select name="categorie" id="categorie-select" class="input-admin"[#CITIZEN_TRANSP_ISPRO#]>
+                <option value=""></option>[#CITIZEN_TRANSP_CAT#]
+            </select>
+            <label for="label-1">disponible</label>
+            <select name="categorie" id="categorie-select" class="input-admin"[#CITIZEN_TRANSP_ISPRO#]>
+                <option value=""></option>[#CITIZEN_TRANSP_DISP#]
+            </select>
+            <label for="label-1">type</label>
+            <select name="categorie" id="categorie-select" class="input-admin"[#CITIZEN_TRANSP_ISPRO#]>
+                <option value=""></option>[#CITIZEN_TRANSP_TYPE#]
+            </select>
+            <label for="label-1">construct</label>
+            <select name="categorie" id="categorie-select" class="input-admin"[#CITIZEN_TRANSP_ISPRO#]>
+                <option value=""></option>[#CITIZEN_TRANSP_CONSTRUCT#]
+            </select>
+            <label for="label-1">prix</label><input type="text" name="" id="" value="[#CITIZEN_TRANSP_PRIX#]" class="input-admin"[#CITIZEN_TRANSP_ISPRO#]>
+            <label for="label-1">équipage</label><input type="text" name="" id="" value="[#CITIZEN_TRANSP_EQUIPAGE#]" class="input-admin"[#CITIZEN_TRANSP_ISPRO#]>
+            <label for="label-1">taille</label><input type="text" name="" id="" value="[#CITIZEN_TRANSP_TAILLE#]" class="input-admin"[#CITIZEN_TRANSP_ISPRO#]>
+            <label for="label-1">poids</label><input type="text" name="" id="" value="[#CITIZEN_TRANSP_POIDS#]" class="input-admin"[#CITIZEN_TRANSP_ISPRO#]>
+            <label for="label-1">vitesse max</label><input type="text" name="" id="" value="[#CITIZEN_TRANSP_VITESSMAX#]" class="input-admin"[#CITIZEN_TRANSP_ISPRO#]>
+            <label for="label-1">capacite</label><input type="text" name="" id="" value="[#CITIZEN_TRANSP_CAPACITE#]" class="input-admin"[#CITIZEN_TRANSP_ISPRO#]>
+            <label for="label-1">contenu</label><textarea name="" id="" cols="30" rows="10" class="input-admin text-bbcode"[#CITIZEN_TRANSP_ISPRO#]>[#CITIZEN_TRANSP_CONTENU#]</textarea>
+            <div id="div-all-tab" class="two-column">
+                <div>
+                    <h2>Informations</h2>
+                    <button class="sauvegarde" id="add-lieu">Ajouter une information</button>
+                    <table id="tab-all">
+                        <tr>
+                            <th>Informations</th>
+                            <th class="th-admin"><img src="./src/images/pencil-fill.svg" alt=""></th>
+                            <th class="th-admin"><img src="./src/images/trash3-fill.svg" alt=""></th>
+                        </tr>
+                        <tbody class="tab-body-td" id="tab-body-all">
+                            [#CITIZEN_TRANSP_TAB_INFO#]
+                        </tbody>
+                    </table>
+                </div>
+                <div>
+                    <h2>Force</h2>
+                    <button class="sauvegarde" id="add-force">Ajouter une force</button>
+                    <table id="tab-all">
+                        <tr>
+                            <th>Nom</th>
+                            <th class="th-admin"><img src="./src/images/pencil-fill.svg" alt=""></th>
+                            <th class="th-admin"><img src="./src/images/trash3-fill.svg" alt=""></th>
+                        </tr>
+                        <tbody class="tab-body-td" id="tab-body-all">
+                            [#CITIZEN_TRANSP_TAB_FORCE#]
+                        </tbody>
+                    </table>
+                </div>
+                <div>
+                    <h2>Faiblesse</h2>
+                    <button class="sauvegarde" id="add-faiblesse">Ajouter une faiblesse</button>
+                    <table id="tab-all">
+                        <tr>
+                            <th>Nom</th>
+                            <th class="th-admin"><img src="./src/images/pencil-fill.svg" alt=""></th>
+                            <th class="th-admin"><img src="./src/images/trash3-fill.svg" alt=""></th>
+                        </tr>
+                        <tbody class="tab-body-td" id="tab-body-all">
+                            [#CITIZEN_TRANSP_TAB_FAIBL#]
+                        </tbody>
+                    </table>
+                </div>
+                <div>
+                    <h2>Equipement</h2>
+                    <button class="sauvegarde" id="add-equipement">Ajouter un équipement</button>
+                    <table id="tab-all">
+                        <tr>
+                            <th>Nom</th>
+                            <th class="th-admin"><img src="./src/images/pencil-fill.svg" alt=""></th>
+                            <th class="th-admin"><img src="./src/images/trash3-fill.svg" alt=""></th>
+                        </tr>
+                        <tbody class="tab-body-td" id="tab-body-all">
+                            [#CITIZEN_TRANSP_TAB_EQUIPEM#]
+                        </tbody>
+                    </table>
+                </div>
+                <div>
+                    <h2>Lieux</h2>
+                    <button class="sauvegarde" id="add-lieu">Ajouter un lieu</button>
+                    <table id="tab-all">
+                        <tr>
+                            <th>Nom</th>
+                            <th class="th-admin"><img src="./src/images/pencil-fill.svg" alt=""></th>
+                            <th class="th-admin"><img src="./src/images/trash3-fill.svg" alt=""></th>
+                        </tr>
+                        <tbody class="tab-body-td" id="tab-body-all">
+                            [#CITIZEN_TRANSP_TAB_LIEU#]
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="two-column add-mod-bt">
+                <button class="sauvegarde" id="annuler">annuler</button>
+                <button class="sauvegarde" id="validation">Validation</button>
+            </div>
+        </div>
+    </div>
+</div>

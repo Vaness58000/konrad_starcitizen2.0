@@ -134,6 +134,10 @@ if (!class_exists('LieuxRepository')) {
                         ->rowCount();
         }
 
+        public function findIdTypeLieux():int {
+            return $this->findIdTypeObj("lieux");
+        }
+
     }
 }
 

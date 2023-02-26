@@ -108,6 +108,10 @@ if (!class_exists('ServicesRepository')) {
                         ->setParamInt(":id", $id)
                         ->fetchAllAssoc();
         }
+
+        public function findIdTypeServices():int {
+            return $this->findIdTypeObj("service");
+        }
     }
 }
 
