@@ -23,10 +23,13 @@ if(tab_body_all != undefined) {
         })
     });
 }
-document.getElementById("add-tab").addEventListener("click", function(event) {
-    event.preventDefault();
-    window.location.href = "./?ind="+add_line_tab;
-})
+let add_tab = document.getElementById("add-tab");
+if(add_tab != undefined) {
+    add_tab.addEventListener("click", function(event) {
+        event.preventDefault();
+        window.location.href = "./?ind="+add_line_tab;
+    });
+}
 /*let valueTab = document.getElementById("tab-body-all").innerHTML;
 if(valueTab.trim() == "") {
     let parentDiv = document.getElementById("tab-all").parentNode;

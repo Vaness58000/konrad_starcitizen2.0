@@ -2,9 +2,9 @@
 require __DIR__.'/header_objet.php';
 include __DIR__.'/../../../../src/repository/EspecesRepository.php';
 
-$id_type = 4;
-$nom_pg = "Espèces";
 $especesRepository = new EspecesRepository();
+$id_type = $especesRepository->findIdTypeEspece();
+$nom_pg = "Espèces";
 $count_obj = ceil($especesRepository->findAllAndUserIdCount($id_type, intval($id))/$nb_par_pg);
 $objets = $especesRepository->findAllAndUserIdPage($id_type, intval($id), $page, $nb_par_pg);
 

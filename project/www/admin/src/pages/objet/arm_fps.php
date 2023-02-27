@@ -2,9 +2,9 @@
 require __DIR__.'/header_objet.php';
 include __DIR__.'/../../../../src/repository/ArmeFpsRepository.php';
 
-$id_type = 1;
-$nom_pg = "Armements FPS";
 $armeFpsRepository = new ArmeFpsRepository();
+$id_type = $armeFpsRepository->findIdTypeArm();
+$nom_pg = "Armements FPS";
 $count_obj = ceil($armeFpsRepository->findAllAndUserIdCount($id_type, intval($id))/$nb_par_pg);
 $objets = $armeFpsRepository->findAllAndUserIdPage($id_type, intval($id), $page, $nb_par_pg);
 

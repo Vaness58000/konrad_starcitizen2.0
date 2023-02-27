@@ -2,9 +2,9 @@
 require __DIR__.'/header_objet.php';
 include __DIR__.'/../../../../src/repository/TransportRepository.php';
 
-$id_type = 2;
-$nom_pg = "Transports";
 $transportRepository = new TransportRepository();
+$id_type = $transportRepository->findIdTypeTransport();
+$nom_pg = "Transports";
 $count_obj = ceil($transportRepository->findAllAndUserIdCount($id_type, intval($id))/$nb_par_pg);
 $objets = $transportRepository->findAllAndUserIdPage($id_type, intval($id), $page, $nb_par_pg);
 

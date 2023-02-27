@@ -26,7 +26,7 @@ $all_img = "";
 $validation = false;
 $isProprietaire = false;
 $isModif = " disabled";
-$id_service = 0;
+$id_obj = 0;
 
 
 $objetRepository = new ServicesRepository();
@@ -35,20 +35,20 @@ if (!empty($_GET) && array_key_exists('id', $_GET) && !empty($_GET['id'])) {
     
     $objet = $objetRepository->findAllAndIdUser(intval($_GET['id']));
     if(count($objet)>0){
-        $id_service = intval($_GET['id']);
+        $id_obj = intval($_GET['id']);
         $nom = $objet['nom'];
         $contenu = $objet['contenu'];
         $isProprietaire = $objet['id_user'] == $id;
         $validation = (intval($objet['validation']) == 1);
 
-        $imgs = $objetRepository->findAllImgObj($id_service);
+        $imgs = $objetRepository->findAllImgObj($id_obj);
         if(!empty($imgs)) {
             foreach ($imgs as $value) {
                 $all_img .= "\n".addImg($value['id_image_obj'], 'services', $value['src'], $value['alt']);
             }
         }
 
-        $infos = $objetRepository->findAllInfObj($id_service);
+        $infos = $objetRepository->findAllInfObj($id_obj);
         if(!empty($infos)) {
             foreach ($infos as $value) {
                 $tab_info .= "\n".addTdTabSupl($value['id'], $value['nom'], 'info');
@@ -87,10 +87,11 @@ $templatePage->addVarString("[#CITIZEN_SERV_TAB_LIEU#]", $tab_lieu);
 $templatePage->addVarString("[#CITIZEN_SERV_MODIF_CHECK#]", $modif_check);
 $templatePage->addVarString("[#CITIZEN_SERV_IMG#]", $all_img);
 $templatePage->addVarString("[#CITIZEN_SERV_ISPRO#]", $isModif);
-$templatePage->addVarString("[#CITIZEN_SERV_ID#]", $id_service);
+$templatePage->addVarString("[#CITIZEN_SERV_ID#]", $id_obj);
 
 $templatePage->addFileJs("./src/js/articles.js");
 $templatePage->addFileJs("./src/js/all_img_user.js");
+$templatePage->addFileJs("./src/js/ad_mod.js");
 
 $js = $templatePage->js();
 $css = $templatePage->css();

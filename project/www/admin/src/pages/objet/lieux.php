@@ -2,9 +2,9 @@
 require __DIR__.'/header_objet.php';
 include __DIR__.'/../../../../src/repository/LieuxRepository.php';
 
-$id_type = 3;
-$nom_pg = "Lieux";
 $lieuxRepository = new LieuxRepository();
+$id_type = $lieuxRepository->findIdTypeLieux();
+$nom_pg = "Lieux";
 $count_obj = ceil($lieuxRepository->findAllAndUserIdCount($id_type, intval($id))/$nb_par_pg);
 $objets = $lieuxRepository->findAllAndUserIdPage($id_type, intval($id), $page, $nb_par_pg);
 

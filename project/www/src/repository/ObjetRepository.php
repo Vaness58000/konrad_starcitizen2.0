@@ -51,6 +51,24 @@ if (!class_exists('ObjetRepository')) {
             return $this->setSql('SELECT * FROM images_info_objet WHERE id_info_objet=:id_info_objet')->setParamInt(":id_info_objet", $id)->fetchAllAssoc();
         }
 
+        /**
+         * Recuperer toutes les donnees visibles de la table
+         */
+        public function findListTypeObj(int $id):array {
+            return $this->setSql('SELECT * FROM objet_type')->fetchAllAssoc();
+        }
+
+        /**
+         * Recuperer toutes les donnees visibles de la table
+         */
+        public function findIdTypeObj(string $name):int {
+            $tab_type = $this->setSql('SELECT * FROM objet_type WHERE nom=:nom')->setParam(":nom", $name)->fetchAssoc();
+            if(!(!empty($tab_type) && array_key_exists("id", $tab_type) && !empty($tab_type["id"]))) {
+                return 0;
+            }
+            return intval($tab_type["id"]);
+        }
+
     }
 }
 

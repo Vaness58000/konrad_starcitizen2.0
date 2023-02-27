@@ -2,9 +2,9 @@
 require __DIR__.'/header_objet.php';
 include __DIR__.'/../../../../src/repository/ProprietairesRepository.php';
 
-$id_type = 5;
-$nom_pg = "Propriétaires";
 $proprietairesRepository = new ProprietairesRepository();
+$id_type = $proprietairesRepository->findIdTypePropriet();
+$nom_pg = "Propriétaires";
 $count_obj = ceil($proprietairesRepository->findAllAndUserIdCount($id_type, intval($id))/$nb_par_pg);
 $objets = $proprietairesRepository->findAllAndUserIdPage($id_type, intval($id), $page, $nb_par_pg);
 
