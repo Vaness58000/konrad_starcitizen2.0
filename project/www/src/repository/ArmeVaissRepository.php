@@ -100,10 +100,12 @@ if (!class_exists('ArmeVaissRepository')) {
         }
 
         public function findAllIdAndLieux(int $id):array {
-            $sql = 'SELECT *, objet.id AS id_lieu, arm_lieu.id AS id_lieu, objet.nom AS nom_lieu FROM objet '.
+            $sql = 'SELECT *, couleur.nom AS nom_couleur, objet.id AS id_lieu, arm_lieu.id AS id_lieu, objet.nom AS nom_lieu FROM objet '.
                     'INNER JOIN lieux ON lieux.id_objet = objet.id '.
                     'INNER JOIN arm_lieu ON arm_lieu.id_lieu = lieux.id_lieu '.
                     'LEFT JOIN construct_arm ON arm_lieu.id_arm = construct_arm.id_arm '.
+                    'LEFT JOIN couleur_lieu_arm ON arm_lieu.id = couleur_lieu_arm.id_arm_lieu '.
+                    'LEFT JOIN couleur ON couleur_lieu_arm.id_couleur = couleur.id '.
                     'INNER JOIN utilisateurs ON utilisateurs.id_user = objet.id_user '.
                     'WHERE arm_lieu.id_arm=:id && objet.validation=1 ORDER BY arm_lieu.id DESC';
             return $this->setSql($sql)

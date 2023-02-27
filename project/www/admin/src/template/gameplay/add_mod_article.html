@@ -1,7 +1,7 @@
 <div class="display-admin">
     <div class="card-admin" data-state="#about">
         <div class="admin-title"><h1>Articles</h1></div>
-        <div class="admin-contenu">
+        <form class="admin-contenu" method="post" enctype="multipart/form-data">
             <input type="hidden" name="id" value="[#CITIZEN_ARTI_ID#]" />
             <div class="two-column">
                 <input type="checkbox" class="darkSwitch two-column"[#CITIZEN_ARTI_MODIF_CHECK#]>
@@ -11,7 +11,7 @@
                 <div class="list_img">[#CITIZEN_ARTI_IMG#]</div>
             </div>
             <img src="" alt="" class="two-column">
-            <label for="label-1">titre</label><input type="text" name="" id="" value="[#CITIZEN_ARTI_TITRE#]" class="input-admin"[#CITIZEN_ARTI_ISPRO#]>
+            <label for="label-1">titre</label><input type="text" name="titre" id="" value="[#CITIZEN_ARTI_TITRE#]" class="input-admin"[#CITIZEN_ARTI_ISPRO#]>
             <label for="label-1">vidéo</label><input type="text" name="" id="" value="[#CITIZEN_ARTI_VIDEO#]" class="input-admin"[#CITIZEN_ARTI_ISPRO#]>
             <label for="label-1">catégorie</label>
             <select name="categorie" id="categorie-select" class="input-admin"[#CITIZEN_ARTI_ISPRO#]>
@@ -23,6 +23,6 @@
                 <button class="sauvegarde" id="annuler">annuler</button>
                 <button class="sauvegarde" id="validation">Validation</button>
             </div>
-        </div>
+        </form>
     </div>
 </div>

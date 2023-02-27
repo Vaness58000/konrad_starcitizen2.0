@@ -1,3 +1,4 @@
+"use strict";
 function lien_pg() {
     let lien_base = window.location.href.split("#")[0];
     if (lien_base.includes("?")) {

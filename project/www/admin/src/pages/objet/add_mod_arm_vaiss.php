@@ -65,7 +65,12 @@ if (!empty($_GET) && array_key_exists('id', $_GET) && !empty($_GET['id'])) {
         $lieux = $objetRepository->findAllIdAndLieux($objet['arm_vaiss_fps']);
         if(!empty($lieux)) {
             foreach ($lieux as $value) {
-                $tab_lieu .= "\n".addTdTabSupl($value['id_lieu'], $value['nom_lieu'], 'services');
+                $lieu = $value['nom_lieu'];
+                $couleur = $value['nom_couleur'];
+                if(!empty($couleur)) {
+                    $lieu .= " / ".$couleur;
+                }
+                $tab_lieu .= "\n".addTdTabSupl($value['id_lieu'], $lieu, 'services');
             }
         }
     }

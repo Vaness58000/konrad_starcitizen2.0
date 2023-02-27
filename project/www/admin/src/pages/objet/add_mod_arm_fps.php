@@ -67,11 +67,16 @@ if (!empty($_GET) && array_key_exists('id', $_GET) && !empty($_GET['id'])) {
                 $tab_info .= "\n".addTdTabSupl($value['id'], $value['nom'], 'info');
             }
         }
-
+        
         $lieux = $objetRepository->findAllIdAndLieux($objet['id_arm_fps']);
         if(!empty($lieux)) {
             foreach ($lieux as $value) {
-                $tab_lieu .= "\n".addTdTabSupl($value['id_lieu'], $value['nom_lieu'], 'armement');
+                $lieu = $value['nom_lieu'];
+                $couleur = $value['nom_couleur'];
+                if(!empty($couleur)) {
+                    $lieu .= " / ".$couleur;
+                }
+                $tab_lieu .= "\n".addTdTabSupl($value['id_lieu'], $lieu, 'armement');
             }
         }
     }

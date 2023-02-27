@@ -1,7 +1,7 @@
 <div class="display-admin">
     <div class="card-admin" data-state="#about">
         <div class="admin-title"><h1>Armement vaisseau</h1></div>
-        <div class="admin-contenu">
+        <form class="admin-contenu" method="post" enctype="multipart/form-data">
             <input type="hidden" name="id" value="[#CITIZEN_ARM_VAISS_ID#]" />
             <div class="two-column">
                 <input type="checkbox" class="darkSwitch two-column"[#CITIZEN_ARM_VAISS_MODIF_CHECK#]>
@@ -21,9 +21,16 @@
                 <option value=""></option>[#CITIZEN_ARM_VAISS_CONST#]
             </select>
             <label for="label-1">contenu</label><textarea name="" id="" cols="30" rows="10" class="input-admin text-bbcode"[#CITIZEN_ARM_VAISS_ISPRO#]>[#CITIZEN_ARM_VAISS_CONTENU#]</textarea>
+            <input type="radio" class="radio-onglet" id="onglet-info" name="radio-onglet" value="" checked>
+            <input type="radio" class="radio-onglet" id="onglet-lieu" name="radio-onglet" value="">
             <div id="div-all-tab" class="two-column">
-                <div>
-                    <h2>Informations</h2>
+                <div id="div-ul-onglets">
+                    <ul id="onglets">
+                        <li id="label-onglet-info"><label for="onglet-info"> Informations </label></li>
+                        <li id="label-onglet-lieu"><label for="onglet-lieu"> Lieux </label></li>
+                    </ul>
+                </div>
+                <div class="div-onglet" id="div-onglet-info">
                     <button class="sauvegarde" id="add-lieu">Ajouter une information</button>
                     <table id="tab-all">
                         <tr>
@@ -36,8 +43,7 @@
                         </tbody>
                     </table>
                 </div>
-                <div>
-                    <h2>Lieux</h2>
+                <div class="div-onglet" id="div-onglet-lieu">
                     <button class="sauvegarde" id="add-lieu">Ajouter un lieu</button>
                     <table id="tab-all">
                         <tr>
@@ -55,6 +61,6 @@
                 <button class="sauvegarde" id="annuler">annuler</button>
                 <button class="sauvegarde" id="validation">Validation</button>
             </div>
-        </div>
+        </form>
     </div>
 </div>

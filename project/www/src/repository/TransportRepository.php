@@ -127,6 +127,15 @@ if (!class_exists('TransportRepository')) {
                         ->fetchAllAssoc();
         }
 
+        public function findAllIdAndArmement(int $id):array {
+            $sql = 'SELECT *, transp_equip.id AS id_transp_equip FROM equipement '.
+                    'INNER JOIN transp_equip ON transp_equip.id_equip = equipement.id '.
+                    'WHERE transp_equip.id_transp=:id ORDER BY transp_equip.id DESC';
+            return $this->setSql($sql)
+                        ->setParamInt(":id", $id)
+                        ->fetchAllAssoc();
+        }
+
         public function findListCat():array {
             $sql = 'SELECT * FROM categorie_transport ORDER BY id_transport DESC';
             return $this->setSql($sql)

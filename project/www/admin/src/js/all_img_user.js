@@ -1,3 +1,4 @@
+"use strict";
 document.querySelectorAll(".delete_img").forEach(element => {
     element.addEventListener("click", function(event) {
         event.preventDefault();
