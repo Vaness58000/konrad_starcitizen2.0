@@ -12,13 +12,13 @@ $users = $usersRepository->findAll();
         <div class="profile-card -profile-card">
             <div class="profile-card__img">
                 <?php
-                        //$user = $usersRepository->findAllUserAvatarId($streamer["id_user"]);
-                        /*if (count($user) <= 0) { ?>
+                        $user = $usersRepository->findAllUserAvatarId($streamer["idUser"]);
+                        if (count($user) <= 0) { ?>
                             <img src="src/img/avatar.png" alt="<?= $streamer['pseudo'] ?>" />
 
                         <?php } else if (count($user) >= 1) { ?>
                             <img src="upload/<?= $user["src"] ?>" alt="avatar de <?= $streamer['pseudo'] ?>" />
-                        <?php } */?>
+                        <?php } ?>
                 <img src="src/img/avatar.png" alt="profile card">
             </div>
 
@@ -70,8 +70,8 @@ $users = $usersRepository->findAll();
                 </div>
 
                 <div class="profile-card-ctr">
-                    <a href="?ind=streamer_ind&id=<?= $streamer["id_user"] ?>" class="profile-card__button button--blue -message-btn">Articles</a>
-                    <a href="?ind=streamer_ind&id=<?= $streamer["id_user"] ?>" class="profile-card__button button--orange">A propos</a>
+                    <a href="?ind=streamer_ind&id=<?= $streamer["idUser"] ?>" class="profile-card__button button--blue -message-btn">Articles</a>
+                    <a href="?ind=streamer_ind&id=<?= $streamer["idUser"] ?>" class="profile-card__button button--orange">A propos</a>
                 </div>
             </div>
 

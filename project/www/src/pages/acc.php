@@ -239,11 +239,11 @@ $usersRepository = new UsersRepository();
     <article class="card_guide card--1">
 
         <div class="card__img"></div>
-        <a href="#" class="card_link">
+        <a href="?ind=vaisseau" class="card_link">
             <div class="card__img--hover"></div>
         </a>
         <div class="card__info">
-            <h3 class="card__title">Equipements
+            <h3 class="card__title">Vaisseaux</h3>
         </div>
     </article>
 
@@ -251,19 +251,19 @@ $usersRepository = new UsersRepository();
     <article class="card_guide card--2">
 
         <div class="card__img"></div>
-        <a href="#" class="card_link">
+        <a href="?ind=vehicule" class="card_link">
             <div class="card__img--hover"></div>
         </a>
         <div class="card__info">
 
-            <h3 class="card__title">Lieux</h3>
+            <h3 class="card__title">Véhicules</h3>
             </span>
         </div>
     </article>
     <article class="card_guide card--3">
 
         <div class="card__img"></div>
-        <a href="#" class="card_link">
+        <a href="?ind=armes" class="card_link">
             <div class="card__img--hover"></div>
         </a>
         <div class="card__info">
@@ -275,7 +275,7 @@ $usersRepository = new UsersRepository();
     <article class="card_guide card--4">
 
         <div class="card__img"></div>
-        <a href="#" class="card_link">
+        <a href="?ind=especes" class="card_link">
             <div class="card__img--hover"></div>
         </a>
         <div class="card__info">
@@ -287,7 +287,7 @@ $usersRepository = new UsersRepository();
     <article class="card_guide card--9">
 
         <div class="card__img"></div>
-        <a href="#" class="card_link">
+        <a href="?ind=systemes" class="card_link">
             <div class="card__img--hover"></div>
         </a>
         <div class="card__info">
@@ -299,7 +299,7 @@ $usersRepository = new UsersRepository();
     <article class="card_guide card--5">
 
         <div class="card__img"></div>
-        <a href="#" class="card_link">
+        <a href="?ind=planetes" class="card_link">
             <div class="card__img--hover"></div>
         </a>
         <div class="card__info">
@@ -311,7 +311,7 @@ $usersRepository = new UsersRepository();
     <article class="card_guide card--6">
 
         <div class="card__img"></div>
-        <a href="#" class="card_link">
+        <a href="?ind=lunes" class="card_link">
             <div class="card__img--hover"></div>
         </a>
         <div class="card__info">
@@ -323,7 +323,7 @@ $usersRepository = new UsersRepository();
     <article class="card_guide card--7">
 
         <div class="card__img"></div>
-        <a href="#" class="card_link">
+        <a href="?ind=villes" class="card_link">
             <div class="card__img--hover"></div>
         </a>
         <div class="card__info">
@@ -335,7 +335,7 @@ $usersRepository = new UsersRepository();
     <article class="card_guide card--8">
 
         <div class="card__img"></div>
-        <a href="#" class="card_link">
+        <a href="?ind=station_spaciale" class="card_link">
             <div class="card__img--hover"></div>
         </a>
         <div class="card__info">

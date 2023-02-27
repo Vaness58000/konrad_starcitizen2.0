@@ -3,9 +3,9 @@ require __DIR__ . '/../../../back/connexion.php';
 require __DIR__ . '/../../../src/repository/ArticleRepository.php';
 require __DIR__ . '/../../../src/repository/UsersRepository.php';
 $articleRepository = new ArticleRepository();
-$article = $articleRepository->findAllAndTypeUserId($_GET['id'], 1);
+$article = $articleRepository->findAllAndTypeUserId($_GET['id'], $_GET['type']);
 $usersRepository = new UsersRepository();
-$tous_article = $articleRepository->findAllAndTypeUserNoId(1, $_GET["id"]);
+$tous_article = $articleRepository->findAllAndTypeUserNoId($_GET['type'], $_GET["id"]);
 ?>
 <div class="page_actu">
     <?php 
@@ -62,7 +62,7 @@ $tous_article = $articleRepository->findAllAndTypeUserNoId(1, $_GET["id"]);
 
                             </div>
                             <div class="description">
-                                <h2><a href="?ind=article_streamer_ind&id=<?= $tous["id"]; ?>"><?= $tous['titre']; ?></a></h2>
+                                <h2><a href="?ind=article_streamer_ind&type=<?= $construct["id_categorie_article"] ?>&id=<?= $tous["id"]; ?>"><?= $tous['titre']; ?></a></h2>
                                 <ul class="postcard__tagbox">
                                     <li class="tag__item">Actualité</li>
 
