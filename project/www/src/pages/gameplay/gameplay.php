@@ -8,19 +8,26 @@ $users = $usersRepository->findAll();
 
 <div class="wrapper_profil">
 
-    <?php foreach ($users as $user) { ?>
+    <?php foreach ($users as $streamer) { ?>
         <div class="profile-card -profile-card">
             <div class="profile-card__img">
+                <?php
+                        $user = $usersRepository->findAllUserAvatarId($streamer["idUser"]);
+                        if (count($user) <= 0) { ?>
+                            <img src="src/img/avatar.png" alt="<?= $streamer['pseudo'] ?>" />
+
+                        <?php } else if (count($user) >= 1) { ?>
+                            <img src="upload/<?= $user["src"] ?>" alt="avatar de <?= $streamer['pseudo'] ?>" />
+                        <?php } ?>
                 <img src="src/img/avatar.png" alt="profile card">
             </div>
 
             <div class="profile-card__cnt -profile-cnt">
                 <div class="profile-card__name">
-                    <?= $user['pseudo'] ?></div>
+                    <?= $streamer['pseudo'] ?></div>
                 <div class="profile-card__txt">Streamer <strong>Star Citizen</strong></div>
 
                 <div class="profile-card-inf">
-
 
                     <div class="profile-card-inf__item">
                         <div class="profile-card-inf__title">123</div>
@@ -43,8 +50,6 @@ $users = $usersRepository->findAll();
                         </span>
                     </a>
 
-
-
                     <a href="#" class="profile-card-social__item instagram" target="_blank">
                         <span class="icon-font">
                             <i class="fa fa-instagram"></i>
@@ -65,8 +70,8 @@ $users = $usersRepository->findAll();
                 </div>
 
                 <div class="profile-card-ctr">
-                    <a href="?ind=streamer_ind&id=<?= $user["id_user"] ?>" class="profile-card__button button--blue -message-btn">Articles</a>
-                    <a href="?ind=streamer_a_propos&id=<?= $user["id_user"] ?>" class="profile-card__button button--orange">A propos</a>
+                    <a href="?ind=streamer_ind&id=<?= $streamer["idUser"] ?>" class="profile-card__button button--blue -message-btn">Articles</a>
+                    <a href="?ind=streamer_ind&id=<?= $streamer["idUser"] ?>" class="profile-card__button button--orange">A propos</a>
                 </div>
             </div>
 

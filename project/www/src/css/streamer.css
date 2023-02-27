@@ -218,7 +218,7 @@
 .card-buttons a{
 	color: #ffffff;
 	border-bottom: 3px solid var(--medium-light-color);
-	background: var(--light-color);
+	background: var(--medium-light-color);
 }
 .card-buttons a:hover{
 	background: linear-gradient(to bottom, rgb(0, 0, 0) 0%, rgba(0, 0, 0, 0.263) 44%, rgba(5, 5, 5, 0.111) 100%);

@@ -23,6 +23,11 @@ if (!class_exists('ArticleRepository')) {
                         ->fetchAllAssoc();
         }
 
+        public function findAllUserId(int $id):array {
+            return $this->setSql('SELECT *, articles.id AS id_article FROM articles WHERE id_user=:id_user')->setParamInt(":id_user", $id)
+                        ->fetchAllAssoc();
+        }
+
         /**
          * Recuperer toutes les donnees visibles de la table
          */

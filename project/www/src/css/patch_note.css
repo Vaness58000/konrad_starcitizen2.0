@@ -1,10 +1,11 @@
-.patch{
+.patch {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
-    align-items: center; 
+    align-items: center;
 }
+
 .patch-card {
     width: 350px;
     margin: 30px;
@@ -13,6 +14,13 @@
     transition: transform 0.3s ease-out;
     border-radius: 1em 1em 0.5em 0.5em;
 }
+
+@media screen and (max-width: 450px) {
+    .patch-card {
+        margin: 30px 5px;
+    }
+}
+
 .patch-card:hover .patch-card__thumbnail img {
     transform: scale(1.4);
 }
@@ -42,17 +50,21 @@
     line-height: 1.3em;
     margin-bottom: 10px;
 }
-.patch-card__content a{
-    color:#ffffff;
+
+.patch-card__content a {
+    color: #ffffff;
 }
-.patch-card__content a:hover{
+
+.patch-card__content a:hover {
     color: var(--primary-color);
 }
-.patch-card__text p{
-    color:#ffffff;
+
+.patch-card__text p {
+    color: #ffffff;
     padding: 20px 0;
     line-height: 1.6rem;
 }
+
 .patch-card__meta {
     color: #ffffff;
     display: flex;
@@ -71,7 +83,8 @@
     display: inline-block;
     margin-right: 15px;
 }
-@media screen and (max-width: 820px){
+
+@media screen and (max-width: 820px) {
     .patch-card {
         width: 100%;
     }

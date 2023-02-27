@@ -24,7 +24,7 @@ $usersRepository = new UsersRepository();
         <div class="card-body_article">
           <span class="tag tag-teal">GamePlay</span>
           <h4><?= $construct['titre'] ?></h4>
-          <p>
+          <p style="height: 80px; overflow:hidden;">
             <?= $construct['resume'] ?>
           </p>
           </a>

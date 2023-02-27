@@ -69,7 +69,7 @@ require __DIR__.'/../../../back/connexion.php';
 					<input type="password" name="password" placeholder="Mot de passe" required>
 					<input type="password" name="password_retype" placeholder="Confirmer mot de passe" required>
 					<a href="?ind=login" class="login__forgot">Déjà un compte ? se connecter</a>
-					<input type="submit" value="Se connecter"></input>
+					<input type="submit" value="S'inscrire"></input>
 				</div>
 			</form>
 

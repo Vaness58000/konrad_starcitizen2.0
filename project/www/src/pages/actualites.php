@@ -2,7 +2,7 @@
 require __DIR__ . '/../../back/connexion.php';
 require __DIR__ . '/../../src/repository/ArticleRepository.php';
 $articleRepository = new ArticleRepository();
-$article = $articleRepository->findAllAndTypeUser(1);
+$article = $articleRepository->findAllAndTypeUser(2);
 
 ?>
 <section class="post_dark">

@@ -3,12 +3,13 @@ require __DIR__ . '/../../../back/connexion.php';
 require __DIR__ . '/../../../src/repository/ArticleRepository.php';
 require __DIR__ . '/../../../src/repository/UsersRepository.php';
 $articleRepository = new ArticleRepository();
-$article = $articleRepository->findAllAndTypeUserId($_GET['id'], 1);
+$article = $articleRepository->findAllAndTypeUserId($_GET['id'], $_GET['type']);
 $usersRepository = new UsersRepository();
-$tous_article = $articleRepository->findAllAndTypeUser(1);
+$tous_article = $articleRepository->findAllAndTypeUserNoId($_GET['type'], $_GET["id"]);
 ?>
 <div class="page_actu">
-    <?php foreach ($article as $construct) { ?>
+    <?php 
+    foreach ($article as $construct) { ?>
         <section class="page_generale">
             <div class="wrapper_article">
                 <div class="top">
@@ -45,8 +46,7 @@ $tous_article = $articleRepository->findAllAndTypeUser(1);
                         <img src="src/img/<?= $construct_img['name'] ?>">
 
                     <?php } ?>
-                <?php } ?>
-
+             
                 <div class="voir_aussi">
                     <h2 class="centered">Voir aussi</h2>
                     <?php foreach ($tous_article as $tous) { ?>
@@ -62,9 +62,9 @@ $tous_article = $articleRepository->findAllAndTypeUser(1);
 
                             </div>
                             <div class="description">
-                                <h2><a href="?ind=patch_ind&id=<?= $tous["id"]; ?>"><?= $tous['titre']; ?></a></h2>
+                                <h2><a href="?ind=article_streamer_ind&type=<?= $construct["id_categorie_article"] ?>&id=<?= $tous["id"]; ?>"><?= $tous['titre']; ?></a></h2>
                                 <ul class="postcard__tagbox">
-                                    <li class="tag__item">Patch notes</li>
+                                    <li class="tag__item">Actualité</li>
 
                                     <li class="tag__item auteur blue">
                                         <a href="?ind=streamer_ind&id=<?= $construct["id"]; ?>">Publié par <?= $construct['pseudo'] ?></a>
@@ -74,7 +74,7 @@ $tous_article = $articleRepository->findAllAndTypeUser(1);
                         </div>
                     <?php } ?>
                 </div>
-            
+            </div>                       
         </section>
-
+        <?php } ?>
 </div>
