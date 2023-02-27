@@ -62,7 +62,7 @@ $tous_article = $articleRepository->findAllAndTypeUserNoId(1, $_GET["id"]);
 
                             </div>
                             <div class="description">
-                                <h2><a href="?ind=patch_ind&id=<?= $tous["id"]; ?>"><?= $tous['titre']; ?></a></h2>
+                                <h2><a href="?ind=article_streamer_ind&id=<?= $tous["id"]; ?>"><?= $tous['titre']; ?></a></h2>
                                 <ul class="postcard__tagbox">
                                     <li class="tag__item">Actualité</li>
 

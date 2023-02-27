@@ -116,7 +116,7 @@ $usersRepository = new UsersRepository();
                 </a>
 
                 <div class="patch-card__text">
-                    <p>
+                    <p style="height: 120px; overflow:hidden; margin-bottom: 20px;">
                         <?= $construct['resume']; ?>
                     </p>
                 </div>
@@ -159,7 +159,7 @@ $usersRepository = new UsersRepository();
                 <div class="news-slider__item swiper-slide">
 
                     <a href="?ind=article_streamer_ind&id=<?= $construct["id"]; ?>" class="news__item">
-                    <?php
+                        <?php
                         $user = $usersRepository->findAllUserAvatarId($construct["id_user"]);
                         if (count($user) <= 0) { ?>
                             <img src="src/img/avatar.png" alt="<?= $construct['pseudo'] ?>" />
@@ -173,7 +173,7 @@ $usersRepository = new UsersRepository();
                         </div>
                         <div class="corner-borders corner-borders--left"></div>
                         <div class="corner-borders corner-borders--right"></div>
-                        <p class="news__txt">
+                        <p class="news__txt" style="height: 100px; overflow:hidden; margin-bottom: 20px;">
                             <?= $construct['resume']; ?>
                         </p>
                         <span><?= date('d/m/Y', strtotime($construct['date'])); ?></span>
@@ -231,7 +231,123 @@ $usersRepository = new UsersRepository();
         </symbol>
     </defs>
 </svg>
+<div class="section_categorie">
+    <h1 class="centered2">Notre guide</h1>
+    <hr>
+</div>
+<section class="cards_guide">
+    <article class="card_guide card--1">
 
+        <div class="card__img"></div>
+        <a href="#" class="card_link">
+            <div class="card__img--hover"></div>
+        </a>
+        <div class="card__info">
+            <h3 class="card__title">Equipements
+        </div>
+    </article>
+
+
+    <article class="card_guide card--2">
+
+        <div class="card__img"></div>
+        <a href="#" class="card_link">
+            <div class="card__img--hover"></div>
+        </a>
+        <div class="card__info">
+
+            <h3 class="card__title">Lieux</h3>
+            </span>
+        </div>
+    </article>
+    <article class="card_guide card--3">
+
+        <div class="card__img"></div>
+        <a href="#" class="card_link">
+            <div class="card__img--hover"></div>
+        </a>
+        <div class="card__info">
+
+            <h3 class="card__title">Armes</h3>
+            </span>
+        </div>
+    </article>
+    <article class="card_guide card--4">
+
+        <div class="card__img"></div>
+        <a href="#" class="card_link">
+            <div class="card__img--hover"></div>
+        </a>
+        <div class="card__info">
+
+            <h3 class="card__title">Espèces</h3>
+            </span>
+        </div>
+    </article>
+    <article class="card_guide card--9">
+
+        <div class="card__img"></div>
+        <a href="#" class="card_link">
+            <div class="card__img--hover"></div>
+        </a>
+        <div class="card__info">
+
+            <h3 class="card__title">Systèmes</h3>
+            </span>
+        </div>
+    </article>
+    <article class="card_guide card--5">
+
+        <div class="card__img"></div>
+        <a href="#" class="card_link">
+            <div class="card__img--hover"></div>
+        </a>
+        <div class="card__info">
+
+            <h3 class="card__title">Planètes</h3>
+            </span>
+        </div>
+    </article>
+    <article class="card_guide card--6">
+
+        <div class="card__img"></div>
+        <a href="#" class="card_link">
+            <div class="card__img--hover"></div>
+        </a>
+        <div class="card__info">
+
+            <h3 class="card__title">Lunes</h3>
+            </span>
+        </div>
+    </article>
+    <article class="card_guide card--7">
+
+        <div class="card__img"></div>
+        <a href="#" class="card_link">
+            <div class="card__img--hover"></div>
+        </a>
+        <div class="card__info">
+
+            <h3 class="card__title">Villes</h3>
+            </span>
+        </div>
+    </article>
+    <article class="card_guide card--8">
+
+        <div class="card__img"></div>
+        <a href="#" class="card_link">
+            <div class="card__img--hover"></div>
+        </a>
+        <div class="card__info">
+
+            <h3 class="card__title">Stations</h3>
+            </span>
+        </div>
+    </article>
+</section>
+
+
+</section>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.3.5/js/swiper.min.js"></script>
 <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>

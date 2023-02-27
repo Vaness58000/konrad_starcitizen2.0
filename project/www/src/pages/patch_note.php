@@ -7,6 +7,7 @@ $article = $articleRepository->findAllAndTypeUser(3);
 $usersRepository = new UsersRepository();
 
 ?>
+
 <div class="patch">
 	<?php foreach ($article as $construct) { ?>
 		<div class="patch-card">
@@ -27,7 +28,7 @@ $usersRepository = new UsersRepository();
 				</a>
 
 				<div class="patch-card__text">
-					<p>
+					<p style="height: 120px; overflow:hidden; margin-bottom: 20px;">
 						<?= $construct['resume']; ?>
 					</p>
 				</div>
