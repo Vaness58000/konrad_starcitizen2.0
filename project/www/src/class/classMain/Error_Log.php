@@ -111,7 +111,7 @@ if (!class_exists('Error_Log')) {
                             if(!empty(trim($oneErro[$j]))) {
                                 $infoErro = explode(" : ", $oneErro[$j], 2);
                                 if($infoErro[0] === "global") {
-                                    $infosError[$infoErro[0]] = json_decode($infoErro[1]);
+                                    $infosError[$infoErro[0]] = json_decode($infoErro[1], true);
                                 } else {
                                     $infosError[$infoErro[0]] = $infoErro[1];
                                 }
