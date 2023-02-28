@@ -76,14 +76,14 @@ if (!empty($_GET) && array_key_exists('id', $_GET) && !empty($_GET['id'])) {
             }
         }
 
-        $diplomaties = $objetRepository->findAllIdAndDiplomatie($objet['id_espece']);
+        $diplomaties = $objetRepository->findAllIdAndDiplomatie(intval($objet['id_espece']));
         if(!empty($diplomaties)) {
             foreach ($diplomaties as $value) {
                 $diplo .= "\n".addTdTabSupl($value['id_diplo_esp'], $value['type'], 'services');
             }
         }
 
-        $controle = $objetRepository->findAllIdAndControle($objet['id_espece']);
+        $controle = $objetRepository->findAllIdAndControle(intval($objet['id_espece']));
         if(!empty($controle)) {
             foreach ($controle as $value) {
                 $tab_control .= "\n".addTdTabSupl($value['id_control_lieu'], $value['nom_lieu'], 'services');

@@ -91,6 +91,13 @@ if($get_ind == "acc") {
 } else if($get_ind == "add_lieu" || $get_ind == "mod_lieu"){
     //$_GET["type"]=1;
     include __DIR__.'/src/pages/objet/add_mod_lieux.php';
+} else if($get_ind == "mat_prem" || $get_ind == "mat_prem_all"){
+    //$_GET["type"]=1;
+    $_GET["tab_all"]=($get_ind == "mat_prem_all");
+    include __DIR__.'/src/pages/objet/mat_prem.php';
+} else if($get_ind == "add_mat_prem" || $get_ind == "mod_mat_prem"){
+    //$_GET["type"]=1;
+    include __DIR__.'/src/pages/objet/add_mod_mat_prem.php';
 } else if($get_ind == "construct" || $get_ind == "construct_all"){
     //$_GET["type"]=1;
     $_GET["tab_all"]=($get_ind == "construct_all");

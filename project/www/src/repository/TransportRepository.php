@@ -128,9 +128,10 @@ if (!class_exists('TransportRepository')) {
         }
 
         public function findAllIdAndArmement(int $id):array {
-            $sql = 'SELECT *, transp_equip.id AS id_transp_equip FROM equipement '.
-                    'INNER JOIN transp_equip ON transp_equip.id_equip = equipement.id '.
-                    'WHERE transp_equip.id_transp=:id ORDER BY transp_equip.id DESC';
+            $sql = 'SELECT *, transport_arm.id AS id_transport_arm, objet.id AS id_obj, objet.nom AS nom_obj FROM objet '.
+                    'INNER JOIN equipements_armement ON equipements_armement.id_objet = objet.id '.
+                    'INNER JOIN transport_arm ON transport_arm.id_arm_transp = equipements_armement.id_arme '.
+                    'WHERE transport_arm.id_transport=:id ORDER BY transport_arm.id DESC';
             return $this->setSql($sql)
                         ->setParamInt(":id", $id)
                         ->fetchAllAssoc();
