@@ -69,6 +69,10 @@ if (!class_exists('ObjetRepository')) {
             return intval($tab_type["id"]);
         }
 
+        public function imagePrincipale(int $id_obj) {
+            return $this->setSql('SELECT * FROM images_objet WHERE id_objet=:id_objet AND img_principal=1 ORDER BY id_image_obj')->setParamInt(":id_objet", $id_obj)->fetchAssoc();
+        }
+
     }
 }
 

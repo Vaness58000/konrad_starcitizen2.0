@@ -37,6 +37,7 @@ $capacite = "";
 $tab_force = "";
 $tab_faibl = "";
 $tab_equipem = "";
+$tab_arm = "";
 $nom = "";
 $tab_info = "";
 $tab_lieu = "";
@@ -83,31 +84,39 @@ if (!empty($_GET) && array_key_exists('id', $_GET) && !empty($_GET['id'])) {
             }
         }
 
-        $lieux = $objetRepository->findAllIdAndLieux($objet['id_transp']);
+        $lieux = $objetRepository->findAllIdAndLieux(intval($objet['id_transp']));
         if(!empty($lieux)) {
             foreach ($lieux as $value) {
                 $tab_lieu .= "\n".addTdTabSupl($value['id_lieu'], $value['nom_lieu'], 'services');
             }
         }
 
-        $forces = $objetRepository->findAllIdAndForce($objet['id_transp']);
+        $forces = $objetRepository->findAllIdAndForce(intval($objet['id_transp']));
         if(!empty($forces)) {
             foreach ($forces as $value) {
                 $tab_force .= "\n".addTdTabSupl($value['id_transp_forces'], $value['nom_force'], 'services');
             }
         }
 
-        $faibls = $objetRepository->findAllIdAndFaibl($objet['id_transp']);
+        $faibls = $objetRepository->findAllIdAndFaibl(intval($objet['id_transp']));
         if(!empty($faibls)) {
             foreach ($faibls as $value) {
                 $tab_faibl .= "\n".addTdTabSupl($value['id_transp_faibl'], $value['nom_faiblesse'], 'services');
             }
         }
 
-        $equipems = $objetRepository->findAllIdAndEquipem($objet['id_transp']);
+        $equipems = $objetRepository->findAllIdAndEquipem(intval($objet['id_transp']));
         if(!empty($equipems)) {
             foreach ($equipems as $value) {
                 $tab_equipem .= "\n".addTdTabSupl($value['id_transp_equip'], $value['nom'], 'services');
+            }
+        }
+
+        $list_arm = $objetRepository->findAllIdAndArmement(intval($objet['id_transp']));
+        var_dump(intval($objet['id_transp']));
+        if(!empty($list_arm)) {
+            foreach ($list_arm as $value) {
+                $tab_arm .= "\n".addTdTabSupl($value['id_transport_arm'], $value['nom_obj'], 'services');
             }
         }
     }
@@ -179,6 +188,8 @@ $templatePage->addVarString("[#CITIZEN_TRANSP_CAPACITE#]", $capacite);
 $templatePage->addVarString("[#CITIZEN_TRANSP_TAB_FORCE#]", $tab_force);
 $templatePage->addVarString("[#CITIZEN_TRANSP_TAB_FAIBL#]", $tab_faibl);
 $templatePage->addVarString("[#CITIZEN_TRANSP_TAB_EQUIPEM#]", $tab_equipem);
+$templatePage->addVarString("[#CITIZEN_TRANSP_TAB_EQUIPEM#]", $tab_equipem);
+$templatePage->addVarString("[#CITIZEN_TRANSP_TAB_ARM#]", $tab_arm);
 
 $templatePage->addFileJs("./src/js/articles.js");
 $templatePage->addFileJs("./src/js/all_img_user.js");

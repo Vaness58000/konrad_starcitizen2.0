@@ -54,7 +54,8 @@
 #onglet-arm:checked ~ #div-all-tab #label-onglet-arm, 
 #onglet-lieu:checked ~ #div-all-tab #label-onglet-lieu, 
 #onglet-diplom:checked ~ #div-all-tab #label-onglet-diplom, 
-#onglet-contro:checked ~ #div-all-tab #label-onglet-contro {
+#onglet-contro:checked ~ #div-all-tab #label-onglet-contro, 
+#onglet-gplay-type:checked ~ #div-all-tab #label-gplay-type {
     /*background-color: burlywood;*/
     background: linear-gradient(rgb(36, 36, 141), rgb(0, 0, 128));
     border-bottom: unset;
@@ -67,7 +68,8 @@
 #onglet-arm:checked ~ #div-all-tab #div-onglet-arm, 
 #onglet-lieu:checked ~ #div-all-tab #div-onglet-lieu, 
 #onglet-diplom:checked ~ #div-all-tab #div-onglet-diplom, 
-#onglet-contro:checked ~ #div-all-tab #div-onglet-contro {
+#onglet-contro:checked ~ #div-all-tab #div-onglet-contro, 
+#onglet-gplay-type:checked ~ #div-all-tab #div-gplay-type {
     display: unset;
 }
 

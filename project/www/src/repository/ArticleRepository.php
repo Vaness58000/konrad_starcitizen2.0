@@ -203,6 +203,15 @@ if (!class_exists('ArticleRepository')) {
                         ->fetchAllAssoc();
         }
 
+        public function findAllIdAndGplayType(int $id):array {
+            $sql = 'SELECT *, gameplay_type_articles.id AS id_gameplay_type_articles FROM gameplay_type '.
+                    'INNER JOIN gameplay_type_articles ON gameplay_type_articles.id_gameplay_type = gameplay_type.id '.
+                    'WHERE gameplay_type_articles.id_article=:id ORDER BY gameplay_type_articles.id DESC';
+            return $this->setSql($sql)
+                        ->setParamInt(":id", $id)
+                        ->fetchAllAssoc();
+        }
+
         /*pour relier le type */
         public function findAllCat():array {
             return $this->setSql('SELECT * FROM categories_articles')

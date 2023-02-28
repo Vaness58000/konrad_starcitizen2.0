@@ -68,7 +68,7 @@ if (!empty($_GET) && array_key_exists('id', $_GET) && !empty($_GET['id'])) {
             }
         }
         
-        $lieux = $objetRepository->findAllIdAndLieux($objet['id_arm_fps']);
+        $lieux = $objetRepository->findAllIdAndLieux(intval($objet['id_arm_fps']));
         if(!empty($lieux)) {
             foreach ($lieux as $value) {
                 $lieu = $value['nom_lieu'];

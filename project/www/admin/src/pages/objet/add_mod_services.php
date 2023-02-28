@@ -55,7 +55,7 @@ if (!empty($_GET) && array_key_exists('id', $_GET) && !empty($_GET['id'])) {
             }
         }
 
-        $lieux = $objetRepository->findAllIdAndLieux($objet['id_service']);
+        $lieux = $objetRepository->findAllIdAndLieux(intval($objet['id_service']));
         if(!empty($lieux)) {
             foreach ($lieux as $value) {
                 $tab_lieu .= "\n".addTdTabSupl($value['id_serv_lieu'], $value['nom_lieu'], 'services');
