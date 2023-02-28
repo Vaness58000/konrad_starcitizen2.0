@@ -110,6 +110,10 @@ if (!class_exists('ProprietairesRepository')) {
                         ->setParamInt(":id", $id)
                         ->fetchAllAssoc();
         }
+
+        public function findIdTypePropriet():int {
+            return $this->findIdTypeObj("propriétaire");
+        }
     }
 }
 

@@ -11,7 +11,7 @@ if (!(!empty($_SESSION) && array_key_exists('utilisateur', $_SESSION) && !empty(
 }
 
 $usersRepository = new UsersRepository();
-$user = $usersRepository->findAllId($_SESSION['utilisateur']['id']);
+$user = $usersRepository->findAllId(intval($_SESSION['utilisateur']['id']));
 
 $pseudo = $user['pseudo'];
 $id = intval($user["idUser"]);
@@ -51,7 +51,7 @@ if (!empty($_GET) && array_key_exists('id', $_GET) && !empty($_GET['id'])) {
         $id_lier = intval($objet['id_lieu_lier']);
         $isProprietaire = $objet['id_user'] == $id;
         $validation = (intval($objet['validation']) == 1);
-        $isHabitat = (intval($objet['validation']) == 1);
+        $isHabitat = (intval($objet['Habitable']) == 1);
 
         $imgs = $objRepository->findAllImgObj($id_lieu);
         if(!empty($imgs)) {
@@ -121,6 +121,7 @@ $templatePage->addVarString("[#CITIZEN_LIEU_LIER#]", $lier_lieu);
 
 $templatePage->addFileJs("./src/js/articles.js");
 $templatePage->addFileJs("./src/js/all_img_user.js");
+$templatePage->addFileJs("./src/js/ad_mod.js");
 
 $js = $templatePage->js();
 $css = $templatePage->css();

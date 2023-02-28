@@ -1,3 +1,4 @@
+"use strict";
 document.querySelectorAll(".img-add").forEach(element => {
     let src = element.src;
     if(src.includes("src/images")) {

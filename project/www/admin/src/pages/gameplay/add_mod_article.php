@@ -25,6 +25,7 @@ $categorieList = "";
 $contenu = "";
 $resume = "";
 $all_img = "";
+$gplay_type = "";
 $validation = false;
 $isProprietaire = false;
 $isModif = " disabled";
@@ -50,6 +51,13 @@ if (!empty($_GET) && array_key_exists('id', $_GET) && !empty($_GET['id'])) {
         if(!empty($imgs)) {
             foreach ($imgs as $value) {
                 $all_img .= "\n".addImg($value['id'], 'articles', $value['src'], $value['alt']);
+            }
+        }
+
+        $gplayTypes = $articleRepository->findAllIdAndGplayType(intval($_GET['id']));
+        if(!empty($gplayTypes)) {
+            foreach ($gplayTypes as $value) {
+                $gplay_type .= "\n".addTdTabSupl($value['id_gameplay_type_articles'], $value['nom'], 'lieu');
             }
         }
     }
@@ -86,9 +94,11 @@ $templatePage->addVarString("[#CITIZEN_ARTI_MODIF_CHECK#]", $modif_check);
 $templatePage->addVarString("[#CITIZEN_ARTI_IMG#]", $all_img);
 $templatePage->addVarString("[#CITIZEN_ARTI_ISPRO#]", $isModif);
 $templatePage->addVarString("[#CITIZEN_ARTI_ID#]", $id_article);
+$templatePage->addVarString("[#CITIZEN_ARTI_TAB_GPLAY_TYPE#]", $gplay_type);
 
 $templatePage->addFileJs("./src/js/articles.js");
 $templatePage->addFileJs("./src/js/all_img_user.js");
+$templatePage->addFileJs("./src/js/ad_mod.js");
 
 $js = $templatePage->js();
 $css = $templatePage->css();

@@ -74,10 +74,16 @@ if($get_ind == "acc") {
     //$_GET["type"]=1;
     $_GET["tab_all"]=($get_ind == "arm_fps_all");
     include __DIR__.'/src/pages/objet/arm_fps.php';
+} else if($get_ind == "add_arm_fps" || $get_ind == "mod_arm_fps"){
+    //$_GET["type"]=1;
+    include __DIR__.'/src/pages/objet/add_mod_arm_fps.php';
 } else if($get_ind == "arm_vaiss" || $get_ind == "arm_vaiss_all"){
     //$_GET["type"]=1;
     $_GET["tab_all"]=($get_ind == "arm_vaiss_all");
     include __DIR__.'/src/pages/objet/arm_vaiss.php';
+} else if($get_ind == "add_arm_vaiss" || $get_ind == "mod_arm_vaiss"){
+    //$_GET["type"]=1;
+    include __DIR__.'/src/pages/objet/add_mod_arm_vaiss.php';
 } else if($get_ind == "lieux" || $get_ind == "lieux_all"){
     //$_GET["type"]=1;
     $_GET["tab_all"]=($get_ind == "lieux_all");
@@ -85,6 +91,13 @@ if($get_ind == "acc") {
 } else if($get_ind == "add_lieu" || $get_ind == "mod_lieu"){
     //$_GET["type"]=1;
     include __DIR__.'/src/pages/objet/add_mod_lieux.php';
+} else if($get_ind == "mat_prem" || $get_ind == "mat_prem_all"){
+    //$_GET["type"]=1;
+    $_GET["tab_all"]=($get_ind == "mat_prem_all");
+    include __DIR__.'/src/pages/objet/mat_prem.php';
+} else if($get_ind == "add_mat_prem" || $get_ind == "mod_mat_prem"){
+    //$_GET["type"]=1;
+    include __DIR__.'/src/pages/objet/add_mod_mat_prem.php';
 } else if($get_ind == "construct" || $get_ind == "construct_all"){
     //$_GET["type"]=1;
     $_GET["tab_all"]=($get_ind == "construct_all");
@@ -96,10 +109,16 @@ if($get_ind == "acc") {
     //$_GET["type"]=1;
     $_GET["tab_all"]=($get_ind == "transports_all");
     include __DIR__.'/src/pages/objet/transports.php';
+} else if($get_ind == "add_transports" || $get_ind == "mod_transports"){
+    //$_GET["type"]=1;
+    include __DIR__.'/src/pages/objet/add_mod_transp.php';
 } else if($get_ind == "especes" || $get_ind == "especes_all"){
     //$_GET["type"]=1;
     $_GET["tab_all"]=($get_ind == "especes_all");
     include __DIR__.'/src/pages/objet/especes.php';
+} else if($get_ind == "add_especes" || $get_ind == "mod_especes"){
+    //$_GET["type"]=1;
+    include __DIR__.'/src/pages/objet/add_mod_especes.php';
 } else if($get_ind == "proprietaires" || $get_ind == "proprietaires_all"){
     //$_GET["type"]=1;
     $_GET["tab_all"]=($get_ind == "proprietaires_all");

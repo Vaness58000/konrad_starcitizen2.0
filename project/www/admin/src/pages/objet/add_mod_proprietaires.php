@@ -28,7 +28,7 @@ $all_img = "";
 $validation = false;
 $isProprietaire = false;
 $isModif = " disabled";
-$id_service = 0;
+$id_obj = 0;
 
 
 $objetRepository = new ProprietairesRepository();
@@ -37,7 +37,7 @@ if (!empty($_GET) && array_key_exists('id', $_GET) && !empty($_GET['id'])) {
     
     $objet = $objetRepository->findAllAndIdUser(intval($_GET['id']));
     if(count($objet)>0){
-        $id_service = intval($_GET['id']);
+        $id_obj = intval($_GET['id']);
         $nom = $objet['nom'];
         $contenu = $objet['contenu'];
         $isProprietaire = $objet['id_user'] == $id;
@@ -47,21 +47,21 @@ if (!empty($_GET) && array_key_exists('id', $_GET) && !empty($_GET['id'])) {
             $logo = "./../upload/".'proprietaires_logo'."/".$objet['logo'];
         }
 
-        $imgs = $objetRepository->findAllImgObj($id_service);
+        $imgs = $objetRepository->findAllImgObj($id_obj);
         if(!empty($imgs)) {
             foreach ($imgs as $value) {
                 $all_img .= "\n".addImg($value['id_image_obj'], 'proprietaires', $value['src'], $value['alt']);
             }
         }
 
-        $infos = $objetRepository->findAllInfObj($id_service);
+        $infos = $objetRepository->findAllInfObj($id_obj);
         if(!empty($infos)) {
             foreach ($infos as $value) {
                 $tab_info .= "\n".addTdTabSupl($value['id'], $value['nom'], 'info');
             }
         }
 
-        $lieux = $objetRepository->findAllIdAndLieux($objet['id_proprietaire']);
+        $lieux = $objetRepository->findAllIdAndLieux(intval($objet['id_proprietaire']));
         if(!empty($lieux)) {
             foreach ($lieux as $value) {
                 $tab_lieu .= "\n".addTdTabSupl($value['id_proprietaire_lieu'], $value['nom_lieu'], 'lieu');
@@ -93,13 +93,14 @@ $templatePage->addVarString("[#CITIZEN_PROPR_TAB_LIEU#]", $tab_lieu);
 $templatePage->addVarString("[#CITIZEN_PROPR_MODIF_CHECK#]", $modif_check);
 $templatePage->addVarString("[#CITIZEN_PROPR_IMG#]", $all_img);
 $templatePage->addVarString("[#CITIZEN_PROPR_ISPRO#]", $isModif);
-$templatePage->addVarString("[#CITIZEN_PROPR_ID#]", $id_service);
+$templatePage->addVarString("[#CITIZEN_PROPR_ID#]", $id_obj);
 $templatePage->addVarString("[#CITIZEN_PROPR_LOGO#]", $logo);
 $templatePage->addVarString("[#CITIZEN_PROPR_CAT#]", $categ);
 
 
 $templatePage->addFileJs("./src/js/articles.js");
 $templatePage->addFileJs("./src/js/all_img_user.js");
+$templatePage->addFileJs("./src/js/ad_mod.js");
 
 $js = $templatePage->js();
 $css = $templatePage->css();
