@@ -18,8 +18,8 @@ $user = $usersRepository->findAllId($_GET['id']);
         <?php } else { ?>
           <img class="card-avatar" src="upload/<?= $user_avatar ?>" alt="avatar de <?= $user['pseudo'] ?>"></a>
         <?php } ?>
-        <h1 class="card-fullname"><?= $user['pseudo'] ?></h1>
-        <h2 class="card-jobtitle">Streamer Star Citizen</h2>
+        <h1 class="card-fullname"><?= $user['pseudo'] ?></br>Streamer Star Citizen</h1>
+        <h2 class="card-jobtitle"></h2>
 
 
         <div class="reseau">

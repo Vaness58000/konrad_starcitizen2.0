@@ -217,6 +217,17 @@ if (!class_exists('ArticleRepository')) {
             return $this->setSql('SELECT * FROM categories_articles')
                         ->fetchAllAssoc();
         }
+
+        /**
+         * Recuperer toutes les donnees visibles de la table
+         */
+        public function findIdTypeArticle(string $name):int {
+            $tab_type = $this->setSql('SELECT * FROM categories_articles WHERE nom=:nom')->setParam(":nom", $name)->fetchAssoc();
+            if(!(!empty($tab_type) && array_key_exists("id_categorie_article", $tab_type) && !empty($tab_type["id_categorie_article"]))) {
+                return 0;
+            }
+            return intval($tab_type["id_categorie_article"]);
+        }
     } 
 }
 

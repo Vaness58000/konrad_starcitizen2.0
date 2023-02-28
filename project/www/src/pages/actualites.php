@@ -2,7 +2,8 @@
 require __DIR__ . '/../../back/connexion.php';
 require __DIR__ . '/../../src/repository/ArticleRepository.php';
 $articleRepository = new ArticleRepository();
-$article = $articleRepository->findAllAndTypeUser(2);
+$type = $articleRepository->findIdTypeArticle("actualité");
+$article = $articleRepository->findAllAndTypeUser($type);
 
 ?>
 <section class="post_dark">
