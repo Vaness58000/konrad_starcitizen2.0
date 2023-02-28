@@ -90,6 +90,8 @@ footer {
     width: 100%;
     padding: 15px 25px;
     align-items: center;
+    box-sizing: border-box;
+    overflow: hidden;
 }
 
 .admin-contenu label {
@@ -219,3 +221,74 @@ th img, td img {
     display: flex;
     justify-content: center;
 }
+
+.error-collapsible-check, .error-collapsible-contenu {
+    display: none;
+}
+
+.error-collapsible-check:checked ~ .error-collapsible-contenu {
+    display: unset;
+}
+
+#div-contenu-error {
+    grid-column: 1 / 3;
+    display: flex;
+    width: 100%;
+    justify-content: flex-start;
+    flex-direction: column;
+}
+
+.error-collapsible {
+    border: 1px rgb(105, 105, 105) solid;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+#error-msg * {
+    margin: 5px;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.error-collapsible * {
+    padding: 2px 5px;
+    margin: 0;
+}
+
+.error-collapsible-menu {
+    width: 100%;
+}
+
+.error-collapsible-check:checked ~ .error-collapsible-menu {
+    border-bottom: 1px rgb(105, 105, 105) dotted;
+}
+
+.error-collapsible-contenu {
+    width: 100%;
+    padding: 5px;
+}
+
+.error-collapsible-menu h3 {
+    text-align: left;
+}
+
+#error-msg p {
+    padding: 5px;
+    border: 1px rgb(105, 105, 105) solid;
+    word-wrap: break-word;
+    /*white-space:normal;*/
+    /*text-overflow: ellipsis;*/
+}
+
+.error-collapsible-contenu * {
+    width: 100%;
+    box-sizing: border-box !important;
+    overflow: hidden !important;
+    word-wrap: break-word !important;
+    border: unset !important;
+}
+
+/*.error-collapsible-contenu pre p {
+    word-wrap: break-word !important;
+    border: unset !important;
+}*/

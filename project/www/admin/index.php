@@ -10,8 +10,10 @@ if(!isset($_SESSION['user'])) {
 
 include __DIR__.'/../src/class/classSite/Config.php';
 include __DIR__.'/../src/class/classMain/TemplatePage.php';
+include __DIR__.'/../src/class/classMain/Error_Log.php';
 include __DIR__.'/../src/repository/UsersRepository.php';
 
+$error_Log = new Error_Log();
 $templateIndex = new TemplatePage(__DIR__.'/src/template/header_footer.html');
 $templateMenuAdmin = new TemplatePage(__DIR__.'/src/template/menu_admin.html');
 $no_session = new TemplatePage(__DIR__.'/src/template/session/no_session.html');
@@ -137,6 +139,10 @@ if($get_ind == "acc") {
     include __DIR__.'/src/pages/users/messages.php';
 } else if($get_ind == "utilisateurs" && $isAdmin) {
     include __DIR__.'/src/pages/users/users.php';
+} else if($get_ind == "error_list" && $isAdmin) {
+    include __DIR__.'/src/pages/errors/list.php';
+} else if($get_ind == "error_msg" && $isAdmin) {
+    include __DIR__.'/src/pages/errors/message.php';
 } else {
     include __DIR__.'/src/pages/users/espace_user.php';
 }
@@ -149,5 +155,8 @@ if($get_ind != "connexion" && $get_ind != "inscription_traitement" && $get_ind !
     $templateIndex->addVarString("[#CITIZEN_INDEX_PAGE#]", $contenu);
     $templateIndex->addVarString("[#CITIZEN_INDEX_JS#]", $templateMenuAdmin->js().$js);
     $templateIndex->addVarString("[#CITIZEN_INDEX_ADD_MENU_ADMIN#]", $add_menu_admin);
-    echo $templateIndex->html();
+    if($error_Log->isError()) {
+    }else {
+        echo $templateIndex->html();
+    }
 }

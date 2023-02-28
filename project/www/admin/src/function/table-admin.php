@@ -12,6 +12,14 @@ if(!function_exists('addTdMain')) {
                 '</tr>';
     }
 }
+if(!function_exists('addTdError')) {
+    function addTdError(int $id, ?string $date, ?string $message):?string {
+        return '<tr class="error-load" id="id-'.$id.'">'.
+                    '<td>'.$date.'</td>'.
+                    '<td>'.$message.'</td>'.
+                '</tr>';
+    }
+}
 if(!function_exists('addOptionCat')) {
     function addOptionCat(int $id, ?string $nom, int $id_selected = 0):?string {
         $selected = (!empty($id_selected)) ? (($id==$id_selected) ? " selected" : "") : "";

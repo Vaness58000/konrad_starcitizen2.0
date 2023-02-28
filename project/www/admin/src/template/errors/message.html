@@ -1,0 +1,105 @@
+<div class="display-admin">
+    <div class="card-admin" data-state="#about">
+      <div class="admin-title"><h1>Erreur</h1></div>
+      <div class="admin-contenu" id="error-msg">
+        <label>Date</label><p>[#CITIZEN_ERROR_DATE#]</p>
+        <label>Numéro</label><p>[#CITIZEN_ERROR_NUMERO#]</p>
+        <label>Lien</label><p>[#CITIZEN_ERROR_LIEN#]</p>
+        <label>Message</label><p>[#CITIZEN_ERROR_MESSAGE#]</p>
+        <label>Détail</label><p>[#CITIZEN_ERROR_DETAIL#]</p>
+        <div id="div-contenu-error">
+            <div>
+                <div class="error-collapsible">
+                    <input type="checkbox" name="get" id="get" class="error-collapsible-check">
+                    <div class="error-collapsible-menu">
+                        <label for="get">
+                            <h3>_GET</h3>
+                        </label>
+                    </div>
+                    <div class="error-collapsible-contenu">
+                        [#CITIZEN_ERROR_GET#]
+                    </div>
+                </div>
+                <div class="error-collapsible">
+                    <input type="checkbox" name="post" id="post" class="error-collapsible-check">
+                    <div class="error-collapsible-menu">
+                        <label for="post">
+                            <h3>_POST</h3>
+                        </label>
+                    </div>
+                    <div class="error-collapsible-contenu">
+                        [#CITIZEN_ERROR_POST#]
+                    </div>
+                </div>
+                <div class="error-collapsible">
+                    <input type="checkbox" name="cookie" id="cookie" class="error-collapsible-check">
+                    <div class="error-collapsible-menu">
+                        <label for="cookie">
+                            <h3>_COOKIE</h3>
+                        </label>
+                    </div>
+                    <div class="error-collapsible-contenu">
+                        [#CITIZEN_ERROR_COOKIE#]
+                    </div>
+                </div>
+                <div class="error-collapsible">
+                    <input type="checkbox" name="files" id="files" class="error-collapsible-check">
+                    <div class="error-collapsible-menu">
+                        <label for="files">
+                            <h3>_FILES</h3>
+                        </label>
+                    </div>
+                    <div class="error-collapsible-contenu">
+                        [#CITIZEN_ERROR_FILES#]
+                    </div>
+                </div>
+                <div class="error-collapsible">
+                    <input type="checkbox" name="env" id="env" class="error-collapsible-check">
+                    <div class="error-collapsible-menu">
+                        <label for="env">
+                            <h3>_ENV</h3>
+                        </label>
+                    </div>
+                    <div class="error-collapsible-contenu">
+                        [#CITIZEN_ERROR_ENV#]
+                    </div>
+                </div>
+                <div class="error-collapsible">
+                    <input type="checkbox" name="request" id="request" class="error-collapsible-check">
+                    <div class="error-collapsible-menu">
+                        <label for="request">
+                            <h3>_REQUEST</h3>
+                        </label>
+                    </div>
+                    <div class="error-collapsible-contenu">
+                        [#CITIZEN_ERROR_REQUEST#]
+                    </div>
+                </div>
+                <div class="error-collapsible">
+                    <input type="checkbox" name="server" id="server" class="error-collapsible-check">
+                    <div class="error-collapsible-menu">
+                        <label for="server">
+                            <h3>_SERVER</h3>
+                        </label>
+                    </div>
+                    <div class="error-collapsible-contenu">
+                        [#CITIZEN_ERROR_SERVER#]
+                    </div>
+                </div>
+                <div class="error-collapsible">
+                    <input type="checkbox" name="seesion" id="seesion" class="error-collapsible-check">
+                    <div class="error-collapsible-menu">
+                        <label for="seesion">
+                            <h3>_SESSION</h3>
+                        </label>
+                    </div>
+                    <div class="error-collapsible-contenu">
+                        [#CITIZEN_ERROR_SESSION#]
+                    </div>
+                </div>
+            [#CITIZEN_ERROR_CONTENU#]
+            </div>
+        </div>
+      </div>
+    </div>
+</div>
