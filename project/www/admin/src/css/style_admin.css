@@ -275,20 +275,13 @@ th img, td img {
 #error-msg p {
     padding: 5px;
     border: 1px rgb(105, 105, 105) solid;
+    overflow-wrap: break-word;
     word-wrap: break-word;
-    /*white-space:normal;*/
-    /*text-overflow: ellipsis;*/
+    hyphens: auto;
 }
 
-.error-collapsible-contenu * {
-    width: 100%;
-    box-sizing: border-box !important;
-    overflow: hidden !important;
-    word-wrap: break-word !important;
-    border: unset !important;
+.error-collapsible-contenu pre {
+    white-space: break-spaces;
+    word-wrap: break-word;
+    hyphens: auto;
 }
-
-/*.error-collapsible-contenu pre p {
-    word-wrap: break-word !important;
-    border: unset !important;
-}*/

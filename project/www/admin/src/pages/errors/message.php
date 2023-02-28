@@ -30,9 +30,9 @@ function error_tab_glob(?array $tab): ?string {
     if(empty($tab)) {
         $text = array();
     }
-    $text = "<pre><p>";
+    $text = "<pre>";
     $text .= print_r($tab, true);
-    $text .= "</p></pre>";
+    $text .= "</pre>";
     return $text;
 }
 
