@@ -133,7 +133,13 @@ if (!class_exists('LieuxRepository')) {
                         ->setParamInt(":id_type", $id_type)
                         ->rowCount();
         }
-
+        public function findIdTypeLieu(string $name):int {
+            $tab_type = $this->setSql('SELECT * FROM categories_lieux WHERE nom=:nom')->setParam(":nom", $name)->fetchAssoc();
+            if(!(!empty($tab_type) && array_key_exists("id_categ_lieu", $tab_type) && !empty($tab_type["id_categ_lieu"]))) {
+                return 0;
+            }
+            return intval($tab_type["id_categ_lieu"]);
+        }
         public function findIdTypeLieux():int {
             return $this->findIdTypeObj("lieux");
         }

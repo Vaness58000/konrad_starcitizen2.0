@@ -14,11 +14,11 @@ include __DIR__.'/../../repository/LieuxRepository.php';
         <tbody>
             <?php 
             $lieuxStRepository = new LieuxRepository();
-            $lieuxSt = $lieuxStRepository->findAllCat(6);
+            $lieuxSt = $lieuxStRepository->findAllCatId(5);
             
             foreach ($lieuxSt as $construct) {?>
                 <tr>
-                    <td><?= $construct['nom_lieu'] ?></td>
+                    <td><?= $construct['nom_obj'] ?></td>
                     <td class="td_text_pad"><div class="td_text"><?= str_replace("\n", "<br/>",$construct['contenu']) ?></div></td>
                     <td>
                         <?php 

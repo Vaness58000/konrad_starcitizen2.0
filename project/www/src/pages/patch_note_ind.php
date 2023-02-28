@@ -3,9 +3,10 @@ require __DIR__ . '/../../back/connexion.php';
 require __DIR__ . '/../../src/repository/ArticleRepository.php';
 require __DIR__ . '/../../src/repository/UsersRepository.php';
 $articleRepository = new ArticleRepository();
-$article = $articleRepository->findAllAndTypeUserId($_GET['id'], 3);
+$type = $articleRepository->findIdTypeArticle("patch_note");
+$article = $articleRepository->findAllAndTypeUserId($_GET['id'], $type);
 $usersRepository = new UsersRepository();
-$tous_article = $articleRepository->findAllAndTypeUserNoId(3, $_GET["id"]);
+$tous_article = $articleRepository->findAllAndTypeUserNoId($type, $_GET["id"]);
 ?>
 <div class="page_actu">
     <?php 
@@ -64,7 +65,7 @@ $tous_article = $articleRepository->findAllAndTypeUserNoId(3, $_GET["id"]);
                             <div class="description">
                                 <h2><a href="?ind=patch_ind&id=<?= $tous["id"]; ?>"><?= $tous['titre']; ?></a></h2>
                                 <ul class="postcard__tagbox">
-                                    <li class="tag__item">Actualité</li>
+                                    <li class="tag__item">Patch Notes</li>
 
                                     <li class="tag__item auteur blue">
                                         <a href="?ind=streamer_ind&id=<?= $construct["id"]; ?>">Publié par <?= $construct['pseudo'] ?></a>

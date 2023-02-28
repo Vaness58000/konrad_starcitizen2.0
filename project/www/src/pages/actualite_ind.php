@@ -3,9 +3,10 @@ require __DIR__ . '/../../back/connexion.php';
 require __DIR__ . '/../../src/repository/ArticleRepository.php';
 require __DIR__ . '/../../src/repository/UsersRepository.php';
 $articleRepository = new ArticleRepository();
-$article = $articleRepository->findAllAndTypeUserId($_GET['id'], 2);
+$type = $articleRepository->findIdTypeArticle("actualité");
+$article = $articleRepository->findAllAndTypeUserId($_GET['id'], $type);
 $usersRepository = new UsersRepository();
-$tous_article = $articleRepository->findAllAndTypeUserNoId(2, $_GET["id"]);
+$tous_article = $articleRepository->findAllAndTypeUserNoId($type, $_GET["id"]);
 ?>
 <div class="page_actu">
     <?php 

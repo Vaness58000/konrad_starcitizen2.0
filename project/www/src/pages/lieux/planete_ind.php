@@ -3,7 +3,8 @@ require __DIR__.'/../../../back/connexion.php';
 require __DIR__ . '/../../../back/connexion.php';
 require __DIR__ . '/../../../src/repository/LieuxRepository.php';
 $lieuxPlaneteRepository = new LieuxRepository();
-$lieuxPlanete = $lieuxPlaneteRepository->findAllCatIdLieuId($_GET['id'], 6);
+$type = $lieuxPlaneteRepository->findIdTypeLieu("Planètes");
+$lieuxPlanete = $lieuxPlaneteRepository->findAllCatIdLieuId($_GET['id'], $type);
 
 ?>
 <div class="block">

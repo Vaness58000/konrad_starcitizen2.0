@@ -3,7 +3,8 @@ require __DIR__ . '/../../back/connexion.php';
 require __DIR__ . '/../../src/repository/ArticleRepository.php';
 require __DIR__ . '/../../src/repository/UsersRepository.php';
 $articleRepository = new ArticleRepository();
-$article = $articleRepository->findAllAndTypeUser(3);
+$type = $articleRepository->findIdTypeArticle("patch_note");
+$article = $articleRepository->findAllAndTypeUser($type);
 $usersRepository = new UsersRepository();
 
 ?>

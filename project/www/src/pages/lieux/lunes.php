@@ -2,7 +2,8 @@
 require __DIR__ . '/../../../back/connexion.php';
 require __DIR__ . '/../../../src/repository/LieuxRepository.php';
 $lieuxLuneRepository = new LieuxRepository();
-$lieuxLune = $lieuxLuneRepository->findAllCatId(4);
+$type = $lieuxLuneRepository->findIdTypeLieu("Lunes");
+$lieuxLune = $lieuxLuneRepository->findAllCatId($type);
 /*css systeme.css*/
 ?>
 

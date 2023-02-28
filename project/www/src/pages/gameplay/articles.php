@@ -3,7 +3,8 @@ require __DIR__ . '/../../../back/connexion.php';
 require __DIR__ . '/../../../src/repository/ArticleRepository.php';
 require __DIR__ . '/../../../src/repository/UsersRepository.php';
 $articleRepository = new ArticleRepository();
-$article = $articleRepository->findAllAndTypeUser(1);
+$type = $articleRepository->findIdTypeArticle("article");
+$article = $articleRepository->findAllAndTypeUser($type);
 $usersRepository = new UsersRepository();
 ?>
 <section class="page_article">
