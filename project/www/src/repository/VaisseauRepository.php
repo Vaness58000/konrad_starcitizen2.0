@@ -39,7 +39,7 @@ if (!class_exists('VaisseauRepository')) {
                     'INNER JOIN type_transport ON type_transport.id_type = equipements_transports.type '.
                     'INNER JOIN disponibilite ON disponibilite.id_disponibilite = equipements_transports.id_disponible WHERE type_transport.id_type=:type')->setParamInt(":type", $type)->fetchAllAssoc();
         }        
-    
+       
     }
 }
 

@@ -1096,7 +1096,7 @@ a:hover {
 }
 /*image pour guide*/
 .cards_guide {
-    padding: 30px 100px;
+    padding: 30px 10px;
     width: 100%;
     display: flex;
     flex-wrap: wrap;
@@ -1190,7 +1190,13 @@ a:hover {
     box-shadow: 0px 13px 10px -7px rgba(0, 0, 0, 0.1);
     margin: 10px;
 }
-
+@media screen and (max-width: 460px) {
+    .card_guide{
+        width:320px;
+        
+    }
+    
+}
 .card_guide:hover {
     box-shadow: 0px 30px 18px -8px rgba(0, 0, 0, 0.1);
     transform: scale(1.10, 1.10);

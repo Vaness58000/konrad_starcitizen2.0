@@ -54,7 +54,7 @@ $vaisseau = $vaisseauRepository->findAllId($_GET['id']);
               <div class="slide">
                 <div class="slide-content">
                   <div class="caption">
-                    <div class="title"><?= $vaisseau['nom_vaisseau']; ?></div>
+                    <div class="title"><?= $construct['nom_vaiss']; ?></div>
 
                   </div>
                 </div>
@@ -101,7 +101,7 @@ $vaisseau = $vaisseauRepository->findAllId($_GET['id']);
 
       <p><?= str_replace("\n", "<br/>", $construct['contenu']) ?></p>
       <div class="bouton">
-        <a class="btn_actus" href="#"><span>Pledge Store</span></a>
+        <a class="btn_actus" href="#"><span>Pledge Store</span></a><a class="btn_actus" href="#"><span>Erkul</span></a>
       </div>
     </div>
 

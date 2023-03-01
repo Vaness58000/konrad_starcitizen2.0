@@ -1,11 +1,10 @@
 <?php
-require __DIR__.'/../../../back/connexion.php';
 require __DIR__ . '/../../../back/connexion.php';
 require __DIR__ . '/../../../src/repository/LieuxRepository.php';
 $lieuxPlaneteRepository = new LieuxRepository();
 $type = $lieuxPlaneteRepository->findIdTypeLieu("Planètes");
 $lieuxPlanete = $lieuxPlaneteRepository->findAllCatIdLieuId($_GET['id'], $type);
-
+//$tous_planete = $lieuxPlaneteRepository->findAllAndTypeUserNoId($type, $_GET["id"]);
 ?>
 <div class="block">
     <section class="page_generale">
@@ -55,3 +54,7 @@ $lieuxPlanete = $lieuxPlaneteRepository->findAllCatIdLieuId($_GET['id'], $type);
 <?php
         }
 ?>
+   <div class="voir_aussi">
+                    <h2 class="centered">Voir aussi</h2>
+                 
+</div>

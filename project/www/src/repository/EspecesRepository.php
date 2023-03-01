@@ -22,7 +22,6 @@ if (!class_exists('EspecesRepository')) {
             return $this->setSql('SELECT *, objet.id AS id_objet, objet.nom AS nom_obj FROM objet '.
                     'INNER JOIN especes ON especes.id_objet = objet.id '.
                     'LEFT JOIN lieu_espece ON especes.id_espece = lieu_espece.id_espece '.
-                    'INNER JOIN categorie_arm_fps ON arm_fps.id_cat = categorie_arm_fps.id_categ_arme '.
                     '')->fetchAllAssoc();
         }
 
@@ -122,6 +121,8 @@ if (!class_exists('EspecesRepository')) {
         public function findIdTypeEspece():int {
             return $this->findIdTypeObj("espèces");
         }
+
+        
     }
 }
 

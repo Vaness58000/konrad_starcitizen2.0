@@ -202,29 +202,34 @@
 }
 
 .planete {
-    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../img/hurston.jpg");
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("/../src/img/hurston.jpg");
     background-size: cover;
     background-position: center center;
 }
 
 
 .ville {
-    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../img/ville53.jpg");
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("/../src/img/ville53.jpg");
     background-size: cover;
     background-position: center center;
 }
 
 .lune {
-    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../img/lune21.jpg");
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("/../src/img/lune21.jpg");
     background-size: cover;
     background-position: center center;
 }
 .station {
-    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../img/station.jpg");
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("/../src/img/station.jpg");
     background-size: cover;
     background-position: center center;
 }
 
+.insolite {
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("/../src/img/insolite.jpg");
+    background-size: cover;
+    background-position: center center;
+}
 
 
 /*BOUTONS*/
@@ -294,3 +299,4 @@
     -moz-transition: all .3s;
     transition: all .3s;
 }
+

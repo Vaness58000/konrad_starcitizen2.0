@@ -154,7 +154,13 @@ if (!class_exists('TransportRepository')) {
             return $this->setSql($sql)
                         ->fetchAllAssoc();
         }
-
+        public function findIdTypeTransports(string $name):int {
+            $tab_type = $this->setSql('SELECT * FROM categories_transport WHERE nom=:nom')->setParam(":nom", $name)->fetchAssoc();
+            if(!(!empty($tab_type) && array_key_exists("id_transport", $tab_type) && !empty($tab_type["id_transport"]))) {
+                return 0;
+            }
+            return intval($tab_type["id_transport"]);
+        }
         public function findIdTypeTransport():int {
             return $this->findIdTypeObj("transport");
         }

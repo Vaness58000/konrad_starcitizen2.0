@@ -106,6 +106,12 @@ if($get_ind != "connexion" && $get_ind != "inscription_traitement" && $get_ind !
     else if($get_ind == "ville_ind") {
         include __DIR__.'/src/pages/lieux/ville_ind.php';
     }
+    else if($get_ind == "lieu_insolite") {
+        include __DIR__.'/src/pages/lieux/lieu_insolite.php';
+    }
+    else if($get_ind == "lieu_insolite_ind") {
+        include __DIR__.'/src/pages/lieux/lieu_insolite_ind.php';
+    }
     /*fin lieux*/
 
     /*especes*/

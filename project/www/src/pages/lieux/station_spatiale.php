@@ -1,33 +1,24 @@
 <?php
-require __DIR__.'/../../../back/connexion.php';
-
+require __DIR__ . '/../../../back/connexion.php';
+include __DIR__ . '/../../../src/repository/LieuxRepository.php';
+$lieuxPlaneteRepository = new LieuxRepository();
+$type = $lieuxPlaneteRepository->findIdTypeLieu("Stations spatiales");
+$planete = $lieuxPlaneteRepository->findAllCatId($type);
 /*css planete.css*/
 ?>
 
-<section class="page_presentation">
-  <h1>Les stations spatiales</h1>
-  <div class="container_categorie">
-
-    <div class="card">
-      <a href="?ind=station_spatiale_ind"><!--rajouter &id=--><img src="src/img/station.jpg" alt="station spatiale Port Olisar">
-        <div class="card__head">Port Olisar</div>
-      </a>
+<div class="container_lune">
+  <?php foreach ($planete as $construct) { ?>
+    <div class="equipement_indiv">
+      <a href="?ind=station_spatiale_ind&id=<?= $construct['id_objet']; ?>">
+        <?php
+        $lieuxPlanete_img = $lieuxPlaneteRepository->findAllImgObj($construct["id_objet"]);
+        if (count($lieuxPlanete_img) >= 1) {
+        ?>
+          <img src="src/img/<?= $lieuxPlanete_img[0]['name'] ?>" alt="<?= $lieuxPlanete_img[0]['alt'] ?>"></a>
+    <?php } ?>
+    <div class="centered"><?= $construct['nom_obj'] ?></div>
+    </a>
     </div>
-    <div class="card">
-      <a href="?ind=station_spatiale_ind"><img src="src/img/station2.jpg" alt="station spatiale Covalex Shipping Hub Gundo">
-        <div class="card__head">Covalex Shipping Hub Gundo</div>
-      </a>
-    </div>
-    <div class="card">
-      <a href="?ind=station_spatiale_ind"><img src="src/img/station3.jpg" alt="station spatiale Security Post Kareah">
-        <div class="card__head">Security Post Kareah</div>
-      </a>
-    </div>
-    <div class="card">
-      <a href="?ind=station_spatiale_ind"><img src="src/img/station4.jpg" alt="station spatiale GrimHEX">
-        <div class="card__head">GrimHEX</div>
-      </a>
-    </div>
-</section>
-
-<script type="text/javascript" src="js/script_filtre_vaisseau.js"></script>
+<?php } ?>
+</div>
