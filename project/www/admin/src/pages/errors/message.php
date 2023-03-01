@@ -82,6 +82,6 @@ $templatePage->addVarString("[#CITIZEN_ERROR_SESSION#]", $session);
 
 $templatePage->addFileJs("./src/js/msg_error.js");
 
-$js = $templatePage->js();
+/*$js = $templatePage->js();
 $css = $templatePage->css();
-$contenu = $templatePage->html();
+$contenu = $templatePage->html();*/

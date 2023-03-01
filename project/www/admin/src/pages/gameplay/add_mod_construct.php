@@ -93,6 +93,6 @@ $templatePage->addFileJs("./src/js/construct.js");
 $templatePage->addFileJs("./src/js/all_img_user.js");
 $templatePage->addFileJs("./src/js/ad_mod.js");
 
-$js = $templatePage->js();
+/*$js = $templatePage->js();
 $css = $templatePage->css();
-$contenu = $templatePage->html();
+$contenu = $templatePage->html();*/

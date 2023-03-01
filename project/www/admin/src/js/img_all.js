@@ -140,5 +140,12 @@ function deleteImgServ(e, id) {
      });
 }
 
-document.querySelector("#fileToUploadAll").addEventListener('change', loadFilesImgAll);
-form_delete_click_img();
+document.querySelectorAll("#fileToUploadAll").forEach(element => {
+    element.addEventListener('change', loadFilesImgAll);
+    form_delete_click_img();
+});
+
+document.querySelectorAll("#img-add").forEach(element => {
+    element.addEventListener('drop', dropHandler);
+    element.addEventListener('dragover', dragOverHandler);
+});

@@ -17,9 +17,9 @@ $data = $req->fetch(PDO::FETCH_ASSOC);
 $templatePage = new TemplatePage(__DIR__.'/../template/partage.html');
 $templatePage->addVarString("[#CITIZEN_USER_PSEUDO#]", $data['pseudo']);
 
-$js = $templatePage->js();
+/*$js = $templatePage->js();
 $css = $templatePage->css();
-$contenu = $templatePage->html();
+$contenu = $templatePage->html();*/
 
 /*?>
 <section id="page_user">
