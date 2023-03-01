@@ -35,8 +35,8 @@ if (!empty($_GET) && array_key_exists('id', $_GET) && !empty($_GET['id'])) {
     
     $constructeur = $constructeurRepository->findAllAndIdUser(intval($_GET['id']));
     if(count($constructeur)>0){
+        $id_construct = intval($_GET['id']);
         $isProprietaire = $constructeur['id_user'] == $id;
-        $id_construct = 0;
         if(!empty($constructeur['logo'])) {
             $logo = './../upload/constructeurs_logo/'.$constructeur['logo'];
         }

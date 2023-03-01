@@ -7,7 +7,6 @@ include __DIR__.'/../../function/table-admin.php';
 if (!(!empty($_SESSION) && array_key_exists('utilisateur', $_SESSION) && !empty($_SESSION['utilisateur']) && 
     array_key_exists('id', $_SESSION['utilisateur']) && !empty($_SESSION['utilisateur']['id']))) {
     header('Location: ../?ind=login');
-    die();
 }
 
 $usersRepository = new UsersRepository();
@@ -17,24 +16,6 @@ $pseudo = $user['pseudo'];
 $id = intval($user["idUser"]);
 $id_role = intval($user["id_role"]);
 $isAdmin = $id_role == 2;
-
-function text_display(?string $text): ?string {
-    if(empty(trim($text))) {
-        return "";
-    }
-    $text = str_replace("\n", "<br/><br/>", $text);
-    return trim(trim(trim(trim($text), "<br/>")), "<br/>");
-}
-
-function error_tab_glob(?array $tab): ?string {
-    if(empty($tab)) {
-        $text = array();
-    }
-    $text = "<pre>";
-    $text .= print_r($tab, true);
-    $text .= "</pre>";
-    return $text;
-}
 
 $id_error = intval($_GET['id']);
 $error_date = "";
@@ -77,6 +58,8 @@ if(!empty($contenuOneError)) {
     $request = error_tab_glob($contenuOneError['global']['_REQUEST']);
     $server = error_tab_glob($contenuOneError['global']['_SERVER']);
     $session = error_tab_glob($contenuOneError['global']['_SESSION']);
+} else {
+    header('Location: ./../admin/?ind=error_list');
 }
 
 $templatePage = new TemplatePage(__DIR__.'/../../template/errors/message.html');
@@ -88,7 +71,6 @@ $templatePage->addVarString("[#CITIZEN_ERROR_NUMERO#]", $error_num);
 $templatePage->addVarString("[#CITIZEN_ERROR_MESSAGE#]", $error_message);
 $templatePage->addVarString("[#CITIZEN_ERROR_DETAIL#]", $error_detail);
 $templatePage->addVarString("[#CITIZEN_ERROR_CONTENU#]", $error_contenu);
-
 $templatePage->addVarString("[#CITIZEN_ERROR_GET#]", $get);
 $templatePage->addVarString("[#CITIZEN_ERROR_POST#]", $post);
 $templatePage->addVarString("[#CITIZEN_ERROR_COOKIE#]", $cookie);
@@ -98,7 +80,7 @@ $templatePage->addVarString("[#CITIZEN_ERROR_REQUEST#]", $request);
 $templatePage->addVarString("[#CITIZEN_ERROR_SERVER#]", $server);
 $templatePage->addVarString("[#CITIZEN_ERROR_SESSION#]", $session);
 
-//$templatePage->addFileJs("./src/js/error_error.js");
+$templatePage->addFileJs("./src/js/msg_error.js");
 
 $js = $templatePage->js();
 $css = $templatePage->css();

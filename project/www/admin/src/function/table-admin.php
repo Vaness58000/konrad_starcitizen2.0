@@ -16,7 +16,7 @@ if(!function_exists('addTdError')) {
     function addTdError(int $id, ?string $date, ?string $message):?string {
         return '<tr class="error-load" id="id-'.$id.'">'.
                     '<td>'.$date.'</td>'.
-                    '<td>'.$message.'</td>'.
+                    '<td><p>'.$message.'</p></td>'.
                 '</tr>';
     }
 }
@@ -28,11 +28,11 @@ if(!function_exists('addOptionCat')) {
 }
 if(!function_exists('addImg')) {
     function addImg(int $id, ?string $nom_folder, ?string $src, ?string $alt):?string {
-        $selected = (!empty($id_selected)) ? (($id==$id_selected) ? " selected" : "") : "";
-        return '<div id="idimg-'.$id.'">'.
-                    '<img src="./../upload/'.$nom_folder.'/'.$src.'" alt="'.$alt.'" />'.
-                    '<img src="./src/images/trash3-fill.svg" alt="delete image" class="delete_img" />'.
-                '</div>';
+        $add_img = '<div id="divAddImg_'.$id.'" class="addimg multiple-img">'.
+                '<img class="obj img-slide-presentation" name="file_'.$id.'" id="img_'.$id.'" src="./../upload/'.$nom_folder.'/'.$src.'" alt="'.$alt.'" />'.
+                '<img src="./src/images/trash3-fill.svg" alt="delete image" class="delete_image delete_img delete-multiple-img" id="delete_img_'.$id.'" />'.
+            '</div>';
+        return $add_img;
     }
 }
 
@@ -74,5 +74,25 @@ if(!function_exists('choiceTab')) {
                     '<a href="'.$lienTabMe.'">Mes contributions</a>'.
                     '<a href="'.$lienTabAll.'">Toutes les contributions</a>'.
                 '</div>';
+    }
+}
+if(!function_exists('text_display')) {
+    function text_display(?string $text): ?string {
+        if(empty(trim($text))) {
+            return "";
+        }
+        $text = str_replace("\n", "<br/><br/>", $text);
+        return trim(trim(trim(trim($text), "<br/>")), "<br/>");
+    }
+}
+if(!function_exists('error_tab_glob')) {
+    function error_tab_glob(?array $tab): ?string {
+        if(empty($tab)) {
+            $text = array();
+        }
+        $text = "<pre>";
+        $text .= print_r($tab, true);
+        $text .= "</pre>";
+        return $text;
     }
 }

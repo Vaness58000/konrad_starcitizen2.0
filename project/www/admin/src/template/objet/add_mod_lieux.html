@@ -1,31 +1,46 @@
 <div class="display-admin">
     <div class="card-admin" data-state="#about">
         <div class="admin-title"><h1>Lieu</h1></div>
-        <form class="admin-contenu" method="post" enctype="multipart/form-data">
+        <form class="admin-contenu" id="form-contenu" method="post" enctype="multipart/form-data">
             <input type="hidden" name="id" value="[#CITIZEN_LIEU_ID#]" />
             <div class="two-column">
-                <input type="checkbox" class="darkSwitch two-column"[#CITIZEN_LIEU_MODIF_CHECK#]>
+                <input type="checkbox" name="contenu-visible" id="contenu-visible" class="darkSwitch two-column"[#CITIZEN_LIEU_MODIF_CHECK#]>
             </div>
             <div class="two-column add-list-img">
-                <img class="img-add" id="img-art-add" src="./src/images/plus-square-dotted.svg" alt="add img"[#CITIZEN_LIEU_ISPRO#]>
-                <div class="list_img">[#CITIZEN_LIEU_IMG#]</div>
+                <div id="add-all-img">
+                    <input
+                    type="File"
+                    name="fileToUploadAll[]"
+                    id="fileToUploadAll"
+                    accept="image/png, image/jpeg"
+                    multiple
+                    />
+                    <figure id="all_img">
+                        <label for="fileToUploadAll">
+                            <img src="./src/images/plus-square-dotted.svg" alt="add img" id="img-add" class="bi bi-file-plus-fill img-add" ondrop="dropHandler(event);"
+                                ondragover="dragOverHandler(event);" />
+                        </label>
+                        <figure id="add_img" class="drop_img">
+                            [#CITIZEN_LIEU_IMG#]
+                        </figure>
+                    </figure>
+                </div>
             </div>
-            <img src="" alt="" class="two-column">
-            <label for="label-1">nom</label><input type="text" name="" id="" value="[#CITIZEN_LIEU_NOM#]" class="input-admin"[#CITIZEN_LIEU_ISPRO#]>
-            <label for="label-1">habitable</label><div><input type="checkbox" class="darkSwitch two-column"[#CITIZEN_LIEU_HABIT_CHECK#]></div>
-            <label for="label-1">catégorie</label>
+            <label for="nom">nom</label><input type="text" name="nom" id="nom" value="[#CITIZEN_LIEU_NOM#]" class="input-admin"[#CITIZEN_LIEU_ISPRO#]>
+            <label for="habitable">habitable</label><div><input name="habitable" id="habitable" type="checkbox" class="darkSwitch two-column"[#CITIZEN_LIEU_HABIT_CHECK#]></div>
+            <label for="categorie-select">catégorie</label>
             <select name="categorie" id="categorie-select" class="input-admin"[#CITIZEN_ARTI_ISPRO#]>
                 <option value=""></option>[#CITIZEN_LIEU_CAT#]
             </select>
-            <label for="label-1">risque</label>
-            <select name="risque" id="categorie-select" class="input-admin"[#CITIZEN_ARTI_ISPRO#]>
+            <label for="risque-select">risque</label>
+            <select name="risque" id="risque-select" class="input-admin"[#CITIZEN_ARTI_ISPRO#]>
                 <option value=""></option>[#CITIZEN_LIEU_RISQUE#]
             </select>
-            <label for="label-1">lier</label>
-            <select name="lier" id="categorie-select" class="input-admin"[#CITIZEN_ARTI_ISPRO#]>
+            <label for="lier-select">lier</label>
+            <select name="lier" id="lier-select" class="input-admin"[#CITIZEN_ARTI_ISPRO#]>
                 <option value=""></option>[#CITIZEN_LIEU_LIER#]
             </select>
-            <label for="label-1">contenu</label><textarea name="" id="" cols="30" rows="10" class="input-admin text-bbcode"[#CITIZEN_LIEU_ISPRO#]>[#CITIZEN_LIEU_CONTENU#]</textarea>
+            <label for="contenu">contenu</label><textarea name="contenu" id="contenu" cols="30" rows="10" class="input-admin text-bbcode"[#CITIZEN_LIEU_ISPRO#]>[#CITIZEN_LIEU_CONTENU#]</textarea>
             <input type="radio" class="radio-onglet" id="onglet-info" name="radio-onglet" value="" checked>
             <div id="div-all-tab" class="two-column">
                 <div id="div-ul-onglets">
@@ -48,8 +63,8 @@
                 </div>
             </div>
             <div class="two-column add-mod-bt">
-                <button class="sauvegarde" id="annuler">annuler</button>
-                <button class="sauvegarde" id="validation">Validation</button>
+                <button class="sauvegarde" id="annuler-form">annuler</button>
+                <button class="sauvegarde" id="validation-form">Validation</button>
             </div>
         </form>
     </div>

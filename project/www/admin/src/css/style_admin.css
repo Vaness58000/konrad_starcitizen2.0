@@ -166,14 +166,11 @@ th img, td img {
     max-width: 300px;
 }
 
-/*.img-add {
-    height: 150px;
-    / *width: 150px;* /
-    / *filter: invert(1);* /
-}*/
-
 .add-list-img {
     margin: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
 }
 
 .list_img {
@@ -284,4 +281,65 @@ th img, td img {
     white-space: break-spaces;
     word-wrap: break-word;
     hyphens: auto;
+}
+
+#tab-error * {
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+input[type="file"] {
+    display: none;
+}
+
+#add-all-img {
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+#all_img {
+    box-sizing: border-box;
+    overflow: hidden;
+    display: flex;
+    /*flex-direction: column;*/
+    flex-wrap: nowrap;
+    justify-content: center;
+    text-shadow: -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff, 1px 1px 0 #fff;
+    align-items: center;
+}
+
+#all_img #img-add {
+    font-size: 7em;
+}
+
+.delete-multiple-img {
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+#add_img {
+    display: flex;
+    flex-direction: row;
+    overflow: hidden;
+    overflow-x: auto;
+}
+
+.multiple-img {
+    display: grid;
+    position: relative;
+}
+#add_img::-webkit-scrollbar {
+    width: 5px;
+}
+
+#add_img::-webkit-scrollbar-track {
+    background: unset;
+    background-color: #89b1c4;
+}
+
+#add_img::-webkit-scrollbar-thumb {
+    background: unset;
+    border: 1px blue solid;
+    background-color: #0a5688;
 }

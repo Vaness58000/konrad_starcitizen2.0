@@ -76,7 +76,7 @@ if (!empty($_GET) && array_key_exists('id', $_GET) && !empty($_GET['id'])) {
                 if(!empty($couleur)) {
                     $lieu .= " / ".$couleur;
                 }
-                $tab_lieu .= "\n".addTdTabSupl($value['id_lieu'], $lieu, 'armement');
+                $tab_lieu .= "\n".addTdTabSupl($value['id_lieu'], $lieu, 'lieux');
             }
         }
     }

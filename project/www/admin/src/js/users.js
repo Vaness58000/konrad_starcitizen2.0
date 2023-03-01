@@ -1,4 +1,8 @@
 "use strict";
+let urlDeleteImg = "deleteImgObj";
+let folderImgs = "";
+let folderImg = "";
+let folderLogo = "";
 let add_line_tab = "add_article";
 let mod_line_tab = "mod_article";
 let delete_line_tab = "delete_article";

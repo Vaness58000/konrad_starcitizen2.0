@@ -1,14 +1,30 @@
 <div class="display-admin">
     <div class="card-admin" data-state="#about">
         <div class="admin-title"><h1>Transport</h1></div>
-        <form class="admin-contenu" method="post" enctype="multipart/form-data">
+        <form class="admin-contenu" id="form-contenu" method="post" enctype="multipart/form-data">
             <input type="hidden" name="id" value="[#CITIZEN_TRANSP_ID#]" />
             <div class="two-column">
-                <input type="checkbox" class="darkSwitch two-column"[#CITIZEN_TRANSP_MODIF_CHECK#]>
+                <input type="checkbox" name="contenu-visible" id="contenu-visible" class="darkSwitch two-column"[#CITIZEN_TRANSP_MODIF_CHECK#]>
             </div>
             <div class="two-column add-list-img">
-                <img class="img-add" id="img-art-add" src="./src/images/plus-square-dotted.svg" alt="add img"[#CITIZEN_TRANSP_ISPRO#]>
-                <div class="list_img">[#CITIZEN_TRANSP_IMG#]</div>
+                <div id="add-all-img">
+                    <input
+                    type="File"
+                    name="fileToUploadAll[]"
+                    id="fileToUploadAll"
+                    accept="image/png, image/jpeg"
+                    multiple
+                    />
+                    <figure id="all_img">
+                        <label for="fileToUploadAll">
+                            <img src="./src/images/plus-square-dotted.svg" alt="add img" id="img-add" class="bi bi-file-plus-fill img-add" ondrop="dropHandler(event);"
+                                ondragover="dragOverHandler(event);" />
+                        </label>
+                        <figure id="add_img" class="drop_img">
+                            [#CITIZEN_TRANSP_IMG#]
+                        </figure>
+                    </figure>
+                </div>
             </div>
             <label for="nom">nom</label><input type="text" name="nom" id="nom" value="[#CITIZEN_TRANSP_NOM#]" class="input-admin"[#CITIZEN_TRANSP_ISPRO#]>
             <label for="categorie">catégorie</label>
@@ -52,7 +68,7 @@
                     </ul>
                 </div>
                 <div class="div-onglet" id="div-onglet-info">
-                    <button class="sauvegarde" id="add-lieu">Ajouter une information</button>
+                    <button class="sauvegarde bt-add" id="add-info">Ajouter une information</button>
                     <table id="tab-info">
                         <tr>
                             <th>Informations</th>
@@ -65,7 +81,7 @@
                     </table>
                 </div>
                 <div class="div-onglet" id="div-onglet-force">
-                    <button class="sauvegarde" id="add-force">Ajouter une force</button>
+                    <button class="sauvegarde bt-add" id="add-force">Ajouter une force</button>
                     <table id="tab-force">
                         <tr>
                             <th>Nom</th>
@@ -78,7 +94,7 @@
                     </table>
                 </div>
                 <div class="div-onglet" id="div-onglet-faibl">
-                    <button class="sauvegarde" id="add-faiblesse">Ajouter une faiblesse</button>
+                    <button class="sauvegarde bt-add" id="add-faibl">Ajouter une faiblesse</button>
                     <table id="tab-faibl">
                         <tr>
                             <th>Nom</th>
@@ -91,7 +107,7 @@
                     </table>
                 </div>
                 <div class="div-onglet" id="div-onglet-equip">
-                    <button class="sauvegarde" id="add-equipement">Ajouter un équipement</button>
+                    <button class="sauvegarde bt-add" id="add-equip">Ajouter un équipement</button>
                     <table id="tab-equip">
                         <tr>
                             <th>Nom</th>
@@ -104,7 +120,7 @@
                     </table>
                 </div>
                 <div class="div-onglet" id="div-onglet-arm">
-                    <button class="sauvegarde" id="add-armement">Ajouter un armement</button>
+                    <button class="sauvegarde bt-add" id="add-arm">Ajouter un armement</button>
                     <table id="tab-arm">
                         <tr>
                             <th>Nom</th>
@@ -117,7 +133,7 @@
                     </table>
                 </div>
                 <div class="div-onglet" id="div-onglet-lieu">
-                    <button class="sauvegarde" id="add-lieu">Ajouter un lieu</button>
+                    <button class="sauvegarde bt-add" id="add-lieu">Ajouter un lieu</button>
                     <table id="tab-lieux">
                         <tr>
                             <th>Nom</th>
@@ -131,8 +147,8 @@
                 </div>
             </div>
             <div class="two-column add-mod-bt">
-                <button class="sauvegarde" id="annuler">annuler</button>
-                <button class="sauvegarde" id="validation">Validation</button>
+                <button class="sauvegarde" id="annuler-form">annuler</button>
+                <button class="sauvegarde" id="validation-form">Validation</button>
             </div>
         </form>
     </div>

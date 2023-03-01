@@ -1,18 +1,23 @@
 <div class="display-admin">
     <div class="card-admin" data-state="#about">
         <div class="admin-title"><h1>Constructeur</h1></div>
-        <form class="admin-contenu" method="post" enctype="multipart/form-data">
+        <form class="admin-contenu" id="form-contenu" method="post" enctype="multipart/form-data">
             <input type="hidden" name="id" value="[#CITIZEN_CONST_ID#]" />
             <div class="two-column">
-                <input type="checkbox" class="darkSwitch two-column"[#CITIZEN_CONST_MODIF_CHECK#]>
+                <input type="checkbox" name="contenu-visible" id="contenu-visible" class="darkSwitch two-column"[#CITIZEN_CONST_MODIF_CHECK#]>
             </div>
             <div class="two-column add-list-img">
-                <img class="img-add" id="img-logo" src="[#CITIZEN_CONST_LOGO#]" alt="add img"[#CITIZEN_CONST_ISPRO#]>
-                <img class="img-add" id="img-construct-add" src="[#CITIZEN_CONST_IMG#]" alt="add img"[#CITIZEN_CONST_ISPRO#]>
+                <input type="file" accept="image/png, image/jpeg" name="file-logo" id="file-logo"[#CITIZEN_CONST_ISPRO#]>
+                <label for="file-logo">
+                    <img class="img-add" id="img-logo" src="[#CITIZEN_CONST_LOGO#]" alt="add img"[#CITIZEN_CONST_ISPRO#]>
+                </label>
+                <input type="file" accept="image/png, image/jpeg" name="file-img" id="file-img"[#CITIZEN_CONST_ISPRO#]>
+                <label for="file-img">
+                    <img class="img-add" id="img-add" src="[#CITIZEN_CONST_IMG#]" alt="add img"[#CITIZEN_CONST_ISPRO#]>
+                </label>
             </div>
-            <img src="" alt="" class="two-column">
-            <label for="label-1">nom</label><input type="text" name="" id="" value="[#CITIZEN_CONST_NOM#]" class="input-admin"[#CITIZEN_CONST_ISPRO#]>
-            <label for="label-1">contenu</label><textarea name="" id="" cols="30" rows="10" class="input-admin text-bbcode"[#CITIZEN_CONST_ISPRO#]>[#CITIZEN_CONST_CONTENU#]</textarea>
+            <label for="nom">nom</label><input type="text" name="nom" id="nom" value="[#CITIZEN_CONST_NOM#]" class="input-admin"[#CITIZEN_CONST_ISPRO#]>
+            <label for="contenu">contenu</label><textarea name="contenu" id="contenu" cols="30" rows="10" class="input-admin text-bbcode"[#CITIZEN_CONST_ISPRO#]>[#CITIZEN_CONST_CONTENU#]</textarea>
             <h2 class="two-column">Lieux</h2>
             <button class="two-column sauvegarde" id="add-lieu">Ajouter un lieu</button>
             <input type="radio" class="radio-onglet" id="onglet-lieu" name="radio-onglet" value="" checked>
@@ -23,7 +28,7 @@
                     </ul>
                 </div>
                 <div class="div-onglet" id="div-onglet-lieu">
-                    <button class="sauvegarde" id="add-lieu">Ajouter un lieu</button>
+                    <button class="sauvegarde bt-add" id="add-lieu">Ajouter un lieu</button>
                     <table>
                         <tr>
                             <th>Nom</th>
@@ -37,8 +42,8 @@
                 </div>
             </div>
             <div class="two-column add-mod-bt">
-                <button class="sauvegarde" id="annuler">annuler</button>
-                <button class="sauvegarde" id="validation">Validation</button>
+                <button class="sauvegarde" id="annuler-form">annuler</button>
+                <button class="sauvegarde" id="validation-form">Validation</button>
             </div>
         </form>
     </div>
