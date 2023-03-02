@@ -34,6 +34,6 @@ $templatePage->addVarString("[#CITIZEN_LIST_ERROR#]", $list_error);
 
 $templatePage->addFileJs("./src/js/list_error.js");
 
-$js = $templatePage->js();
+/*$js = $templatePage->js();
 $css = $templatePage->css();
-$contenu = $templatePage->html();
+$contenu = $templatePage->html();*/

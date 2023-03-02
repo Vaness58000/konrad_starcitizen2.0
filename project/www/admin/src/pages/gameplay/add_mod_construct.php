@@ -35,8 +35,8 @@ if (!empty($_GET) && array_key_exists('id', $_GET) && !empty($_GET['id'])) {
     
     $constructeur = $constructeurRepository->findAllAndIdUser(intval($_GET['id']));
     if(count($constructeur)>0){
+        $id_construct = intval($_GET['id']);
         $isProprietaire = $constructeur['id_user'] == $id;
-        $id_construct = 0;
         if(!empty($constructeur['logo'])) {
             $logo = './../upload/constructeurs_logo/'.$constructeur['logo'];
         }
@@ -93,6 +93,6 @@ $templatePage->addFileJs("./src/js/construct.js");
 $templatePage->addFileJs("./src/js/all_img_user.js");
 $templatePage->addFileJs("./src/js/ad_mod.js");
 
-$js = $templatePage->js();
+/*$js = $templatePage->js();
 $css = $templatePage->css();
-$contenu = $templatePage->html();
+$contenu = $templatePage->html();*/

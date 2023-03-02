@@ -57,7 +57,7 @@ if (!empty($_GET) && array_key_exists('id', $_GET) && !empty($_GET['id'])) {
         $gplayTypes = $articleRepository->findAllIdAndGplayType(intval($_GET['id']));
         if(!empty($gplayTypes)) {
             foreach ($gplayTypes as $value) {
-                $gplay_type .= "\n".addTdTabSupl($value['id_gameplay_type_articles'], $value['nom'], 'lieu');
+                $gplay_type .= "\n".addTdTabSupl($value['id_gameplay_type_articles'], $value['nom'], 'gplayType');
             }
         }
     }
@@ -100,6 +100,6 @@ $templatePage->addFileJs("./src/js/articles.js");
 $templatePage->addFileJs("./src/js/all_img_user.js");
 $templatePage->addFileJs("./src/js/ad_mod.js");
 
-$js = $templatePage->js();
+/*$js = $templatePage->js();
 $css = $templatePage->css();
-$contenu = $templatePage->html();
+$contenu = $templatePage->html();*/

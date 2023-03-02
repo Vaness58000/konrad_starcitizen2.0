@@ -18,7 +18,7 @@ if(isset($objets) && isset($templatePage) && isset($count_obj) && isset($page)) 
     $templatePage->addFileJs("./src/js/pagination.js");
     $templatePage->addFileCss("./src/css/pagination.css");
 
-    $js = $templatePage->js();
+    /*$js = $templatePage->js();
     $css = $templatePage->css();
-    $contenu = $templatePage->html();
+    $contenu = $templatePage->html();*/
 }

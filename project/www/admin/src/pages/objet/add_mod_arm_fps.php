@@ -76,7 +76,7 @@ if (!empty($_GET) && array_key_exists('id', $_GET) && !empty($_GET['id'])) {
                 if(!empty($couleur)) {
                     $lieu .= " / ".$couleur;
                 }
-                $tab_lieu .= "\n".addTdTabSupl($value['id_lieu'], $lieu, 'armement');
+                $tab_lieu .= "\n".addTdTabSupl($value['id_lieu'], $lieu, 'lieux');
             }
         }
     }
@@ -131,6 +131,6 @@ $templatePage->addFileJs("./src/js/articles.js");
 $templatePage->addFileJs("./src/js/all_img_user.js");
 $templatePage->addFileJs("./src/js/ad_mod.js");
 
-$js = $templatePage->js();
+/*$js = $templatePage->js();
 $css = $templatePage->css();
-$contenu = $templatePage->html();
+$contenu = $templatePage->html();*/

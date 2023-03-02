@@ -93,15 +93,16 @@ $templatePage->addVarString("[#CITIZEN_MAT_PRE_NOM#]", $nom);
 $templatePage->addVarString("[#CITIZEN_MAT_PRE_CONTENU#]", $contenu);
 $templatePage->addVarString("[#CITIZEN_MAT_PRE_TAB_INFO#]", $tab_info);
 $templatePage->addVarString("[#CITIZEN_MAT_PRE_TAB_LIEU#]", $tab_lieu);
-$templatePage->addVarString("CITIZEN_MAT_PRE_CAT#]", $cat);
+$templatePage->addVarString("[#CITIZEN_MAT_PRE_CAT#]", $cat);
 $templatePage->addVarString("[#CITIZEN_MAT_PRE_MODIF_CHECK#]", $modif_check);
 $templatePage->addVarString("[#CITIZEN_MAT_PRE_IMG#]", $all_img);
 $templatePage->addVarString("[#CITIZEN_MAT_PRE_ISPRO#]", $isModif);
+$templatePage->addVarString("[#CITIZEN_MAT_PRE_ID#]", $id_obj);
 
 $templatePage->addFileJs("./src/js/articles.js");
 $templatePage->addFileJs("./src/js/all_img_user.js");
 $templatePage->addFileJs("./src/js/ad_mod.js");
 
-$js = $templatePage->js();
+/*$js = $templatePage->js();
 $css = $templatePage->css();
-$contenu = $templatePage->html();
+$contenu = $templatePage->html();*/

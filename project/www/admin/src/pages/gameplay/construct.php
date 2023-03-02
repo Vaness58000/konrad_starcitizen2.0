@@ -59,6 +59,6 @@ $templatePage->addFileJs("./src/js/tab_display_all.js");
 $templatePage->addFileJs("./src/js/pagination.js");
 $templatePage->addFileCss("./src/css/pagination.css");
 
-$js = $templatePage->js();
+/*$js = $templatePage->js();
 $css = $templatePage->css();
-$contenu = $templatePage->html();
+$contenu = $templatePage->html();*/

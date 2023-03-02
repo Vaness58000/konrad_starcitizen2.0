@@ -1,18 +1,33 @@
 <div class="display-admin">
     <div class="card-admin" data-state="#about">
         <div class="admin-title"><h1>Service</h1></div>
-        <form class="admin-contenu" method="post" enctype="multipart/form-data">
+        <form class="admin-contenu" id="form-contenu" method="post" enctype="multipart/form-data">
             <input type="hidden" name="id" value="[#CITIZEN_SERV_ID#]" />
             <div class="two-column">
-                <input type="checkbox" class="darkSwitch two-column"[#CITIZEN_SERV_MODIF_CHECK#]>
+                <input type="checkbox" name="contenu-visible" id="contenu-visible" class="darkSwitch two-column"[#CITIZEN_SERV_MODIF_CHECK#]>
             </div>
             <div class="two-column add-list-img">
-                <img class="img-add" id="img-art-add" src="./src/images/plus-square-dotted.svg" alt="add img"[#CITIZEN_SERV_ISPRO#]>
-                <div class="list_img">[#CITIZEN_SERV_IMG#]</div>
+                <div id="add-all-img">
+                    <input
+                    type="File"
+                    name="fileToUploadAll[]"
+                    id="fileToUploadAll"
+                    accept="image/png, image/jpeg"
+                    multiple
+                    />
+                    <figure id="all_img">
+                        <label for="fileToUploadAll">
+                            <img src="./src/images/plus-square-dotted.svg" alt="add img" id="img-add" class="img-add" />
+                        </label>
+                        <figure id="add_img" class="drop_img">
+                            [#CITIZEN_SERV_IMG#]
+                        </figure>
+                    </figure>
+                </div>
             </div>
-            <img src="" alt="" class="two-column">
-            <label for="label-1">nom</label><input type="text" name="" id="" value="[#CITIZEN_SERV_NOM#]" class="input-admin"[#CITIZEN_SERV_ISPRO#]>
-            <label for="label-1">contenu</label><textarea name="" id="" cols="30" rows="10" class="input-admin text-bbcode"[#CITIZEN_SERV_ISPRO#]>[#CITIZEN_SERV_CONTENU#]</textarea>
+            
+            <label for="nom">nom</label><input type="text" name="nom" id="nom" value="[#CITIZEN_SERV_NOM#]" class="input-admin"[#CITIZEN_SERV_ISPRO#]>
+            <label for="contenu">contenu</label><textarea name="contenu" id="contenu" cols="30" rows="10" class="input-admin text-bbcode"[#CITIZEN_SERV_ISPRO#]>[#CITIZEN_SERV_CONTENU#]</textarea>
             <input type="radio" class="radio-onglet" id="onglet-info" name="radio-onglet" value="" checked>
             <input type="radio" class="radio-onglet" id="onglet-lieu" name="radio-onglet" value="">
             <div id="div-all-tab" class="two-column">
@@ -23,7 +38,7 @@
                     </ul>
                 </div>
                 <div class="div-onglet" id="div-onglet-info">
-                    <button class="sauvegarde" id="add-lieu">Ajouter une information</button>
+                    <button class="sauvegarde bt-add" id="add-info">Ajouter une information</button>
                     <table id="tab-all">
                         <tr>
                             <th>Informations</th>
@@ -36,7 +51,7 @@
                     </table>
                 </div>
                 <div class="div-onglet" id="div-onglet-lieu">
-                    <button class="sauvegarde" id="add-lieu">Ajouter un lieu</button>
+                    <button class="sauvegarde bt-add" id="add-lieu">Ajouter un lieu</button>
                     <table id="tab-all">
                         <tr>
                             <th>Nom</th>
@@ -50,8 +65,8 @@
                 </div>
             </div>
             <div class="two-column add-mod-bt">
-                <button class="sauvegarde" id="annuler">annuler</button>
-                <button class="sauvegarde" id="validation">Validation</button>
+                <button class="sauvegarde" id="annuler-form">annuler</button>
+                <button class="sauvegarde" id="validation-form">Validation</button>
             </div>
         </form>
     </div>

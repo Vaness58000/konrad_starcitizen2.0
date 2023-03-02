@@ -1,36 +1,44 @@
 <div class="display-admin">
   <div class="card-admin" data-state="#about">
     <div class="admin-title"><h1>Armement FPS</h1></div>
-    <form class="admin-contenu" method="post" enctype="multipart/form-data">
+    <form class="admin-contenu" id="form-contenu" method="post" enctype="multipart/form-data">
       <input type="hidden" name="id" value="[#CITIZEN_ARM_FPS_ID#]" />
       <div class="two-column">
         <input
-          type="checkbox"
+          type="checkbox" name="contenu-visible" id="contenu-visible"
           class="darkSwitch two-column"
           [#CITIZEN_ARM_FPS_MODIF_CHECK#]
         />
       </div>
       <div class="two-column add-list-img">
-        <img
-          class="img-add"
-          id="img-art-add"
-          src="./src/images/plus-square-dotted.svg"
-          alt="add img"
-          [#CITIZEN_ARM_FPS_ISPRO#]
-        />
-        <div class="list_img">[#CITIZEN_ARM_FPS_IMG#]</div>
+        <div id="add-all-img">
+            <input
+            type="File"
+            name="fileToUploadAll[]"
+            id="fileToUploadAll"
+            accept="image/png, image/jpeg"
+            multiple
+            />
+            <figure id="all_img">
+                <label for="fileToUploadAll">
+                    <img src="./src/images/plus-square-dotted.svg" alt="add img" id="img-add" class="img-add" />
+                </label>
+                <figure id="add_img" class="drop_img">
+                    [#CITIZEN_ARM_FPS_IMG#]
+                </figure>
+            </figure>
+        </div>
       </div>
-      <img src="" alt="" class="two-column" />
-      <label for="label-1">nom</label
+      <label for="nom">nom</label
       ><input
         type="text"
-        name=""
-        id=""
+        name="nom"
+        id="nom"
         value="[#CITIZEN_ARM_FPS_NOM#]"
         class="input-admin"
         [#CITIZEN_ARM_FPS_ISPRO#]
       />
-      <label for="label-1">catégorie</label>
+      <label for="categorie-select">catégorie</label>
       <select
         name="categorie"
         id="categorie-select"
@@ -40,47 +48,47 @@
         <option value=""></option
         >[#CITIZEN_ARM_FPS_CAT#]
       </select>
-      <label for="label-1">constructeur</label>
+      <label for="constructeur-select">constructeur</label>
       <select
-        name="categorie"
-        id="categorie-select"
+        name="constructeur"
+        id="constructeur-select"
         class="input-admin"
         [#CITIZEN_ARM_FPS_ISPRO#]
       >
         <option value=""></option
         >[#CITIZEN_ARM_FPS_CONST#]
       </select>
-      <label for="label-1">poids</label
+      <label for="poids">poids</label
       ><input
         type="text"
-        name=""
-        id=""
+        name="poids"
+        id="poids"
         value="[#CITIZEN_ARM_FPS_POIDS#]"
         class="input-admin"
         [#CITIZEN_ARM_FPS_ISPRO#]
       />
-      <label for="label-1">portée</label
+      <label for="portee">portée</label
       ><input
         type="text"
-        name=""
-        id=""
+        name="portee"
+        id="portee"
         value="[#CITIZEN_ARM_FPS_PORTEE#]"
         class="input-admin"
         [#CITIZEN_ARM_FPS_ISPRO#]
       />
-      <label for="label-1">perte</label
+      <label for="perte">perte</label
       ><input
         type="text"
-        name=""
-        id=""
+        name="perte"
+        id="perte"
         value="[#CITIZEN_ARM_FPS_PERTE#]"
         class="input-admin"
         [#CITIZEN_ARM_FPS_ISPRO#]
       />
-      <label for="label-1">contenu</label
+      <label for="contenu">contenu</label
       ><textarea
-        name=""
-        id=""
+        name="contenu"
+        id="contenu"
         cols="30"
         rows="10"
         class="input-admin text-bbcode"
@@ -98,7 +106,7 @@
           </ul>
         </div>
         <div class="div-onglet" id="div-onglet-info">
-          <button class="sauvegarde" id="add-lieu">
+          <button class="sauvegarde bt-add" id="add-info">
             Ajouter une information
           </button>
           <table id="tab-all">
@@ -117,7 +125,7 @@
           </table>
         </div>
         <div class="div-onglet" id="div-onglet-lieu">
-          <button class="sauvegarde" id="add-lieu">Ajouter un lieu</button>
+          <button class="sauvegarde bt-add" id="add-lieu">Ajouter un lieu</button>
           <table id="tab-all">
             <tr>
               <th>Nom</th>
@@ -135,8 +143,8 @@
         </div>
       </div>
       <div class="two-column add-mod-bt">
-        <button class="sauvegarde" id="annuler">annuler</button>
-        <button class="sauvegarde" id="validation">Validation</button>
+        <button class="sauvegarde" id="annuler-form">annuler</button>
+        <button class="sauvegarde" id="validation-form">Validation</button>
       </div>
     </form>
   </div>

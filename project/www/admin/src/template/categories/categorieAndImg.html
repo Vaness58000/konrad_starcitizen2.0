@@ -1,0 +1,19 @@
+<div class="display-admin">
+    <div class="card-admin" data-state="#about">
+        <div class="admin-title"><h1>[#CITIZEN_CAT_TITLE#]</h1></div>
+        <form class="admin-contenu" id="form-contenu" method="post" enctype="multipart/form-data">
+            <input type="hidden" name="id" value="[#CITIZEN_CAT_ID#]" />
+            <div class="two-column add-list-img">
+                <input type="file" accept="image/png, image/jpeg" name="file-img" id="file-img"[#CITIZEN_CAT_ISPRO#]>
+                <label for="file-img">
+                    <img class="img-add" id="img-add" src="[#CITIZEN_CAT_IMG#]" alt="add img"[#CITIZEN_CAT_ISPRO#]>
+                </label>
+            </div>
+            <label for="nom">nom</label><input type="text" name="nom" id="nom" value="[#CITIZEN_CAT_NOM#]" class="input-admin"[#CITIZEN_CAT_ISPRO#]>
+            <div class="two-column add-mod-bt">
+                <button class="sauvegarde" id="annuler-form">annuler</button>
+                <button class="sauvegarde" id="validation-form">Validation</button>
+            </div>
+        </form>
+    </div>
+</div>
