@@ -79,14 +79,14 @@ if (!empty($_GET) && array_key_exists('id', $_GET) && !empty($_GET['id'])) {
         $diplomaties = $objetRepository->findAllIdAndDiplomatie(intval($objet['id_espece']));
         if(!empty($diplomaties)) {
             foreach ($diplomaties as $value) {
-                $diplo .= "\n".addTdTabSupl($value['id_diplo_esp'], $value['type'], 'diplomaties');
+                $diplo .= "\n".addTdTabSupl($value['id_diplo_esp'], $value['type'], 'diplom');
             }
         }
 
         $controle = $objetRepository->findAllIdAndControle(intval($objet['id_espece']));
         if(!empty($controle)) {
             foreach ($controle as $value) {
-                $tab_control .= "\n".addTdTabSupl($value['id_control_lieu'], $value['nom_lieu'], 'controle');
+                $tab_control .= "\n".addTdTabSupl($value['id_control_lieu'], $value['nom_lieu'], 'contro');
             }
         }
     }
@@ -144,6 +144,7 @@ $templatePage->addVarString("[#CITIZEN_ESPECES_TAB_DIPLO#]", $diplo);
 $templatePage->addFileJs("./src/js/articles.js");
 $templatePage->addFileJs("./src/js/all_img_user.js");
 $templatePage->addFileJs("./src/js/ad_mod.js");
+$templatePage->addFileJs("./src/js/tab_add.js");
 
 /*$js = $templatePage->js();
 $css = $templatePage->css();

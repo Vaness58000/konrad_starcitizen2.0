@@ -87,36 +87,35 @@ if (!empty($_GET) && array_key_exists('id', $_GET) && !empty($_GET['id'])) {
         $lieux = $objetRepository->findAllIdAndLieux(intval($objet['id_transp']));
         if(!empty($lieux)) {
             foreach ($lieux as $value) {
-                $tab_lieu .= "\n".addTdTabSupl($value['id_lieu'], $value['nom_lieu'], 'lieux');
+                $tab_lieu .= "\n".addTdTabSupl($value['id_lieu'], $value['nom_lieu'], 'lieu');
             }
         }
 
         $forces = $objetRepository->findAllIdAndForce(intval($objet['id_transp']));
         if(!empty($forces)) {
             foreach ($forces as $value) {
-                $tab_force .= "\n".addTdTabSupl($value['id_transp_forces'], $value['nom_force'], 'forces');
+                $tab_force .= "\n".addTdTabSupl($value['id_transp_forces'], $value['nom_force'], 'force');
             }
         }
 
         $faibls = $objetRepository->findAllIdAndFaibl(intval($objet['id_transp']));
         if(!empty($faibls)) {
             foreach ($faibls as $value) {
-                $tab_faibl .= "\n".addTdTabSupl($value['id_transp_faibl'], $value['nom_faiblesse'], 'faiblesses');
+                $tab_faibl .= "\n".addTdTabSupl($value['id_transp_faibl'], $value['nom_faiblesse'], 'faibl');
             }
         }
 
         $equipems = $objetRepository->findAllIdAndEquipem(intval($objet['id_transp']));
         if(!empty($equipems)) {
             foreach ($equipems as $value) {
-                $tab_equipem .= "\n".addTdTabSupl($value['id_transp_equip'], $value['nom'], 'equipement');
+                $tab_equipem .= "\n".addTdTabSupl($value['id_transp_equip'], $value['nom'], 'equip');
             }
         }
 
         $list_arm = $objetRepository->findAllIdAndArmement(intval($objet['id_transp']));
-        var_dump(intval($objet['id_transp']));
         if(!empty($list_arm)) {
             foreach ($list_arm as $value) {
-                $tab_arm .= "\n".addTdTabSupl($value['id_transport_arm'], $value['nom_obj'], 'armements');
+                $tab_arm .= "\n".addTdTabSupl($value['id_transport_arm'], $value['nom_obj'], 'arm');
             }
         }
     }
@@ -194,6 +193,7 @@ $templatePage->addVarString("[#CITIZEN_TRANSP_TAB_ARM#]", $tab_arm);
 $templatePage->addFileJs("./src/js/articles.js");
 $templatePage->addFileJs("./src/js/all_img_user.js");
 $templatePage->addFileJs("./src/js/ad_mod.js");
+$templatePage->addFileJs("./src/js/tab_add.js");
 
 /*$js = $templatePage->js();
 $css = $templatePage->css();

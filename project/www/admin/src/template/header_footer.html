@@ -217,6 +217,38 @@
         <p>2023 - Communnauté Star Citizen France</p>
       </div>
     </footer>
+
+    <style>
+      #dialog-lieu {
+          background-color: black;
+          width: 280px;
+          max-width: 280px;
+          padding: 15px;
+          color: white;
+          border-radius: 20px;
+          left: 50%;
+          top: 50%;
+      }
+  </style>
+  <dialog id="dialog-lieu">
+      <form id="dialog-form" method="post">
+        <p>
+          <label>Favorite animal:
+            <select>
+              <option value="default">Choose…</option>
+              <option value="default">Brine shrimp</option>
+              <option>Red panda</option>
+              <option>Spider monkey</option>
+            </select>
+          </label>
+        </p>
+        <div>
+          <button class="sauvegarde" value="cancel">Cancel</button>
+          <button class="sauvegarde" id="confirmBtn" value="default">Confirm</button>
+        </div>
+      </form>
+  </dialog>
+  
     <script
       src="https://kit.fontawesome.com/3cff230019.js"
       crossorigin="anonymous"
@@ -254,6 +286,7 @@
       <script src="./src/js/page_admin.js"></script>
       <script src="./../src/js/script.js"></script>
       <script src="./../src/js/le_fetch.js"></script>
+      <script src="./src/js/tab_add_header.js"></script>
       <script src="https://cdn.jsdelivr.net/npm/sceditor@3/minified/sceditor.min.js"></script>
       <script>
         /*document.querySelectorAll(".text-bbcode").forEach(element => {

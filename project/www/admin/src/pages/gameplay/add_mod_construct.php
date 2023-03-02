@@ -92,6 +92,7 @@ $templatePage->addVarString("[#CITIZEN_CONST_TAB_LIEU#]", $tab_lieu);
 $templatePage->addFileJs("./src/js/construct.js");
 $templatePage->addFileJs("./src/js/all_img_user.js");
 $templatePage->addFileJs("./src/js/ad_mod.js");
+$templatePage->addFileJs("./src/js/tab_add.js");
 
 /*$js = $templatePage->js();
 $css = $templatePage->css();
