@@ -20,10 +20,20 @@ $user = $usersRepository->findAllId($_SESSION['utilisateur']['id']);
 $pseudo = $user['pseudo'];
 $id = intval($user["idUser"]);
 $id_role = intval($user["id_role"]);
+$img = "./src/images/plus-square.svg";
 $isAdmin = $id_role == 2;
 $nb_par_pg = 10;
 $nb_pg = 0;
+$id_cat = 0;
+$count = 0;
 $isProprietaire = false;
 $nom_pg = "";
-$list_cat = array();
+$nom_cat = "";
+$list_cat = "";
 $contenu_cat = array();
+$tabJS = array();
+$tabCSS = array();
+
+if (!empty($_GET) && array_key_exists('id', $_GET) && !empty($_GET['id'])) {
+    $id_cat = intval($_GET['id']);
+}

@@ -1,13 +1,13 @@
 <?php
 require __DIR__.'/categorie_header.php';
-include __DIR__.'/../../../../src/repository/categories/CatForcesRepository.php';
+include __DIR__.'/../../../../src/repository/categories/CatTypeArticlesRepository.php';
 
-$nom_pg = "Force";
+$nom_pg = "Types articles";
 
-$categories = new CatForcesRepository();
+$categories = new CatTypeArticlesRepository();
 $categorie = $categories->findAllId($id_cat);
 if(!empty($categorie)) {
-    $nom_cat = $categorie['nom_force'];
+    $nom_cat = $categorie['nom'];
 } else {
     $id_cat = 0;
 }

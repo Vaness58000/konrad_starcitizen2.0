@@ -19,20 +19,23 @@ if (!class_exists('CatEquipemRepository')) {
          * Recuperer toutes les donnees visibles de la table
          */
         public function findAll():array {
-            return $this->setSql('SELECT * FROM equipement')->fetchAllAssoc();
+            return $this->setSql('SELECT * FROM equipement INNER JOIN transp_equip ON equipement.id = transp_equip.id_equip')->fetchAllAssoc();
         }
 
-
         public function findAllOrder(bool $orderName = false):array {
-            $order = "id DESC";
+            $order = "equipement.id DESC";
             if($orderName) {
-                $order = "nom";
+                $order = "equipement.nom";
             }
-            return $this->setSql('SELECT * FROM equipement ORDER BY '.$order)->fetchAllAssoc();
+            return $this->setSql('SELECT * FROM equipement INNER JOIN transp_equip ON equipement.id = transp_equip.id_equip ORDER BY '.$order)->fetchAllAssoc();
         }
 
         public function findAllId(int $id):array {
-            return $this->setSql('SELECT * FROM equipement WHERE id=:id')->setParamInt(":id", $id)->fetchAssoc();
+            return $this->setSql('SELECT * FROM equipement INNER JOIN transp_equip ON equipement.id = transp_equip.id_equip WHERE id=:id')->setParamInt(":id", $id)->fetchAssoc();
+        }
+
+        public function findAllTranspId(int $id):array {
+            return $this->setSql('SELECT * FROM diplomatie INNER JOIN transp_equip ON equipement.id = transp_equip.id_equip WHERE transp_equip.id_transp=:id')->setParamInt(":id", $id)->fetchAllAssoc();
         }
 
         /*public function findAllAndIdUser(int $id):array {
@@ -50,18 +53,18 @@ if (!class_exists('CatEquipemRepository')) {
                 $nmStart = $nmPage*$nbArtPage;
                 $limit = " LIMIT $nbArtPage OFFSET $nmStart";
             }
-            $order = "id DESC";
+            $order = "equipement.id DESC";
             if($orderName) {
-                $order = "nom";
+                $order = "equipement.nom";
             }
-            $sql = 'SELECT * FROM equipement ORDER BY '.$order.$limit.'';
+            $sql = 'SELECT * FROM equipement INNER JOIN transp_equip ON equipement.id = transp_equip.id_equip ORDER BY '.$order.$limit.'';
             return $this->setSql($sql)
                         ->fetchAllAssoc();
         }
 
         /*Pour relier l'utilisateur au article*/
         public function findAllAndCount():int {
-            $sql = 'SELECT * FROM equipement';
+            $sql = 'SELECT * FROM equipement INNER JOIN transp_equip ON equipement.id = transp_equip.id_equip';
             return $this->setSql($sql)
                         ->rowCount();
         }

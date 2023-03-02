@@ -1,12 +1,12 @@
 <?php
 
 // verifier qu'on n'a pas deja creer la fonction
-if (!class_exists('CatArmRepository')) {
+if (!class_exists('CatRisqueRepository')) {
     // inculre la classe qui va creer le fichier "errors.log" en cas d'erreur.
     include_once dirname(__FILE__) . '/../../class/classMain/Repository.php';
 
     // fonction pour faire la connexion a la base de donnes
-    class CatArmRepository extends Repository {
+    class CatRisqueRepository extends Repository {
 
         /**
          * Constructeur par defaut
@@ -19,20 +19,20 @@ if (!class_exists('CatArmRepository')) {
          * Recuperer toutes les donnees visibles de la table
          */
         public function findAll():array {
-            return $this->setSql('SELECT * FROM risque')->fetchAllAssoc();
+            return $this->setSql('SELECT * FROM risque AS cat INNER JOIN utilisateurs ON utilisateurs.id_user = cat.id_user_cat')->fetchAllAssoc();
         }
 
 
         public function findAllOrder(bool $orderName = false):array {
-            $order = "id DESC";
+            $order = "cat.id DESC";
             if($orderName) {
-                $order = "nom";
+                $order = "cat.nom";
             }
-            return $this->setSql('SELECT * FROM risque ORDER BY '.$order)->fetchAllAssoc();
+            return $this->setSql('SELECT * FROM risque AS cat INNER JOIN utilisateurs ON utilisateurs.id_user = cat.id_user_cat ORDER BY '.$order)->fetchAllAssoc();
         }
 
         public function findAllId(int $id):array {
-            return $this->setSql('SELECT * FROM risque WHERE id=:id')->setParamInt(":id", $id)->fetchAssoc();
+            return $this->setSql('SELECT * FROM risque AS cat INNER JOIN utilisateurs ON utilisateurs.id_user = cat.id_user_cat WHERE id=:id')->setParamInt(":id", $id)->fetchAssoc();
         }
 
         /*public function findAllAndIdUser(int $id):array {
@@ -50,18 +50,18 @@ if (!class_exists('CatArmRepository')) {
                 $nmStart = $nmPage*$nbArtPage;
                 $limit = " LIMIT $nbArtPage OFFSET $nmStart";
             }
-            $order = "id DESC";
+            $order = "cat.id DESC";
             if($orderName) {
-                $order = "nom";
+                $order = "cat.nom";
             }
-            $sql = 'SELECT * FROM risque ORDER BY '.$order.$limit.'';
+            $sql = 'SELECT * FROM risque AS cat INNER JOIN utilisateurs ON utilisateurs.id_user = cat.id_user_cat ORDER BY '.$order.$limit.'';
             return $this->setSql($sql)
                         ->fetchAllAssoc();
         }
 
         /*Pour relier l'utilisateur au article*/
         public function findAllAndCount():int {
-            $sql = 'SELECT * FROM risque';
+            $sql = 'SELECT * FROM risque AS cat INNER JOIN utilisateurs ON utilisateurs.id_user = cat.id_user_cat';
             return $this->setSql($sql)
                         ->rowCount();
         }

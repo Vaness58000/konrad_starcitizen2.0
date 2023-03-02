@@ -1,12 +1,12 @@
 <?php
 
 // verifier qu'on n'a pas deja creer la fonction
-if (!class_exists('CatForcesRepository')) {
+if (!class_exists('CatDiplomRepository')) {
     // inculre la classe qui va creer le fichier "errors.log" en cas d'erreur.
     include_once dirname(__FILE__) . '/../../class/classMain/Repository.php';
 
     // fonction pour faire la connexion a la base de donnes
-    class CatForcesRepository extends Repository {
+    class CatDiplomRepository extends Repository {
 
         /**
          * Constructeur par defaut
@@ -19,20 +19,24 @@ if (!class_exists('CatForcesRepository')) {
          * Recuperer toutes les donnees visibles de la table
          */
         public function findAll():array {
-            return $this->setSql('SELECT * FROM forces AS cat INNER JOIN utilisateurs ON utilisateurs.id_user = cat.id_user_cat')->fetchAllAssoc();
+            return $this->setSql('SELECT * FROM diplomatie INNER JOIN diplomatie_espece ON diplomatie_espece.id_diplomatie = diplomatie.id')->fetchAllAssoc();
         }
 
 
         public function findAllOrder(bool $orderName = false):array {
-            $order = "cat.id_force DESC";
+            $order = "diplomatie.id DESC";
             if($orderName) {
-                $order = "cat.nom_force";
+                $order = "diplomatie.type";
             }
-            return $this->setSql('SELECT * FROM forces AS cat INNER JOIN utilisateurs ON utilisateurs.id_user = cat.id_user_cat ORDER BY '.$order)->fetchAllAssoc();
+            return $this->setSql('SELECT * FROM diplomatie INNER JOIN diplomatie_espece ON diplomatie_espece.id_diplomatie = diplomatie.id ORDER BY '.$order)->fetchAllAssoc();
         }
 
         public function findAllId(int $id):array {
-            return $this->setSql('SELECT * FROM forces AS cat INNER JOIN utilisateurs ON utilisateurs.id_user = cat.id_user_cat WHERE id_force=:id')->setParamInt(":id", $id)->fetchAssoc();
+            return $this->setSql('SELECT * FROM diplomatie INNER JOIN diplomatie_espece ON diplomatie_espece.id_diplomatie = diplomatie.id WHERE diplomatie.id=:id')->setParamInt(":id", $id)->fetchAssoc();
+        }
+
+        public function findAllEspeceId(int $id):array {
+            return $this->setSql('SELECT * FROM diplomatie INNER JOIN diplomatie_espece ON diplomatie_espece.id_diplomatie = diplomatie.id WHERE diplomatie_espece.id_espece=:id')->setParamInt(":id", $id)->fetchAllAssoc();
         }
 
         /*public function findAllAndIdUser(int $id):array {
@@ -50,18 +54,18 @@ if (!class_exists('CatForcesRepository')) {
                 $nmStart = $nmPage*$nbArtPage;
                 $limit = " LIMIT $nbArtPage OFFSET $nmStart";
             }
-            $order = "cat.id_force DESC";
+            $order = "diplomatie.id DESC";
             if($orderName) {
-                $order = "cat.nom_force";
+                $order = "diplomatie.type";
             }
-            $sql = 'SELECT * FROM forces AS cat INNER JOIN utilisateurs ON utilisateurs.id_user = cat.id_user_cat ORDER BY '.$order.$limit.'';
+            $sql = 'SELECT * FROM diplomatie INNER JOIN diplomatie_espece ON diplomatie_espece.id_diplomatie = diplomatie.id ORDER BY '.$order.$limit.'';
             return $this->setSql($sql)
                         ->fetchAllAssoc();
         }
 
         /*Pour relier l'utilisateur au article*/
         public function findAllAndCount():int {
-            $sql = 'SELECT * FROM forces AS cat INNER JOIN utilisateurs ON utilisateurs.id_user = cat.id_user_cat';
+            $sql = 'SELECT * FROM diplomatie INNER JOIN diplomatie_espece ON diplomatie_espece.id_diplomatie = diplomatie.id';
             return $this->setSql($sql)
                         ->rowCount();
         }

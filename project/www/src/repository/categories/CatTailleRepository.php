@@ -19,20 +19,20 @@ if (!class_exists('CatTailleRepository')) {
          * Recuperer toutes les donnees visibles de la table
          */
         public function findAll():array {
-            return $this->setSql('SELECT * FROM taille_arm_vaisseau')->fetchAllAssoc();
+            return $this->setSql('SELECT * FROM taille_arm_vaisseau AS cat INNER JOIN utilisateurs ON utilisateurs.id_user = cat.id_user_cat')->fetchAllAssoc();
         }
 
 
         public function findAllOrder(bool $orderName = false):array {
-            $order = "id DESC";
+            $order = "cat.id DESC";
             if($orderName) {
-                $order = "taille";
+                $order = "cat.taille";
             }
-            return $this->setSql('SELECT * FROM taille_arm_vaisseau ORDER BY '.$order)->fetchAllAssoc();
+            return $this->setSql('SELECT * FROM taille_arm_vaisseau AS cat INNER JOIN utilisateurs ON utilisateurs.id_user = cat.id_user_cat ORDER BY '.$order)->fetchAllAssoc();
         }
 
         public function findAllId(int $id):array {
-            return $this->setSql('SELECT * FROM taille_arm_vaisseau WHERE id=:id')->setParamInt(":id", $id)->fetchAssoc();
+            return $this->setSql('SELECT * FROM taille_arm_vaisseau AS cat INNER JOIN utilisateurs ON utilisateurs.id_user = cat.id_user_cat WHERE id=:id')->setParamInt(":id", $id)->fetchAssoc();
         }
 
         /*public function findAllAndIdUser(int $id):array {
@@ -50,18 +50,18 @@ if (!class_exists('CatTailleRepository')) {
                 $nmStart = $nmPage*$nbArtPage;
                 $limit = " LIMIT $nbArtPage OFFSET $nmStart";
             }
-            $order = "id DESC";
+            $order = "cat.id DESC";
             if($orderName) {
-                $order = "taille";
+                $order = "cat.taille";
             }
-            $sql = 'SELECT * FROM taille_arm_vaisseau ORDER BY '.$order.$limit.'';
+            $sql = 'SELECT * FROM taille_arm_vaisseau AS cat INNER JOIN utilisateurs ON utilisateurs.id_user = cat.id_user_cat ORDER BY '.$order.$limit.'';
             return $this->setSql($sql)
                         ->fetchAllAssoc();
         }
 
         /*Pour relier l'utilisateur au article*/
         public function findAllAndCount():int {
-            $sql = 'SELECT * FROM taille_arm_vaisseau';
+            $sql = 'SELECT * FROM taille_arm_vaisseau AS cat INNER JOIN utilisateurs ON utilisateurs.id_user = cat.id_user_cat';
             return $this->setSql($sql)
                         ->rowCount();
         }

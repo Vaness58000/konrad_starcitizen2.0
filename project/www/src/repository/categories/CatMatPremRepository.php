@@ -1,12 +1,12 @@
 <?php
 
 // verifier qu'on n'a pas deja creer la fonction
-if (!class_exists('CatForcesRepository')) {
+if (!class_exists('CatMatPremRepository')) {
     // inculre la classe qui va creer le fichier "errors.log" en cas d'erreur.
     include_once dirname(__FILE__) . '/../../class/classMain/Repository.php';
 
     // fonction pour faire la connexion a la base de donnes
-    class CatForcesRepository extends Repository {
+    class CatMatPremRepository extends Repository {
 
         /**
          * Constructeur par defaut
@@ -19,20 +19,20 @@ if (!class_exists('CatForcesRepository')) {
          * Recuperer toutes les donnees visibles de la table
          */
         public function findAll():array {
-            return $this->setSql('SELECT * FROM forces AS cat INNER JOIN utilisateurs ON utilisateurs.id_user = cat.id_user_cat')->fetchAllAssoc();
+            return $this->setSql('SELECT * FROM categorie_matiere_premier AS cat INNER JOIN utilisateurs ON utilisateurs.id_user = cat.id_user_cat')->fetchAllAssoc();
         }
 
 
         public function findAllOrder(bool $orderName = false):array {
-            $order = "cat.id_force DESC";
+            $order = "cat.id DESC";
             if($orderName) {
-                $order = "cat.nom_force";
+                $order = "cat.nom";
             }
-            return $this->setSql('SELECT * FROM forces AS cat INNER JOIN utilisateurs ON utilisateurs.id_user = cat.id_user_cat ORDER BY '.$order)->fetchAllAssoc();
+            return $this->setSql('SELECT * FROM categorie_matiere_premier AS cat INNER JOIN utilisateurs ON utilisateurs.id_user = cat.id_user_cat ORDER BY '.$order)->fetchAllAssoc();
         }
 
         public function findAllId(int $id):array {
-            return $this->setSql('SELECT * FROM forces AS cat INNER JOIN utilisateurs ON utilisateurs.id_user = cat.id_user_cat WHERE id_force=:id')->setParamInt(":id", $id)->fetchAssoc();
+            return $this->setSql('SELECT * FROM categorie_matiere_premier AS cat INNER JOIN utilisateurs ON utilisateurs.id_user = cat.id_user_cat WHERE id=:id')->setParamInt(":id", $id)->fetchAssoc();
         }
 
         /*public function findAllAndIdUser(int $id):array {
@@ -50,22 +50,21 @@ if (!class_exists('CatForcesRepository')) {
                 $nmStart = $nmPage*$nbArtPage;
                 $limit = " LIMIT $nbArtPage OFFSET $nmStart";
             }
-            $order = "cat.id_force DESC";
+            $order = "cat.id DESC";
             if($orderName) {
-                $order = "cat.nom_force";
+                $order = "cat.nom";
             }
-            $sql = 'SELECT * FROM forces AS cat INNER JOIN utilisateurs ON utilisateurs.id_user = cat.id_user_cat ORDER BY '.$order.$limit.'';
+            $sql = 'SELECT * FROM categorie_matiere_premier AS cat INNER JOIN utilisateurs ON utilisateurs.id_user = cat.id_user_cat ORDER BY '.$order.$limit.'';
             return $this->setSql($sql)
                         ->fetchAllAssoc();
         }
 
         /*Pour relier l'utilisateur au article*/
         public function findAllAndCount():int {
-            $sql = 'SELECT * FROM forces AS cat INNER JOIN utilisateurs ON utilisateurs.id_user = cat.id_user_cat';
+            $sql = 'SELECT * FROM categorie_matiere_premier AS cat INNER JOIN utilisateurs ON utilisateurs.id_user = cat.id_user_cat';
             return $this->setSql($sql)
                         ->rowCount();
         }
-
 
     }
 }

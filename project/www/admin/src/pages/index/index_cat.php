@@ -103,3 +103,37 @@ if($get_ind == "cat_risque" || $get_ind == "cat_risque_all"){
     //$_GET["type"]=1;
     include __DIR__.'/../categories/add_mod_cat_risque.php';
 }
+
+/*
+cat_articles
+cat_type_articles
+cat_mat_prem
+*/
+
+/* articles */
+if($get_ind == "cat_articles" || $get_ind == "cat_articles_all"){
+    //$_GET["type"]=1;
+    $_GET["tab_all"]=($get_ind == "cat_articles_all");
+    include __DIR__.'/../categories/cat_articles.php';
+} else if($get_ind == "add_cat_articles" || $get_ind == "mod_cat_articles"){
+    //$_GET["type"]=1;
+    include __DIR__.'/../categories/add_mod_cat_articles.php';
+}
+/* type articles */
+if($get_ind == "cat_type_articles" || $get_ind == "cat_type_articles_all"){
+    //$_GET["type"]=1;
+    $_GET["tab_all"]=($get_ind == "cat_type_articles_all");
+    include __DIR__.'/../categories/cat_type_articles.php';
+} else if($get_ind == "add_cat_type_articles" || $get_ind == "mod_cat_type_articles"){
+    //$_GET["type"]=1;
+    include __DIR__.'/../categories/add_mod_cat_type_articles.php';
+}
+/* matieres premieres */
+if($get_ind == "cat_mat_prem" || $get_ind == "cat_mat_prem_all"){
+    //$_GET["type"]=1;
+    $_GET["tab_all"]=($get_ind == "cat_mat_prem_all");
+    include __DIR__.'/../categories/cat_mat_prem.php';
+} else if($get_ind == "add_cat_mat_prem" || $get_ind == "mod_cat_mat_prem"){
+    //$_GET["type"]=1;
+    include __DIR__.'/../categories/add_mod_cat_mat_prem.php';
+}

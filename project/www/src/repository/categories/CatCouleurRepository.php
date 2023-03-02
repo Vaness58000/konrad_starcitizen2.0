@@ -19,20 +19,20 @@ if (!class_exists('CatCouleurRepository')) {
          * Recuperer toutes les donnees visibles de la table
          */
         public function findAll():array {
-            return $this->setSql('SELECT * FROM couleur')->fetchAllAssoc();
+            return $this->setSql('SELECT * FROM couleur AS cat INNER JOIN utilisateurs ON utilisateurs.id_user = cat.id_user_cat')->fetchAllAssoc();
         }
 
 
         public function findAllOrder(bool $orderName = false):array {
-            $order = "id DESC";
+            $order = "cat.id DESC";
             if($orderName) {
-                $order = "nom";
+                $order = "cat.nom";
             }
-            return $this->setSql('SELECT * FROM couleur ORDER BY '.$order)->fetchAllAssoc();
+            return $this->setSql('SELECT * FROM couleur AS cat INNER JOIN utilisateurs ON utilisateurs.id_user = cat.id_user_cat ORDER BY '.$order)->fetchAllAssoc();
         }
 
         public function findAllId(int $id):array {
-            return $this->setSql('SELECT * FROM couleur WHERE id=:id')->setParamInt(":id", $id)->fetchAssoc();
+            return $this->setSql('SELECT * FROM couleur AS cat INNER JOIN utilisateurs ON utilisateurs.id_user = cat.id_user_cat WHERE id=:id')->setParamInt(":id", $id)->fetchAssoc();
         }
 
         /*public function findAllAndIdUser(int $id):array {
@@ -50,18 +50,18 @@ if (!class_exists('CatCouleurRepository')) {
                 $nmStart = $nmPage*$nbArtPage;
                 $limit = " LIMIT $nbArtPage OFFSET $nmStart";
             }
-            $order = "id DESC";
+            $order = "cat.id DESC";
             if($orderName) {
-                $order = "nom";
+                $order = "cat.nom";
             }
-            $sql = 'SELECT * FROM couleur ORDER BY '.$order.$limit.'';
+            $sql = 'SELECT * FROM couleur AS cat INNER JOIN utilisateurs ON utilisateurs.id_user = cat.id_user_cat ORDER BY '.$order.$limit.'';
             return $this->setSql($sql)
                         ->fetchAllAssoc();
         }
 
         /*Pour relier l'utilisateur au article*/
         public function findAllAndCount():int {
-            $sql = 'SELECT * FROM couleur';
+            $sql = 'SELECT * FROM couleur AS cat INNER JOIN utilisateurs ON utilisateurs.id_user = cat.id_user_cat';
             return $this->setSql($sql)
                         ->rowCount();
         }

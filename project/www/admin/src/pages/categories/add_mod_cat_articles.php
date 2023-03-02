@@ -1,10 +1,10 @@
 <?php
 require __DIR__.'/categorie_header.php';
-include __DIR__.'/../../../../src/repository/categories/CatArmRepository.php';
+include __DIR__.'/../../../../src/repository/categories/CatArticlesRepository.php';
 
-$nom_pg = "Catégorie armement FPS";
+$nom_pg = "Catégorie article";
 
-$categories = new CatArmRepository();
+$categories = new CatArticlesRepository();
 $categorie = $categories->findAllId($id_cat);
 if(!empty($categorie)) {
     $nom_cat = $categorie['nom'];
