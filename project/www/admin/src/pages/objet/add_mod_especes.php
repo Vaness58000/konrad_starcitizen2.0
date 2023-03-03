@@ -4,6 +4,7 @@ include __DIR__.'/../../../../src/repository/EspecesRepository.php';
 include __DIR__.'/../../function/table-admin.php';
 include __DIR__.'/../../../../src/repository/UsersRepository.php';
 include __DIR__.'/../../../../src/repository/LieuxRepository.php';
+include __DIR__.'/../../../../src/repository/categories/CatEspecesRepository.php';
 // si la session existe pas soit si l'on est pas connecté on redirige
 if (!(!empty($_SESSION) && array_key_exists('utilisateur', $_SESSION) && !empty($_SESSION['utilisateur']) && 
     array_key_exists('id', $_SESSION['utilisateur']) && !empty($_SESSION['utilisateur']['id']))) {
@@ -62,10 +63,16 @@ if (!empty($_GET) && array_key_exists('id', $_GET) && !empty($_GET['id'])) {
         $id_lieu = intval($objet['id_lieu']);
         $validation = (intval($objet['validation']) == 1);
 
+        $id_img_main = 0;
+        $img_main = $objetRepository->imagePrincipale(intval($_GET['id']));
+        if(!empty($img_main)) {
+            $id_img_main = $img_main["id_image_obj"];
+        }
+
         $imgs = $objetRepository->findAllImgObj($id_obj);
         if(!empty($imgs)) {
             foreach ($imgs as $value) {
-                $all_img .= "\n".addImg($value['id_image_obj'], 'especes', $value['src'], $value['alt']);
+                $all_img .= "\n".addImgAndPrinc($value['id_image_obj'], 'especes', $value['src'], $value['alt'], $id_img_main);
             }
         }
 
@@ -104,7 +111,8 @@ if ($isProprietaire) {
     $isModif = "";
 }
 
-$cat_list = $objetRepository->findListCat();
+$catEspecesRepository = new CatEspecesRepository();
+$cat_list = $catEspecesRepository->findAllOrder(true);
 if(!empty($cat_list)) {
     foreach ($cat_list as $value) {
         $cat .= "\n".addOptionCat($value['id_categ_espece'], $value['nom'], $id_cat);
@@ -112,7 +120,7 @@ if(!empty($cat_list)) {
 }
 
 $lieuxRepository = new LieuxRepository();
-$lieux_list = $lieuxRepository->findAll();
+$lieux_list = $lieuxRepository->findAllOrder(true);
 if(!empty($lieux_list)) {
     foreach ($lieux_list as $value) {
         $lieu .= "\n".addOptionCat($value['id_lieu_princ'], $value['nom_obj'], $id_lieu);

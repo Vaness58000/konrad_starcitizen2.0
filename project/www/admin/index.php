@@ -66,6 +66,7 @@ if($get_ind != "connexion" && $get_ind != "inscription_traitement" && $get_ind !
     $templateIndex->addVarString("[#CITIZEN_INDEX_JS#]", $templateMenuAdmin->js().$js);
     $templateIndex->addVarString("[#CITIZEN_INDEX_ADD_MENU_ADMIN#]", $add_menu_admin);
     if($error_Log->isError()) {
+        header("Status: 500");
     }else {
         echo $templateIndex->html();
     }

@@ -41,10 +41,16 @@ if (!empty($_GET) && array_key_exists('id', $_GET) && !empty($_GET['id'])) {
         $isProprietaire = $objet['id_user'] == $id;
         $validation = (intval($objet['validation']) == 1);
 
+        $id_img_main = 0;
+        $img_main = $objetRepository->imagePrincipale(intval($_GET['id']));
+        if(!empty($img_main)) {
+            $id_img_main = $img_main["id_image_obj"];
+        }
+
         $imgs = $objetRepository->findAllImgObj($id_obj);
         if(!empty($imgs)) {
             foreach ($imgs as $value) {
-                $all_img .= "\n".addImg($value['id_image_obj'], 'services', $value['src'], $value['alt']);
+                $all_img .= "\n".addImgAndPrinc($value['id_image_obj'], 'services', $value['src'], $value['alt'], $id_img_main);
             }
         }
 

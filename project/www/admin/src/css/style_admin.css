@@ -29,6 +29,7 @@
     height: 100vh;
     border: #0a5688 1px solid;
     overflow-y:auto;
+    z-index: 5;
 }
 
 #admin_menu ul {
@@ -314,6 +315,8 @@ input[type="file"] {
 
 .delete-multiple-img {
     position: absolute;
+    margin-right: 5px;
+    margin-top: 5px;
     right: 0;
     top: 0;
 }
@@ -342,4 +345,23 @@ input[type="file"] {
     background: unset;
     border: 1px blue solid;
     background-color: #0a5688;
+}
+
+.img-princ {
+    display: none;
+}
+
+.img-main {
+    background-color: #eee;
+    padding: 5px;
+    border-radius: 5px;
+    position: absolute;
+    margin-left: 5px;
+    margin-top: 5px;
+    left: 0;
+    top: 0;
+}
+
+.img-princ:checked ~ .img-main {
+    background-color: #eeff00;
 }

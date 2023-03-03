@@ -26,6 +26,19 @@ if (!class_exists('LieuxRepository')) {
                     'INNER JOIN categories_lieux ON categories_lieux.id_categ_lieu = lieux.id_categ_lieu')->fetchAllAssoc();
         }
 
+
+        public function findAllOrder(bool $orderName = false):array {
+            $order = "objet.id DESC";
+            if($orderName) {
+                $order = "objet.nom";
+            }
+            return $this->setSql('SELECT *, lieux.id_lieu AS id_lieu_princ, objet.id AS id_objet, objet.nom AS nom_obj, categories_lieux.nom AS nom_cat FROM objet '.
+                    'INNER JOIN lieux ON lieux.id_objet = objet.id '.
+                    'LEFT JOIN lieux_risque ON lieux.id_lieu = lieux_risque.id_lieux '.
+                    'LEFT JOIN lier_lieu ON lieux.id_lieu = lier_lieu.id_lieu '.
+                    'INNER JOIN categories_lieux ON categories_lieux.id_categ_lieu = lieux.id_categ_lieu ORDER BY '.$order)->fetchAllAssoc();
+        }
+
         public function findListRisq() {
             return $this->setSql('SELECT * FROM risque')->fetchAllAssoc();
         }

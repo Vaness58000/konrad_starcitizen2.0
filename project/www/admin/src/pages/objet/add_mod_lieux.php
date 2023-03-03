@@ -3,6 +3,9 @@ include __DIR__.'/../../../../src/class/classMain/TemplatePage.php';
 include __DIR__.'/../../../../src/repository/LieuxRepository.php';
 include __DIR__.'/../../function/table-admin.php';
 include __DIR__.'/../../../../src/repository/UsersRepository.php';
+include __DIR__.'/../../../../src/repository/LieuxRepository.php';
+include __DIR__.'/../../../../src/repository/categories/CatLieuxRepository.php';
+include __DIR__.'/../../../../src/repository/categories/CatRisqueRepository.php';
 // si la session existe pas soit si l'on est pas connecté on redirige
 if (!(!empty($_SESSION) && array_key_exists('utilisateur', $_SESSION) && !empty($_SESSION['utilisateur']) && 
     array_key_exists('id', $_SESSION['utilisateur']) && !empty($_SESSION['utilisateur']['id']))) {
@@ -53,10 +56,16 @@ if (!empty($_GET) && array_key_exists('id', $_GET) && !empty($_GET['id'])) {
         $validation = (intval($objet['validation']) == 1);
         $isHabitat = (intval($objet['Habitable']) == 1);
 
+        $id_img_main = 0;
+        $img_main = $objRepository->imagePrincipale(intval($_GET['id']));
+        if(!empty($img_main)) {
+            $id_img_main = $img_main["id_image_obj"];
+        }
+
         $imgs = $objRepository->findAllImgObj($id_lieu);
         if(!empty($imgs)) {
             foreach ($imgs as $value) {
-                $all_img .= "\n".addImg($value['id_image_obj'], 'lieux', $value['src'], $value['alt']);
+                $all_img .= "\n".addImgAndPrinc($value['id_image_obj'], 'lieux', $value['src'], $value['alt'], $id_img_main);
             }
         }
 
@@ -81,21 +90,24 @@ if ($isProprietaire) {
     $isModif = "";
 }
 
-$risque_list = $objRepository->findListRisq();
+$catRisqueRepository = new CatRisqueRepository();
+$risque_list = $catRisqueRepository->findAllOrder(true);
 if(!empty($risque_list)) {
     foreach ($risque_list as $value) {
         $risque .= "\n".addOptionCat($value['id'], $value['nom'], $id_risque);
     }
 }
 
-$lieu_cat_list = $objRepository->findListCat();
+$catLieuxRepository = new CatLieuxRepository();
+$lieu_cat_list = $catLieuxRepository->findAllOrder(true);
 if(!empty($lieu_cat_list)) {
     foreach ($lieu_cat_list as $value) {
         $lieu_cat .= "\n".addOptionCat($value['id_categ_lieu'], $value['nom'], $id_cat);
     }
 }
 
-$lier_list = $objRepository->findAll();
+$lieuxRepository = new LieuxRepository();
+$lier_list = $lieuxRepository->findAllOrder(true);
 if(!empty($lier_list)) {
     foreach ($lier_list as $value) {
         $lier_lieu .= "\n".addOptionCat($value['id_lieu_princ'], $value['nom_obj'], $id_lier);

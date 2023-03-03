@@ -31,8 +31,8 @@ function tab_add_delete(event) {
 function tab_add_add(event) {
     event.preventDefault();
     let name = event.target.id.replace('add-', '');
+    console.log(name);
     document.querySelector("#dialog-"+name).showModal();
-    //console.log("add : "+id);
 }
 
 document.querySelectorAll(".img-modif").forEach(element => {

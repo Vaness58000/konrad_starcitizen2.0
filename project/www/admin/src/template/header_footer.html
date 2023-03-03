@@ -227,25 +227,53 @@
           color: white;
           border-radius: 20px;
           left: 50%;
-          top: 50%;
+          top: 5%;
       }
   </style>
   <dialog id="dialog-lieu">
       <form id="dialog-form" method="post">
-        <p>
-          <label>Favorite animal:
-            <select>
-              <option value="default">Choose…</option>
-              <option value="default">Brine shrimp</option>
-              <option>Red panda</option>
-              <option>Spider monkey</option>
-            </select>
-          </label>
-        </p>
-        <div>
-          <button class="sauvegarde" value="cancel">Cancel</button>
-          <button class="sauvegarde" id="confirmBtn" value="default">Confirm</button>
+        <div class="two-column admin-title"><h1>Armement FPS</h1></div>
+      <input type="hidden" name="id" value="[#CITIZEN_ADD_INFO_ID#]" />
+      <div class="two-column add-list-img">
+        <div id="add-all-img-add">
+            <input
+            type="File"
+            name="fileToUploadAll[]"
+            id="fileToUploadAll-add"
+            accept="image/png, image/jpeg"
+            multiple
+            />
+            <figure id="all-img-add">
+                <label for="fileToUploadAll">
+                    <img src="./src/images/plus-square-dotted.svg" alt="add img" id="img-add" class="img-add" />
+                </label>
+                <figure id="add_img" class="drop_img">
+                    [#CITIZEN_ADD_INFO_IMG#]
+                </figure>
+            </figure>
         </div>
+      </div>
+      <label for="nom">nom</label
+      ><input
+        type="text"
+        name="nom"
+        id="nom-add"
+        value="[#CITIZEN_ADD_INFO_NOM#]"
+        class="input-admin"
+        [#CITIZEN_ADD_INFO_ISPRO#]
+      />
+      <label for="categorie-select">catégorie</label>
+      <label for="contenu">contenu</label
+      ><textarea
+        name="contenu"
+        id="contenu-add"
+        cols="30"
+        rows="10"
+        class="input-admin text-bbcode"
+        [#CITIZEN_ADD_INFO_ISPRO#]
+      >
+[#CITIZEN_ADD_INFO_CONTENU#]</textarea
+      >
       </form>
   </dialog>
   
