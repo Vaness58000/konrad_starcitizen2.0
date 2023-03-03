@@ -10,7 +10,8 @@ $article_patch = $articleRepository->findAllAndTypeUserPage($type2, 0, 5);
 $type3 = $articleRepository->findIdTypeArticle("article");
 $article = $articleRepository->findAllAndTypeUserPage($type3, 0, 6);
 $usersRepository = new UsersRepository();
-//$users = $usersRepository->findAllUserId($id);
+$id_vehicule = 2;
+$id_vaiss = 1;
 ?>
 
 <!--SLIDE IMAGE-->
@@ -242,7 +243,7 @@ $usersRepository = new UsersRepository();
     <article class="card_guide card--1">
 
         <div class="card__img"></div>
-        <a href="?ind=vaisseau" class="card_link">
+        <a href="?ind=transports&type_transp=<?= $id_vaiss ?>" class="card_link">
             <div class="card__img--hover"></div>
         </a>
         <div class="card__info">
@@ -254,7 +255,7 @@ $usersRepository = new UsersRepository();
     <article class="card_guide card--2">
 
         <div class="card__img"></div>
-        <a href="?ind=vehicule" class="card_link">
+        <a href="?ind=transports&type_transp=<?= $id_vehicule ?>" class="card_link">
             <div class="card__img--hover"></div>
         </a>
         <div class="card__info">

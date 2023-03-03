@@ -22,20 +22,14 @@ if($get_ind != "connexion" && $get_ind != "inscription_traitement" && $get_ind !
     else if($get_ind == "equipements") {
         include __DIR__.'/src/pages/equipements/equipement.php';
     }
-    else if($get_ind == "vaisseau") {
-        include __DIR__.'/src/pages/equipements/vaisseau.php';
+    else if($get_ind == "transports") {
+        include __DIR__.'/src/pages/equipements/transports.php';
     }
-    else if($get_ind == "vaisseau_ind"){
-        include __DIR__.'/src/pages/equipements/vaisseau_ind.php';
+    else if($get_ind == "transport_ind"){
+        include __DIR__.'/src/pages/equipements/transport_ind.php';
     }
     else if($get_ind == "vaisseau_construct") {
         include __DIR__.'/src/pages/equipements/vaisseau_construct.php';
-    }
-    else if($get_ind == "vehicule"){
-        include __DIR__.'/src/pages/equipements/vehicule.php';
-    }
-    else if($get_ind == "vehicule_ind"){
-        include __DIR__.'/src/pages/equipements/vehicule_ind.php';
     }
     else if($get_ind == "vehicule_construct"){
         include __DIR__.'/src/pages/equipements/vehicule_construct.php';
@@ -57,6 +51,15 @@ if($get_ind != "connexion" && $get_ind != "inscription_traitement" && $get_ind !
     }
     /*fin equipements*/
 
+    /* Constructeurs*/
+    else if($get_ind == "constructeur") {
+        include __DIR__.'/src/pages/equipements/constructeur.php';
+    }
+    else if($get_ind == "constructeur_ind") {
+        include __DIR__.'/src/pages/equipements/constructeur_ind.php';
+    }
+    /*fin constructeurs*/
+    
     /* actu/patch*/
     else if($get_ind == "actualites"){
         include __DIR__.'/src/pages/actualites.php';
@@ -117,6 +120,9 @@ if($get_ind != "connexion" && $get_ind != "inscription_traitement" && $get_ind !
     /*especes*/
     else if($get_ind == "especes") {
         include __DIR__.'/src/pages/especes/civilisation.php';
+    }
+    else if($get_ind == "espece_ind") {
+        include __DIR__.'/src/pages/especes/espece_ind.php';
     }
     /*fin especes*/
 

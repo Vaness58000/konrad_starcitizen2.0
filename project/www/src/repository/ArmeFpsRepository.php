@@ -25,6 +25,14 @@ if (!class_exists('ArmeFpsRepository')) {
                     'LEFT JOIN construct_arm ON equipements_armement.id_arme = construct_arm.id_arm '.
                     'INNER JOIN categorie_arm_fps ON arm_fps.id_cat = categorie_arm_fps.id_categ_arme')->fetchAllAssoc();
         }
+        public function findAllConstructeurId(int $id):array {
+            return $this->setSql('SELECT *, objet.id AS id_objet, objet.nom AS nom_arm, categorie_arm_fps.nom AS nom_cat FROM objet '.
+                    'INNER JOIN equipements_armement ON equipements_armement.id_objet = objet.id '.
+                    'INNER JOIN arm_fps ON equipements_armement.id_arme = arm_fps.id_arm '.
+                    'LEFT JOIN construct_arm ON equipements_armement.id_arme = construct_arm.id_arm '.
+                    'INNER JOIN categorie_arm_fps ON arm_fps.id_cat = categorie_arm_fps.id_categ_arme
+                    WHERE construct_arm.id_construct=:id')->setParamInt(":id", $id)->fetchAllAssoc();
+        }
         public function findAllId(int $id):array {
             return $this->setSql('SELECT *, objet.id AS id_objet, objet.nom AS nom_arm, categorie_arm_fps.nom AS nom_cat FROM objet '.
                     'INNER JOIN equipements_armement ON equipements_armement.id_objet = objet.id '.

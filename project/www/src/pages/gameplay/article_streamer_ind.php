@@ -4,7 +4,7 @@ require __DIR__ . '/../../../src/repository/ArticleRepository.php';
 require __DIR__ . '/../../../src/repository/UsersRepository.php';
 $articleRepository = new ArticleRepository();
 $type = $articleRepository->findIdTypeArticle("article");
-$article = $articleRepository->findAllAndTypeUserId($_GET['id'], $type);
+$article = $articleRepository->findAllAndIdTypeUser($_GET['id'], $type);
 $usersRepository = new UsersRepository();
 $tous_article = $articleRepository->findAllAndTypeUserNoId($type, $_GET["id"]);
 ?>

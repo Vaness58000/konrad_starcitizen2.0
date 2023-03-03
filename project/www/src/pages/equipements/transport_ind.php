@@ -109,8 +109,7 @@ $vaisseau = $vaisseauRepository->findAllId($_GET['id']);
 <table>
   <tr>
     <th>constructeur</th>
-    <th><?php //$vaisseau['constructeur'] 
-        ?></th>
+    <th></th>
   </tr>
   <tr>
     <td>Prix</td>
@@ -118,7 +117,7 @@ $vaisseau = $vaisseauRepository->findAllId($_GET['id']);
   </tr>
   <tr>
     <td>Disponibilité</td>
-    <td><?php //$vaisseau['disponibilite'] 
+    <td><?= $construct['nom_disponible'] 
         ?></td>
   </tr>
   <tr>

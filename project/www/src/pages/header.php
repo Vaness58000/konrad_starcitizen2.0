@@ -66,8 +66,10 @@
             <label for="show-guide" class="radio">Guide</label>
             <ul class="deroulant">
               <li><a class="radio" href="./?ind=equipements">Equipements</a></li>
+              <li><a class="radio" href="./?ind=constructeur">Constructeur</a></li>
               <li><a class="radio" href="./?ind=lieux">Lieux</a></li>
               <li><a class="radio" href="./?ind=especes">Espèces</a></li>
+              
             </ul>
           </li>
           <li>

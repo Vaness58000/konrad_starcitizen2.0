@@ -69,7 +69,7 @@ if (!class_exists('ArticleRepository')) {
         public function findAllAndTypeUserId(int $id, int $type):array {
             $sql = 'SELECT *, articles.id AS id_article FROM articles '.
                     'INNER JOIN utilisateurs ON utilisateurs.id_user = articles.id_user '.
-                    'WHERE articles.id=:id AND articles.id_categorie_article=:id_categorie_article';
+                    'WHERE utilisateurs.id_user=:id AND articles.id_categorie_article=:id_categorie_article';
             return $this->setSql($sql)
                         ->setParamInt(":id", $id)
                         ->setParamInt(":id_categorie_article", $type)
@@ -221,6 +221,7 @@ if (!class_exists('ArticleRepository')) {
         /**
          * Recuperer toutes les donnees visibles de la table
          */
+        
         public function findIdTypeArticle(string $name):int {
             $tab_type = $this->setSql('SELECT * FROM categories_articles WHERE nom=:nom')->setParam(":nom", $name)->fetchAssoc();
             if(!(!empty($tab_type) && array_key_exists("id_categorie_article", $tab_type) && !empty($tab_type["id_categorie_article"]))) {

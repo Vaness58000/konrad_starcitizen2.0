@@ -40,6 +40,12 @@ if (!class_exists('ConstructeurRepository')) {
                 ->setParamInt(":id_const", $id)->fetchAssoc();
         }
 
+        public function findAllAndIdConstructeur($id):array {
+            return $this->setSql('SELECT * FROM constructeur '.
+                'WHERE constructeur.id_constructeur=:id_const')
+                ->setParamInt(":id_const", $id)->fetchAssoc();
+        }
+
         /**
          * Recuperer toutes les donnees visibles de la table
          */
