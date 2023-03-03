@@ -30,6 +30,10 @@ $ispro = "";
 $id_lieux = 0;
 $list_lieu = "";
 
+if(!empty($_POST) && array_key_exists("id", $_POST) && !empty($_POST["id"])) {
+    $id_lieux = $_POST["id"];
+}
+
 $lieuxRepository = new LieuxRepository();
 $lieu_base = $lieuxRepository->findAllOrder(true);
 if(!empty($lieu_base)) {
@@ -45,5 +49,5 @@ $templatePage->addVarString("[#CITIZEN_DIALOG_ISPRO#]", $ispro);
 if($error_Log->isError()) {
     header("Status: 500");
 }else {
-    echo "true[#CITIZEN-DATE#]".$templatePage->html();
+    echo "true[#CITIZEN-DATE#]".print_r($_POST, true).$templatePage->html();
 }
