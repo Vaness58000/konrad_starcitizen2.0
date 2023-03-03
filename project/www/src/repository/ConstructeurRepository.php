@@ -22,6 +22,16 @@ if (!class_exists('ConstructeurRepository')) {
             return $this->setSql('SELECT * FROM constructeur')->fetchAllAssoc();
         }
 
+
+        public function findAllOrder(bool $orderName = false):array {
+            $order = "constructeur.id_constructeur DESC";
+            if($orderName) {
+                $order = "constructeur.nom";
+            }
+            return $this->setSql('SELECT * FROM constructeur '.
+                'INNER JOIN utilisateurs ON utilisateurs.id_user = constructeur.id_user ORDER BY '.$order)->fetchAllAssoc();
+        }
+
         /**
          * Recuperer toutes les donnees visibles de la table
          */

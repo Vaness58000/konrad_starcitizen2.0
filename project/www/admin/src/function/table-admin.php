@@ -35,7 +35,18 @@ if(!function_exists('addImg')) {
         return $add_img;
     }
 }
-
+if(!function_exists('addImgAndPrinc')) {
+    function addImgAndPrinc(int $id, ?string $nom_folder, ?string $src, ?string $alt, int $id_img_main = 0):?string {
+        $checked = ($id == $id_img_main) ? " checked": "";
+        $add_img = '<div id="divAddImg_'.$id.'" class="addimg multiple-img">'.
+                '<input type="radio" id="img-'.$id.'" name="img-princ" class="img-princ" value="img-'.$id.'"'.$checked.' />'.
+                '<label class="img-main" for="img-'.$id.'" ><img src="./src/images/award-fill.svg" alt="main image" /></label>'.
+                '<img class="obj img-slide-presentation" name="file_'.$id.'" id="img_'.$id.'" src="./../upload/'.$nom_folder.'/'.$src.'" alt="'.$alt.'" />'.
+                '<img src="./src/images/trash3-fill.svg" alt="delete image" class="delete_image delete_img delete-multiple-img" id="delete_img_'.$id.'" />'.
+            '</div>';
+        return $add_img;
+    }
+}
 if(!function_exists('addOptionRole')) {
     function addOptionRole(int $id, ?string $nom, int $id_role_user = 0):?string {
         $selected = (!empty($id_role_user)) ? (($id==$id_role_user) ? " selected" : "") : "";

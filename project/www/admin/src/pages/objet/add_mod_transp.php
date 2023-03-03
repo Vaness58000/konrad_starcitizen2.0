@@ -4,6 +4,9 @@ include __DIR__.'/../../../../src/repository/TransportRepository.php';
 include __DIR__.'/../../../../src/repository/ConstructeurRepository.php';
 include __DIR__.'/../../function/table-admin.php';
 include __DIR__.'/../../../../src/repository/UsersRepository.php';
+include __DIR__.'/../../../../src/repository/categories/CatTranspRepository.php';
+include __DIR__.'/../../../../src/repository/categories/CatDispRepository.php';
+include __DIR__.'/../../../../src/repository/categories/CatTypeTranspRepository.php';
 // si la session existe pas soit si l'on est pas connecté on redirige
 if (!(!empty($_SESSION) && array_key_exists('utilisateur', $_SESSION) && !empty($_SESSION['utilisateur']) && 
     array_key_exists('id', $_SESSION['utilisateur']) && !empty($_SESSION['utilisateur']['id']))) {
@@ -70,10 +73,16 @@ if (!empty($_GET) && array_key_exists('id', $_GET) && !empty($_GET['id'])) {
         $id_construct = intval($objet['id_construct']);
         $validation = (intval($objet['validation']) == 1);
 
+        $id_img_main = 0;
+        $img_main = $objetRepository->imagePrincipale(intval($_GET['id']));
+        if(!empty($img_main)) {
+            $id_img_main = $img_main["id_image_obj"];
+        }
+
         $imgs = $objetRepository->findAllImgObj($id_obj);
         if(!empty($imgs)) {
             foreach ($imgs as $value) {
-                $all_img .= "\n".addImg($value['id_image_obj'], 'transport', $value['src'], $value['alt']);
+                $all_img .= "\n".addImgAndPrinc($value['id_image_obj'], 'transport', $value['src'], $value['alt'], $id_img_main);
             }
         }
 
@@ -87,36 +96,35 @@ if (!empty($_GET) && array_key_exists('id', $_GET) && !empty($_GET['id'])) {
         $lieux = $objetRepository->findAllIdAndLieux(intval($objet['id_transp']));
         if(!empty($lieux)) {
             foreach ($lieux as $value) {
-                $tab_lieu .= "\n".addTdTabSupl($value['id_lieu'], $value['nom_lieu'], 'lieux');
+                $tab_lieu .= "\n".addTdTabSupl($value['id_lieu'], $value['nom_lieu'], 'lieu');
             }
         }
 
         $forces = $objetRepository->findAllIdAndForce(intval($objet['id_transp']));
         if(!empty($forces)) {
             foreach ($forces as $value) {
-                $tab_force .= "\n".addTdTabSupl($value['id_transp_forces'], $value['nom_force'], 'forces');
+                $tab_force .= "\n".addTdTabSupl($value['id_transp_forces'], $value['nom_force'], 'force');
             }
         }
 
         $faibls = $objetRepository->findAllIdAndFaibl(intval($objet['id_transp']));
         if(!empty($faibls)) {
             foreach ($faibls as $value) {
-                $tab_faibl .= "\n".addTdTabSupl($value['id_transp_faibl'], $value['nom_faiblesse'], 'faiblesses');
+                $tab_faibl .= "\n".addTdTabSupl($value['id_transp_faibl'], $value['nom_faiblesse'], 'faibl');
             }
         }
 
         $equipems = $objetRepository->findAllIdAndEquipem(intval($objet['id_transp']));
         if(!empty($equipems)) {
             foreach ($equipems as $value) {
-                $tab_equipem .= "\n".addTdTabSupl($value['id_transp_equip'], $value['nom'], 'equipement');
+                $tab_equipem .= "\n".addTdTabSupl($value['id_transp_equip'], $value['nom'], 'equip');
             }
         }
 
         $list_arm = $objetRepository->findAllIdAndArmement(intval($objet['id_transp']));
-        var_dump(intval($objet['id_transp']));
         if(!empty($list_arm)) {
             foreach ($list_arm as $value) {
-                $tab_arm .= "\n".addTdTabSupl($value['id_transport_arm'], $value['nom_obj'], 'armements');
+                $tab_arm .= "\n".addTdTabSupl($value['id_transport_arm'], $value['nom_obj'], 'arm');
             }
         }
     }
@@ -134,21 +142,24 @@ if ($isProprietaire) {
     $isModif = "";
 }
 
-$disp_list = $objetRepository->findListDisp();
+$catDispRepository = new CatDispRepository();
+$disp_list = $catDispRepository->findAllOrder(true);
 if(!empty($disp_list)) {
     foreach ($disp_list as $value) {
         $disp .= "\n".addOptionCat($value['id_disponibilite'], $value['nom_disponible'], $id_disp);
     }
 }
 
-$cat_list = $objetRepository->findListCat();
+$catTranspRepository = new CatTranspRepository();
+$cat_list = $catTranspRepository->findAllOrder(true);
 if(!empty($cat_list)) {
     foreach ($cat_list as $value) {
         $cat .= "\n".addOptionCat($value['id_transport'], $value['nom'], $id_cat);
     }
 }
 
-$type_list = $objetRepository->findListType();
+$catTypeTranspRepository = new CatTypeTranspRepository();
+$type_list = $catTypeTranspRepository->findAllOrder(true);
 if(!empty($type_list)) {
     foreach ($type_list as $value) {
         $type .= "\n".addOptionCat($value['id_type'], $value['nom'], $id_type);
@@ -156,7 +167,7 @@ if(!empty($type_list)) {
 }
 
 $constructeurRepository = new ConstructeurRepository();
-$constructeurs = $constructeurRepository->findAll();
+$constructeurs = $constructeurRepository->findAllOrder(true);
 if(!empty($constructeurs)) {
     foreach ($constructeurs as $value) {
         $construct .= "\n".addOptionCat($value['id_constructeur'], $value['nom'], $id_construct);
@@ -191,9 +202,13 @@ $templatePage->addVarString("[#CITIZEN_TRANSP_TAB_EQUIPEM#]", $tab_equipem);
 $templatePage->addVarString("[#CITIZEN_TRANSP_TAB_EQUIPEM#]", $tab_equipem);
 $templatePage->addVarString("[#CITIZEN_TRANSP_TAB_ARM#]", $tab_arm);
 
+$templatePage->addFileCss("./src/css/style_dialog.css");
+
 $templatePage->addFileJs("./src/js/articles.js");
 $templatePage->addFileJs("./src/js/all_img_user.js");
 $templatePage->addFileJs("./src/js/ad_mod.js");
+$templatePage->addFileJs("./src/js/dialog/dialog_main.js");
+$templatePage->addFileJs("./src/js/tab_add.js");
 
 /*$js = $templatePage->js();
 $css = $templatePage->css();

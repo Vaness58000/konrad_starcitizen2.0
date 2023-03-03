@@ -4,6 +4,7 @@ include __DIR__.'/../../../../src/repository/ArmeVaissRepository.php';
 include __DIR__.'/../../function/table-admin.php';
 include __DIR__.'/../../../../src/repository/UsersRepository.php';
 include __DIR__.'/../../../../src/repository/ConstructeurRepository.php';
+include __DIR__.'/../../../../src/repository/categories/CatTailleRepository.php';
 // si la session existe pas soit si l'on est pas connecté on redirige
 if (!(!empty($_SESSION) && array_key_exists('utilisateur', $_SESSION) && !empty($_SESSION['utilisateur']) && 
     array_key_exists('id', $_SESSION['utilisateur']) && !empty($_SESSION['utilisateur']['id']))) {
@@ -48,10 +49,16 @@ if (!empty($_GET) && array_key_exists('id', $_GET) && !empty($_GET['id'])) {
         $isProprietaire = $objet['id_user'] == $id;
         $validation = (intval($objet['validation']) == 1);
 
+        $id_img_main = 0;
+        $img_main = $objetRepository->imagePrincipale(intval($_GET['id']));
+        if(!empty($img_main)) {
+            $id_img_main = $img_main["id_image_obj"];
+        }
+
         $imgs = $objetRepository->findAllImgObj($id_obj);
         if(!empty($imgs)) {
             foreach ($imgs as $value) {
-                $all_img .= "\n".addImg($value['id_image_obj'], 'armement_vaiss', $value['src'], $value['alt']);
+                $all_img .= "\n".addImgAndPrinc($value['id_image_obj'], 'armement_vaiss', $value['src'], $value['alt'], $id_img_main);
             }
         }
 
@@ -70,7 +77,7 @@ if (!empty($_GET) && array_key_exists('id', $_GET) && !empty($_GET['id'])) {
                 if(!empty($couleur)) {
                     $lieu .= " / ".$couleur;
                 }
-                $tab_lieu .= "\n".addTdTabSupl($value['id_lieu'], $lieu, 'lieux');
+                $tab_lieu .= "\n".addTdTabSupl($value['id_lieu'], $lieu, 'lieu');
             }
         }
     }
@@ -88,7 +95,8 @@ if ($isProprietaire) {
     $isModif = "";
 }
 
-$tailles = $objetRepository->findListTaille();
+$catTailleRepository = new CatTailleRepository();
+$tailles = $catTailleRepository->findAllOrder(true);
 if(!empty($tailles)) {
     foreach ($tailles as $value) {
         $taille .= "\n".addOptionCat($value['id'], $value['taille'], $id_taille);
@@ -96,7 +104,7 @@ if(!empty($tailles)) {
 }
 
 $constructeurRepository = new ConstructeurRepository();
-$constructeurs = $constructeurRepository->findAll();
+$constructeurs = $constructeurRepository->findAllOrder(true);
 if(!empty($constructeurs)) {
     foreach ($constructeurs as $value) {
         $const .= "\n".addOptionCat($value['id_constructeur'], $value['nom'], $id_const);
@@ -118,9 +126,13 @@ $templatePage->addVarString("[#CITIZEN_ARM_VAISS_ID#]", $id_obj);
 $templatePage->addVarString("[#CITIZEN_ARM_VAISS_TAILLE#]", $taille);
 $templatePage->addVarString("[#CITIZEN_ARM_VAISS_CONST#]", $const);
 
+$templatePage->addFileCss("./src/css/style_dialog.css");
+
 $templatePage->addFileJs("./src/js/articles.js");
 $templatePage->addFileJs("./src/js/all_img_user.js");
 $templatePage->addFileJs("./src/js/ad_mod.js");
+$templatePage->addFileJs("./src/js/dialog/dialog_main.js");
+$templatePage->addFileJs("./src/js/tab_add.js");
 
 /*$js = $templatePage->js();
 $css = $templatePage->css();

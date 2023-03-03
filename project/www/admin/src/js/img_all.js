@@ -18,8 +18,12 @@ function form_delete_click_img() {
     });
 }
 
-function addFileImg(file) {
-    let preview = document.getElementById("add_img");
+function addFileImg(file, nameIdAllImg, nameFile) {
+    let preview = document.getElementById(nameIdAllImg);
+    let addChoiceMain = false;
+    if(preview.classList.contains("img-and-main")) {
+        addChoiceMain = true;
+    }
     let imageType = /^image\//;
     
     if (!imageType.test(file.type)) {
@@ -51,9 +55,7 @@ function addFileImg(file) {
     };
 
     let imgSrcDel = "./src/images/trash3-fill.svg";
-    /*let page = window.location.href.split("?")[0].split("#")[0];
-    imgSrcDel = imgSrcDel.replace('./', page);
-    console.log(window.location.href.split("?")[0].split("#")[0]);*/
+    let imgSrcMain = "./src/images/award-fill.svg";
 
     var imgDelete = document.createElement("img");
     imgDelete.classList.add("delete_image");
@@ -66,9 +68,28 @@ function addFileImg(file) {
 
     var input = document.createElement("input");
     input.type = "hidden";
-    input.setAttribute("name","file_"+nb_photo_gener);
-    input.setAttribute("id","file_"+nb_photo_gener);
+    input.setAttribute("name",nameFile+nb_photo_gener);
+    input.setAttribute("id",nameFile+nb_photo_gener);
     divimg.appendChild(input);
+
+    if(addChoiceMain) {
+        var input = document.createElement("input");
+        input.type = "radio";
+        input.classList.add("img-princ");
+        input.setAttribute("name","img-princ");
+        input.setAttribute("id","imgMain_"+nb_photo_gener);
+        input.setAttribute("value","imgMain_"+nb_photo_gener);
+        divimg.appendChild(input);
+
+        var labelImgMain = document.createElement("label");
+        labelImgMain.classList.add("img-main");
+        labelImgMain.setAttribute("for","imgMain_"+nb_photo_gener);
+        divimg.appendChild(labelImgMain);
+
+        var imgMain = document.createElement("img");
+        imgMain.src = imgSrcMain;
+        labelImgMain.appendChild(imgMain);
+    }
 
     var reader = new FileReader();
     reader.onload = (function(aImg, detail_img, input_img) {
@@ -85,7 +106,7 @@ function addFileImg(file) {
     nb_photo_gener++;
 }
 
-function loadFilesImgAll(event) {
+function loadFilesImgAll(event, nameIdAllImg, nameFile) {
     let files = event.target.files;
     for (var i = 0; i < files.length; i++) {
         var file = files[i];
@@ -95,7 +116,7 @@ function loadFilesImgAll(event) {
             continue;
         }
 
-        addFileImg(file);
+        addFileImg(file, nameIdAllImg, nameFile);
     }
 }
 
@@ -141,7 +162,20 @@ function deleteImgServ(e, id) {
 }
 
 document.querySelectorAll("#fileToUploadAll").forEach(element => {
-    element.addEventListener('change', loadFilesImgAll);
+    element.addEventListener('change', function(e) {
+        let nameIdAllImg = "add_img";
+        let nameFile = "fileImg_";
+        loadFilesImgAll(e, nameIdAllImg, nameFile);
+    });
+    form_delete_click_img();
+});
+
+document.querySelectorAll("#fileToUploadAll-add").forEach(element => {
+    element.addEventListener('change', function(e) {
+        let nameIdAllImg = "all-img-add";
+        let nameFile = "fileImgInfo_";
+        loadFilesImgAll(e, nameIdAllImg, nameFile);
+    });
     form_delete_click_img();
 });
 

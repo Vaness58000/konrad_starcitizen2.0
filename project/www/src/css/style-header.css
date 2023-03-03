@@ -39,6 +39,9 @@ html {
     --transparent-color: transparent;
 }
 
+body {
+    min-width: 320px;
+}
 
 /*effet de bouton radio lumineux début*/
 .radio,

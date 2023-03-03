@@ -28,3 +28,4 @@ document.querySelectorAll("#validation-form").forEach(element => {
 document.querySelectorAll("#annuler-form").forEach(element => {
     element.addEventListener("click", add_form_annuler);
 });
+

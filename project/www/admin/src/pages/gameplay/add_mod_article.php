@@ -3,6 +3,7 @@ include __DIR__.'/../../../../src/class/classMain/TemplatePage.php';
 include __DIR__.'/../../../../src/repository/ArticleRepository.php';
 include __DIR__.'/../../function/table-admin.php';
 include __DIR__.'/../../../../src/repository/UsersRepository.php';
+include __DIR__.'/../../../../src/repository/categories/CatArticlesRepository.php';
 // si la session existe pas soit si l'on est pas connecté on redirige
 if (!(!empty($_SESSION) && array_key_exists('utilisateur', $_SESSION) && !empty($_SESSION['utilisateur']) && 
     array_key_exists('id', $_SESSION['utilisateur']) && !empty($_SESSION['utilisateur']['id']))) {
@@ -77,7 +78,8 @@ if ($isProprietaire) {
 $modif_check = ($validation) ? " checked" : "";
 $modif_check .= ($isAdmin) ? "" : " disabled";
 
-$category = $articleRepository->findAllCat();
+$catArticlesRepository = new CatArticlesRepository();
+$category = $catArticlesRepository->findAllOrder(true);
 if(!empty($category)) {
     foreach ($category as $value) {
         $categorieList .= "\n".addOptionCat($value['id_categorie_article'], $value['nom'], $categorie);
@@ -96,9 +98,15 @@ $templatePage->addVarString("[#CITIZEN_ARTI_ISPRO#]", $isModif);
 $templatePage->addVarString("[#CITIZEN_ARTI_ID#]", $id_article);
 $templatePage->addVarString("[#CITIZEN_ARTI_TAB_GPLAY_TYPE#]", $gplay_type);
 
+
+$templatePage->addFileCss("./src/css/style_dialog.css");
+
 $templatePage->addFileJs("./src/js/articles.js");
 $templatePage->addFileJs("./src/js/all_img_user.js");
 $templatePage->addFileJs("./src/js/ad_mod.js");
+$templatePage->addFileJs("./src/js/dialog/dialog_main.js");
+$templatePage->addFileJs("./src/js/tab_add.js");
+$templatePage->addFileJs("./src/js/tab_form.js");
 
 /*$js = $templatePage->js();
 $css = $templatePage->css();

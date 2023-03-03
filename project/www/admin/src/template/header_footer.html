@@ -217,6 +217,20 @@
         <p>2023 - Communnauté Star Citizen France</p>
       </div>
     </footer>
+
+    <style>
+      
+  </style>
+  <dialog id="dialog">
+      <form class="admin-contenu" id="dialog-form" method="post">
+        <input type="hidden" name="id" id="id-dialog-form" value="0" />
+        <button class="close-dialog"><img src="./src/images/x-circle.svg" alt="fermer le dialog"></button>
+        <div class="two-column admin-contenu" id="contenu-dialog-form">
+        </div>
+        <button class="two-column sauvegarde validation-dialog">Valider</button>
+      </form>
+  </dialog>
+  
     <script
       src="https://kit.fontawesome.com/3cff230019.js"
       crossorigin="anonymous"
@@ -254,6 +268,9 @@
       <script src="./src/js/page_admin.js"></script>
       <script src="./../src/js/script.js"></script>
       <script src="./../src/js/le_fetch.js"></script>
+      <script src="./src/js/dialog/dialog_main_header.js"></script>
+      <script src="./src/js/tab_form.js"></script>
+      <script src="./src/js/img-icon.js"></script>
       <script src="https://cdn.jsdelivr.net/npm/sceditor@3/minified/sceditor.min.js"></script>
       <script>
         /*document.querySelectorAll(".text-bbcode").forEach(element => {
@@ -265,7 +282,6 @@
           });
         });*/
         </script>[#CITIZEN_INDEX_JS#]
-        <script src="./src/js/img-icon.js"></script>
         <script src="./src/js/add_img.js"></script>
         <script src="./src/js/img_all.js"></script>
   </body>

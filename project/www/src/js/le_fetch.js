@@ -57,7 +57,7 @@ function data(data) {
  * @returns ajax fetch apres execution de la page php
  */
 function fetch_post(url, dataArray) {
-    let dataObject = this.data(dataArray);
+    let dataObject = data(dataArray);
     return fetch(url, {
              method: "post",
              headers: {
@@ -77,7 +77,7 @@ function fetch_post(url, dataArray) {
  * @returns ajax fetch apres execution de la page php
  */
 function fetch_get(url, dataArray) {
-    let dataObject = this.data(dataArray);
+    let dataObject = data(dataArray);
     return fetch(url, {
              method: "get",
              headers: {

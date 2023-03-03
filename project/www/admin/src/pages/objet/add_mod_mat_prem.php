@@ -3,6 +3,7 @@ include __DIR__.'/../../../../src/class/classMain/TemplatePage.php';
 include __DIR__.'/../../../../src/repository/MatierePremiereRepository.php';
 include __DIR__.'/../../function/table-admin.php';
 include __DIR__.'/../../../../src/repository/UsersRepository.php';
+include __DIR__.'/../../../../src/repository/categories/CatMatPremRepository.php';
 // si la session existe pas soit si l'on est pas connecté on redirige
 if (!(!empty($_SESSION) && array_key_exists('utilisateur', $_SESSION) && !empty($_SESSION['utilisateur']) && 
     array_key_exists('id', $_SESSION['utilisateur']) && !empty($_SESSION['utilisateur']['id']))) {
@@ -43,10 +44,16 @@ if (!empty($_GET) && array_key_exists('id', $_GET) && !empty($_GET['id'])) {
         $isProprietaire = $objet['id_user'] == $id;
         $validation = (intval($objet['validation']) == 1);
 
+        $id_img_main = 0;
+        $img_main = $objRepository->imagePrincipale(intval($_GET['id']));
+        if(!empty($img_main)) {
+            $id_img_main = $img_main["id_image_obj"];
+        }
+
         $imgs = $objRepository->findAllImgObj($id_obj);
         if(!empty($imgs)) {
             foreach ($imgs as $value) {
-                $all_img .= "\n".addImg($value['id_image_obj'], 'mat_prem', $value['src'], $value['alt']);
+                $all_img .= "\n".addImgAndPrinc($value['id_image_obj'], 'mat_prem', $value['src'], $value['alt'], $id_img_main);
             }
         }
 
@@ -60,7 +67,7 @@ if (!empty($_GET) && array_key_exists('id', $_GET) && !empty($_GET['id'])) {
         $lieux = $objRepository->findAllIdAndLieux(intval($objet['id_mat_prem']));
         if(!empty($lieux)) {
             foreach ($lieux as $value) {
-                $tab_lieu .= "\n".addTdTabSupl($value['id'], $value['nom_lieu'], 'lieux');
+                $tab_lieu .= "\n".addTdTabSupl($value['id'], $value['nom_lieu'], 'lieu');
             }
         }
     }
@@ -78,7 +85,8 @@ if ($isProprietaire) {
     $isModif = "";
 }
 
-$mat_prem_cat_list = $objRepository->findListCat();
+$catMatPremRepository = new CatMatPremRepository();
+$mat_prem_cat_list = $catMatPremRepository->findAllOrder(true);
 if(!empty($mat_prem_cat_list)) {
     foreach ($mat_prem_cat_list as $value) {
         $cat .= "\n".addOptionCat($value['id'], $value['nom'], $id_cat);
@@ -99,9 +107,13 @@ $templatePage->addVarString("[#CITIZEN_MAT_PRE_IMG#]", $all_img);
 $templatePage->addVarString("[#CITIZEN_MAT_PRE_ISPRO#]", $isModif);
 $templatePage->addVarString("[#CITIZEN_MAT_PRE_ID#]", $id_obj);
 
+$templatePage->addFileCss("./src/css/style_dialog.css");
+
 $templatePage->addFileJs("./src/js/articles.js");
 $templatePage->addFileJs("./src/js/all_img_user.js");
 $templatePage->addFileJs("./src/js/ad_mod.js");
+$templatePage->addFileJs("./src/js/dialog/dialog_main.js");
+$templatePage->addFileJs("./src/js/tab_add.js");
 
 /*$js = $templatePage->js();
 $css = $templatePage->css();
