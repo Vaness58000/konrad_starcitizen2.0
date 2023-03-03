@@ -126,9 +126,12 @@ $templatePage->addVarString("[#CITIZEN_ARM_VAISS_ID#]", $id_obj);
 $templatePage->addVarString("[#CITIZEN_ARM_VAISS_TAILLE#]", $taille);
 $templatePage->addVarString("[#CITIZEN_ARM_VAISS_CONST#]", $const);
 
+$templatePage->addFileCss("./src/css/style_dialog.css");
+
 $templatePage->addFileJs("./src/js/articles.js");
 $templatePage->addFileJs("./src/js/all_img_user.js");
 $templatePage->addFileJs("./src/js/ad_mod.js");
+$templatePage->addFileJs("./src/js/dialog/dialog_main.js");
 $templatePage->addFileJs("./src/js/tab_add.js");
 
 /*$js = $templatePage->js();

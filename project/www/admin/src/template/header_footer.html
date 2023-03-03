@@ -219,61 +219,15 @@
     </footer>
 
     <style>
-      #dialog-lieu {
-          background-color: black;
-          width: 280px;
-          max-width: 280px;
-          padding: 15px;
-          color: white;
-          border-radius: 20px;
-          left: 50%;
-          top: 5%;
-      }
+      
   </style>
-  <dialog id="dialog-lieu">
-      <form id="dialog-form" method="post">
-        <div class="two-column admin-title"><h1>Armement FPS</h1></div>
-      <input type="hidden" name="id" value="[#CITIZEN_ADD_INFO_ID#]" />
-      <div class="two-column add-list-img">
-        <div id="add-all-img-add">
-            <input
-            type="File"
-            name="fileToUploadAll[]"
-            id="fileToUploadAll-add"
-            accept="image/png, image/jpeg"
-            multiple
-            />
-            <figure id="all-img-add">
-                <label for="fileToUploadAll">
-                    <img src="./src/images/plus-square-dotted.svg" alt="add img" id="img-add" class="img-add" />
-                </label>
-                <figure id="add_img" class="drop_img">
-                    [#CITIZEN_ADD_INFO_IMG#]
-                </figure>
-            </figure>
+  <dialog id="dialog">
+      <form class="admin-contenu" id="dialog-form" method="post">
+        <input type="hidden" name="id" id="id-dialog-form" value="0" />
+        <button class="close-dialog"><img src="./src/images/x-circle.svg" alt="fermer le dialog"></button>
+        <div class="two-column admin-contenu" id="contenu-dialog-form">
         </div>
-      </div>
-      <label for="nom">nom</label
-      ><input
-        type="text"
-        name="nom"
-        id="nom-add"
-        value="[#CITIZEN_ADD_INFO_NOM#]"
-        class="input-admin"
-        [#CITIZEN_ADD_INFO_ISPRO#]
-      />
-      <label for="categorie-select">catégorie</label>
-      <label for="contenu">contenu</label
-      ><textarea
-        name="contenu"
-        id="contenu-add"
-        cols="30"
-        rows="10"
-        class="input-admin text-bbcode"
-        [#CITIZEN_ADD_INFO_ISPRO#]
-      >
-[#CITIZEN_ADD_INFO_CONTENU#]</textarea
-      >
+        <button class="two-column sauvegarde validation-dialog">Valider</button>
       </form>
   </dialog>
   
@@ -314,7 +268,9 @@
       <script src="./src/js/page_admin.js"></script>
       <script src="./../src/js/script.js"></script>
       <script src="./../src/js/le_fetch.js"></script>
-      <script src="./src/js/tab_add_header.js"></script>
+      <script src="./src/js/dialog/dialog_main_header.js"></script>
+      <script src="./src/js/tab_form.js"></script>
+      <script src="./src/js/img-icon.js"></script>
       <script src="https://cdn.jsdelivr.net/npm/sceditor@3/minified/sceditor.min.js"></script>
       <script>
         /*document.querySelectorAll(".text-bbcode").forEach(element => {
@@ -326,7 +282,6 @@
           });
         });*/
         </script>[#CITIZEN_INDEX_JS#]
-        <script src="./src/js/img-icon.js"></script>
         <script src="./src/js/add_img.js"></script>
         <script src="./src/js/img_all.js"></script>
   </body>

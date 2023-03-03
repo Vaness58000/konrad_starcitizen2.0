@@ -98,10 +98,15 @@ $templatePage->addVarString("[#CITIZEN_ARTI_ISPRO#]", $isModif);
 $templatePage->addVarString("[#CITIZEN_ARTI_ID#]", $id_article);
 $templatePage->addVarString("[#CITIZEN_ARTI_TAB_GPLAY_TYPE#]", $gplay_type);
 
+
+$templatePage->addFileCss("./src/css/style_dialog.css");
+
 $templatePage->addFileJs("./src/js/articles.js");
 $templatePage->addFileJs("./src/js/all_img_user.js");
 $templatePage->addFileJs("./src/js/ad_mod.js");
+$templatePage->addFileJs("./src/js/dialog/dialog_main.js");
 $templatePage->addFileJs("./src/js/tab_add.js");
+$templatePage->addFileJs("./src/js/tab_form.js");
 
 /*$js = $templatePage->js();
 $css = $templatePage->css();
