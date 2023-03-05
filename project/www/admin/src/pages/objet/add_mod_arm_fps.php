@@ -83,7 +83,7 @@ if (!empty($_GET) && array_key_exists('id', $_GET) && !empty($_GET['id'])) {
                 if(!empty($couleur)) {
                     $lieu .= " / ".$couleur;
                 }
-                $tab_lieu .= "\n".addTdTabSupl($value['id_lieu'], $lieu, 'lieu');
+                $tab_lieu .= "\n".addTdTabSupl($value['id_lieu_arm'], $lieu, 'lieu', $value['id_lieu_arm']);
             }
         }
     }
@@ -137,7 +137,7 @@ $templatePage->addVarString("[#CITIZEN_ARM_FPS_PERTE#]", $perte);
 
 $templatePage->addFileCss("./src/css/style_dialog.css");
 
-$templatePage->addFileJs("./src/js/articles.js");
+$templatePage->addFileJs("./src/js/arm_fps.js");
 $templatePage->addFileJs("./src/js/all_img_user.js");
 $templatePage->addFileJs("./src/js/ad_mod.js");
 $templatePage->addFileJs("./src/js/dialog/dialog_main.js");

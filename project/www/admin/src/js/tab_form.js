@@ -1,7 +1,7 @@
 function form_list(idForm) {
     let tab = [];
     document.getElementById(idForm).querySelectorAll("[name]").forEach(element => {
-        tab[element.getAttribute("name")] = (element.getAttribute("value") == undefined) ? "" : element.getAttribute("value");
+        tab[element.getAttribute("name")] = (element.value == undefined) ? "" : element.value;
     });
     return tab;
 }

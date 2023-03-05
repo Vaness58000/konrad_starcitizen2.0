@@ -71,9 +71,12 @@ if(!function_exists('addTdUserMain')) {
     }
 }
 if(!function_exists('addTdTabSupl')) {
-    function addTdTabSupl(int $id, ?string $nom, ?string $nom_tab):?string {
+    function addTdTabSupl(int $id, ?string $nom, ?string $nom_tab, int $id_show = 0):?string {
+        if(empty($id_show)) {
+            $id_show = $id;
+        }
         return '<tr id="'.$nom_tab.'id-'.$id.'">'.
-                    '<td>'.$nom.'</td>'.
+                    '<td><input type="hidden" name="show-id" class="show-id" value="'.$id_show.'" />'.$nom.'</td>'.
                     '<td class="td-admin img-modif"><img src="./src/images/pencil-fill.svg" alt=""></td>'.
                     '<td class="td-admin img-delete"><img src="./src/images/trash3-fill.svg" alt=""></td>'.
                 '</tr>';

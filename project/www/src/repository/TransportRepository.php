@@ -90,7 +90,7 @@ if (!class_exists('TransportRepository')) {
         }
 
         public function findAllIdAndLieux(int $id):array {
-            $sql = 'SELECT *, objet.id AS id_lieu, objet.nom AS nom_lieu FROM objet '.
+            $sql = 'SELECT *, transport_lieu.id AS id_transp_lieu, objet.id AS id_obj, objet.nom AS nom_lieu FROM objet '.
                     'INNER JOIN lieux ON lieux.id_objet = objet.id '.
                     'LEFT JOIN transport_lieu ON lieux.id_lieu = transport_lieu.id_lieu '.
                     'INNER JOIN utilisateurs ON utilisateurs.id_user = objet.id_user '.
@@ -119,7 +119,7 @@ if (!class_exists('TransportRepository')) {
         }
 
         public function findAllIdAndEquipem(int $id):array {
-            $sql = 'SELECT *, transp_equip.id AS id_transp_equip FROM equipement '.
+            $sql = 'SELECT *, equipement.id AS id_equipem, transp_equip.id AS id_transp_equip FROM equipement '.
                     'INNER JOIN transp_equip ON transp_equip.id_equip = equipement.id '.
                     'WHERE transp_equip.id_transp=:id ORDER BY transp_equip.id DESC';
             return $this->setSql($sql)

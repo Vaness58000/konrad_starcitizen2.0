@@ -137,7 +137,7 @@ if (!class_exists('ArmeFpsRepository')) {
             if($orderName) {
                 $order = "objet.nom";
             }
-            $sql = 'SELECT *, couleur.nom AS nom_couleur, objet.id AS id_lieu, arm_lieu.id AS id_lieu, objet.nom AS nom_lieu FROM objet '.
+            $sql = 'SELECT *, couleur.nom AS nom_couleur, objet.id AS id_obj, arm_lieu.id AS id_lieu_arm, objet.nom AS nom_lieu FROM objet '.
                     'INNER JOIN lieux ON lieux.id_objet = objet.id '.
                     'INNER JOIN arm_lieu ON arm_lieu.id_lieu = lieux.id_lieu '.
                     'LEFT JOIN construct_arm ON arm_lieu.id_arm = construct_arm.id_arm '.

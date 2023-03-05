@@ -99,7 +99,7 @@ if (!class_exists('ServicesRepository')) {
         }
 
         public function findAllIdAndLieux(int $id):array {
-            $sql = 'SELECT *, objet.id AS id_lieu, service_lieu.id AS id_serv_lieu, objet.nom AS nom_lieu FROM objet '.
+            $sql = 'SELECT *, objet.id AS id_obj, service_lieu.id AS id_serv_lieu, objet.nom AS nom_lieu FROM objet '.
                     'INNER JOIN lieux ON lieux.id_objet = objet.id '.
                     'INNER JOIN service_lieu ON service_lieu.id_lieu = lieux.id_lieu '.
                     'INNER JOIN utilisateurs ON utilisateurs.id_user = objet.id_user '.

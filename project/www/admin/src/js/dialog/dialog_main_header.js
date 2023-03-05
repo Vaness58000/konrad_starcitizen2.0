@@ -9,15 +9,17 @@ let tab_add_diplom = {};
 let tab_add_contro = {};
 let tab_add_gplayType = {};
 
-let lien_dialog_contenu_info = "";
-let lien_dialog_contenu_force = "";
-let lien_dialog_contenu_faibl = "";
-let lien_dialog_contenu_equip = "";
-let lien_dialog_contenu_arm = "";
-let lien_dialog_contenu_lieu = "";
-let lien_dialog_contenu_diplom = "";
-let lien_dialog_contenu_contro = "";
-let lien_dialog_contenu_gplayType = "";
+
+let lien_dialog_contenu_lieu_arm = "./src/pages/dialogs/lieuArm.php";
+let lien_dialog_contenu_info = "./src/pages/dialogs/info.php";
+let lien_dialog_contenu_force = "./src/pages/dialogs/force.php";
+let lien_dialog_contenu_faibl = "./src/pages/dialogs/faibl.php";
+let lien_dialog_contenu_equip = "./src/pages/dialogs/equipem.php";
+let lien_dialog_contenu_arm = "./src/pages/dialogs/transpArm.php";
+let lien_dialog_contenu_lieu = "./src/pages/dialogs/lieu.php";
+let lien_dialog_contenu_diplom = "./src/pages/dialogs/diplom.php";
+let lien_dialog_contenu_contro = "./src/pages/dialogs/lieu.php";
+let lien_dialog_contenu_gplayType = "./src/pages/dialogs/gplay.php";
 let lien_dialog_exec_info = "";
 let lien_dialog_exec_force = "";
 let lien_dialog_exec_faibl = "";

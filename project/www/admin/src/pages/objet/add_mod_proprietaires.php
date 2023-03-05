@@ -70,7 +70,7 @@ if (!empty($_GET) && array_key_exists('id', $_GET) && !empty($_GET['id'])) {
         $lieux = $objetRepository->findAllIdAndLieux(intval($objet['id_proprietaire']));
         if(!empty($lieux)) {
             foreach ($lieux as $value) {
-                $tab_lieu .= "\n".addTdTabSupl($value['id_proprietaire_lieu'], $value['nom_lieu'], 'lieu');
+                $tab_lieu .= "\n".addTdTabSupl($value['id_proprietaire_lieu'], $value['nom_lieu'], 'lieu', $value['id_lieu']);
             }
         }
     }
@@ -105,7 +105,7 @@ $templatePage->addVarString("[#CITIZEN_PROPR_CAT#]", $categ);
 
 $templatePage->addFileCss("./src/css/style_dialog.css");
 
-$templatePage->addFileJs("./src/js/articles.js");
+$templatePage->addFileJs("./src/js/proprietaires.js");
 $templatePage->addFileJs("./src/js/all_img_user.js");
 $templatePage->addFileJs("./src/js/ad_mod.js");
 $templatePage->addFileJs("./src/js/dialog/dialog_main.js");

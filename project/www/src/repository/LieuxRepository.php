@@ -56,7 +56,7 @@ if (!class_exists('LieuxRepository')) {
          * Recuperer toutes les donnees visibles de la table
          */
         public function findAllCatId(int $id_cat):array {
-            return $this->setSql('SELECT *, lieux.id_lieu AS id_lieu_princ, objet.id AS id_objet, objet.nom AS nom_obj, categories_lieux.nom AS nom_cat FROM objet '.
+            return $this->setSql('SELECT *, lieux_risque.id_lieux AS id_lieu_risque, objet.id AS id_objet, objet.nom AS nom_obj, categories_lieux.nom AS nom_cat FROM objet '.
                     'INNER JOIN lieux ON lieux.id_objet = objet.id '.
                     'LEFT JOIN lieux_risque ON lieux.id_lieu = lieux_risque.id_lieux '.
                     'LEFT JOIN lier_lieu ON lieux.id_lieu = lier_lieu.id_lieu '.
@@ -68,7 +68,7 @@ if (!class_exists('LieuxRepository')) {
          * Recuperer toutes les donnees visibles de la table
          */
         public function findAllAndIdUser(int $id):array {
-            return $this->setSql('SELECT *, lieux.id_lieu AS id_lieu_princ, objet.id AS id_objet, objet.nom AS nom_obj, categories_lieux.nom AS nom_cat FROM objet '.
+            return $this->setSql('SELECT *, lieux_risque.id_lieux AS id_lieu_risque, objet.id AS id_objet, objet.nom AS nom_obj, categories_lieux.nom AS nom_cat FROM objet '.
             'INNER JOIN utilisateurs ON utilisateurs.id_user = objet.id_user '.
             'INNER JOIN lieux ON lieux.id_objet = objet.id '.
             'LEFT JOIN lieux_risque ON lieux.id_lieu = lieux_risque.id_lieux '.
@@ -145,6 +145,20 @@ if (!class_exists('LieuxRepository')) {
             return $this->setSql($sql)
                         ->setParamInt(":id_type", $id_type)
                         ->rowCount();
+        }
+        
+        public function findAllAndLieuxArmId(int $id, bool $orderName = false):array {
+            $order = "arm_lieu.id DESC";
+            if($orderName) {
+                $order = "objet.nom";
+            }
+            $sql = 'SELECT *, arm_lieu.id AS id_lieu_arm FROM lieux  '.
+                    'INNER JOIN arm_lieu ON arm_lieu.id_lieu = lieux.id_lieu '.
+                    'LEFT JOIN couleur_lieu_arm ON arm_lieu.id = couleur_lieu_arm.id_arm_lieu '.
+                    'WHERE arm_lieu.id=:id ORDER BY '.$order;
+            return $this->setSql($sql)
+                        ->setParamInt(":id", $id)
+                        ->fetchAssoc();
         }
 
         public function findIdTypeLieux():int {
