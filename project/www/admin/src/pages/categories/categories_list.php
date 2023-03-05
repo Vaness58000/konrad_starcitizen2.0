@@ -17,7 +17,7 @@ if(!empty($nom_pg)) {
             $templatePage->addFileJs($value);
         }
     }
-    $templatePage->addFileJs("./src/js/tab_display_all.js");
+    /*$templatePage->addFileJs("./src/js/tab_display_all.js");*/
     $templatePage->addFileJs("./src/js/pagination.js");
     $templatePage->addFileCss("./src/css/pagination.css");
 

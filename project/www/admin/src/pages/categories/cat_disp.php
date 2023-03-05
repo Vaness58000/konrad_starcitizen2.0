@@ -9,7 +9,7 @@ $count = ceil($categories->findAllAndCount()/$nb_par_pg);
 $categoriesList = $categories->findAllAndPage($page, $nb_par_pg);
 if(!empty($categoriesList)) {
     foreach ($categoriesList as $value) {
-        $list_cat .= "\n".addTdMain($value['id_disponibilite'], $value['nom_disponible'], true, $isAdmin);
+        $list_cat .= "\n".addTdCatMain($value['id_disponibilite'], $value['nom_disponible']);
     }
 }
 $tabJS = array("./src/js/categories/cat_disp.js");

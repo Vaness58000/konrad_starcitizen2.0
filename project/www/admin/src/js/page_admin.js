@@ -1,4 +1,18 @@
 "use strict";
+function returnTr(theNode) {
+    if(theNode == undefined) {
+        return theNode;
+    }
+    if(theNode.nodeName.toLowerCase() == "tr") {
+        return theNode;
+    }
+    let nodeTr = returnTr(theNode.parentNode);
+    if(returnTr(theNode.parentNode) != undefined) {
+        return nodeTr;
+    }
+    return theNode;
+}
+
 let admin_menu = document.getElementById("admin_menu");
 let wrapper_menu = document.querySelector(".wrapper_menu");
 function resize() {

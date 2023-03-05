@@ -32,7 +32,7 @@ if(!empty($errorContenu)) {
 $templatePage = new TemplatePage(__DIR__.'/../../template/errors/list.html');
 $templatePage->addVarString("[#CITIZEN_LIST_ERROR#]", $list_error);
 
-$templatePage->addFileJs("./src/js/list_error.js");
+$templatePage->addFileJs("./src/js/errors/list_error.js");
 
 /*$js = $templatePage->js();
 $css = $templatePage->css();

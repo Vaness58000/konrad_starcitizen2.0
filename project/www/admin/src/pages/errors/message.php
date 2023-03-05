@@ -80,7 +80,7 @@ $templatePage->addVarString("[#CITIZEN_ERROR_REQUEST#]", $request);
 $templatePage->addVarString("[#CITIZEN_ERROR_SERVER#]", $server);
 $templatePage->addVarString("[#CITIZEN_ERROR_SESSION#]", $session);
 
-$templatePage->addFileJs("./src/js/msg_error.js");
+$templatePage->addFileJs("./src/js/errors/msg_error.js");
 
 /*$js = $templatePage->js();
 $css = $templatePage->css();

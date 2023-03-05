@@ -1,17 +1,4 @@
 "use strict";
-function returnTr(theNode) {
-    if(theNode == undefined) {
-        return theNode;
-    }
-    if(theNode.nodeName.toLowerCase() == "tr") {
-        return theNode;
-    }
-    let nodeTr = returnTr(theNode.parentNode);
-    if(returnTr(theNode.parentNode) != undefined) {
-        return nodeTr;
-    }
-    return theNode;
-}
 
 function tab_add_modif(event) {
     event.preventDefault();
@@ -41,14 +28,20 @@ function tab_add_add(event) {
     //document.querySelector("#dialog"+name).showModal();
 }
 
-document.querySelectorAll(".img-modif").forEach(element => {
-    element.addEventListener("click", tab_add_modif);
-});
+function tab_all_dial_event() {
+    document.querySelectorAll(".tab-body-all-dial").forEach(elementTab => {
+        elementTab.querySelectorAll(".img-modif").forEach(element => {
+            element.addEventListener("click", tab_add_modif);
+        });
 
-document.querySelectorAll(".img-delete").forEach(element => {
-    element.addEventListener("click", tab_add_delete);
-});
+        elementTab.querySelectorAll(".img-delete").forEach(element => {
+            element.addEventListener("click", tab_add_delete);
+        });
 
-document.querySelectorAll(".bt-dialog-add").forEach(element => {
-    element.addEventListener("click", tab_add_add);
-});
+        elementTab.querySelectorAll(".bt-dialog-add").forEach(element => {
+            element.addEventListener("click", tab_add_add);
+        });
+    });
+}
+
+tab_all_dial_event();
