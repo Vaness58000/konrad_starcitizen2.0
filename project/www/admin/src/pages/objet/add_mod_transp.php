@@ -4,6 +4,7 @@ include __DIR__.'/../../../../src/repository/TransportRepository.php';
 include __DIR__.'/../../../../src/repository/ConstructeurRepository.php';
 include __DIR__.'/../../function/table-admin.php';
 include __DIR__.'/../../../../src/repository/UsersRepository.php';
+include __DIR__.'/../../../../src/repository/ArmeVaissRepository.php';
 include __DIR__.'/../../../../src/repository/categories/CatTranspRepository.php';
 include __DIR__.'/../../../../src/repository/categories/CatDispRepository.php';
 include __DIR__.'/../../../../src/repository/categories/CatTypeTranspRepository.php';
@@ -96,35 +97,36 @@ if (!empty($_GET) && array_key_exists('id', $_GET) && !empty($_GET['id'])) {
         $lieux = $objetRepository->findAllIdAndLieux(intval($objet['id_transp']));
         if(!empty($lieux)) {
             foreach ($lieux as $value) {
-                $tab_lieu .= "\n".addTdTabSupl($value['id_lieu'], $value['nom_lieu'], 'lieu');
+                $tab_lieu .= "\n".addTdTabSupl($value['id_transp_lieu'], $value['nom_lieu'], 'lieu', $value['id_lieu'], $value['id_lieu']);
             }
         }
 
         $forces = $objetRepository->findAllIdAndForce(intval($objet['id_transp']));
         if(!empty($forces)) {
             foreach ($forces as $value) {
-                $tab_force .= "\n".addTdTabSupl($value['id_transp_forces'], $value['nom_force'], 'force');
+                $tab_force .= "\n".addTdTabSupl($value['id_transp_forces'], $value['nom_force'], 'force', $value['id_force']);
             }
         }
 
         $faibls = $objetRepository->findAllIdAndFaibl(intval($objet['id_transp']));
         if(!empty($faibls)) {
             foreach ($faibls as $value) {
-                $tab_faibl .= "\n".addTdTabSupl($value['id_transp_faibl'], $value['nom_faiblesse'], 'faibl');
+                $tab_faibl .= "\n".addTdTabSupl($value['id_transp_faibl'], $value['nom_faiblesse'], 'faibl', $value['id_faiblesse']);
             }
         }
 
         $equipems = $objetRepository->findAllIdAndEquipem(intval($objet['id_transp']));
         if(!empty($equipems)) {
             foreach ($equipems as $value) {
-                $tab_equipem .= "\n".addTdTabSupl($value['id_transp_equip'], $value['nom'], 'equip');
+                $tab_equipem .= "\n".addTdTabSupl($value['id_transp_equip'], $value['nom'], 'equip', $value['id_equipem']);
             }
         }
 
-        $list_arm = $objetRepository->findAllIdAndArmement(intval($objet['id_transp']));
+        $armeVaissRepository = new ArmeVaissRepository();
+        $list_arm = $armeVaissRepository->findAllTranspId(intval($objet['id_transp']));
         if(!empty($list_arm)) {
             foreach ($list_arm as $value) {
-                $tab_arm .= "\n".addTdTabSupl($value['id_transport_arm'], $value['nom_obj'], 'arm');
+                $tab_arm .= "\n".addTdTabSupl($value['id_transport_arm'], $value['nom_arm'], 'arm', $value['id_arm_transp']);
             }
         }
     }
@@ -204,7 +206,7 @@ $templatePage->addVarString("[#CITIZEN_TRANSP_TAB_ARM#]", $tab_arm);
 
 $templatePage->addFileCss("./src/css/style_dialog.css");
 
-$templatePage->addFileJs("./src/js/articles.js");
+$templatePage->addFileJs("./src/js/transports.js");
 $templatePage->addFileJs("./src/js/all_img_user.js");
 $templatePage->addFileJs("./src/js/ad_mod.js");
 $templatePage->addFileJs("./src/js/dialog/dialog_main.js");

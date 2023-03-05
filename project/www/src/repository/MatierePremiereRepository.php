@@ -19,8 +19,9 @@ if (!class_exists('MatierePremiereRepository')) {
          * Recuperer toutes les donnees visibles de la table
          */
         public function findAll():array {
-            return $this->setSql('SELECT *, lieux.id_lieu AS id_lieu_princ, objet.id AS id_objet, objet.nom AS nom_obj, categories_lieux.nom AS nom_cat FROM objet '.
+            return $this->setSql('SELECT *, prod_pre_lieu.id AS id_prod_pre_lieu, lieux.id_lieu AS id_lieu_princ, objet.id AS id_objet, objet.nom AS nom_obj, categories_lieux.nom AS nom_cat FROM objet '.
                     'INNER JOIN matiere_premiere ON matiere_premiere.id_objet = objet.id '.
+                    'INNER JOIN prod_pre_lieu ON matiere_premiere.id = prod_pre_lieu.id_prod_pre '.
                     'LEFT JOIN lieux_risque ON lieux.id_lieu = lieux_risque.id_lieux '.
                     'LEFT JOIN lier_lieu ON lieux.id_lieu = lier_lieu.id_lieu '.
                     'INNER JOIN categories_lieux ON categories_lieux.id_categ_lieu = lieux.id_categ_lieu')->fetchAllAssoc();
@@ -34,8 +35,9 @@ if (!class_exists('MatierePremiereRepository')) {
             return $this->setSql('SELECT * FROM categorie_matiere_premier')->fetchAllAssoc();
         }
         public function findAllCatIdLieuId(int $id, int $id_cat):array {
-            return $this->setSql('SELECT *, objet.id AS id_objet, objet.nom AS nom_obj FROM objet '.
+            return $this->setSql('SELECT *, prod_pre_lieu.id AS id_prod_pre_lieu, objet.id AS id_objet, objet.nom AS nom_obj FROM objet '.
                     'INNER JOIN matiere_premiere ON matiere_premiere.id_objet = objet.id '.
+                    'INNER JOIN prod_pre_lieu ON matiere_premiere.id = prod_pre_lieu.id_prod_pre '.
                     'WHERE categories_lieux.id_categ_lieu=:id_cat AND objet.id=:id')->setParamInt(":id_cat", $id_cat)->setParamInt(":id", $id)->fetchAllAssoc();
         }
         /**
@@ -50,8 +52,9 @@ if (!class_exists('MatierePremiereRepository')) {
          * Recuperer toutes les donnees visibles de la table
          */
         public function findAllAndIdUser(int $id):array {
-            return $this->setSql('SELECT *, objet.id AS id_objet, objet.nom AS nom_obj, matiere_premiere.id AS id_mat_prem FROM objet '.
+            return $this->setSql('SELECT *, prod_pre_lieu.id AS id_prod_pre_lieu, objet.id AS id_objet, objet.nom AS nom_obj, matiere_premiere.id AS id_mat_prem FROM objet '.
                 'INNER JOIN matiere_premiere ON matiere_premiere.id_objet = objet.id '.
+                'INNER JOIN prod_pre_lieu ON matiere_premiere.id = prod_pre_lieu.id_prod_pre '.
                 'INNER JOIN utilisateurs ON utilisateurs.id_user = objet.id_user '.
                 'WHERE objet.id=:id')
                 ->setParamInt(":id", $id)
@@ -65,8 +68,9 @@ if (!class_exists('MatierePremiereRepository')) {
                 $nmStart = $nmPage*$nbArtPage;
                 $limit = " LIMIT $nbArtPage OFFSET $nmStart";
             }
-            $sql = 'SELECT *, objet.id AS id_objet, objet.nom AS nom_obj, matiere_premiere.id AS id_mat_prem FROM objet '.
+            $sql = 'SELECT *, prod_pre_lieu.id AS id_prod_pre_lieu, objet.id AS id_objet, objet.nom AS nom_obj, matiere_premiere.id AS id_mat_prem FROM objet '.
                     'INNER JOIN matiere_premiere ON matiere_premiere.id_objet = objet.id '.
+                    'INNER JOIN prod_pre_lieu ON matiere_premiere.id = prod_pre_lieu.id_prod_pre '.
                     'INNER JOIN utilisateurs ON utilisateurs.id_user = objet.id_user '.
                     'WHERE objet.id_objet_type=:id_type && utilisateurs.id_user=:id_user ORDER BY objet.id DESC'.$limit.'';
             return $this->setSql($sql)
@@ -77,8 +81,9 @@ if (!class_exists('MatierePremiereRepository')) {
 
         /*Pour relier l'utilisateur au article*/
         public function findAllAndUserIdCount(int $id_type, int $id):int {
-            $sql = 'SELECT *, objet.id AS id_objet, objet.nom AS nom_obj, matiere_premiere.id AS id_mat_prem FROM objet '.
+            $sql = 'SELECT *, prod_pre_lieu.id AS id_prod_pre_lieu, objet.id AS id_objet, objet.nom AS nom_obj, matiere_premiere.id AS id_mat_prem FROM objet '.
                     'INNER JOIN matiere_premiere ON matiere_premiere.id_objet = objet.id '.
+                    'INNER JOIN prod_pre_lieu ON matiere_premiere.id = prod_pre_lieu.id_prod_pre '.
                     'INNER JOIN utilisateurs ON utilisateurs.id_user = objet.id_user '.
                     'WHERE objet.id_objet_type=:id_type && utilisateurs.id_user=:id_user ORDER BY objet.id DESC';
             return $this->setSql($sql)
@@ -94,8 +99,9 @@ if (!class_exists('MatierePremiereRepository')) {
                 $nmStart = $nmPage*$nbArtPage;
                 $limit = " LIMIT $nbArtPage OFFSET $nmStart";
             }
-            $sql = 'SELECT *, objet.id AS id_objet, objet.nom AS nom_obj, matiere_premiere.id AS id_mat_prem FROM objet '.
+            $sql = 'SELECT *, prod_pre_lieu.id AS id_prod_pre_lieu, objet.id AS id_objet, objet.nom AS nom_obj, matiere_premiere.id AS id_mat_prem FROM objet '.
                     'INNER JOIN matiere_premiere ON matiere_premiere.id_objet = objet.id '.
+                    'INNER JOIN prod_pre_lieu ON matiere_premiere.id = prod_pre_lieu.id_prod_pre '.
                     'INNER JOIN utilisateurs ON utilisateurs.id_user = objet.id_user '.
                     'WHERE objet.id_objet_type=:id_type ORDER BY objet.id DESC'.$limit.'';
             return $this->setSql($sql)
@@ -105,8 +111,9 @@ if (!class_exists('MatierePremiereRepository')) {
 
         /*Pour relier l'utilisateur au article*/
         public function findAllAndUserCount(int $id_type):int {
-            $sql = 'SELECT *, objet.id AS id_objet, objet.nom AS nom_obj, matiere_premiere.id AS id_mat_prem FROM objet '.
+            $sql = 'SELECT *, prod_pre_lieu.id AS id_prod_pre_lieu, objet.id AS id_objet, objet.nom AS nom_obj, matiere_premiere.id AS id_mat_prem FROM objet '.
                     'INNER JOIN matiere_premiere ON matiere_premiere.id_objet = objet.id '.
+                    'INNER JOIN prod_pre_lieu ON matiere_premiere.id = prod_pre_lieu.id_prod_pre '.
                     'INNER JOIN utilisateurs ON utilisateurs.id_user = objet.id_user '.
                     'WHERE objet.id_objet_type=:id_type ORDER BY objet.id DESC';
             return $this->setSql($sql)
@@ -115,7 +122,7 @@ if (!class_exists('MatierePremiereRepository')) {
         }
 
         public function findAllIdAndLieux(int $id):array {
-            $sql = 'SELECT *, objet.id AS id_lieu, objet.nom AS nom_lieu FROM objet '.
+            $sql = 'SELECT *, prod_pre_lieu.id AS id_lieu_prod, objet.id AS id_obj, objet.nom AS nom_lieu FROM objet '.
                     'INNER JOIN lieux ON lieux.id_objet = objet.id '.
                     'INNER JOIN prod_pre_lieu ON lieux.id_lieu = prod_pre_lieu.id_lieu '.
                     'INNER JOIN utilisateurs ON utilisateurs.id_user = objet.id_user '.
@@ -123,6 +130,15 @@ if (!class_exists('MatierePremiereRepository')) {
             return $this->setSql($sql)
                         ->setParamInt(":id", $id)
                         ->fetchAllAssoc();
+        }
+        
+        public function findAllAndLieuxId(int $id):array {
+            $sql = 'SELECT *, prod_pre_lieu.id AS id_lieu_prod FROM lieux '.
+                    'INNER JOIN prod_pre_lieu ON lieux.id_lieu = prod_pre_lieu.id_lieu '.
+                    'WHERE prod_pre_lieu.id=:id';
+            return $this->setSql($sql)
+                        ->setParamInt(":id", $id)
+                        ->fetchAssoc();
         }
 
         public function findIdTypeMatierePremiere():int {

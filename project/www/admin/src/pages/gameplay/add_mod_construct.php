@@ -52,7 +52,7 @@ if (!empty($_GET) && array_key_exists('id', $_GET) && !empty($_GET['id'])) {
         $lieux = $constructeurRepository->findAllIdAndLieux(intval($_GET['id']));
         if(!empty($lieux)) {
             foreach ($lieux as $value) {
-                $tab_lieu .= "\n".addTdTabSupl($value['id_const_lieu'], $value['nom_lieu'], 'lieu');
+                $tab_lieu .= "\n".addTdTabSupl($value['id_const_lieu'], $value['nom_lieu'], 'lieu', $value['id_lieu']);
             }
         }
     }

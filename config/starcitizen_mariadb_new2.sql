@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : starcitizen_mariadb:3306
--- Généré le : jeu. 02 mars 2023 à 10:59
+-- Généré le : dim. 05 mars 2023 à 09:08
 -- Version du serveur : 10.4.18-MariaDB-1:10.4.18+maria~focal-log
 -- Version de PHP : 8.0.19
 
@@ -624,7 +624,7 @@ CREATE TABLE `equipement` (
   `id` int(10) NOT NULL,
   `nom` varchar(155) COLLATE utf8_unicode_ci NOT NULL,
   `description` text COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
-  `prix` double NOT NULL DEFAULT -1,
+  `prix` varchar(155) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
   `id_constructeur` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
@@ -633,7 +633,7 @@ CREATE TABLE `equipement` (
 --
 
 INSERT INTO `equipement` (`id`, `nom`, `description`, `prix`, `id_constructeur`) VALUES
-(1, 'equipement1', 'test', 15, 1);
+(1, 'equipement1', 'test', '15', 1);
 
 -- --------------------------------------------------------
 

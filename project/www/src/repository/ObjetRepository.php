@@ -44,6 +44,10 @@ if (!class_exists('ObjetRepository')) {
             return $this->setSql('SELECT * FROM info_objet WHERE id_objet=:id_objet')->setParamInt(":id_objet", $id)->fetchAllAssoc();
         }
 
+        public function findAllInfObjId(int $id):array {
+            return $this->setSql('SELECT * FROM info_objet WHERE id=:id')->setParamInt(":id", $id)->fetchAssoc();
+        }
+
         /**
          * Recuperer toutes les donnees visibles de la table
          */

@@ -1,26 +1,32 @@
 "use strict";
 let elementDialog = document.querySelector("#dialog");
-lien_dialog_contenu_info = "./src/pages/dialogs/info.php";
-lien_dialog_contenu_lieu = "./src/pages/dialogs/lieu.php";
 let lien_dialog_contenu = "";
 let lien_dialog_exec = "";
 
-function showDialog(name, id) {
+function recupeId() {
+    let id = "";
+    document.getElementById("form-contenu").querySelectorAll("[name]").forEach(element => {
+        if(element.getAttribute("name").toLocaleLowerCase() == "id") {
+            id = element.getAttribute("value");
+        }
+    });
+    return id;
+}
+
+function showDialog(name, id, idShow) {
     elementDialog.querySelector("#id-dialog-form").value = id;
     elementDialog.querySelector("#contenu-dialog-form").innerHTML = "";
     let lien_dialog_contenu = "";
-    let poss = {id:id};
-    console.log('lien_dialog_contenu_'+name);
-    console.log(lien_dialog_contenu_info);
+    let poss = {id:id, idShow:idShow};
     lien_dialog_contenu = eval('lien_dialog_contenu_'+name);
     lien_dialog_exec = eval('lien_dialog_exec_'+name);
     if(lien_dialog_contenu != undefined && lien_dialog_contenu != "") {
         fetch_post(lien_dialog_contenu, poss).then(function (response) {
             if (response.split("[#CITIZEN-DATE#]")[0] == "true") {
                 elementDialog.querySelector("#contenu-dialog-form").innerHTML = response.split("[#CITIZEN-DATE#]")[1];
-                console.log(elementDialog.querySelector("#contenu-dialog-form").innerHTML);
                 icon_inverse();
             } else {
+                console.log(response);
                 alert(response);
             }
         });
@@ -31,6 +37,7 @@ function showDialog(name, id) {
 
 function validationFormDialog(e) {
     e.preventDefault();
+    console.log(form_list("dialog-form"));
     elementDialog.close();
 }
 

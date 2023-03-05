@@ -106,7 +106,7 @@ if (!class_exists('ConstructeurRepository')) {
         }
 
         public function findAllIdAndLieux(int $id):array {
-            $sql = 'SELECT *, objet.id AS id_lieu, constructeur_lieu.id AS id_const_lieu, objet.nom AS nom_lieu FROM objet '.
+            $sql = 'SELECT *, objet.id AS id_obj, constructeur_lieu.id AS id_const_lieu, objet.nom AS nom_lieu FROM objet '.
                     'INNER JOIN lieux ON lieux.id_objet = objet.id '.
                     'INNER JOIN constructeur_lieu ON constructeur_lieu.id_lieu = lieux.id_lieu '.
                     'INNER JOIN utilisateurs ON utilisateurs.id_user = objet.id_user '.

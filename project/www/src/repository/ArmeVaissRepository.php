@@ -19,15 +19,37 @@ if (!class_exists('ArmeVaissRepository')) {
          * Recuperer toutes les donnees visibles de la table
          */
         public function findAll():array {
-            return $this->setSql('SELECT *, objet.id AS id_objet, objet.nom AS nom_arm, categorie_arm_fps.nom AS nom_cat FROM objet '.
+            return $this->setSql('SELECT *, objet.id AS id_objet, objet.nom AS nom_arm FROM objet '.
                     'INNER JOIN equipements_armement ON equipements_armement.id_objet = objet.id '.
-                    'INNER JOIN arm_fps ON equipements_armement.id_arme = arm_fps.id_arm ')->fetchAllAssoc();
+                    'INNER JOIN arm_vaiss ON equipements_armement.id_arme = arm_vaiss.id_arm '.
+                    'LEFT JOIN construct_arm ON equipements_armement.id_arme = construct_arm.id_arm')->fetchAllAssoc();
         }
+
         public function findAllId(int $id):array {
-            return $this->setSql('SELECT *, objet.id AS id_objet, objet.nom AS nom_arm, categorie_arm_fps.nom AS nom_cat FROM objet '.
+            return $this->setSql('SELECT *, objet.id AS id_objet, objet.nom AS nom_arm FROM objet '.
                     'INNER JOIN equipements_armement ON equipements_armement.id_objet = objet.id '.
-                    'INNER JOIN arm_fps ON equipements_armement.id_arme = arm_fps.id_arm '.
-                    'INNER JOIN categorie_arm_fps ON arm_fps.id_cat = categorie_arm_fps.id_categ_arme WHERE arm_fps.id=:id')->setParamInt(":id", $id)->fetchAllAssoc();
+                    'INNER JOIN arm_vaiss ON equipements_armement.id_arme = arm_vaiss.id_arm '.
+                    'LEFT JOIN construct_arm ON equipements_armement.id_arme = construct_arm.id_arm WHERE arm_fps.id=:id')->setParamInt(":id", $id)->fetchAllAssoc();
+        }
+        
+        public function findAllTranspId(int $id):array {
+            return $this->setSql('SELECT *, transport_arm.id AS id_transport_arm, arm_vaiss.id AS id_arm_transp, objet.id AS id_objet, objet.nom AS nom_arm FROM objet '.
+                    'INNER JOIN equipements_armement ON equipements_armement.id_objet = objet.id '.
+                    'INNER JOIN arm_vaiss ON equipements_armement.id_arme = arm_vaiss.id_arm '.
+                    'INNER JOIN transport_arm ON transport_arm.id_arm_transp = arm_vaiss.id '.
+                    'LEFT JOIN construct_arm ON equipements_armement.id_arme = construct_arm.id_arm WHERE transport_arm.id_transport=:id')->setParamInt(":id", $id)->fetchAllAssoc();
+        }
+
+
+        public function findAllOrder(bool $orderName = false):array {
+            $order = "objet.id DESC";
+            if($orderName) {
+                $order = "objet.nom";
+            }
+            return $this->setSql('SELECT *, arm_vaiss.id AS id_arm_vaiss, objet.id AS id_objet, objet.nom AS nom_arm FROM objet '.
+                    'INNER JOIN equipements_armement ON equipements_armement.id_objet = objet.id '.
+                    'INNER JOIN arm_vaiss ON equipements_armement.id_arme = arm_vaiss.id_arm '.
+                    'LEFT JOIN construct_arm ON equipements_armement.id_arme = construct_arm.id_arm ORDER BY '.$order)->fetchAllAssoc();
         }
 
         /*Pour relier l'utilisateur au article*/
@@ -100,7 +122,7 @@ if (!class_exists('ArmeVaissRepository')) {
         }
 
         public function findAllIdAndLieux(int $id):array {
-            $sql = 'SELECT *, couleur.nom AS nom_couleur, objet.id AS id_lieu, arm_lieu.id AS id_lieu, objet.nom AS nom_lieu FROM objet '.
+            $sql = 'SELECT *, couleur.nom AS nom_couleur, objet.id AS id_obj, arm_lieu.id AS id_lieu_arm, objet.nom AS nom_lieu FROM objet '.
                     'INNER JOIN lieux ON lieux.id_objet = objet.id '.
                     'INNER JOIN arm_lieu ON arm_lieu.id_lieu = lieux.id_lieu '.
                     'LEFT JOIN construct_arm ON arm_lieu.id_arm = construct_arm.id_arm '.

@@ -83,7 +83,7 @@ if (!class_exists('EspecesRepository')) {
         }
 
         public function findAllIdAndDiplomatie(int $id):array {
-            $sql = 'SELECT *, diplomatie_espece.id AS id_diplo_esp FROM diplomatie '.
+            $sql = 'SELECT *, diplomatie.id AS id_diplomat, diplomatie_espece.id AS id_diplo_esp FROM diplomatie '.
                     'INNER JOIN diplomatie_espece ON diplomatie.id = diplomatie_espece.id_diplomatie '.
                     'WHERE diplomatie_espece.id_espece=:id ORDER BY diplomatie_espece.id DESC';
             return $this->setSql($sql)
@@ -110,7 +110,7 @@ if (!class_exists('EspecesRepository')) {
         }
 
         public function findAllIdAndControle(int $id):array {
-            $sql = 'SELECT *, controle_lieu.id AS id_control_lieu, objet.id AS id_lieu, objet.nom AS nom_lieu FROM objet '.
+            $sql = 'SELECT *, controle_lieu.id AS id_control_lieu, objet.id AS id_obj, objet.nom AS nom_lieu FROM objet '.
                     'INNER JOIN lieux ON lieux.id_objet = objet.id '.
                     'INNER JOIN controle_lieu ON controle_lieu.id_lieu = lieux.id_lieu '.
                     'WHERE controle_lieu.id_espece=:id && objet.validation=1 ORDER BY controle_lieu.id DESC';

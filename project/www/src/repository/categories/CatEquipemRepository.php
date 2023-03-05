@@ -31,7 +31,7 @@ if (!class_exists('CatEquipemRepository')) {
         }
 
         public function findAllId(int $id):array {
-            return $this->setSql('SELECT * FROM equipement INNER JOIN transp_equip ON equipement.id = transp_equip.id_equip WHERE id=:id')->setParamInt(":id", $id)->fetchAssoc();
+            return $this->setSql('SELECT * FROM equipement INNER JOIN transp_equip ON equipement.id = transp_equip.id_equip WHERE equipement.id=:id')->setParamInt(":id", $id)->fetchAssoc();
         }
 
         public function findAllTranspId(int $id):array {
