@@ -17,7 +17,7 @@ if($isAdmin && !empty($_GET) && array_key_exists('tab_all', $_GET) && !empty($_G
     $objets = $especesRepository->findAllAndUserPage($id_type, $page, $nb_par_pg);
 }
 
-$templatePage->addFileJs("./src/js/especes.js");
+$templatePage->addFileJs("./src/js/objet/especes.js");
 $templatePage->addFileJs("./src/js/tab_display_all.js");
 
 require __DIR__.'/objet.php';

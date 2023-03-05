@@ -97,7 +97,7 @@ $templatePage->addVarString("[#CITIZEN_SERV_ID#]", $id_obj);
 
 $templatePage->addFileCss("./src/css/style_dialog.css");
 
-$templatePage->addFileJs("./src/js/services.js");
+$templatePage->addFileJs("./src/js/objet/services.js");
 $templatePage->addFileJs("./src/js/all_img_user.js");
 $templatePage->addFileJs("./src/js/ad_mod.js");
 $templatePage->addFileJs("./src/js/dialog/dialog_main.js");

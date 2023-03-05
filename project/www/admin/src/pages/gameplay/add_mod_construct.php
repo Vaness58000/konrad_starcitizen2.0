@@ -91,7 +91,7 @@ $templatePage->addVarString("[#CITIZEN_CONST_TAB_LIEU#]", $tab_lieu);
 
 $templatePage->addFileCss("./src/css/style_dialog.css");
 
-$templatePage->addFileJs("./src/js/construct.js");
+$templatePage->addFileJs("./src/js/gameplay/construct.js");
 $templatePage->addFileJs("./src/js/all_img_user.js");
 $templatePage->addFileJs("./src/js/ad_mod.js");
 $templatePage->addFileJs("./src/js/dialog/dialog_main.js");

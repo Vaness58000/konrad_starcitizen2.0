@@ -54,7 +54,7 @@ $templatePage->addVarString("[#CITIZEN_TAB_NBPG#]", $count);
 $templatePage->addVarString("[#CITIZEN_TAB_NMPG#]", ($page+1));
 $templatePage->addVarString("[#CITIZEN_TAB_CHOICE#]", $choix_tab);
 
-$templatePage->addFileJs("./src/js/construct.js");
+$templatePage->addFileJs("./src/js/gameplay/construct.js");
 $templatePage->addFileJs("./src/js/tab_display_all.js");
 $templatePage->addFileJs("./src/js/pagination.js");
 $templatePage->addFileCss("./src/css/pagination.css");

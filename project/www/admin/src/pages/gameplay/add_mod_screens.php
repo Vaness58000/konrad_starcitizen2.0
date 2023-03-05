@@ -65,7 +65,7 @@ $templatePage->addVarString("[#CITIZEN_SCREEN_IMG#]", $img);
 $templatePage->addVarString("[#CITIZEN_SCREEN_NOM#]", $nom);
 $templatePage->addVarString("[#CITIZEN_SCREEN_ALT#]", $alt);
 
-$templatePage->addFileJs("./src/js/screens.js");
+$templatePage->addFileJs("./src/js/gameplay/screens.js");
 $templatePage->addFileJs("./src/js/all_img_user.js");
 $templatePage->addFileJs("./src/js/ad_mod.js");
 $templatePage->addFileJs("./src/js/tab_add.js");

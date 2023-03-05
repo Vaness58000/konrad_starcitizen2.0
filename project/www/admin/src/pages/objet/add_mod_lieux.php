@@ -133,7 +133,7 @@ $templatePage->addVarString("[#CITIZEN_LIEU_LIER#]", $lier_lieu);
 
 $templatePage->addFileCss("./src/css/style_dialog.css");
 
-$templatePage->addFileJs("./src/js/lieux.js");
+$templatePage->addFileJs("./src/js/objet/lieux.js");
 $templatePage->addFileJs("./src/js/all_img_user.js");
 $templatePage->addFileJs("./src/js/ad_mod.js");
 $templatePage->addFileJs("./src/js/dialog/dialog_main.js");

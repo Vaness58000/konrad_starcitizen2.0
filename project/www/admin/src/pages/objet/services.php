@@ -17,7 +17,7 @@ if($isAdmin && !empty($_GET) && array_key_exists('tab_all', $_GET) && !empty($_G
     $objets = $servicesRepository->findAllAndUserPage($id_type, $page, $nb_par_pg);
 }
 
-$templatePage->addFileJs("./src/js/services.js");
+$templatePage->addFileJs("./src/js/objet/services.js");
 $templatePage->addFileJs("./src/js/tab_display_all.js");
 
 require __DIR__.'/objet.php';
