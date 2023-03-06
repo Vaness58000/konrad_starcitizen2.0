@@ -12,6 +12,6 @@ if(!empty($categorie)) {
     $id_cat = 0;
 }
 
-$tabJS = array("./src/js/categories/cat_arm.js");
+$tabJS = array("./src/js/categories/cat_couleur.js");
 
 require __DIR__.'/categorie.php';

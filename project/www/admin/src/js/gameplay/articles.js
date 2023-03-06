@@ -1,11 +1,8 @@
 "use strict";
-let urlDeleteImg = "deleteImgObj";
-let folderImgs = "";
-let folderImg = "";
-let folderLogo = "";
-let add_line_tab = "add_article";
-let mod_line_tab = "mod_article";
-let delete_line_tab = "delete_article";
-let visibl_line_tab = "visibl_article";
+urlDeleteImg = "./src/exec/delete_img_article.php";
+add_exec_tab = "./src/exec/gameplay/add_mod_article.php";
+add_line_tab = "add_article";
+mod_line_tab = "mod_article";
+delete_line_tab = "./src/exec/gameplay/delete_article.php";
+visibl_line_tab = "./src/exec/gameplay/visible_article.php";
 
-lien_dialog_exec_gplayType = "";

@@ -1,12 +1,9 @@
 "use strict";
-let urlDeleteImg = "deleteImgObj";
-let folderImgs = "";
-let folderImg = "";
-let folderLogo = "";
-let add_line_tab = "add_proprietaires";
-let mod_line_tab = "mod_proprietaires";
-let delete_line_tab = "delete_obj";
-let visibl_line_tab = "visibl_obj";
+add_exec_tab = "./src/exec/objet/add_mod_proprietaires.php";
+add_line_tab = "add_proprietaires";
+mod_line_tab = "mod_proprietaires";
+delete_line_tab = "./src/exec/objet/delete_proprietaires.php";
+visibl_line_tab = "./src/exec/objet/visible_proprietaires.php";
 
-lien_dialog_exec_info = "";
-lien_dialog_exec_lieu = "";
+lien_dialog_exec_lieu = "./src/exec/dialogs/add_mod_lieuPropri.php";
+delete_dialog_exec_lieu = "./src/exec/dialogs/delete_lieuPropri.php";

@@ -2,6 +2,8 @@
 let elementDialog = document.querySelector("#dialog");
 let lien_dialog_contenu = "";
 let lien_dialog_exec = "";
+let delete_dialog_exec = "";
+let validation_dialog_exec = "";
 
 function recupeId() {
     let id = "";
@@ -27,7 +29,6 @@ function showDialog(name, id, idShow) {
                 icon_inverse();
             } else {
                 console.log(response);
-                alert(response);
             }
         });
         elementDialog.showModal();
@@ -37,8 +38,9 @@ function showDialog(name, id, idShow) {
 
 function validationFormDialog(e) {
     e.preventDefault();
-    console.log(form_list("dialog-form"));
-    elementDialog.close();
+    fetch_form(lien_dialog_exec, "dialog-form").then(function (response) {
+        console.log(response);
+    });
 }
 
 function closeDialog(e) {

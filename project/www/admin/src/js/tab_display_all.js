@@ -9,13 +9,19 @@ function tab_modif(event) {
 function tab_delete(event) {
     event.preventDefault();
     let id = returnTr(event.target).id.split("-")[1];
-    alert("delete : "+id);
+    let poss = {id:id};
+    fetch_post(delete_line_tab, poss).then(function (response) {
+        console.log(response);
+    });
 }
 
 function tab_visible(event) {
     event.preventDefault();
     let id = returnTr(event.target).id.split("-")[1];
-    alert("visibled : "+id);
+    let poss = {id:id};
+    fetch_post(visibl_line_tab, poss).then(function (response) {
+        console.log(response);
+    });
 }
 
 function tab_all_event() {

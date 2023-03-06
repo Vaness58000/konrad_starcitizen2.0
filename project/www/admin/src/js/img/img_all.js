@@ -147,6 +147,7 @@ function dragOverHandler(ev) {
 }
 
 function deleteImgServ(e, id) {
+    console.log(id);
     /* envoyer les informations du message sur la page php a partir d'un formulaire */
     fetch_post(urlDeleteImg, {id:id}).then(function (
         response

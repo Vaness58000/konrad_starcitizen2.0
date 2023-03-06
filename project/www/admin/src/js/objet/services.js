@@ -1,12 +1,9 @@
 "use strict";
-let urlDeleteImg = "deleteImgObj";
-let folderImgs = "";
-let folderImg = "";
-let folderLogo = "";
-let add_line_tab = "add_service";
-let mod_line_tab = "mod_service";
-let delete_line_tab = "delete_obj";
-let visibl_line_tab = "visibl_obj";
+add_exec_tab = "./src/exec/objet/add_mod_services.php";
+add_line_tab = "add_service";
+mod_line_tab = "mod_service";
+delete_line_tab = "./src/exec/objet/delete_services.php";
+visibl_line_tab = "./src/exec/objet/visible_services.php";
 
-lien_dialog_exec_info = "";
-lien_dialog_exec_lieu = "";
+lien_dialog_exec_lieu = "./src/exec/dialogs/add_mod_lieuServices.php";
+delete_dialog_exec_lieu = "./src/exec/dialogs/delete_lieuServices.php";

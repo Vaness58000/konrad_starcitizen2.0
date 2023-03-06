@@ -1,4 +1,6 @@
 <?php
+// Démarrage de la session 
+session_start();
 include __DIR__.'/../../../../src/class/classMain/TemplatePage.php';
 include __DIR__.'/../../../../src/repository/ScreensRepository.php';
 include __DIR__.'/../../function/table-admin.php';

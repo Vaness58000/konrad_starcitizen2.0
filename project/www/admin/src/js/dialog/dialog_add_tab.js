@@ -7,8 +7,6 @@ function tab_add_modif(event) {
     let idShow = elementTr.querySelector(".show-id").value;
     let dataIdTr = idTr.split("id-");
     showDialog(dataIdTr[0], dataIdTr[1], idShow);
-    //document.querySelector("#dialog-"+dataIdTr[0]).showModal();
-    //console.log(dataIdTr);
 }
 
 function tab_add_delete(event) {
@@ -17,15 +15,17 @@ function tab_add_delete(event) {
     let idTr = elementTr.id;
     let idShow = elementTr.querySelector(".show-id").value;
     let dataIdTr = idTr.split("id-");
-    console.log(dataIdTr);
+    delete_dialog_exec = eval('delete_dialog_exec_'+dataIdTr[0]);
+    let poss = {id:dataIdTr[1]};
+    fetch_post(delete_dialog_exec, poss).then(function (response) {
+        console.log(response);
+    });
 }
 
 function tab_add_add(event) {
     event.preventDefault();
     let name = event.target.id.replace('add-', '');
     showDialog(name, 0, 0);
-    //console.log(name);
-    //document.querySelector("#dialog"+name).showModal();
 }
 
 function tab_all_dial_event() {

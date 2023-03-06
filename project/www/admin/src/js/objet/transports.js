@@ -1,16 +1,10 @@
 "use strict";
-let urlDeleteImg = "deleteImgObj";
-let folderImgs = "";
-let folderImg = "";
-let folderLogo = "";
-let add_line_tab = "add_transports";
-let mod_line_tab = "mod_transports";
-let delete_line_tab = "delete_obj";
-let visibl_line_tab = "visibl_obj";
+add_exec_tab = "./src/exec/objet/add_mod_transp.php";
+add_line_tab = "add_transports";
+mod_line_tab = "mod_transports";
+delete_line_tab = "./src/exec/objet/delete_transp.php";
+visibl_line_tab = "./src/exec/objet/visible_transp.php";
 
-lien_dialog_exec_info = "";
-lien_dialog_exec_force = "";
-lien_dialog_exec_faibl = "";
-lien_dialog_exec_equip = "";
-lien_dialog_exec_arm = "";
-lien_dialog_exec_lieu = "";
+
+lien_dialog_exec_lieu = "./src/exec/dialogs/add_mod_lieuTransp.php";
+delete_dialog_exec_lieu = "./src/exec/dialogs/delete_lieuTransp.php";

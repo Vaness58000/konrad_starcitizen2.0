@@ -1,5 +1,6 @@
 <?php
-require __DIR__.'/categorie_header.php';
+// Démarrage de la session 
+session_start();
 include __DIR__.'/../../../../src/repository/categories/CatArmRepository.php';
 require __DIR__.'/../../../../src/class/classMain/TemplatePage.php';
 require __DIR__.'/../../function/table-admin.php';

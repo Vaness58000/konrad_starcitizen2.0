@@ -1,13 +1,7 @@
 "use strict";
-let urlDeleteImg = "deleteImgObj";
-let folderImgs = "";
-let folderImg = "";
-let folderLogo = "";
-let add_line_tab = "add_especes";
-let mod_line_tab = "mod_especes";
-let delete_line_tab = "delete_obj";
-let visibl_line_tab = "visibl_obj";
+add_exec_tab = "./src/exec/objet/add_mod_especes.php";
+add_line_tab = "add_especes";
+mod_line_tab = "mod_especes";
+delete_line_tab = "./src/exec/objet/delete_especes.php";
+visibl_line_tab = "./src/exec/objet/visible_especes.php";
 
-lien_dialog_exec_info = "";
-lien_dialog_exec_diplom = "";
-lien_dialog_exec_contro = "";
