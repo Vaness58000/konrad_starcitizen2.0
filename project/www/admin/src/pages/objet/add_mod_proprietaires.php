@@ -105,11 +105,10 @@ $templatePage->addVarString("[#CITIZEN_PROPR_CAT#]", $categ);
 
 $templatePage->addFileCss("./src/css/style_dialog.css");
 
-$templatePage->addFileJs("./src/js/proprietaires.js");
-$templatePage->addFileJs("./src/js/all_img_user.js");
-$templatePage->addFileJs("./src/js/ad_mod.js");
+$templatePage->addFileJs("./src/js/objet/proprietaires.js");
+$templatePage->addFileJs("./src/js/img/all_img_user.js");
 $templatePage->addFileJs("./src/js/dialog/dialog_main.js");
-$templatePage->addFileJs("./src/js/tab_add.js");
+/*$templatePage->addFileJs("./src/js/tab_add.js");*/
 
 /*$js = $templatePage->js();
 $css = $templatePage->css();

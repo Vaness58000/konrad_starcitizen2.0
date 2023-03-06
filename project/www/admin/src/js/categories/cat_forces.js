@@ -1,9 +1,10 @@
 "use strict";
-let urlDeleteImg = "deleteImgObj";
-let folderImgs = "";
-let folderImg = "";
-let folderLogo = "";
-let add_line_tab = "add_cat_forces";
-let mod_line_tab = "mod_cat_forces";
-let delete_line_tab = "delete_cat_forces";
-let visibl_line_tab = "visibl_cat_forces";
+urlDeleteImg = "deleteImgObj";
+folderImgs = "";
+folderImg = "";
+folderLogo = "";
+add_exec_tab = "./src/exec/categorie/add_mod_cat_forces.php";
+add_line_tab = "add_cat_forces";
+mod_line_tab = "mod_cat_forces";
+delete_line_tab = "./src/exec/categorie/delete_cat_forces.php";
+visibl_line_tab = "";

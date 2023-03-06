@@ -8,7 +8,7 @@
 
 .div-onglet {
     display: none;
-    border: 1px blue solid;
+    border: 1px #183860 solid;
     width: 100%;
     margin-top: 14px;
     border-radius: 20px;
@@ -36,14 +36,14 @@
 #onglets li {
     display: inline;
     padding: 15px;
-    border: 1px blue solid;
+    border: 1px #183860 solid;
     border-top-right-radius: 20px;
     border-top-left-radius: 20px;
     margin-right: 10px;
     /*background-color: aliceblue;*/
-    background: linear-gradient(rgb(68, 68, 255), blue);
+    background: linear-gradient(#204676, #19385e, rgb(21 49 82));
     color: white;
-    font-weight: bold;
+    /*font-weight: bold;*/
     z-index: 2;
 }
 
@@ -57,7 +57,7 @@
 #onglet-contro:checked ~ #div-all-tab #label-onglet-contro, 
 #onglet-gplayType:checked ~ #div-all-tab #label-onglet-gplayType {
     /*background-color: burlywood;*/
-    background: linear-gradient(rgb(36, 36, 141), rgb(0, 0, 128));
+    background: linear-gradient(#132d4c, #0e2036, rgb(7 16 28));
     border-bottom: unset;
 }
 

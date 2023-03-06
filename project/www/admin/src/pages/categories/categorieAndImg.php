@@ -22,6 +22,4 @@ if(!empty($nom_pg)) {
     }
 
 
-    $templatePage->addFileJs("./src/js/ad_mod.js");
-
 }

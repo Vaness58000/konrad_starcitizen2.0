@@ -261,6 +261,7 @@ td img {
   position: absolute;
   filter: invert(1);
   background-color: #00fffcd1;
+  border: 1px #01e6e2 solid;
   padding: 3px;
   width: 35px;
   height: 35px;
@@ -423,7 +424,8 @@ input[type="file"] {
 }
 
 .img-main {
-  background-color: #eee;
+  background-color: #eeeeeed1;
+  border: 1px #d4d4d4 solid;
   padding: 5px;
   border-radius: 5px;
   position: absolute;
@@ -434,5 +436,6 @@ input[type="file"] {
 }
 
 .img-princ:checked ~ .img-main {
-  background-color: #eeff00;
+  background-color: #eeff00d1;
+  border: 1px #deee00 solid;
 }

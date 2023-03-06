@@ -17,7 +17,7 @@ if($isAdmin && !empty($_GET) && array_key_exists('tab_all', $_GET) && !empty($_G
     $objets = $lieuxRepository->findAllAndUserPage($id_type, $page, $nb_par_pg);
 }
 
-$templatePage->addFileJs("./src/js/lieux.js");
-$templatePage->addFileJs("./src/js/tab_display_all.js");
+$templatePage->addFileJs("./src/js/objet/lieux.js");
+/*$templatePage->addFileJs("./src/js/tab_display_all.js");*/
 
 require __DIR__.'/objet.php';

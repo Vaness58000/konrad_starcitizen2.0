@@ -12,6 +12,16 @@ if(!function_exists('addTdMain')) {
                 '</tr>';
     }
 }
+if(!function_exists('addTdCatMain')) {
+    function addTdCatMain(int $id, ?string $nom, bool $all=false):?string {
+        $modif = $all ? '' : '<td class="td-admin img-modif"><img src="./src/images/pencil-fill.svg" alt=""></td>';
+        return '<tr id="id-'.$id.'">'.
+                    '<td>'.$nom.'</td>'.
+                    $modif.
+                    '<td class="td-admin img-delete"><img src="./src/images/trash3-fill.svg" alt=""></td>'.
+                '</tr>';
+    }
+}
 if(!function_exists('addTdError')) {
     function addTdError(int $id, ?string $date, ?string $message):?string {
         return '<tr class="error-load" id="id-'.$id.'">'.
