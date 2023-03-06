@@ -1,3 +1,4 @@
+"use strict";
 /*
 Recuperation d'une image pour l'afficher sur le html
 event (event) : evenement d'ecoute

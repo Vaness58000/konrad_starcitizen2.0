@@ -86,7 +86,7 @@ if(!function_exists('addTdTabSupl')) {
             $id_show = $id;
         }
         return '<tr id="'.$nom_tab.'id-'.$id.'">'.
-                    '<td><input type="hidden" name="show-id" class="show-id" value="'.$id_show.'" />'.$nom.'</td>'.
+                    '<td class="td-name"><input type="hidden" name="show-id" class="show-id" value="'.$id_show.'" />'.$nom.'</td>'.
                     '<td class="td-admin img-modif"><img src="./src/images/pencil-fill.svg" alt=""></td>'.
                     '<td class="td-admin img-delete"><img src="./src/images/trash3-fill.svg" alt=""></td>'.
                 '</tr>';

@@ -439,3 +439,24 @@ input[type="file"] {
   background-color: #eeff00d1;
   border: 1px #deee00 solid;
 }
+
+.tbody-no-empty {
+  display: none;
+}
+
+.text-tbody-empty {
+  text-align: center;
+  padding-bottom: 15px;
+}
+
+.tb-display-check:checked ~ .tbody-no-empty {
+  display: table;
+}
+
+.tb-display-check:checked ~ .text-tbody-empty {
+  display: none;
+}
+
+.tb-display-check {
+  display: none;
+}

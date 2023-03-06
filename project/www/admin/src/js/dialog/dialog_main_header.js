@@ -20,7 +20,6 @@ let mod_line_tab = "";
 let delete_line_tab = "";
 let visibl_line_tab = "";
 
-
 let lien_dialog_contenu_lieu_arm = "./src/pages/dialogs/lieuArm.php";
 let lien_dialog_contenu_info = "./src/pages/dialogs/info.php";
 let lien_dialog_contenu_force = "./src/pages/dialogs/force.php";
@@ -49,3 +48,36 @@ let delete_dialog_exec_lieu = "";
 let delete_dialog_exec_diplom = "./src/exec/dialogs/delete_diplom.php";
 let delete_dialog_exec_contro = "./src/exec/dialogs/delete_control.php";
 let delete_dialog_exec_gplayType = "./src/exec/dialogs/delete_gplay.php";
+
+
+function recupValueNameForm(nameForm, name) {
+    let value = "";
+    document.querySelectorAll(nameForm).forEach(element => {
+        element.querySelectorAll("[name]").forEach(elementId => {
+            if(elementId.getAttribute("name").toLocaleLowerCase() == name.toLocaleLowerCase()) {
+                value = elementId.value;
+            }
+        });
+    });
+    return value;
+}
+
+function recupId(nameForm) {
+    return recupValueNameForm(nameForm, "id");
+}
+
+function idDataForm(idName) {
+    let dataAll = {id:0, name:"", tmp:false, nameId:idName};
+    idName = idName.replace('idTmp-', 'Tmp-');
+    idName = idName.replace('id-', '-');
+    dataAll.tmp = idName.includes("Tmp-");
+    let separateur = dataAll.tmp ? "Tmp-" : "-";
+    let data = idName.split(separateur);
+    dataAll.name = data[0];
+    if(data.length > 1) {
+        dataAll.id = data[1];
+    }
+    return dataAll;
+}
+
+let id_form_main = recupId("#form-contenu");
