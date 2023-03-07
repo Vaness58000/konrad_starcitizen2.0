@@ -65,6 +65,35 @@ if (!class_exists('CatTypeTranspRepository')) {
             return $this->setSql($sql)
                         ->rowCount();
         }
+        
+        public function addMod(int $id, string $name, int $id_user): self {
+            if(!empty($id)) {
+                $sql = "UPDATE type_transport SET nom=:nom WHERE id_type=:id";
+                $this->setSql($sql)
+                            ->setParamInt(":id", $id)
+                            ->setParam(":nom", $name);
+                $this->executeSql();
+            } else {
+                $sql = "INSERT INTO type_transport(nom, id_user_cat) VALUES (:nom, :id_user_cat)";
+                $this->setSql($sql)
+                            ->setParamInt(":id_user_cat", $id_user)
+                            ->setParam(":nom", $name);
+                $this->executeSql();
+            }
+            return $this;
+        }
+
+        public function delete(int $id): self {
+            $sql = "DELETE FROM type_transport WHERE id_type=:id";
+            $this->setSql($sql)->setParamInt(":id", $id);
+            $this->executeSql();
+            return $this;
+        }
+
+        public function nameValid(int $id, string $name) {
+            return $this->setSql('SELECT * FROM type_transport WHERE nom=:nom AND id_type!=:id')
+                    ->setParamInt(":id", $id)->setParam(":nom", $name)->rowCount() == 0;
+        }
 
 
     }

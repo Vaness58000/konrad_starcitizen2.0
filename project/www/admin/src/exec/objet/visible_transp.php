@@ -15,5 +15,9 @@ if (!(!empty($_SESSION) && array_key_exists('utilisateur', $_SESSION) && !empty(
     array_key_exists('id', $_SESSION['utilisateur']) && !empty($_SESSION['utilisateur']['id']))) {
     die("Merci de vous connecter.");
 } else {
-    echo "visible_transp";
+    $name = 'visible_transp';
+    $file = __DIR__.'/../../../../upload/files/'.$name.'.json';
+    $current = json_encode($_POST);
+    file_put_contents($file, $current);
+    echo $name;
 }

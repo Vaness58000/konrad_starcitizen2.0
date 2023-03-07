@@ -65,6 +65,35 @@ if (!class_exists('CatDispRepository')) {
             return $this->setSql($sql)
                         ->rowCount();
         }
+        
+        public function addMod(int $id, string $name, int $id_user): self {
+            if(!empty($id)) {
+                $sql = "UPDATE disponibilite SET nom_disponible=:nom WHERE id_disponibilite=:id";
+                $this->setSql($sql)
+                            ->setParamInt(":id", $id)
+                            ->setParam(":nom", $name);
+                $this->executeSql();
+            } else {
+                $sql = "INSERT INTO disponibilite(nom_disponible, id_user_cat) VALUES (:nom, :id_user_cat)";
+                $this->setSql($sql)
+                            ->setParamInt(":id_user_cat", $id_user)
+                            ->setParam(":nom", $name);
+                $this->executeSql();
+            }
+            return $this;
+        }
+
+        public function delete(int $id): self {
+            $sql = "DELETE FROM disponibilite WHERE id_disponibilite=:id";
+            $this->setSql($sql)->setParamInt(":id", $id);
+            $this->executeSql();
+            return $this;
+        }
+
+        public function nameValid(int $id, string $name) {
+            return $this->setSql('SELECT * FROM disponibilite WHERE nom_disponible=:nom AND id_disponibilite!=:id')
+                    ->setParamInt(":id", $id)->setParam(":nom", $name)->rowCount() == 0;
+        }
 
 
     }

@@ -65,6 +65,35 @@ if (!class_exists('CatMatPremRepository')) {
             return $this->setSql($sql)
                         ->rowCount();
         }
+        
+        public function addMod(int $id, string $name, int $id_user): self {
+            if(!empty($id)) {
+                $sql = "UPDATE categorie_matiere_premier SET nom=:nom WHERE id=:id";
+                $this->setSql($sql)
+                            ->setParamInt(":id", $id)
+                            ->setParam(":nom", $name);
+                $this->executeSql();
+            } else {
+                $sql = "INSERT INTO categorie_matiere_premier(nom, id_user_cat) VALUES (:nom, :id_user_cat)";
+                $this->setSql($sql)
+                            ->setParamInt(":id_user_cat", $id_user)
+                            ->setParam(":nom", $name);
+                $this->executeSql();
+            }
+            return $this;
+        }
+
+        public function delete(int $id): self {
+            $sql = "DELETE FROM categorie_matiere_premier WHERE id=:id";
+            $this->setSql($sql)->setParamInt(":id", $id);
+            $this->executeSql();
+            return $this;
+        }
+
+        public function nameValid(int $id, string $name) {
+            return $this->setSql('SELECT * FROM categorie_matiere_premier WHERE nom=:nom AND id!=:id')
+                    ->setParamInt(":id", $id)->setParam(":nom", $name)->rowCount() == 0;
+        }
 
     }
 }

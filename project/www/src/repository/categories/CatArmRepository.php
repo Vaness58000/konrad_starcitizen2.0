@@ -65,6 +65,35 @@ if (!class_exists('CatArmRepository')) {
             return $this->setSql($sql)
                         ->rowCount();
         }
+        
+        public function addMod(int $id, string $name, int $id_user): self {
+            if(!empty($id)) {
+                $sql = "UPDATE categorie_arm_fps SET nom=:nom WHERE id_categ_arme=:id";
+                $this->setSql($sql)
+                            ->setParamInt(":id", $id)
+                            ->setParam(":nom", $name);
+                $this->executeSql();
+            } else {
+                $sql = "INSERT INTO categorie_arm_fps(nom, id_user_cat) VALUES (:nom, :id_user_cat)";
+                $this->setSql($sql)
+                            ->setParamInt(":id_user_cat", $id_user)
+                            ->setParam(":nom", $name);
+                $this->executeSql();
+            }
+            return $this;
+        }
+
+        public function delete(int $id): self {
+            $sql = "DELETE FROM categorie_arm_fps WHERE id_categ_arme=:id";
+            $this->setSql($sql)->setParamInt(":id", $id);
+            $this->executeSql();
+            return $this;
+        }
+
+        public function nameValid(int $id, string $name) {
+            return $this->setSql('SELECT * FROM categorie_arm_fps WHERE nom=:nom AND id_categ_arme!=:id')
+                    ->setParamInt(":id", $id)->setParam(":nom", $name)->rowCount() == 0;
+        }
 
     }
 }

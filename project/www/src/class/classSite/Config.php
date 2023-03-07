@@ -45,7 +45,7 @@ if (!class_exists('Config')) {
             $this->file_info = "";
             $this->file_messages = "";
             $this->lien_img = "../img/";
-            $this->folder_img = "./../img/";
+            $this->folder_img = "./../../../upload/";
             $this->lien_template = "./template/{style_template}/";
             $this->lien_template_admin = "./template/{style_template}/";
             $this->style_template = "default";

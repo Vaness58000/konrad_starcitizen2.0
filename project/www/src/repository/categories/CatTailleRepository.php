@@ -65,6 +65,35 @@ if (!class_exists('CatTailleRepository')) {
             return $this->setSql($sql)
                         ->rowCount();
         }
+        
+        public function addMod(int $id, string $taille, int $id_user): self {
+            if(!empty($id)) {
+                $sql = "UPDATE taille_arm_vaisseau SET taille=:taille WHERE id=:id";
+                $this->setSql($sql)
+                            ->setParamInt(":id", $id)
+                            ->setParam(":taille", $taille);
+                $this->executeSql();
+            } else {
+                $sql = "INSERT INTO taille_arm_vaisseau(taille, id_user_cat) VALUES (:taille, :id_user_cat)";
+                $this->setSql($sql)
+                            ->setParamInt(":id_user_cat", $id_user)
+                            ->setParam(":taille", $taille);
+                $this->executeSql();
+            }
+            return $this;
+        }
+
+        public function delete(int $id): self {
+            $sql = "DELETE FROM taille_arm_vaisseau WHERE id=:id";
+            $this->setSql($sql)->setParamInt(":id", $id);
+            $this->executeSql();
+            return $this;
+        }
+
+        public function nameValid(int $id, string $taille) {
+            return $this->setSql('SELECT * FROM taille_arm_vaisseau WHERE taille=:taille AND id!=:id')
+                    ->setParamInt(":id", $id)->setParam(":taille", $taille)->rowCount() == 0;
+        }
 
     }
 }

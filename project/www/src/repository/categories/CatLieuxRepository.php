@@ -65,6 +65,71 @@ if (!class_exists('CatLieuxRepository')) {
             return $this->setSql($sql)
                         ->rowCount();
         }
+        
+        public function addMod(int $id, string $name, int $id_user, string $srcImg = null): self {
+            if(!empty($srcImg)) {
+                $this->addModImg($id, $name, $id_user, $srcImg);
+            } else {
+                $this->addModNoImg($id, $name, $id_user);
+            }
+            return $this;
+        }
+
+        private function addModImg(int $id, string $name, int $id_user, string $srcImg): self {
+            if(!empty($id)) {
+                $sql = "UPDATE categories_lieux SET nom=:nom, img_cat=:img_cat WHERE id_categ_lieu=:id";
+                $this->setSql($sql)
+                            ->setParamInt(":id", $id)
+                            ->setParam(":img_cat", $srcImg)
+                            ->setParam(":nom", $name);
+                $this->executeSql();
+            } else {
+                $sql = "INSERT INTO categories_lieux(nom, img_cat, id_user_cat) VALUES (:nom, :img_cat, :id_user_cat)";
+                $this->setSql($sql)
+                            ->setParamInt(":id_user_cat", $id_user)
+                            ->setParam(":img_cat", $srcImg)
+                            ->setParam(":nom", $name);
+                $this->executeSql();
+            }
+            return $this;
+        }
+
+        private function addModNoImg(int $id, string $name, int $id_user): self {
+            if(!empty($id)) {
+                $sql = "UPDATE categories_lieux SET nom=:nom WHERE id_categ_lieu=:id";
+                $this->setSql($sql)
+                            ->setParamInt(":id", $id)
+                            ->setParam(":nom", $name);
+                $this->executeSql();
+            } else {
+                $sql = "INSERT INTO categories_lieux(nom, id_user_cat) VALUES (:nom, :id_user_cat)";
+                $this->setSql($sql)
+                            ->setParamInt(":id_user_cat", $id_user)
+                            ->setParam(":nom", $name);
+                $this->executeSql();
+            }
+            return $this;
+        }
+
+        public function delete(int $id): self {
+            $sql = "DELETE FROM categories_lieux WHERE id_categ_lieu=:id";
+            $this->setSql($sql)->setParamInt(":id", $id);
+            $this->executeSql();
+            return $this;
+        }
+
+        public function nameValid(int $id, string $name) {
+            return $this->setSql('SELECT * FROM categories_lieux WHERE nom=:nom AND id_categ_lieu!=:id')
+                    ->setParamInt(":id", $id)->setParam(":nom", $name)->rowCount() == 0;
+        }
+
+        public function findImgId(int $id):string {
+            $resulImg = $this->setSql('SELECT img_cat FROM categories_lieux WHERE id_categ_lieu=:id')->setParamInt(":id", $id)->fetchAssoc();
+            if(!empty($resulImg)) {
+                return $resulImg["img_cat"];
+            }
+            return "";
+        }
 
     }
 }

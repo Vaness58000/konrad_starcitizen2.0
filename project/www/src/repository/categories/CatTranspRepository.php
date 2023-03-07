@@ -65,6 +65,71 @@ if (!class_exists('CatTranspRepository')) {
             return $this->setSql($sql)
                         ->rowCount();
         }
+        
+        public function addMod(int $id, string $name, int $id_user, string $srcImg = null): self {
+            if(!empty($srcImg)) {
+                $this->addModImg($id, $name, $id_user, $srcImg);
+            } else {
+                $this->addModNoImg($id, $name, $id_user);
+            }
+            return $this;
+        }
+
+        private function addModImg(int $id, string $name, int $id_user, string $srcImg): self {
+            if(!empty($id)) {
+                $sql = "UPDATE categorie_transport SET nom=:nom, img_cat=:img_cat WHERE id_transport=:id";
+                $this->setSql($sql)
+                            ->setParamInt(":id", $id)
+                            ->setParam(":img_cat", $srcImg)
+                            ->setParam(":nom", $name);
+                $this->executeSql();
+            } else {
+                $sql = "INSERT INTO categorie_transport(nom, img_cat, id_user_cat) VALUES (:nom, :img_cat, :id_user_cat)";
+                $this->setSql($sql)
+                            ->setParamInt(":id_user_cat", $id_user)
+                            ->setParam(":img_cat", $srcImg)
+                            ->setParam(":nom", $name);
+                $this->executeSql();
+            }
+            return $this;
+        }
+
+        private function addModNoImg(int $id, string $name, int $id_user): self {
+            if(!empty($id)) {
+                $sql = "UPDATE categorie_transport SET nom=:nom WHERE id_transport=:id";
+                $this->setSql($sql)
+                            ->setParamInt(":id", $id)
+                            ->setParam(":nom", $name);
+                $this->executeSql();
+            } else {
+                $sql = "INSERT INTO categorie_transport(nom, id_user_cat) VALUES (:nom, :id_user_cat)";
+                $this->setSql($sql)
+                            ->setParamInt(":id_user_cat", $id_user)
+                            ->setParam(":nom", $name);
+                $this->executeSql();
+            }
+            return $this;
+        }
+
+        public function delete(int $id): self {
+            $sql = "DELETE FROM categorie_transport WHERE id_transport=:id";
+            $this->setSql($sql)->setParamInt(":id", $id);
+            $this->executeSql();
+            return $this;
+        }
+
+        public function nameValid(int $id, string $name) {
+            return $this->setSql('SELECT * FROM categorie_transport WHERE nom=:nom AND id_transport!=:id')
+                    ->setParamInt(":id", $id)->setParam(":nom", $name)->rowCount() == 0;
+        }
+
+        public function findImgId(int $id):string {
+            $resulImg = $this->setSql('SELECT img_cat FROM categorie_transport WHERE id_transport=:id')->setParamInt(":id", $id)->fetchAssoc();
+            if(!empty($resulImg)) {
+                return $resulImg["img_cat"];
+            }
+            return "";
+        }
 
 
     }

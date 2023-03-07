@@ -14,8 +14,11 @@ function tab_delete(event) {
         let id = returnTr(event.target).id.split("-")[1];
         let poss = {id:id};
         fetch_post(delete_line_tab, poss).then(function (response) {
-            console.log(response);
-            trTabeLine.remove();
+            if (response == "true") {
+                trTabeLine.remove();
+            } else {
+                alert(response);
+            }
         });
     }
 }

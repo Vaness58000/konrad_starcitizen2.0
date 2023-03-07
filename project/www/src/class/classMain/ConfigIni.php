@@ -11,10 +11,10 @@ if (!class_exists('ConfigIni')) {
     include_once dirname(__FILE__) . '/PathPhp.php';
 
     /* recuperer l'emplacement du fichier de configuration */
-    if (!defined('RACINE_CONFIG_INI') && file_exists(dirname(__FILE__) . '/../config/config.php')) {
+    if (!defined('RACINE_CONFIG_INI') && file_exists(dirname(__FILE__) . '/../../config/config.php')) {
         include_once dirname(__FILE__) . '/../../config/config.php';
-    } else if (!defined('RACINE_CONFIG_INI') && !file_exists(dirname(__FILE__) . '/../config/config.php')) {
-        define("RACINE_CONFIG_INI", dirname(__FILE__)."/../../data/config/");
+    } else if (!defined('RACINE_CONFIG_INI') && !file_exists(dirname(__FILE__) . '/../../config/config.php')) {
+        define("RACINE_CONFIG_INI", dirname(__FILE__)."/../../config/");
     }
 
     /**
