@@ -5,7 +5,7 @@ if(!function_exists('addTdMain')) {
         $string_activ_visib = $activ_visib ? "" : " disabled";
         $modif = $all ? '' : '<td class="td-admin img-modif"><img src="./src/images/pencil-fill.svg" alt=""></td>';
         return '<tr id="id-'.$id.'">'.
-                    '<td>'.$nom.'</td>'.
+                    '<td class="td-name">'.$nom.'</td>'.
                     '<td class="td-admin-visible img-visib"><input type="checkbox" class="darkSwitch two-column"'.$string_visible.$string_activ_visib.'></td>'.
                     $modif.
                     '<td class="td-admin img-delete"><img src="./src/images/trash3-fill.svg" alt=""></td>'.
@@ -16,7 +16,7 @@ if(!function_exists('addTdCatMain')) {
     function addTdCatMain(int $id, ?string $nom, bool $all=false):?string {
         $modif = $all ? '' : '<td class="td-admin img-modif"><img src="./src/images/pencil-fill.svg" alt=""></td>';
         return '<tr id="id-'.$id.'">'.
-                    '<td>'.$nom.'</td>'.
+                    '<td class="td-name">'.$nom.'</td>'.
                     $modif.
                     '<td class="td-admin img-delete"><img src="./src/images/trash3-fill.svg" alt=""></td>'.
                 '</tr>';
@@ -72,7 +72,7 @@ if(!function_exists('addTdUserMain')) {
             }
         }
         return '<tr id="id-'.$id.'">'.
-                    '<td>'.$pseudo.'</td>'.
+                    '<td class="td-name">'.$pseudo.'</td>'.
                     '<td>'.$email.'</td>'.
                     '<td><select name="role" class="role">'.$list_tab_role.'</select></td>'.
                     '<td class="td-admin img-modif"><img src="./src/images/pencil-fill.svg" alt=""></td>'.

@@ -4,14 +4,33 @@ let tabIdAllImg = {nameIdAllImg : "add_img", nameFile : "fileImg_"};
 let tabIdAllImgInf = {nameIdAllImg : "all-img-add", nameFile : "fileImgInfo_"};
 
 function delete_img(e) {
-    let id_img = e.target.parentNode.querySelector("img").id;
-    let nameAndId = id_img.split("_");
-    if(nameAndId[0] === "imgMultiple") {
-        e.target.parentNode.parentNode.removeChild(e.target.parentNode);
-    } else {
-        deleteImgServ(e, nameAndId[1]);
+    e.preventDefault();
+    if (window.confirm("Vous voulez vraiment supprimer l'image ?\n(Ceci sera définitif).")) {
+        let id_img = e.target.parentNode.querySelector(".img-slide-presentation").id;
+        let nameAndId = id_img.split("_");
+        let tabIdAllImgDef = tabIdAllImg;
+        let idName = e.target.parentNode.parentNode.parentNode.querySelector("figure").id;
+        let urlDeleteImgDef = urlDeleteImg;
+        if(idName == tabIdAllImgInf.nameIdAllImg) {
+            tabIdAllImgDef = tabIdAllImgInf;
+            urlDeleteImgDef = urlDeleteImgInfp;
+        }
+        console.log(nameAndId);
+        /*let urlDeleteImg = "./src/exec/delete_img_obj.php";
+        let urlDeleteImgInfp = "./src/exec/delete_img_obj_info.php";*/
+        if(nameAndId[0] === "imgMultiple") {
+            e.target.parentNode.parentNode.removeChild(e.target.parentNode);
+        } else {
+            let poss = { id: nameAndId[1] };
+            fetch_post(urlDeleteImgDef, poss).then(function (response) {
+                if (response == "true") {
+                    e.target.parentNode.parentNode.removeChild(e.target.parentNode);
+                } else {
+                    console.log(response);
+                }
+            });
+        }
     }
-    
 }
 
 function form_delete_click_img() {

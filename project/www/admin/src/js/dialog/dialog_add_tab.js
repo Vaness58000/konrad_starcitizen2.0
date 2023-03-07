@@ -10,23 +10,28 @@ function tab_add_modif(event) {
 function tab_add_delete(event) {
     event.preventDefault();
     let elementTr = returnTr(event.target);
-    let dataId = idDataForm(elementTr.id);
-    let isTmp = dataId.tmp;
-    let name = dataId.name;
-    let id = dataId.id;
-    delete_dialog_exec = eval('delete_dialog_exec_'+name);
-    let poss = {id:id};
-    if(isTmp) {
-        let tmpValue = document.getElementById(elementTr.id.replace("idTmp-", "DataTmp-"));
-        tmpValue.remove();
-        elementTr.remove();
-        tableDispay();
-    } else {
-        fetch_post(delete_dialog_exec, poss).then(function (response) {
-            console.log(response);
+    let tdName = elementTr.querySelector(".td-name");
+    const regex = /<input(.|\n)*?>/i;
+    let nameDelet = tdName.innerHTML.replace(regex, '');
+    if (window.confirm("Vous voulez vraiment supprimer '"+nameDelet+"' ?\n(Ceci sera définitif).")) {
+        let dataId = idDataForm(elementTr.id);
+        let isTmp = dataId.tmp;
+        let name = dataId.name;
+        let id = dataId.id;
+        delete_dialog_exec = eval('delete_dialog_exec_'+name);
+        let poss = {id:id};
+        if(isTmp) {
+            let tmpValue = document.getElementById(elementTr.id.replace("idTmp-", "DataTmp-"));
+            tmpValue.remove();
             elementTr.remove();
             tableDispay();
-        });
+        } else {
+            fetch_post(delete_dialog_exec, poss).then(function (response) {
+                console.log(response);
+                elementTr.remove();
+                tableDispay();
+            });
+        }
     }
 }
 

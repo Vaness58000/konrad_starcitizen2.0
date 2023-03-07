@@ -118,16 +118,22 @@ function validationFormDialog(e) {
       tdNameShow(tdName, nameShow);
       tableDispay();
     }
+    elementDialog.close();
+    tab_all_dial_event();
   } else {
     fetch_form(lien_dialog_exec, "dialog-form").then(function (response) {
-      console.log(response);
-      let tdName = document.getElementById(dataId.nameId).querySelector(".td-name");
-      tdNameShow(tdName, nameShow);
-      tableDispay();
+      if(response == true) {
+        console.log(response);
+        let tdName = document.getElementById(dataId.nameId).querySelector(".td-name");
+        tdNameShow(tdName, nameShow);
+        tableDispay();
+        elementDialog.close();
+        tab_all_dial_event();
+      } else {
+        alert(response);
+      }
     });
   }
-  elementDialog.close();
-  tab_all_dial_event();
 }
 
 function closeDialog(e) {
@@ -136,10 +142,10 @@ function closeDialog(e) {
 }
 
 if (elementDialog != undefined) {
-  document.querySelectorAll(".close-dialog").forEach((element) => {
+  elementDialog.querySelectorAll(".close-dialog").forEach((element) => {
     element.addEventListener("click", closeDialog);
   });
-  document.querySelectorAll(".validation-dialog").forEach((element) => {
+  elementDialog.querySelectorAll(".validation-dialog").forEach((element) => {
     element.addEventListener("click", validationFormDialog);
   });
 }
