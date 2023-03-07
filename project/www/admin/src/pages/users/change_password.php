@@ -3,10 +3,10 @@
 session_start();
 // Include de la base de données
 require_once __DIR__.'/../../../../back/connexion.php';
-
-
-// Si la session n'existe pas 
-if (!isset($_SESSION['user'])) {
+include __DIR__.'/../../../../src/class/classSite/SessionUser.php';
+$sessionUser = new SessionUser();
+// si la session existe pas soit si l'on est pas connecté on redirige
+if(!$sessionUser->isConnected()) {
     header('Location:../index.php');
     die();
 }

@@ -1,6 +1,14 @@
 <?php
 
-if(!(isset($_SESSION['user']) && !empty($get_ind))) {
+include __DIR__.'/../../../../src/class/classSite/SessionUser.php';
+$sessionUser = new SessionUser();
+// si la session existe pas soit si l'on est pas connecté on redirige
+
+$get_ind = "espace_user";
+if(!empty($_GET['ind'])) {
+    $get_ind = $_GET['ind'];
+}
+if(!$sessionUser->isConnected()) {
     header('Location: ./../?ind=login');
 }
 

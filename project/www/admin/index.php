@@ -1,16 +1,16 @@
 <?php 
-session_start();
-
 include __DIR__.'/../src/class/classSite/Config.php';
 include __DIR__.'/../src/class/classMain/TemplatePage.php';
 include __DIR__.'/../src/class/classMain/Error_Log.php';
-include __DIR__.'/../src/repository/UsersRepository.php';
+include __DIR__.'/../src/class/classSite/SessionUser.php';
+$sessionUser = new SessionUser();
+// si la session existe pas soit si l'on est pas connecté on redirige
 
 $get_ind = "espace_user";
 if(!empty($_GET['ind'])) {
     $get_ind = $_GET['ind'];
 }
-if(!isset($_SESSION['user'])) {
+if(!$sessionUser->isConnected()) {
     header('Location: ./../?ind=login');
 }
 
@@ -25,10 +25,8 @@ $css = "";
 $contenu = "";
 $add_menu_admin = "";
 
-$usersRepository = new UsersRepository();
-$user = $usersRepository->findAllId($_SESSION['utilisateur']['id']);
-$id_role = intval($user["id_role"]);
-$isAdmin = $id_role == 2;
+$id_role = $sessionUser->getRole();
+$isAdmin = $sessionUser->isAdmin();
 
 $templateMenuAdmin->addFileCss("./src/css/style_admin.css");
 

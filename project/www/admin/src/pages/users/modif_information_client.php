@@ -1,8 +1,9 @@
 <?php
-session_start();
-require_once __DIR__.'/../../../../back/connexion.php'; // ajout connexion bdd 
+include __DIR__.'/../../../../src/class/classSite/SessionUser.php';
+require_once __DIR__.'/../../../../back/connexion.php';
+$sessionUser = new SessionUser();
 // si la session existe pas soit si l'on est pas connecté on redirige
-if (!isset($_SESSION['user'])) {
+if(!$sessionUser->isConnected()) {
     header('Location:../login.php');
     die();
 }

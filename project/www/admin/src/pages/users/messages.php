@@ -15,13 +15,10 @@ if (!empty($_GET) && array_key_exists('pg', $_GET) && !empty($_GET['pg'])) {
     $page = intval($_GET['pg']-1);
 }
 
-$usersRepository = new UsersRepository();
-$user = $usersRepository->findAllId($_SESSION['utilisateur']['id']);
-
-$pseudo = $user['pseudo'];
-$id = intval($user["idUser"]);
-$id_role = intval($user["id_role"]);
-$isAdmin = $id_role == 2;
+$pseudo = $sessionUser->getPseudo();
+$id = $sessionUser->getId();
+$id_role = $sessionUser->getRole();
+$isAdmin = $sessionUser->isAdmin();
 $nb_par_pg = 10;
 $choix_tab = "";
 $isAll = false;

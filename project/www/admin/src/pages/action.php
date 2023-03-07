@@ -1,5 +1,7 @@
 <?php
 require __DIR__.'/../../../back/connexion.php';
+include __DIR__.'/../../../src/class/classSite/SessionUser.php';
+$sessionUser = new SessionUser();
 
 if(isset($_GET['t'], $_GET['id']) AND !empty($_GET['t']) AND !empty($_GET['id'])){
     $getid = (int) $_GET['id'];

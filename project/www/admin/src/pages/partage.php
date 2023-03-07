@@ -1,8 +1,10 @@
 <?php
 require __DIR__ . '/../../../back/connexion.php';
 include __DIR__.'/../../../src/class/classMain/TemplatePage.php';
+include __DIR__.'/../../../src/class/classSite/SessionUser.php';
+$sessionUser = new SessionUser();
 $sth4 = $dbco->prepare("SELECT * FROM images WHERE id_client = :id");
-$sth4->execute([":id" => $_SESSION['utilisateur']['id']]);
+$sth4->execute([":id" => $sessionUser->getId()]);
 
 /*Retourne un tableau associatif pour chaque entrée de notre table
         *avec le nom des colonnes sélectionnées en clefs*/

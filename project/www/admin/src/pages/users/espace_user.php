@@ -1,21 +1,18 @@
 <?php
 include __DIR__.'/../../../../src/class/classMain/TemplatePage.php';
-require __DIR__.'/../../../../back/connexion.php'; // ajout connexion bdd 
+include __DIR__.'/../../../../src/class/classSite/SessionUser.php';
+$sessionUser = new SessionUser();
 // si la session existe pas soit si l'on est pas connecté on redirige
-if (!(!empty($_SESSION) && array_key_exists('utilisateur', $_SESSION) && !empty($_SESSION['utilisateur']) && 
-    array_key_exists('id', $_SESSION['utilisateur']) && !empty($_SESSION['utilisateur']['id']))) {
+if(!$sessionUser->isConnected()) {
     header('Location: ../?ind=login');
     die();
 }
 
-// On récupere les données de l'utilisateur
-$req = $dbco->prepare('SELECT * FROM utilisateurs WHERE token = ?');
-$req->execute(array($_SESSION['user']));
-$data = $req->fetch(PDO::FETCH_ASSOC);
-
-$email = $data['email'];
-$pseudo = $data['pseudo'];
-$id = $data["id_client"];
+$pseudo = $sessionUser->getPseudo();
+$id = $sessionUser->getId();
+$id_role = $sessionUser->getRole();
+$isAdmin = $sessionUser->isAdmin();
+$email = $sessionUser->getEmail();
 $err = "";
 
 if (isset($_GET['err'])) {

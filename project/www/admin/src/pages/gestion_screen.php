@@ -1,7 +1,9 @@
 <?php
 require __DIR__ . '/../../../back/connexion.php';
+include __DIR__.'/../../../src/class/classSite/SessionUser.php';
+$sessionUser = new SessionUser();
 // si la session existe pas soit si l'on est pas connecté on redirige
-if (!isset($_SESSION['user'])) {
+if(!$sessionUser->isConnected()) {
     header('Location: ?ind=login');
     die();
 }
