@@ -101,7 +101,6 @@
 
 .container_equipement img {
   width: 320px;
-  height: 150px;
   border: 1px;
   clip-path: polygon(0 0, 100% 0, 100% 100%, 100% 100%, 0 100%, 26px 100%, 0 calc(100% - 26px));
 }

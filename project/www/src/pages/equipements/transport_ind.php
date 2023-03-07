@@ -1,13 +1,11 @@
 <?php
 require __DIR__ . '/../../../back/connexion.php';
-require __DIR__ . '/../../../src/repository/VaisseauRepository.php';
-$vaisseauRepository = new VaisseauRepository();
-$vaisseau = $vaisseauRepository->findAllId($_GET['id']);
-
+require __DIR__ . '/../../../src/repository/TransportRepository.php';
+$vaisseauRepository = new TransportRepository();
+$construct = $vaisseauRepository->findAllAndIdUser($_GET['id']);
 ?>
 
 <section class="page_generale">
-  <?php foreach ($vaisseau as $construct) { ?>
 
     <div class="info_generale">
       <main class="main-content">
@@ -15,51 +13,51 @@ $vaisseau = $vaisseauRepository->findAllId($_GET['id']);
 
           <div class="slides">
             <div class="slideshow-inner">
-              <?php $vaisseau_img = $vaisseauRepository->findAllImgObj($construct["id_objet"]);
+              <?php $vaisseau_img = $vaisseauRepository->findAllImgObj(intval($construct["id_objet"]));
               foreach ($vaisseau_img as $construct_img) { ?>
                 <div class="slide is-active ">
                   <div class="slide-content">
                     <div class="caption">
 
-                      <div class="title"><?= $construct['nom_vaiss'] ?></div>
+                      <div class="title"><?= $construct['nom_obj'] ?></div>
 
                     </div>
                   </div>
                   <div class="image-container">
-                    <img src="src/img/<?= $vaisseau_img[0]["name"] ?>" alt="vaisseau<?= $construct['nom_vaiss'] ?>">
+                    <img src="src/img/<?= $vaisseau_img[0]["name"] ?>" alt="vaisseau<?= $construct['nom_obj'] ?>">
                   </div>
                 </div>
               <?php } ?>
               <div class="slide">
                 <div class="slide-content">
                   <div class="caption">
-                    <div class="title"><?= $construct['nom_vaiss'] ?></div>
+                    <div class="title"><?= $construct['nom_obj'] ?></div>
                   </div>
                 </div>
                 <div class="image-container">
-                  <img src="src/img/vaisseau4.jpg" alt="<?= $construct['nom_vaiss'] ?>" class="image" />
+                  <img src="src/img/vaisseau4.jpg" alt="<?= $construct['nom_obj'] ?>" class="image" />
                 </div>
               </div>
               <div class="slide">
                 <div class="slide-content">
                   <div class="caption">
-                    <div class="title"><?= $construct['nom_vaiss'] ?></div>
+                    <div class="title"><?= $construct['nom_obj'] ?></div>
 
                   </div>
                 </div>
                 <div class="image-container">
-                  <img src="src/img/vaisseau18.jpg" alt="<?= $construct['nom_vaiss'] ?>" class="image" />
+                  <img src="src/img/vaisseau18.jpg" alt="<?= $construct['nom_obj'] ?>" class="image" />
                 </div>
               </div>
               <div class="slide">
                 <div class="slide-content">
                   <div class="caption">
-                    <div class="title"><?= $construct['nom_vaiss']; ?></div>
+                    <div class="title"><?= $construct['nom_obj']; ?></div>
 
                   </div>
                 </div>
                 <div class="image-container">
-                  <img src="src/img/vaisseau14.jpg" alt="<?= $construct['nom_vaiss'] ?>" class="image" />
+                  <img src="src/img/vaisseau14.jpg" alt="<?= $construct['nom_obj'] ?>" class="image" />
                 </div>
               </div>
             </div>
@@ -153,10 +151,6 @@ $vaisseau = $vaisseauRepository->findAllId($_GET['id']);
   <?php } ?>
 </table>
 
-
-<?php
-  }
-?>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.1/TweenMax.min.js"></script>

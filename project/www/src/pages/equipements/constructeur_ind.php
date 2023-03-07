@@ -7,7 +7,13 @@ require __DIR__ . '/../../../src/repository/ArmeFpsRepository.php';
 $constructeurRepository = new ConstructeurRepository();
 $construct_tabs = $constructeurRepository->findAllAndIdConstructeur($_GET['id']);
 $transportRepository = new TransportRepository();
-$transports = $transportRepository->findAllAndUserConstructeurId($_GET['id']);
+if (!isset($_GET["type_transp"])) {
+    $transports = $transportRepository->findAllAndUserConstructeurId($_GET['id']);
+} else {
+    $transports = $transportRepository->findAllAndConstructIdPage($_GET["type_transp"], $_GET['id']);
+}
+$id_vehicule = 2;
+$id_vaiss = 1;
 ?>
 
 
@@ -17,7 +23,7 @@ $transports = $transportRepository->findAllAndUserConstructeurId($_GET['id']);
     <div class="info_construct">
         <img src="src/img/<?= $construct_tabs['image']; ?>" alt="<?= $construct_tabs['nom']; ?>">
 
-        <p><?= str_replace("\n", "<br/>",$construct_tabs['contenu']); ?></p>
+        <p><?= str_replace("\n", "<br/>", $construct_tabs['contenu']); ?></p>
 
     </div>
 </div>
@@ -29,26 +35,26 @@ $transports = $transportRepository->findAllAndUserConstructeurId($_GET['id']);
     <ul class="menu_categorie_construct">
         <li class="categorie_item_construct">
             <span class="item_inner_construct">
-                <span class="item_title_construct"><a href="">Tous</a></span>
+                <span class="item_title_construct"><a href="./?ind=constructeur_ind&id=<?= $_GET['id'] ?>">Tous</a></span>
             </span>
         </li>
         <li class="categorie_item_construct">
             <span class="item_inner_construct">
-                <span class="item_title_construct"><a href="">Vaisseaux</a></span>
+                <span class="item_title_construct"><a href="./?ind=constructeur_ind&type_transp=<?= $id_vaiss ?>&id=<?= $_GET['id'] ?>">Vaisseaux</a></span>
             </span>
         </li>
         <li class="categorie_item_construct">
             <span class="item_inner_construct">
-                <span class="item_title_construct"><a href="">Véhicules</a></span>
+                <span class="item_title_construct"><a href="./?ind=constructeur_ind&type_transp=<?= $id_vehicule ?>&id=<?= $_GET['id'] ?>">Véhicules</a></span>
             </span>
         </li>
     </ul>
 </div>
 <div class="equipement_transport_construct">
-<div class="section_categorie">
-    <h1 class="centered2">Les transports <?= $construct_tabs['nom']; ?></h1>
-    <hr>
-</div>
+    <div class="section_categorie">
+        <h1 class="centered2">Les transports <?= $construct_tabs['nom']; ?></h1>
+        <hr>
+    </div>
 
     <div class="container_equipement">
 

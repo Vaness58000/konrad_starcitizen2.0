@@ -34,6 +34,7 @@ if (!class_exists('TransportRepository')) {
                 'INNER JOIN equipements_transports ON equipements_transports.id_objet = objet.id ' .
                 'INNER JOIN utilisateurs ON utilisateurs.id_user = objet.id_user ' .
                 'LEFT JOIN construct_transp ON equipements_transports.id = construct_transp.id_transp ' .
+                'INNER JOIN disponibilite ON disponibilite.id_disponibilite = equipements_transports.id_disponible ' .
                 'WHERE objet.id=:id')->setParamInt(":id", $id)->fetchAssoc();
         }
 
@@ -60,6 +61,23 @@ if (!class_exists('TransportRepository')) {
                 'WHERE objet.id_objet_type=:id_type && utilisateurs.id_user=:id_user ORDER BY objet.id DESC' . $limit . '';
             return $this->setSql($sql)
                 ->setParamInt(":id_user", $id)
+                ->setParamInt(":id_type", $id_type)
+                ->fetchAllAssoc();
+        }
+        public function findAllAndConstructIdPage(int $id_type, int $id, int $nmPage = 0, int $nbArtPage = 0): array
+        {
+            $limit = "";
+            if (!empty($nbArtPage)) {
+                $nmStart = $nmPage * $nbArtPage;
+                $limit = " LIMIT $nbArtPage OFFSET $nmStart";
+            }
+            $sql = 'SELECT *, objet.id AS id_objet, objet.nom AS nom_obj FROM objet ' .
+                'INNER JOIN equipements_transports ON equipements_transports.id_objet = objet.id ' .
+                'LEFT JOIN construct_transp ON equipements_transports.id = construct_transp.id_transp ' .
+                'LEFT JOIN constructeur ON construct_transp.id_construct = constructeur.id_constructeur ' .
+                'WHERE equipements_transports.categorie=:id_type && constructeur.id_constructeur =:id_constructeur ORDER BY objet.id DESC' . $limit . '';
+            return $this->setSql($sql)
+                ->setParamInt(":id_constructeur", $id)
                 ->setParamInt(":id_type", $id_type)
                 ->fetchAllAssoc();
         }

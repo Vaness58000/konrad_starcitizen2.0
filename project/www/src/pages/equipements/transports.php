@@ -29,7 +29,7 @@ $construct_tab = $constructeurRepository->findAll();
 
     <?php foreach ($vaisseau as $construct) {?>
       <div class="equipement_indiv">
-        <a href="?ind=transport_ind&id=<?= $construct['id']; ?>">
+        <a href="?ind=transport_ind&id=<?= $construct['id_objet']; ?>">
         <?php $vaisseau_img = $vaisseauRepository->findAllImgObj($construct["id_objet"]);
         if (count($vaisseau_img) >= 1) {
         ?><img src="src/img/<?= $vaisseau_img[0]["name"] ?>" alt="vaisseau<?= $construct['nom_vaiss'] ?>"></a>
