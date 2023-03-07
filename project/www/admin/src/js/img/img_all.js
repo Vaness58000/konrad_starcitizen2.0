@@ -1,15 +1,36 @@
 "use strict";
 let nb_photo_gener = 0;
+let tabIdAllImg = {nameIdAllImg : "add_img", nameFile : "fileImg_"};
+let tabIdAllImgInf = {nameIdAllImg : "all-img-add", nameFile : "fileImgInfo_"};
 
 function delete_img(e) {
-    let id_img = e.target.parentNode.querySelector("img").id;
-    let nameAndId = id_img.split("_");
-    if(nameAndId[0] === "imgMultiple") {
-        e.target.parentNode.parentNode.removeChild(e.target.parentNode);
-    } else {
-        deleteImgServ(e, nameAndId[1]);
+    e.preventDefault();
+    if (window.confirm("Vous voulez vraiment supprimer l'image ?\n(Ceci sera définitif).")) {
+        let id_img = e.target.parentNode.querySelector(".img-slide-presentation").id;
+        let nameAndId = id_img.split("_");
+        let tabIdAllImgDef = tabIdAllImg;
+        let idName = e.target.parentNode.parentNode.parentNode.querySelector("figure").id;
+        let urlDeleteImgDef = urlDeleteImg;
+        if(idName == tabIdAllImgInf.nameIdAllImg) {
+            tabIdAllImgDef = tabIdAllImgInf;
+            urlDeleteImgDef = urlDeleteImgInfp;
+        }
+        console.log(nameAndId);
+        /*let urlDeleteImg = "./src/exec/delete_img_obj.php";
+        let urlDeleteImgInfp = "./src/exec/delete_img_obj_info.php";*/
+        if(nameAndId[0] === "imgMultiple") {
+            e.target.parentNode.parentNode.removeChild(e.target.parentNode);
+        } else {
+            let poss = { id: nameAndId[1] };
+            fetch_post(urlDeleteImgDef, poss).then(function (response) {
+                if (response == "true") {
+                    e.target.parentNode.parentNode.removeChild(e.target.parentNode);
+                } else {
+                    console.log(response);
+                }
+            });
+        }
     }
-    
 }
 
 function form_delete_click_img() {
@@ -20,6 +41,7 @@ function form_delete_click_img() {
 
 function addFileImg(file, nameIdAllImg, nameFile) {
     let preview = document.getElementById(nameIdAllImg);
+    console.log(preview);
     let addChoiceMain = false;
     if(preview.classList.contains("img-and-main")) {
         addChoiceMain = true;
@@ -120,31 +142,37 @@ function loadFilesImgAll(event, nameIdAllImg, nameFile) {
     }
 }
 
-function dropHandler(ev) {
-    // Prevent default behavior (Prevent file from being opened)
-    ev.preventDefault();
-  
-    if (ev.dataTransfer.items) {
-      // Use DataTransferItemList interface to access the file(s)
-      [...ev.dataTransfer.items].forEach((item, i) => {
-        // If dropped items aren't files, reject them
-        if (item.kind === 'file') {
-          const file = item.getAsFile();
-          addFileImg(file);
-        }
-      });
-    } else {
-      // Use DataTransfer interface to access the file(s)
-      [...ev.dataTransfer.files].forEach((file, i) => {
-        console.log(`… file[${i}].name = ${file.name}`);
-      });
-    }
-  }
 
-function dragOverHandler(ev) {
-  // Prevent default behavior (Prevent file from being opened)
-  ev.preventDefault();
-}
+    function dropHandler(ev) {
+        // Prevent default behavior (Prevent file from being opened)
+        ev.preventDefault();
+        let tabIdAllImgDef = tabIdAllImg;
+        let idName = ev.target.parentNode.parentNode.querySelector("figure").id;
+        if(idName == tabIdAllImgInf.nameIdAllImg) {
+            tabIdAllImgDef = tabIdAllImgInf;
+        }
+        if (ev.dataTransfer.items) {
+        // Use DataTransferItemList interface to access the file(s)
+        [...ev.dataTransfer.items].forEach((item, i) => {
+            // If dropped items aren't files, reject them
+            if (item.kind === 'file') {
+            const file = item.getAsFile();
+            addFileImg(file, tabIdAllImgDef.nameIdAllImg, tabIdAllImgDef.nameFile);
+            }
+        });
+        } else {
+        // Use DataTransfer interface to access the file(s)
+        [...ev.dataTransfer.files].forEach((file, i) => {
+            console.log(`… file[${i}].name = ${file.name}`);
+        });
+        }
+    }
+
+    function dragOverHandler(ev) {
+        // Prevent default behavior (Prevent file from being opened)
+        ev.preventDefault();
+    }
+
 
 function deleteImgServ(e, id) {
     console.log(id);
@@ -164,23 +192,28 @@ function deleteImgServ(e, id) {
 
 document.querySelectorAll("#fileToUploadAll").forEach(element => {
     element.addEventListener('change', function(e) {
-        let nameIdAllImg = "add_img";
-        let nameFile = "fileImg_";
-        loadFilesImgAll(e, nameIdAllImg, nameFile);
+        loadFilesImgAll(e, tabIdAllImg.nameIdAllImg, tabIdAllImg.nameFile);
     });
     form_delete_click_img();
 });
 
-document.querySelectorAll("#fileToUploadAll-add").forEach(element => {
-    element.addEventListener('change', function(e) {
-        let nameIdAllImg = "all-img-add";
-        let nameFile = "fileImgInfo_";
-        loadFilesImgAll(e, nameIdAllImg, nameFile);
+function imgAllInfo() {
+    document.querySelectorAll("#fileToUploadAll-add").forEach(element => {
+        element.addEventListener('change', function(e) {
+            loadFilesImgAll(e, tabIdAllImgInf.nameIdAllImg, tabIdAllImgInf.nameFile);
+        });
+        form_delete_click_img();
     });
-    form_delete_click_img();
-});
+
+    document.querySelectorAll("#all-img-add").forEach(element => {
+        element.addEventListener('drop', dropHandler);
+        element.addEventListener('dragover', dragOverHandler);
+    });
+}
 
 document.querySelectorAll("#img-add").forEach(element => {
     element.addEventListener('drop', dropHandler);
     element.addEventListener('dragover', dragOverHandler);
 });
+
+imgAllInfo();

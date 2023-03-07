@@ -17,7 +17,7 @@
     transform: translateX(-50%) translateY(-50%);*/
 }
 #dialog .admin-contenu {
-    padding: unset;
+    padding: 10px;
 }
 .close-dialog {
     position: absolute;

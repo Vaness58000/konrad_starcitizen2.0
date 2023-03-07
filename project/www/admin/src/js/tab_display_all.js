@@ -8,11 +8,16 @@ function tab_modif(event) {
 
 function tab_delete(event) {
     event.preventDefault();
-    let id = returnTr(event.target).id.split("-")[1];
-    let poss = {id:id};
-    fetch_post(delete_line_tab, poss).then(function (response) {
-        console.log(response);
-    });
+    let trTabeLine = returnTr(event.target);
+    let tdName = trTabeLine.querySelector(".td-name");
+    if (window.confirm("Vous voulez vraiment supprimer '"+tdName.innerHTML+"' ?\n(Ceci sera définitif).")) {
+        let id = returnTr(event.target).id.split("-")[1];
+        let poss = {id:id};
+        fetch_post(delete_line_tab, poss).then(function (response) {
+            console.log(response);
+            trTabeLine.remove();
+        });
+    }
 }
 
 function tab_visible(event) {
