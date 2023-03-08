@@ -21,7 +21,7 @@ if(!$sessionUser->isConnected()) {
                 }
                 $nameImg = $oneImg->move_img_uniqid("cat");
             }
-            $catEspecesRepository->addMod($_POST['id'], $_POST['nom'], $_SESSION['utilisateur']['id'], $nameImg);
+            $catEspecesRepository->addMod($_POST['id'], $_POST['nom'], $sessionUser->getId(), $nameImg);
             if(empty($_POST['is_error'])) {
                 echo "true";
             } else {

@@ -6,7 +6,7 @@ function add_form_validation(event) {
        response
     ) {
         if (response == "true") {
-            history.back();
+            document.referrer ? window.location = document.referrer : history.back();
         } else {
             alert(response);
         }

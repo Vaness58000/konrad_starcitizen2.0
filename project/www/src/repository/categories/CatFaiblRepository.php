@@ -90,7 +90,7 @@ if (!class_exists('CatFaiblRepository')) {
             return $this;
         }
 
-        public function nameValid(int $id, string $name) {
+        public function nameValid(int $id, string $name):bool {
             return $this->setSql('SELECT * FROM faiblesses WHERE nom_faiblesse=:nom AND id_faiblesse!=:id')
                     ->setParamInt(":id", $id)->setParam(":nom", $name)->rowCount() == 0;
         }

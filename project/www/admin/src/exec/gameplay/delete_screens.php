@@ -4,14 +4,23 @@ include __DIR__.'/../../../../src/class/classMain/TemplatePage.php';
 include __DIR__.'/../../../../src/repository/ScreensRepository.php';
 include __DIR__.'/../../function/table-admin.php';
 include __DIR__.'/../../../../src/class/classSite/SessionUser.php';
+require __DIR__.'/../../../../src/class/classMain/OneImg.php';
 $sessionUser = new SessionUser();
 // si la session existe pas soit si l'on est pas connecté on redirige
 if(!$sessionUser->isConnected()) {
     die("Merci de vous connecter.");
 } else {
-    $name = 'delete_screens';
-    $file = __DIR__.'/../../../../upload/files/'.$name.'.json';
-    $current = json_encode($_POST);
-    file_put_contents($file, $current);
-    echo $name;
+    if(!empty($_POST) && array_key_exists("id", $_POST)) {
+        $oneImg = new OneImg("screen");
+        $screensRepository = new ScreensRepository();
+        $oneImg->keyFile("file-img");
+        if(!empty($_POST['id'])) {
+            $nameImgDelet = $screensRepository->findImgId($_POST['id']);
+            $oneImg->supprimer($nameImgDelet);
+        }
+        $screensRepository->delete($_POST['id']);
+        echo "true";
+    } else {
+        echo "Vous ne pouvez pas faire cette action.";
+    }
 }

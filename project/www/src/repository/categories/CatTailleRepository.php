@@ -90,7 +90,7 @@ if (!class_exists('CatTailleRepository')) {
             return $this;
         }
 
-        public function nameValid(int $id, string $taille) {
+        public function nameValid(int $id, string $taille):bool {
             return $this->setSql('SELECT * FROM taille_arm_vaisseau WHERE taille=:taille AND id!=:id')
                     ->setParamInt(":id", $id)->setParam(":taille", $taille)->rowCount() == 0;
         }

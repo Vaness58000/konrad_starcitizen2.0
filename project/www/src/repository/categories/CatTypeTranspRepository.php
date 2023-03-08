@@ -90,7 +90,7 @@ if (!class_exists('CatTypeTranspRepository')) {
             return $this;
         }
 
-        public function nameValid(int $id, string $name) {
+        public function nameValid(int $id, string $name):bool {
             return $this->setSql('SELECT * FROM type_transport WHERE nom=:nom AND id_type!=:id')
                     ->setParamInt(":id", $id)->setParam(":nom", $name)->rowCount() == 0;
         }

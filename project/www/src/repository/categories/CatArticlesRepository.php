@@ -96,7 +96,7 @@ if (!class_exists('CatArticlesRepository')) {
             return $this;
         }
 
-        public function nameValid(int $id, string $name) {
+        public function nameValid(int $id, string $name):bool {
             return $this->setSql('SELECT * FROM categories_articles WHERE nom=:nom AND id_categorie_article!=:id')
                     ->setParamInt(":id", $id)->setParam(":nom", $name)->rowCount() == 0;
         }

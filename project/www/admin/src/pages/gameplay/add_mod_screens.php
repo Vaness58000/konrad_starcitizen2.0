@@ -32,7 +32,9 @@ if (!empty($_GET) && array_key_exists('id', $_GET) && !empty($_GET['id'])) {
     if(count($screen)>0){
         $id_screen = intval($_GET['id']);
         $isProprietaire = $screen['id_user'] == $id;
-        $img = './../upload/screen/'.$screen['src'];
+        if(!empty($screen['src'])) {
+            $img = './../upload/screen/'.$screen['src'];
+        }
         $nom = $screen['name'];
         $alt = $screen['alt'];
         $validation = (intval($screen['validation']) == 1);

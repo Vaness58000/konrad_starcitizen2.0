@@ -90,7 +90,7 @@ if (!class_exists('CatArmRepository')) {
             return $this;
         }
 
-        public function nameValid(int $id, string $name) {
+        public function nameValid(int $id, string $name):bool {
             return $this->setSql('SELECT * FROM categorie_arm_fps WHERE nom=:nom AND id_categ_arme!=:id')
                     ->setParamInt(":id", $id)->setParam(":nom", $name)->rowCount() == 0;
         }

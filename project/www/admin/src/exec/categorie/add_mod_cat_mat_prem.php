@@ -10,7 +10,7 @@ if(!$sessionUser->isConnected()) {
     if(!empty($_POST) && array_key_exists("id", $_POST) && array_key_exists("nom", $_POST)) {
         $catMatPremRepository = new CatMatPremRepository();
         if($catMatPremRepository->nameValid($_POST['id'], $_POST['nom'])) {
-            $catMatPremRepository->addMod($_POST['id'], $_POST['nom'], $_SESSION['utilisateur']['id']);
+            $catMatPremRepository->addMod($_POST['id'], $_POST['nom'], $sessionUser->getId());
             if(empty($_POST['is_error'])) {
                 echo "true";
             } else {

@@ -111,7 +111,7 @@ if (!class_exists('CatEspecesRepository')) {
             return $this;
         }
 
-        public function nameValid(int $id, string $name) {
+        public function nameValid(int $id, string $name):bool {
             return $this->setSql('SELECT * FROM categories_especes WHERE nom=:nom AND id_categ_espece!=:id')
                     ->setParamInt(":id", $id)->setParam(":nom", $name)->rowCount() == 0;
         }

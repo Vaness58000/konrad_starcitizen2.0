@@ -19,6 +19,9 @@ $pseudo = $sessionUser->getPseudo();
 $id = $sessionUser->getId();
 $id_role = $sessionUser->getRole();
 $isAdmin = $sessionUser->isAdmin();
+$nb_par_pg = 10;
+$choix_tab = "";
+$isAll = false;
 
 if($isAdmin) {
     $choix_tab = choiceTab("./?ind=articles", "./?ind=articles_all");

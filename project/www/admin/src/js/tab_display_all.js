@@ -24,11 +24,17 @@ function tab_delete(event) {
 }
 
 function tab_visible(event) {
-    event.preventDefault();
-    let id = returnTr(event.target).id.split("-")[1];
-    let poss = {id:id};
+    //event.preventDefault();
+    let trElement = returnTr(event.target);
+    let id = trElement.id.split("-")[1];
+    let checkElement = trElement.querySelector(".darkSwitch");
+    let checkedValue = checkElement.checked;
+    let poss = {id:id, check:checkedValue};
     fetch_post(visibl_line_tab, poss).then(function (response) {
-        console.log(response);
+        if (response != "true") {
+            checkElement.checked = !checkedValue;
+            alert(response);
+        }
     });
 }
 

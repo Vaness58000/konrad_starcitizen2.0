@@ -81,6 +81,12 @@ if (!class_exists('ObjetRepository')) {
             return $this->setSql('SELECT * FROM images_objet WHERE id_objet=:id_objet LIMIT 1')->setParamInt(":id_objet", $id_obj)->fetchAssoc();
         }
 
+        public function visible(int $id, bool $visible): self {
+            $sql = "UPDATE objet SET validation=:visible WHERE id=:id";
+            $this->setSql($sql)->setParamInt(":id", $id)->setParamBool(":visible", $visible)->executeSql();
+            return $this;
+        }
+
     }
 }
 

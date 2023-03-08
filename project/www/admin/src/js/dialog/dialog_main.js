@@ -93,8 +93,8 @@ function addLineTab(nameShow) {
 
 function validationFormDialog(e) {
   e.preventDefault();
-    let nameShow = createNameTd();
-  if (dataId.id == 0 || dataId.tmp) {
+  let nameShow = createNameTd();
+  if ((dataId.id == 0 || dataId.tmp) && id_form_main == 0) {
     let formList = form_list("dialog-form");
     let formJson = JSON.stringify(formList);
     if (dataId.id == 0) {
@@ -122,13 +122,8 @@ function validationFormDialog(e) {
     tab_all_dial_event();
   } else {
     fetch_form(lien_dialog_exec, "dialog-form").then(function (response) {
-      if(response == true) {
-        console.log(response);
-        let tdName = document.getElementById(dataId.nameId).querySelector(".td-name");
-        tdNameShow(tdName, nameShow);
-        tableDispay();
-        elementDialog.close();
-        tab_all_dial_event();
+      if(response == "true") {
+        location.reload();
       } else {
         alert(response);
       }

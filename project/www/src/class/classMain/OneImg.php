@@ -37,7 +37,7 @@ if (!class_exists('OneImg')) {
         }
 
         public function isGlobFile(): bool {
-            return (!empty($_FILES) && array_key_exists($this->keyFile, $_FILES) && !empty($_FILES[$this->keyFile]) && 
+            return (!empty($_FILES) && !empty($this->keyFile) && array_key_exists($this->keyFile, $_FILES) && !empty($_FILES[$this->keyFile]) && 
             array_key_exists("name", $_FILES[$this->keyFile]) && !empty($_FILES[$this->keyFile]['name']));
         }
 
@@ -54,10 +54,10 @@ if (!class_exists('OneImg')) {
                 if(!file_exists($this->folder)) {
                     mkdir($this->folder, 0777, true);
                 }
-                $nameImg = str_replace(".", "_", uniqid($thePrefix, true)).".".strrev(explode(".", strrev($_FILES["file-img"]['name']))[0]);
+                $nameImg = str_replace(".", "_", uniqid($thePrefix, true)).".".strrev(explode(".", strrev($_FILES[$this->keyFile]['name']))[0]);
                 $file = PathPhp::path($this->folder, $nameImg);
                 try {
-                    if (!move_uploaded_file($_FILES['file-img']['tmp_name'], $file)) {
+                    if (!move_uploaded_file($_FILES[$this->keyFile]['tmp_name'], $file)) {
                         throw new Exception("Possible file upload attack!");
                     }
                 } catch (Exception $e) {

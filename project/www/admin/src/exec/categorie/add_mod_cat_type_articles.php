@@ -9,7 +9,7 @@ if(!$sessionUser->isConnected()) {
 } else {
     if(!empty($_POST) && array_key_exists("id", $_POST) && array_key_exists("nom", $_POST)) {
         $catTypeArticlesRepository = new CatTypeArticlesRepository();
-        $catTypeArticlesRepository->addMod($_POST['id'], $_POST['nom'], $_SESSION['utilisateur']['id']);
+        $catTypeArticlesRepository->addMod($_POST['id'], $_POST['nom'], $sessionUser->getId());
         if(empty($_POST['is_error'])) {
             echo "true";
         } else {

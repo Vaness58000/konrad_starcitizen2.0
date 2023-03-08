@@ -90,7 +90,7 @@ if (!class_exists('CatDispRepository')) {
             return $this;
         }
 
-        public function nameValid(int $id, string $name) {
+        public function nameValid(int $id, string $name):bool {
             return $this->setSql('SELECT * FROM disponibilite WHERE nom_disponible=:nom AND id_disponibilite!=:id')
                     ->setParamInt(":id", $id)->setParam(":nom", $name)->rowCount() == 0;
         }

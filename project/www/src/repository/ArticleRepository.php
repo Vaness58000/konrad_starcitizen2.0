@@ -228,6 +228,12 @@ if (!class_exists('ArticleRepository')) {
             }
             return intval($tab_type["id_categorie_article"]);
         }
+
+        public function visible(int $id, bool $visible): self {
+            $sql = "UPDATE articles SET validation=:visible WHERE id=:id";
+            $this->setSql($sql)->setParamInt(":id", $id)->setParamBool(":visible", $visible)->executeSql();
+            return $this;
+        }
     } 
 }
 

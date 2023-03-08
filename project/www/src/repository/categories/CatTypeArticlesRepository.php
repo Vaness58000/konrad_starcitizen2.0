@@ -90,7 +90,7 @@ if (!class_exists('CatTypeArticlesRepository')) {
             return $this;
         }
 
-        public function nameValid(int $id, string $name) {
+        public function nameValid(int $id, string $name):bool {
             return $this->setSql('SELECT * FROM gameplay_type WHERE nom=:nom AND id!=:id')
                     ->setParamInt(":id", $id)->setParam(":nom", $name)->rowCount() == 0;
         }

@@ -88,6 +88,82 @@ if (!class_exists('ScreensRepository')) {
             return $this->setSql($sql)
                         ->rowCount();
         }
+
+        public function visible(int $id, bool $visible): self {
+            $sql = "UPDATE screens SET validation=:visible WHERE id_screen=:id";
+            $this->setSql($sql)->setParamInt(":id", $id)->setParamBool(":visible", $visible)->executeSql();
+            return $this;
+        }
+        
+        public function addMod(int $id, string $name, string $alt, int $id_user, bool $visible, string $srcImg = null): self {
+            if(!empty($srcImg)) {
+                $this->addModImg($id, $name, $alt, $id_user, $visible, $srcImg);
+            } else {
+                $this->addModNoImg($id, $name, $alt, $id_user, $visible);
+            }
+            return $this;
+        }
+
+        private function addModImg(int $id, string $name, string $alt, int $id_user, bool $visible, string $srcImg): self {
+            if(!empty($id)) {
+                $sql = "UPDATE screens SET name=:name,image=:image,alt=:alt,src=:src, validation=:validation WHERE id_screen=:id";
+                $this->setSql($sql)
+                            ->setParamInt(":id", $id)
+                            ->setParamBool(":validation", $visible)
+                            ->setParam(":image", $srcImg)
+                            ->setParam(":src", $srcImg)
+                            ->setParam(":alt", $alt)
+                            ->setParam(":name", $name);
+                $this->executeSql();
+            } else {
+                $sql = "INSERT INTO screens (id_user, name, image, alt, src, validation) VALUES (:id_user, :name, :image, :alt, :src, :validation)";
+                $this->setSql($sql)
+                            ->setParamInt(":id_user", $id_user)
+                            ->setParamBool(":validation", $visible)
+                            ->setParam(":image", $srcImg)
+                            ->setParam(":src", $srcImg)
+                            ->setParam(":alt", $alt)
+                            ->setParam(":name", $name);
+                $this->executeSql();
+            }
+            return $this;
+        }
+
+        private function addModNoImg(int $id, string $name, string $alt, int $id_user, bool $visible): self {
+            if(!empty($id)) {
+                $sql = "UPDATE screens SET name=:name,alt=:alt, validation=:validation WHERE id_screen=:id";
+                $this->setSql($sql)
+                            ->setParamInt(":id", $id)
+                            ->setParamBool(":validation", $visible)
+                            ->setParam(":alt", $alt)
+                            ->setParam(":name", $name);
+                $this->executeSql();
+            } else {
+                $sql = "INSERT INTO screens (id_user, name, alt, validation) VALUES (:id_user, :name, :alt, :validation)";
+                $this->setSql($sql)
+                            ->setParamInt(":id_user", $id_user)
+                            ->setParamBool(":validation", $visible)
+                            ->setParam(":alt", $alt)
+                            ->setParam(":name", $name);
+                $this->executeSql();
+            }
+            return $this;
+        }
+
+        public function delete(int $id): self {
+            $sql = "DELETE FROM screens WHERE id_screen=:id";
+            $this->setSql($sql)->setParamInt(":id", $id);
+            $this->executeSql();
+            return $this;
+        }
+
+        public function findImgId(int $id):string {
+            $resulImg = $this->setSql('SELECT src FROM screens WHERE id_screen=:id')->setParamInt(":id", $id)->fetchAssoc();
+            if(!empty($resulImg)) {
+                return $resulImg["src"];
+            }
+            return "";
+        }
         
     }
 }
