@@ -87,6 +87,63 @@ if (!class_exists('ObjetRepository')) {
             return $this;
         }
 
+        public function addImg(int $id_objet, string $src, string $name = null, int $alt = null): int {
+            if(empty($name)) {
+                $name = $src;
+            }
+            if(empty($alt)) {
+                $alt = "";
+            }
+            $id_main = 0;
+            $this->beginTransaction();
+            $sql = "INSERT INTO images_objet(name, src, alt, id_objet) VALUES (:name, :src, :alt, :id_objet)";
+            $this->setSql($sql)
+                            ->setParamInt(":id_objet", $id_objet)
+                            ->setParamBool(":name", $name)
+                            ->setParam(":src", $src)
+                            ->setParam(":alt", $alt);
+            $this->executeSql();
+            $id_main = $this->lastInsertId();
+            // en cas d'erreur
+            if(Error_Log::isError()) {
+                $id_main = 0;
+                $this->rollBack();
+            } else {
+                $this->commit();
+            }
+            return $id_main;
+        }
+
+        public function modImgPrincip(int $id_objet, int $id_img): self {
+            $this->beginTransaction();
+            $sql = "UPDATE images_objet SET img_principal=0 WHERE id_objet=:id";
+            $this->setSql($sql)->setParamInt(":id", $id_objet)->executeSql();
+            $sqlPrinc = "UPDATE images_objet SET img_principal=1 WHERE id_image_obj=:id";
+            $this->setSql($sqlPrinc)->setParamInt(":id", $id_img)->executeSql();
+            // en cas d'erreur
+            if(Error_Log::isError()) {
+                $this->rollBack();
+            } else {
+                $this->commit();
+            }
+            return $this;
+        }
+
+        public function findImgId(int $id):string {
+            $resulImg = $this->setSql('SELECT image FROM images_objet WHERE id_image_obj=:id')->setParamInt(":id", $id)->fetchAssoc();
+            if(!empty($resulImg)) {
+                return $resulImg["src"];
+            }
+            return "";
+        }
+
+        public function deleteImg(int $id): self {
+            $sql = "DELETE FROM images_objet WHERE id_image_obj=:id";
+            $this->setSql($sql)->setParamInt(":id", $id);
+            $this->executeSql();
+            return $this;
+        }
+
     }
 }
 

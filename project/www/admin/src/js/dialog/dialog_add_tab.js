@@ -24,12 +24,15 @@ function tab_add_delete(event) {
             let tmpValue = document.getElementById(elementTr.id.replace("idTmp-", "DataTmp-"));
             tmpValue.remove();
             elementTr.remove();
-            tableDispay();
+            tableDisplay();
         } else {
             fetch_post(delete_dialog_exec, poss).then(function (response) {
-                console.log(response);
-                elementTr.remove();
-                tableDispay();
+                if(response == "true") {
+                    elementTr.remove();
+                    tableDisplay();
+                } else {
+                    alert(response);
+                }
             });
         }
     }

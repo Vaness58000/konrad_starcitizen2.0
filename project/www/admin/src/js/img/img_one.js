@@ -13,13 +13,13 @@ function delete_img(e) {
 }
 
 function form_delete_click_img() {
-    document.querySelectorAll(".delete_image").forEach(element => {
+    document.querySelectorAll(".delete-image").forEach(element => {
         element.addEventListener("click", delete_img);
     });
 }
 
 function addFileImg(file) {
-    let preview = document.getElementById("add_img");
+    let preview = document.getElementById("add-img");
     let imageType = /^image\//;
     
     if (!imageType.test(file.type)) {
@@ -27,7 +27,7 @@ function addFileImg(file) {
     }
 
     let divimg = document.createElement("div");
-    divimg.id = "divAddImg_"+nb_photo_gener;
+    divimg.id = "divAddImg-"+nb_photo_gener;
     divimg.classList.add("addimg");
     divimg.classList.add("multiple-img");
     preview.appendChild(divimg);
@@ -53,7 +53,7 @@ function addFileImg(file) {
     let imgSrcDel = "./src/images/trash3-fill.svg";
 
     var imgDelete = document.createElement("img");
-    imgDelete.classList.add("delete_image");
+    imgDelete.classList.add("delete-image");
     imgDelete.classList.add("delete_img");
     imgDelete.classList.add("delete-multiple-img");
     imgDelete.style.position = "absolut";

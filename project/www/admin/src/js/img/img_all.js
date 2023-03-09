@@ -1,13 +1,13 @@
 "use strict";
 let nb_photo_gener = 0;
-let tabIdAllImg = {nameIdAllImg : "add_img", nameFile : "fileImg_"};
-let tabIdAllImgInf = {nameIdAllImg : "all-img-add", nameFile : "fileImgInfo_"};
+let tabIdAllImg = {nameIdAllImg : "add-img", nameFile : "imgFileMainTmp-"};
+let tabIdAllImgInf = {nameIdAllImg : "all-img-add", nameFile : "fileImgInfo-"};
 
 function delete_img(e) {
     e.preventDefault();
     if (window.confirm("Vous voulez vraiment supprimer l'image ?\n(Ceci sera définitif).")) {
         let id_img = e.target.parentNode.querySelector(".img-slide-presentation").id;
-        let nameAndId = id_img.split("_");
+        let nameAndId = id_img.split("-");
         let tabIdAllImgDef = tabIdAllImg;
         let idName = e.target.parentNode.parentNode.parentNode.querySelector("figure").id;
         let urlDeleteImgDef = urlDeleteImg;
@@ -15,7 +15,6 @@ function delete_img(e) {
             tabIdAllImgDef = tabIdAllImgInf;
             urlDeleteImgDef = urlDeleteImgInfp;
         }
-        console.log(nameAndId);
         /*let urlDeleteImg = "./src/exec/delete_img_obj.php";
         let urlDeleteImgInfp = "./src/exec/delete_img_obj_info.php";*/
         if(nameAndId[0] === "imgMultiple") {
@@ -34,14 +33,13 @@ function delete_img(e) {
 }
 
 function form_delete_click_img() {
-    document.querySelectorAll(".delete_image").forEach(element => {
+    document.querySelectorAll(".delete-image").forEach(element => {
         element.addEventListener("click", delete_img);
     });
 }
 
 function addFileImg(file, nameIdAllImg, nameFile) {
     let preview = document.getElementById(nameIdAllImg);
-    console.log(preview);
     let addChoiceMain = false;
     if(preview.classList.contains("img-and-main")) {
         addChoiceMain = true;
@@ -53,7 +51,7 @@ function addFileImg(file, nameIdAllImg, nameFile) {
     }
 
     let divimg = document.createElement("div");
-    divimg.id = "divAddImg_"+nb_photo_gener;
+    divimg.id = "divAddImgTmp-"+nb_photo_gener;
     divimg.classList.add("addimg");
     divimg.classList.add("multiple-img");
     preview.appendChild(divimg);
@@ -61,9 +59,9 @@ function addFileImg(file, nameIdAllImg, nameFile) {
     var img = document.createElement("img");
     img.classList.add("obj");
     img.classList.add("img-slide-presentation");
-    img.setAttribute("name","file_"+nb_photo_gener);
+    img.setAttribute("name","file-"+nb_photo_gener);
     //img.classList.add("drag_img");
-    img.id = "imgMultiple_"+nb_photo_gener;
+    img.id = nameFile+nb_photo_gener;
 
     //img.setAttribute('draggable', true);
     img.file = file;
@@ -79,15 +77,6 @@ function addFileImg(file, nameIdAllImg, nameFile) {
     let imgSrcDel = "./src/images/trash3-fill.svg";
     let imgSrcMain = "./src/images/award-fill.svg";
 
-    var imgDelete = document.createElement("img");
-    imgDelete.classList.add("delete_image");
-    imgDelete.classList.add("delete_img");
-    imgDelete.classList.add("delete-multiple-img");
-    imgDelete.style.position = "absolut";
-    imgDelete.id = "delete_img_"+nb_photo_gener;
-    imgDelete.src = imgSrcDel;
-    divimg.appendChild(imgDelete);
-
     var input = document.createElement("input");
     input.type = "hidden";
     input.setAttribute("name",nameFile+nb_photo_gener);
@@ -95,23 +84,32 @@ function addFileImg(file, nameIdAllImg, nameFile) {
     divimg.appendChild(input);
 
     if(addChoiceMain) {
-        var input = document.createElement("input");
-        input.type = "radio";
-        input.classList.add("img-princ");
-        input.setAttribute("name","img-princ");
-        input.setAttribute("id","imgMain_"+nb_photo_gener);
-        input.setAttribute("value","imgMain_"+nb_photo_gener);
-        divimg.appendChild(input);
+        var inputPrinc = document.createElement("input");
+        inputPrinc.type = "radio";
+        inputPrinc.classList.add("img-princ");
+        inputPrinc.setAttribute("name","img-princ");
+        inputPrinc.setAttribute("id","imgMainTmp-"+nb_photo_gener);
+        inputPrinc.setAttribute("value",nameFile+nb_photo_gener);
+        divimg.appendChild(inputPrinc);
 
         var labelImgMain = document.createElement("label");
         labelImgMain.classList.add("img-main");
-        labelImgMain.setAttribute("for","imgMain_"+nb_photo_gener);
+        labelImgMain.setAttribute("for","imgMainTmp-"+nb_photo_gener);
         divimg.appendChild(labelImgMain);
 
         var imgMain = document.createElement("img");
         imgMain.src = imgSrcMain;
         labelImgMain.appendChild(imgMain);
     }
+
+    var imgDelete = document.createElement("img");
+    imgDelete.classList.add("delete-image");
+    imgDelete.classList.add("delete-img");
+    imgDelete.classList.add("delete-multiple-img");
+    imgDelete.style.position = "absolut";
+    imgDelete.id = "delete-img-"+nb_photo_gener;
+    imgDelete.src = imgSrcDel;
+    divimg.appendChild(imgDelete);
 
     var reader = new FileReader();
     reader.onload = (function(aImg, detail_img, input_img) {

@@ -1,6 +1,6 @@
 "use strict";
 //let i_tab = 0;
-function tableDispay() {
+function tableDisplay() {
     document.querySelectorAll("table").forEach(table => {
         let tbody = table.querySelector(".tab-body-td");
         if(tbody != undefined ) {
@@ -10,4 +10,4 @@ function tableDispay() {
         }
     });  
 }
-tableDispay();
+tableDisplay();

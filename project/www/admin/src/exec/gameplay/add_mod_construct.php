@@ -1,23 +1,18 @@
 <?php
 // Démarrage de la session 
-include __DIR__.'/../../../../src/class/classMain/TemplatePage.php';
 include __DIR__.'/../../../../src/class/classMain/OneImg.php';
 include __DIR__.'/../../../../src/class/classMain/TabAddList.php';
 include __DIR__.'/../../../../src/repository/ConstructeurRepository.php';
-include __DIR__.'/../../function/table-admin.php';
 include __DIR__.'/../../../../src/class/classSite/SessionUser.php';
 $sessionUser = new SessionUser();
 // si la session existe pas soit si l'on est pas connecté on redirige
 if(!$sessionUser->isConnected()) {
     die("Merci de vous connecter.");
 } else {
-    $name = 'add_mod_construct';
-    $file = __DIR__.'/../../../../upload/files/'.$name.'.json';
-    $tabList = [];
     if(!empty($_POST) && array_key_exists("id", $_POST) && array_key_exists("nom", $_POST)) {
         $tabAddList = new TabAddList($_POST, "lieuDataTmp");
         $tabList = $tabAddList->getTabList();
-        $visible = (array_key_exists("nom", $_POST) && !empty($_POST['contenu-visible']) && strtolower($_POST['contenu-visible']) == "on");
+        $visible = (array_key_exists("contenu-visible", $_POST) && !empty($_POST['contenu-visible']) && strtolower($_POST['contenu-visible']) == "on");
         $oneImg = new OneImg("constructeurs");
         $oneImgLogo = new OneImg("constructeurs_logo");
         $constructeurRepository = new ConstructeurRepository();
@@ -60,7 +55,4 @@ if(!$sessionUser->isConnected()) {
     } else {
         echo "Vous ne pouvez pas faire cette action.";
     }
-    $tab = [$_POST, $_FILES, $tabList];
-    $current = json_encode($tab);
-    file_put_contents($file, $current);
 }

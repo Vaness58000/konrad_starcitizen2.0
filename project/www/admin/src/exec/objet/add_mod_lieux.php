@@ -2,6 +2,7 @@
 // Démarrage de la session 
 include __DIR__.'/../../../../src/class/classMain/TemplatePage.php';
 include __DIR__.'/../../../../src/repository/LieuxRepository.php';
+include __DIR__.'/../../../../src/class/classMain/TabAddList.php';
 include __DIR__.'/../../function/table-admin.php';
 include __DIR__.'/../../../../src/repository/LieuxRepository.php';
 include __DIR__.'/../../../../src/repository/categories/CatLieuxRepository.php';
@@ -14,7 +15,10 @@ if(!$sessionUser->isConnected()) {
 } else {
     $name = 'add_mod_lieux';
     $file = __DIR__.'/../../../../upload/files/'.$name.'.json';
-    $current = json_encode($_POST);
+    $tabAddListInfo = new TabAddList($_POST, "infoDataTmp");
+    $tabListInfo = $tabAddListInfo->getTabList();
+    $tab = [$_POST,$tabListInfo];
+    $current = json_encode($tab);
     file_put_contents($file, $current);
     echo $name;
 }

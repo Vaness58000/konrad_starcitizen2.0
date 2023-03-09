@@ -257,7 +257,7 @@ td img {
   flex-wrap: wrap;
 }
 
-.delete_img {
+.delete-img {
   position: absolute;
   filter: invert(1);
   background-color: #00fffcd1;
@@ -393,7 +393,7 @@ input[type="file"] {
   top: 0;
 }
 
-#add_img {
+#add-img {
   display: flex;
   flex-direction: row;
   overflow: hidden;
@@ -404,16 +404,16 @@ input[type="file"] {
   display: grid;
   position: relative;
 }
-#add_img::-webkit-scrollbar {
+#add-img::-webkit-scrollbar {
   width: 5px;
 }
 
-#add_img::-webkit-scrollbar-track {
+#add-img::-webkit-scrollbar-track {
   background: unset;
   background-color: #89b1c4;
 }
 
-#add_img::-webkit-scrollbar-thumb {
+#add-img::-webkit-scrollbar-thumb {
   background: unset;
   border: 1px blue solid;
   background-color: #0a5688;

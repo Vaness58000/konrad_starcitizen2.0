@@ -116,6 +116,13 @@ if (!class_exists('ConstructeurRepository')) {
                         ->fetchAllAssoc();
         }
 
+        public function findLieuConstLieuId(int $id):array {
+            $sql = 'SELECT * FROM constructeur_lieu WHERE id=:id';
+            return $this->setSql($sql)
+                        ->setParamInt(":id", $id)
+                        ->fetchAllAssoc();
+        }
+
         public function visible(int $id, bool $visible): self {
             $sql = "UPDATE constructeur SET validation=:visible WHERE id_constructeur=:id";
             $this->setSql($sql)->setParamInt(":id", $id)->setParamBool(":visible", $visible)->executeSql();
@@ -251,7 +258,8 @@ if (!class_exists('ConstructeurRepository')) {
             return "";
         }
 
-        public function addModLieu(int $id, int $id_construct, int $id_lieu): self {
+        public function addModLieu(int $id, int $id_construct, int $id_lieu): int {
+            $id_main = $id;
             if(!empty($id)) {
                 $sql = "UPDATE constructeur_lieu SET id_lieu=:id_lieu WHERE id=:id";
                 $this->setSql($sql)
@@ -264,8 +272,9 @@ if (!class_exists('ConstructeurRepository')) {
                             ->setParamInt(":id_constructeur", $id_construct)
                             ->setParamInt(":id_lieu", $id_lieu);
                 $this->executeSql();
+                $id_main = $this->lastInsertId();
             }
-            return $this;
+            return $id_main;
         }
 
         public function deleteLieuConstruct(int $id): self {

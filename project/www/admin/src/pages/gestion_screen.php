@@ -49,7 +49,7 @@ include "header.php"
                     <div class="gestion_img">
                         <img src="upload/<?= ($image["name"]) ?>" />
                         <div class="suppression">
-                            <a href="/../../delete_image.php?id=<?= $image["id"] ?>" title="supprimer le screen"><i class="fa-sharp fa-solid fa-trash-can"></i></a>
+                            <a href="/../../delete-image.php?id=<?= $image["id"] ?>" title="supprimer le screen"><i class="fa-sharp fa-solid fa-trash-can"></i></a>
                         </div>
                     </div>
                 <?php } ?>

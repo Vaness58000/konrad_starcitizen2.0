@@ -19,7 +19,9 @@ if (!class_exists('TabAddList')) {
             if(!empty($post) && !empty($nameKeyRecup)) {
                 foreach ($post as $key => $value) {
                     if (str_contains(strtolower($key), strtolower($nameKeyRecup))) {
-                        array_push($this->tab_list, json_decode($value, true));
+                        $tab = json_decode($value, true);
+                        $tab['nameKey'] = $key;
+                        array_push($this->tab_list, $tab);
                     }
                 }
             }
