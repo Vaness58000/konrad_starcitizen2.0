@@ -21,6 +21,7 @@ $isAdmin = $sessionUser->isAdmin();
 $nb_par_pg = 10;
 $choix_tab = "";
 $nom_pg = "";
+$folder_img = "";
 $isAll = false;
 
 $templatePage = new TemplatePage(__DIR__.'/../../template/objet/objet.html');

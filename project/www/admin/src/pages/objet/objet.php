@@ -14,6 +14,7 @@ if(isset($objets) && isset($templatePage) && isset($count_obj) && isset($page)) 
     $templatePage->addVarString("[#CITIZEN_TAB_NMPG#]", ($page+1));
     $templatePage->addVarString("[#CITIZEN_TAB_CHOICE#]", $choix_tab);
     $templatePage->addVarString("[#CITIZEN_TAB_NAME#]", $nom_pg);
+    $templatePage->addVarString("[#CITIZEN_FOLDER_IMG#]", $folder_img);
 
     $templatePage->addFileJs("./src/js/pagination.js");
     $templatePage->addFileCss("./src/css/pagination.css");

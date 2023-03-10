@@ -6,13 +6,10 @@ $sessionUser = new SessionUser();
 if(!$sessionUser->isConnected()) {
     die("Merci de vous connecter.");
 } else {
-    $name = 'add_mod_lieuServices';
-    $file = __DIR__.'/../../../../upload/files/'.$name.'.json';
-    $current = json_encode($_POST);
-    file_put_contents($file, $current);
     if(!empty($_POST) && array_key_exists("id-form-main", $_POST)) {
         $servicesRepository = new ServicesRepository();
-        $id = $servicesRepository->addModLieu(intVal($_POST['id']), intVal($_POST['id-form-main']), intVal($_POST['lieu']));
+        $id_serv = $objRepository->recupIdService(intVal($_POST['id-form-main']));
+        $id = $servicesRepository->addModLieu(intVal($_POST['id']), $id_serv, intVal($_POST['lieu']));
         if(empty($_POST['is_error'])) {
             echo "true"."[#CITIZEN-ID#]".$id;
         } else {

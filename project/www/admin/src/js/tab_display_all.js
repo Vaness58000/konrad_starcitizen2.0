@@ -8,6 +8,7 @@ function tab_modif(event) {
 
 function tab_delete(event) {
     event.preventDefault();
+    let folder_img = document.getElementById("folder-img") == undefined ? "" : document.getElementById("folder-img").value;
     let trTabeLine = returnTr(event.target);
     let tdName = trTabeLine.querySelector(".td-name");
     if (window.confirm("Vous voulez vraiment supprimer '"+tdName.innerHTML+"' ?\n(Ceci sera définitif).")) {
