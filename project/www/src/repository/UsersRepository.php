@@ -71,14 +71,14 @@ if (!class_exists('UsersRepository')) {
                 $nmStart = $nmPage*$nbArtPage;
                 $limit = " LIMIT $nbArtPage OFFSET $nmStart";
             }
-            $sql = 'SELECT * FROM utilisateurs '.
+            $sql = 'SELECT *, utilisateurs.id_user AS idUser FROM utilisateurs '.
                     'LEFT JOIN avatar ON utilisateurs.id_user = avatar.id_user '.
                     'ORDER BY utilisateurs.id_user DESC'.$limit.'';
             return $this->setSql($sql)
                         ->fetchAllAssoc();
         }
         public function findAllAndUserCount() {
-            $sql = 'SELECT * FROM utilisateurs '.
+            $sql = 'SELECT *, utilisateurs.id_user AS idUser FROM utilisateurs '.
                     'LEFT JOIN avatar ON utilisateurs.id_user = avatar.id_user '.
                     'ORDER BY utilisateurs.id_user DESC';
             return $this->setSql($sql)

@@ -21,7 +21,12 @@
     rgba(2, 8, 20, 0.08) 0px 0.175em 0.5em;
   transform: translateY(-3px) scale(1.1);
 }
+.info_screen{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 
+}
 .detail_user {
   display: flex;
   flex-direction: row;
@@ -37,6 +42,11 @@
   margin-left: 20px;
 }
 
+/*.like{
+  width: 150px;
+  position: absolute;
+  margin-top: -50px;
+}*/
 #avatar {
   width: 40px;
   height: auto;
