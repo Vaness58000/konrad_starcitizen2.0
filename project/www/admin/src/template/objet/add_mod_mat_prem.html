@@ -2,6 +2,8 @@
     <div class="card-admin" data-state="#about">
         <div class="admin-title"><h1>Matière première</h1></div>
         <form class="admin-contenu" id="form-contenu" method="post" enctype="multipart/form-data">
+            <input type="hidden" name="folder-img" value="mat_prem" />
+            <input type="hidden" name="type-obj" value="[#CITIZEN_TYPE_OBJ#]" />
             <input type="hidden" name="id" value="[#CITIZEN_MAT_PRE_ID#]" />
             <div class="two-column">
                 <input type="checkbox" name="contenu-visible" id="contenu-visible" class="darkSwitch two-column"[#CITIZEN_MAT_PRE_MODIF_CHECK#]>

@@ -2,6 +2,8 @@
     <div class="card-admin" data-state="#about">
         <div class="admin-title"><h1>Espèce</h1></div>
         <form class="admin-contenu" id="form-contenu" method="post" enctype="multipart/form-data">
+            <input type="hidden" name="folder-img" value="especes" />
+            <input type="hidden" name="type-obj" value="[#CITIZEN_TYPE_OBJ#]" />
             <input type="hidden" name="id" value="[#CITIZEN_ESPECES_ID#]" />
             <div class="two-column">
                 <input type="checkbox" name="contenu-visible" id="contenu-visible" class="darkSwitch two-column"[#CITIZEN_ESPECES_MODIF_CHECK#]>

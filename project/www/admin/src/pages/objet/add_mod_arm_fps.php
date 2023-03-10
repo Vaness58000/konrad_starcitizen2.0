@@ -17,6 +17,10 @@ $id = $sessionUser->getId();
 $id_role = $sessionUser->getRole();
 $isAdmin = $sessionUser->isAdmin();
 
+$objetRepository = new ArmeFpsRepository();
+$id_type_objet = $objetRepository->findIdTypeArm();
+$id_typa_arm = $objetRepository->findIdTypeArmFPS();
+
 $id_cat = 0;
 $id_const = 0;
 $cat = "";
@@ -33,9 +37,6 @@ $validation = false;
 $isProprietaire = false;
 $isModif = " disabled";
 $id_obj = 0;
-
-
-$objetRepository = new ArmeFpsRepository();
 
 if (!empty($_GET) && array_key_exists('id', $_GET) && !empty($_GET['id'])) {
     
@@ -131,6 +132,8 @@ $templatePage->addVarString("[#CITIZEN_ARM_FPS_CONST#]", $const);
 $templatePage->addVarString("[#CITIZEN_ARM_FPS_POIDS#]", $poids);
 $templatePage->addVarString("[#CITIZEN_ARM_FPS_PORTEE#]", $portee);
 $templatePage->addVarString("[#CITIZEN_ARM_FPS_PERTE#]", $perte);
+$templatePage->addVarString("[#CITIZEN_TYPE_OBJ#]", $id_type_objet);
+$templatePage->addVarString("[#CITIZEN_TYPE_ARM#]", $id_typa_arm);
 
 $templatePage->addFileCss("./src/css/style_dialog.css");
 

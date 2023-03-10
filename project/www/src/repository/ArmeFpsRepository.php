@@ -164,6 +164,15 @@ if (!class_exists('ArmeFpsRepository')) {
             return $this->findIdTypeObj("armement");
         }
 
+        public function findIdTypeArmFPS():int {
+            $name = "armes FPS";
+            $tab_type = $this->setSql('SELECT * FROM type_arm WHERE nom=:nom')->setParam(":nom", $name)->fetchAssoc();
+            if(!(!empty($tab_type) && array_key_exists("id", $tab_type) && !empty($tab_type["id"]))) {
+                return 0;
+            }
+            return intval($tab_type["id"]);
+        }
+
     }
 }
 

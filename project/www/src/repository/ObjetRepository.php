@@ -41,7 +41,7 @@ if (!class_exists('ObjetRepository')) {
          * Recuperer toutes les donnees visibles de la table
          */
         public function findAllInfObj(int $id):array {
-            return $this->setSql('SELECT * FROM info_objet WHERE id_objet=:id_objet')->setParamInt(":id_objet", $id)->fetchAllAssoc();
+            return $this->setSql('SELECT * FROM info_objet WHERE id_objet=:id_objet ORDER BY id DESC')->setParamInt(":id_objet", $id)->fetchAllAssoc();
         }
 
         public function findAllInfObjId(int $id):array {
@@ -130,7 +130,7 @@ if (!class_exists('ObjetRepository')) {
         }
 
         public function findImgId(int $id):string {
-            $resulImg = $this->setSql('SELECT image FROM images_objet WHERE id_image_obj=:id')->setParamInt(":id", $id)->fetchAssoc();
+            $resulImg = $this->setSql('SELECT src FROM images_objet WHERE id_image_obj=:id')->setParamInt(":id", $id)->fetchAssoc();
             if(!empty($resulImg)) {
                 return $resulImg["src"];
             }
@@ -142,6 +142,78 @@ if (!class_exists('ObjetRepository')) {
             $this->setSql($sql)->setParamInt(":id", $id);
             $this->executeSql();
             return $this;
+        }
+
+        public function addModObj(int $id, ?string $nom, ?string $contenu, int $id_user, int $id_objet_type, bool $visible = false): int {
+            $id_main = $id;
+            if(empty($video)) {
+                $video = "";
+            }
+            if(empty($resume)) {
+                if(!empty($contenu) && strlen($contenu) > 255) {
+                    $resume = substr($contenu, 0, 255);
+                } else {
+                    $resume = $contenu;
+                }
+            }
+            $this->beginTransaction();
+            if(!empty($id)) {
+                $sql = "UPDATE objet SET nom=:nom,contenu=:contenu,id_objet_type=:id_objet_type,validation=:validation WHERE id=:id";
+                $this->setSql($sql)
+                            ->setParamInt(":id", $id)
+                            ->setParamInt(":id_objet_type", $id_objet_type)
+                            ->setParamBool(":validation", $visible)
+                            ->setParam(":nom", $nom)
+                            ->setParam(":contenu", $contenu);
+                $this->executeSql();
+            } else {
+                $sql = "INSERT INTO objet (nom, contenu, id_user, id_objet_type, validation) VALUES (:nom, :contenu, :id_user, :id_objet_type, :validation)";
+                $this->setSql($sql)
+                            ->setParamInt(":id_user", $id_user)
+                            ->setParamInt(":id_objet_type", $id_objet_type)
+                            ->setParamBool(":validation", $visible)
+                            ->setParam(":nom", $nom)
+                            ->setParam(":contenu", $contenu);
+                $this->executeSql();
+                $id_main = $this->lastInsertId();
+            }
+            // en cas d'erreur
+            if(Error_Log::isError()) {
+                $id_main = 0;
+                $this->rollBack();
+            } else {
+                $this->commit();
+            }
+            return $id_main;
+        }
+
+        public function addModInfo(int $id, int $id_objet, ?string $nom, ?string $info): int {
+            $id_main = $id;
+            $this->beginTransaction();
+            if(!empty($id)) {
+                $sql = "UPDATE info_objet SET nom=:nom, info=:info WHERE id=:id";
+                $this->setSql($sql)
+                            ->setParamInt(":id", $id)
+                            ->setParam(":nom", $nom)
+                            ->setParam(":info", $info);
+                $this->executeSql();
+            } else {
+                $sql = "INSERT INTO info_objet (id_objet, nom, info) VALUES (:id_objet, :nom, :info)";
+                $this->setSql($sql)
+                ->setParamInt(":id_objet", $id_objet)
+                ->setParam(":nom", $nom)
+                ->setParam(":info", $info);
+                $this->executeSql();
+                $id_main = $this->lastInsertId();
+            }
+            // en cas d'erreur
+            if(Error_Log::isError()) {
+                $id_main = 0;
+                $this->rollBack();
+            } else {
+                $this->commit();
+            }
+            return $id_main;
         }
 
     }

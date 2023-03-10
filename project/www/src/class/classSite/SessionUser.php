@@ -38,16 +38,17 @@ if (!class_exists('SessionUser')) {
 
             $this->connected = (!empty($_SESSION) && array_key_exists('utilisateur', $_SESSION) && !empty($_SESSION['utilisateur']) && 
                 array_key_exists('id', $_SESSION['utilisateur']) && !empty($_SESSION['utilisateur']['id']));
-
             if($this->connected) {
                 $usersRepository = new UsersRepository();
                 $user = $usersRepository->findAllId($_SESSION['utilisateur']['id']);
 
-                $this->pseudo = $user['pseudo'];
-                $this->id = intval($user["idUser"]);
-                $this->role = intval($user["id_role"]);
-                $this->admin = $this->role == 2;
-                $this->email = $user['email'];
+                if(!empty($user)) {
+                    $this->pseudo = $user['pseudo'];
+                    $this->id = intval($user["idUser"]);
+                    $this->role = intval($user["id_role"]);
+                    $this->admin = $this->role == 2;
+                    $this->email = $user['email'];
+                }
             }
             /*if (!empty($_SESSION) && array_key_exists('maxlifetime', $_SESSION) && (time() - $_SESSION['maxlifetime'] > $maxlifetime)) {
                 $this->deconnected();

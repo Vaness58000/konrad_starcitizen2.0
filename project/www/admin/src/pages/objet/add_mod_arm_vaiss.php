@@ -17,6 +17,10 @@ $id = $sessionUser->getId();
 $id_role = $sessionUser->getRole();
 $isAdmin = $sessionUser->isAdmin();
 
+$objetRepository = new ArmeVaissRepository();
+$id_type_objet = $objetRepository->findIdTypeArm();
+$id_typa_arm = $objetRepository->findIdTypeArmTransp();
+
 $id_taille = 0;
 $id_const = 0;
 $taille = "";
@@ -30,9 +34,6 @@ $validation = false;
 $isProprietaire = false;
 $isModif = " disabled";
 $id_obj = 0;
-
-
-$objetRepository = new ArmeVaissRepository();
 
 if (!empty($_GET) && array_key_exists('id', $_GET) && !empty($_GET['id'])) {
     
@@ -122,6 +123,8 @@ $templatePage->addVarString("[#CITIZEN_ARM_VAISS_ISPRO#]", $isModif);
 $templatePage->addVarString("[#CITIZEN_ARM_VAISS_ID#]", $id_obj);
 $templatePage->addVarString("[#CITIZEN_ARM_VAISS_TAILLE#]", $taille);
 $templatePage->addVarString("[#CITIZEN_ARM_VAISS_CONST#]", $const);
+$templatePage->addVarString("[#CITIZEN_TYPE_OBJ#]", $id_type_objet);
+$templatePage->addVarString("[#CITIZEN_TYPE_ARM#]", $id_typa_arm);
 
 $templatePage->addFileCss("./src/css/style_dialog.css");
 

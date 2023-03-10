@@ -15,6 +15,9 @@ $id = $sessionUser->getId();
 $id_role = $sessionUser->getRole();
 $isAdmin = $sessionUser->isAdmin();
 
+$objetRepository = new ProprietairesRepository();
+$id_type_objet = $objetRepository->findIdTypePropriet();
+
 $logo = "./src/images/plus-square.svg";
 $categ = "";
 $nom = "";
@@ -26,9 +29,6 @@ $validation = false;
 $isProprietaire = false;
 $isModif = " disabled";
 $id_obj = 0;
-
-
-$objetRepository = new ProprietairesRepository();
 
 if (!empty($_GET) && array_key_exists('id', $_GET) && !empty($_GET['id'])) {
     
@@ -99,6 +99,7 @@ $templatePage->addVarString("[#CITIZEN_PROPR_ISPRO#]", $isModif);
 $templatePage->addVarString("[#CITIZEN_PROPR_ID#]", $id_obj);
 $templatePage->addVarString("[#CITIZEN_PROPR_LOGO#]", $logo);
 $templatePage->addVarString("[#CITIZEN_PROPR_CAT#]", $categ);
+$templatePage->addVarString("[#CITIZEN_TYPE_OBJ#]", $id_type_objet);
 
 $templatePage->addFileCss("./src/css/style_dialog.css");
 

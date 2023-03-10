@@ -112,6 +112,67 @@ if (!class_exists('ServicesRepository')) {
         public function findIdTypeServices():int {
             return $this->findIdTypeObj("service");
         }
+
+        public function recupIdService(int $id_objet): int {
+            $sql = 'SELECT id FROM service WHERE id_objet=:id';
+            $recupId = $this->setSql($sql)
+                        ->setParamInt(":id", $id_objet)
+                        ->fetchAssoc();
+            if(empty($recupId)) {
+                return 0;
+            }
+            return intval($recupId['id']);
+        }
+        
+        public function add(int $id_objet): int {
+            $this->beginTransaction();
+            $sql = "INSERT INTO service (id_objet) VALUES (:id_objet)";
+            $this->setSql($sql)->setParamInt(":id_objet", $id_objet);
+            $this->executeSql();
+            $id_main = $this->lastInsertId();
+            // en cas d'erreur
+            if(Error_Log::isError()) {
+                $id_main = 0;
+                $this->rollBack();
+            } else {
+                $this->commit();
+            }
+            return $id_main;
+        }
+
+        public function addModLieu(int $id, int $id_service, int $id_lieu): int {
+            $id_main = $id;
+            $this->beginTransaction();
+            if(!empty($id)) {
+                $sql = "UPDATE service_lieu SET id_lieu=:id_lieu WHERE id=:id";
+                $this->setSql($sql)
+                            ->setParamInt(":id", $id)
+                            ->setParamInt(":id_lieu", $id_lieu);
+                $this->executeSql();
+            } else {
+                $sql = "INSERT INTO service_lieu (id_service, id_lieu) VALUES (:id_service, :id_lieu)";
+                $this->setSql($sql)
+                            ->setParamInt(":id_service", $id_service)
+                            ->setParamInt(":id_lieu", $id_lieu);
+                $this->executeSql();
+                $id_main = $this->lastInsertId();
+            }
+            // en cas d'erreur
+            if(Error_Log::isError()) {
+                $id_main = 0;
+                $this->rollBack();
+            } else {
+                $this->commit();
+            }
+            return $id_main;
+        }
+
+        public function deleteLieuService(int $id): self {
+            $sql = "DELETE FROM service_lieu WHERE id=:id";
+            $this->setSql($sql)->setParamInt(":id", $id);
+            $this->executeSql();
+            return $this;
+        }
     }
 }
 

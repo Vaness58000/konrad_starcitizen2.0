@@ -18,6 +18,9 @@ $id = $sessionUser->getId();
 $id_role = $sessionUser->getRole();
 $isAdmin = $sessionUser->isAdmin();
 
+$objRepository = new LieuxRepository();
+$id_type_objet = $objRepository->findIdTypeLieux();
+
 $nom = "";
 $tab_info = "";
 $tab_lieu = "";
@@ -37,7 +40,6 @@ $id_lieu = 0;
 $isHabitat = true;
 
 
-$objRepository = new LieuxRepository();
 
 if (!empty($_GET) && array_key_exists('id', $_GET) && !empty($_GET['id'])) {
     
@@ -127,6 +129,7 @@ $templatePage->addVarString("[#CITIZEN_LIEU_HABIT_CHECK#]", $habitat);
 $templatePage->addVarString("[#CITIZEN_LIEU_CAT#]", $lieu_cat);
 $templatePage->addVarString("[#CITIZEN_LIEU_RISQUE#]", $risque);
 $templatePage->addVarString("[#CITIZEN_LIEU_LIER#]", $lier_lieu);
+$templatePage->addVarString("[#CITIZEN_TYPE_OBJ#]", $id_type_objet);
 
 $templatePage->addFileCss("./src/css/style_dialog.css");
 

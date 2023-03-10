@@ -3,7 +3,7 @@ require __DIR__.'/header_objet.php';
 include __DIR__.'/../../../../src/repository/ArmeVaissRepository.php';
 
 $armeVaissRepository = new ArmeVaissRepository();
-$id_type = $armeVaissRepository->findIdTypeArm();;
+$id_type = $armeVaissRepository->findIdTypeArm();
 $nom_pg = "Armements vaisseau";
 $count_obj = ceil($armeVaissRepository->findAllAndUserIdCount($id_type, intval($id))/$nb_par_pg);
 $objets = $armeVaissRepository->findAllAndUserIdPage($id_type, intval($id), $page, $nb_par_pg);

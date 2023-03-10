@@ -6,6 +6,7 @@ let tabIdAllImgInf = {nameIdAllImg : "all-img-add", nameFile : "fileImgInfo-"};
 function delete_img(e) {
     e.preventDefault();
     if (window.confirm("Vous voulez vraiment supprimer l'image ?\n(Ceci sera définitif).")) {
+        let folder_img = recupValueNameForm("#form-contenu", "folder-img");
         let id_img = e.target.parentNode.querySelector(".img-slide-presentation").id;
         let nameAndId = id_img.split("-");
         let tabIdAllImgDef = tabIdAllImg;
@@ -20,7 +21,7 @@ function delete_img(e) {
         if(nameAndId[0] === "imgMultiple") {
             e.target.parentNode.parentNode.removeChild(e.target.parentNode);
         } else {
-            let poss = { id: nameAndId[1] };
+            let poss = { id: nameAndId[1], folder_img: folder_img };
             fetch_post(urlDeleteImgDef, poss).then(function (response) {
                 if (response == "true") {
                     e.target.parentNode.parentNode.removeChild(e.target.parentNode);

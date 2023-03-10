@@ -1,10 +1,8 @@
 <?php
 // Démarrage de la session 
-include __DIR__.'/../../../../src/class/classMain/TemplatePage.php';
+include __DIR__ . '/../../../../src/class/classMain/OneImg.php';
 include __DIR__.'/../../../../src/repository/EspecesRepository.php';
-include __DIR__.'/../../function/table-admin.php';
 include __DIR__.'/../../../../src/repository/LieuxRepository.php';
-include __DIR__.'/../../../../src/repository/categories/CatEspecesRepository.php';
 include __DIR__.'/../../../../src/class/classSite/SessionUser.php';
 $sessionUser = new SessionUser();
 // si la session existe pas soit si l'on est pas connecté on redirige

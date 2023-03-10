@@ -17,6 +17,9 @@ $id = $sessionUser->getId();
 $id_role = $sessionUser->getRole();
 $isAdmin = $sessionUser->isAdmin();
 
+$objetRepository = new EspecesRepository();
+$id_type_objet = $objetRepository->findIdTypeEspece();
+
 $id_cat = 0;
 $id_lieu = 0;
 $cat = "";
@@ -38,9 +41,6 @@ $validation = false;
 $isProprietaire = false;
 $isModif = " disabled";
 $id_obj = 0;
-
-
-$objetRepository = new EspecesRepository();
 
 if (!empty($_GET) && array_key_exists('id', $_GET) && !empty($_GET['id'])) {
     
@@ -145,6 +145,7 @@ $templatePage->addVarString("[#CITIZEN_ESPECES_RELIGION#]", $religion);
 $templatePage->addVarString("[#CITIZEN_ESPECES_PRCT#]", $prct); // premiere contact
 $templatePage->addVarString("[#CITIZEN_ESPECES_ORIGINE#]", $origin);
 $templatePage->addVarString("[#CITIZEN_ESPECES_TAB_DIPLO#]", $diplo);
+$templatePage->addVarString("[#CITIZEN_TYPE_OBJ#]", $id_type_objet);
 
 $templatePage->addFileCss("./src/css/style_dialog.css");
 

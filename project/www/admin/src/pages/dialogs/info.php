@@ -26,8 +26,8 @@ $id_info = 0;
 
 $objetRepository = new ObjetRepository();
 
-if (!empty($_POST) && array_key_exists("idShow", $_POST) && !empty($_POST["idShow"])) {
-    $id_info = intval($_POST["idShow"]);
+if (!empty($_POST) && array_key_exists("id", $_POST) && !empty($_POST["id"])) {
+    $id_info = intval($_POST["id"]);
 }
 
 $obj = $objetRepository->findAllInfObjId($id_info);

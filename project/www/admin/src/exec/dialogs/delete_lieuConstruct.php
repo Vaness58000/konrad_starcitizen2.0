@@ -1,5 +1,4 @@
 <?php
-include __DIR__.'/../../../../src/class/classMain/TemplatePage.php';
 include __DIR__.'/../../../../src/repository/ConstructeurRepository.php';
 include __DIR__.'/../../../../src/class/classSite/SessionUser.php';
 $sessionUser = new SessionUser();

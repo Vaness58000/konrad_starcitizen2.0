@@ -20,6 +20,9 @@ $id = $sessionUser->getId();
 $id_role = $sessionUser->getRole();
 $isAdmin = $sessionUser->isAdmin();
 
+$objetRepository = new TransportRepository();
+$id_type_objet = $objetRepository->findIdTypeTransport();
+
 $id_cat = 0;
 $id_disp = 0;
 $id_type = 0;
@@ -49,8 +52,6 @@ $isProprietaire = false;
 $isModif = " disabled";
 $id_obj = 0;
 
-
-$objetRepository = new TransportRepository();
 if (!empty($_GET) && array_key_exists('id', $_GET) && !empty($_GET['id'])) {
     
     $objet = $objetRepository->findAllAndIdUser(intval($_GET['id']));
@@ -200,6 +201,7 @@ $templatePage->addVarString("[#CITIZEN_TRANSP_TAB_FAIBL#]", $tab_faibl);
 $templatePage->addVarString("[#CITIZEN_TRANSP_TAB_EQUIPEM#]", $tab_equipem);
 $templatePage->addVarString("[#CITIZEN_TRANSP_TAB_EQUIPEM#]", $tab_equipem);
 $templatePage->addVarString("[#CITIZEN_TRANSP_TAB_ARM#]", $tab_arm);
+$templatePage->addVarString("[#CITIZEN_TYPE_OBJ#]", $id_type_objet);
 
 $templatePage->addFileCss("./src/css/style_dialog.css");
 

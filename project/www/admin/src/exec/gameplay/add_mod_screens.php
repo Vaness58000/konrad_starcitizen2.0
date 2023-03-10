@@ -1,8 +1,6 @@
 <?php
 // Démarrage de la session 
-include __DIR__.'/../../../../src/class/classMain/TemplatePage.php';
 include __DIR__.'/../../../../src/repository/ScreensRepository.php';
-include __DIR__.'/../../function/table-admin.php';
 include __DIR__.'/../../../../src/class/classSite/SessionUser.php';
 require __DIR__.'/../../../../src/class/classMain/OneImg.php';
 $sessionUser = new SessionUser();

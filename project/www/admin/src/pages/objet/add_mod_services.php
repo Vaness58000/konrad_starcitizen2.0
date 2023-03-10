@@ -15,6 +15,9 @@ $id = $sessionUser->getId();
 $id_role = $sessionUser->getRole();
 $isAdmin = $sessionUser->isAdmin();
 
+$objetRepository = new ServicesRepository();
+$id_type_objet = $objetRepository->findIdTypeServices();
+
 $nom = "";
 $tab_info = "";
 $tab_lieu = "";
@@ -24,9 +27,6 @@ $validation = false;
 $isProprietaire = false;
 $isModif = " disabled";
 $id_obj = 0;
-
-
-$objetRepository = new ServicesRepository();
 
 if (!empty($_GET) && array_key_exists('id', $_GET) && !empty($_GET['id'])) {
     
@@ -91,6 +91,7 @@ $templatePage->addVarString("[#CITIZEN_SERV_MODIF_CHECK#]", $modif_check);
 $templatePage->addVarString("[#CITIZEN_SERV_IMG#]", $all_img);
 $templatePage->addVarString("[#CITIZEN_SERV_ISPRO#]", $isModif);
 $templatePage->addVarString("[#CITIZEN_SERV_ID#]", $id_obj);
+$templatePage->addVarString("[#CITIZEN_TYPE_OBJ#]", $id_type_objet);
 
 $templatePage->addFileCss("./src/css/style_dialog.css");
 
