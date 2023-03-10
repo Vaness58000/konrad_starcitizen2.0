@@ -21,7 +21,11 @@ if(!$sessionUser->isConnected()) {
             $oneImgLogo->supprimer($nameImgLogoDelet);
         }
         $constructeurRepository->delete($_POST['id']);
-        echo "true";
+        if(empty($_POST['is_error'])) {
+            echo "true";
+        } else {
+            echo "Il y a eu une erreur lors du transfert.";
+        }
     } else {
         echo "Vous ne pouvez pas faire cette action.";
     }

@@ -216,6 +216,13 @@ if (!class_exists('ObjetRepository')) {
             return $id_main;
         }
 
+        public function deleteInfo(int $id): self {
+            $sql = "DELETE FROM info_objet WHERE id=:id";
+            $this->setSql($sql)->setParamInt(":id", $id);
+            $this->executeSql();
+            return $this;
+        }
+
     }
 }
 

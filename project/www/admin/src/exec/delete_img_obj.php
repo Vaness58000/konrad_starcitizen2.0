@@ -18,7 +18,11 @@ if(!$sessionUser->isConnected()) {die("Merci de vous connecter.");
         $nameImgDelet = $objetRepository->findImgId($id);
         $oneImg->supprimer($nameImgDelet);
         $objetRepository->deleteImg($id);
-        echo "true";
+        if(empty($_POST['is_error'])) {
+            echo "true";
+        } else {
+            echo "Il y a eu une erreur lors du transfert.";
+        }
     } else {
         echo "Vous ne pouvez pas faire cette action.";
     }
