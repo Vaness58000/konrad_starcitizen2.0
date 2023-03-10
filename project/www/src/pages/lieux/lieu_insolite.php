@@ -2,7 +2,7 @@
 require __DIR__ . '/../../../back/connexion.php';
 require __DIR__ . '/../../../src/repository/LieuxRepository.php';
 $lieuxLuneRepository = new LieuxRepository();
-$type = $lieuxLuneRepository->findIdTypeLieu("Lunes");
+$type = $lieuxLuneRepository->findIdTypeLieu("Lieux insolites");
 $lieuxLune = $lieuxLuneRepository->findAllCatId($type);
 /*css systeme.css*/
 ?>
@@ -11,7 +11,7 @@ $lieuxLune = $lieuxLuneRepository->findAllCatId($type);
 
     <?php foreach ($lieuxLune as $construct) { ?>
         <div class="equipement_indiv">
-            <a href="?ind=lune_ind&id=<?= $construct['id_objet']; ?>">
+            <a href="?ind=lieu_insolite_ind&id=<?= $construct['id_objet']; ?>">
                 <?php
                 $lieuxLune_img = $lieuxLuneRepository->findAllImgObj($construct["id_objet"]);
                 if (count($lieuxLune_img) >= 1) {

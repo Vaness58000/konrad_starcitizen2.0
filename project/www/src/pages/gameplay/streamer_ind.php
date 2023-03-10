@@ -3,7 +3,8 @@ require __DIR__ . '/../../../back/connexion.php';
 require __DIR__ . '/../../../src/repository/ArticleRepository.php';
 require __DIR__ . '/../../../src/repository/UsersRepository.php';
 $articleRepository = new ArticleRepository();
-$article = $articleRepository->findAllUserId($_GET['id']);
+$type = $articleRepository->findIdTypeArticle("article");
+$article = $articleRepository->findAllAndTypeUserId($_GET['id'], $type);
 $usersRepository = new UsersRepository();
 $user = $usersRepository->findAllId($_GET['id']);
 ?>
@@ -34,7 +35,7 @@ $user = $usersRepository->findAllId($_GET['id']);
   
     <div class="card-buttons">
 
-      <a class="radio" href="?ind=streamer_ind">ARTICLES</a>
+      <a class="radio" href="?ind=streamer_ind&id=<?= $construct["id"]; ?>">ARTICLES</a>
       <a class="radio" href="?ind=streamer_a_propos_ind">A PROPOS</a>
     </div>
 

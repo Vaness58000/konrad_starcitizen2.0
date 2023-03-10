@@ -20,13 +20,14 @@
                     <li><a href="#"><i class="fa fa-twitch"></i></a></li>
                     <li><a href="#"><i class="fa fa-youtube"></i></a></li>
                 </ul>
-            </div>
-            <div class="contacter">
+                <div class="contacter">
                 <h3>Nous contacter</h3>
                 <ul class="contact">
                     <li><a class="radio" href="?ind=contact">Contact</a></li>
                 </ul>
             </div>
+            </div>
+            
 
 
             <div class="footer-menu">

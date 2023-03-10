@@ -1,174 +1,80 @@
 <?php
-require __DIR__.'/../../../back/connexion.php';
+require __DIR__ . '/../../../back/connexion.php';
+require __DIR__ . '/../../../back/connexion.php';
+require __DIR__ . '/../../../src/repository/LieuxRepository.php';
+$lieuxSystemeRepository = new LieuxRepository();
+$type = $lieuxSystemeRepository->findIdTypeLieu("Systèmes");
+$lieuxSysteme = $lieuxSystemeRepository->findAllCatIdLieuId($_GET['id'], $type);
+$tous_systeme = $lieuxSystemeRepository->findAllCatIdNoId($_GET['id'], $type);
 ?>
-<section class="lieu">
 
-    <h1>Système Stanton</h1>
-    <div class="info_planete">
-        <img src="src/img/stanton.png">
+<section class="page_generale">
+    <?php foreach ($lieuxSysteme as $systeme) { ?>
+        <div class="info_generale">
+            <h1><?= $systeme['nom_lieu'] ?></h1>
+            <div class="description_generale">
 
-        <p>Stanton est le premier système jouable dans Star Citizen. Il s'agence autour d'une étoile naine et regroupe quatre planètes et douze lunes chacune d'entre elles ayant été colonisée par l'homme et présentant donc des points d'intérêts allant de la mégalopole, aux centres miniers perdus au fin fond du système.</p>
-    </div>
-    <div class="info_planete">
-        <h2>Histoire</h2>
-        <p>Le système Stanton a été découvert en 2903 par des explorateurs humains puis rapidement revendiqué par l'UEE. Sa configuration très inhabituelle présentant quatre planètes potentiellement habitables et très faciles à terraformer en ont fait un système stratégique pour l'empire. </p>
-        <p> En pleine crise, l'UEE se voit dans l'obligation de céder les planètes du système à des méga-corporations privées. Celles-ci injectèrent des sommes colossales dans les finances de l'empire pour se voir attribuer l'une des planètes et ses ressources. Les quatre grands gagnants de cette course à la colonisation furent Hurston Dynamics, Crusader Industries, MicroTech et ArcCorp, qui donnèrent chacune leur nom à l'une des planètes du système. Ces quatre planètes, bien qu'aujourd'hui largement industrialisées, présentent toutes une biosphère développée, ainsi qu'une géologie d'un grand intérêt. </p>
-        <p>L'UEE ne surveille pas directement la zone et laisse à chacune des sociétés sur place le soin de faire respecter les lois impériales, avec quelques apports si besoin... L'Advocacy est la force d'intervention principale du système. Elle interviendra dans l'espace entre les planètes et au sein des juridictions quand une grande puissance de feu est nécessaire. Hurston Security, Crusader Security, et BlacJac security feront la police dans chacune des juridictions auxquelles elles correspondent (La société de sécurité correspondant à MicroTech est inconnue pour le moment).</p>
-        <p>Le système est aujourd'hui très actif et nombre d'indépendants et d'entreprises s'y installent pour tenter de s'enrichir.</p>
-    </div>
-    <div class="info_planete">
-        <h2>Géographie</h2>
+                <?php
+                $lieuxSysteme_img = $lieuxSystemeRepository->findAllImgObj($systeme["id_objet"]);
+                if (count($lieuxSysteme_img) >= 1) {
+                ?>
+                    <img src="src/img/<?= $lieuxSysteme_img[0]['name'] ?>" alt="<?= $lieuxSysteme_img[0]['alt'] ?>"></a>
+                <?php } ?>
+                <div class="description_generale">
+                    <p><?= str_replace("\n", "<br/>", $systeme['contenu']) ?></p>
 
-        <h3>Stanton I, Hurston</h3>
-        <p>Hurston possède quatre Lunes : Ita, Magda Aberdeen et Arial. Lorville est la zone d'atterrissage principale de la planète. C'est la planète de la firme Hurston Dynamics.</p>
-        <div class="systeme">
-            <div class="system1">
-                <img src="src/img/systeme1.png" alt="hurston">
-                <p>Hurston</p>
-            </div>
-            <div class="system1">
-                <img src="src/img/systeme2.jpg" alt="hurston">
-                <p>Lorville</p>
-            </div>
-        </div>
-
-        <h3>Stanton I : Hurston : Ses lunes</h3>
-        <div class="systeme">
-            <div class="system1">
-                <img src="src/img/systeme3.png" alt="hurston">
-                <p>Arial</p>
-            </div>
-            <div class="system1">
-                <img src="src/img/systeme4.png" alt="hurston">
-                <p>Aberdeen</p>
-            </div>
-            <div class="system1">
-                <img src="src/img/systeme5.png" alt="hurston">
-                <p>Magda</p>
-            </div>
-            <div class="system1">
-                <img src="src/img/systeme6.png" alt="hurston">
-                <p>Ita</p>
-            </div>
-        </div>
-
-        <h3>Stanton II : Crusader</h3>
-        <p>Crusader possède trois lunes et quatre stations spatiales : Cellin, Daymar et Yela sont les lunes. Port Olisar, Grim Hex, Covalex Gundo et Security Post Kareah sont les stations spatiales. Orison, la ville flottante, est la zone d’atterrissage principale de la planète. C'est la planète de Crusader Industries.</p>
-        <div class="systeme">
-            <div class="system1">
-                <img src="src/img/systeme7.png" alt="hurston">
-                <p>Crusader</p>
-            </div>
-            <div class="system1">
-                <img src="src/img/systeme8.jpg" alt="hurston">
-                <p>Orison</p>
-            </div>
-        </div>
-
-        <h3>Stanton II : Crusader : Ses lunes</h3>
-
-        <div class="systeme">
-            <div class="system1">
-                <img src="src/img/systeme9.png" alt="hurston">
-                <p>Cellin</p>
-            </div>
-            <div class="system1">
-                <img src="src/img/systeme10.png" alt="hurston">
-                <p>Daymar</p>
-            </div>
-            <div class="system1">
-                <img src="src/img/systeme11.png" alt="hurston">
-                <p>Yela</p>
-            </div>
-        </div>
-
-        <h3>Stanton II : Crusader : Ses stations</h3>
-        <div class="systeme">
-            <div class="system1">
-                <img src="src/img/systeme12.jpg" alt="hurston">
-                <p>Port Olisar</p>
-            </div>
-            <div class="system1">
-                <img src="src/img/systeme13.png" alt="hurston">
-                <p>Grim Hex</p>
-            </div>
-            <div class="system1">
-                <img src="src/img/systeme14.jpg" alt="hurston">
-                <p>Covalex Shipping Hub Gundo</p>
-            </div>
-            <div class="system1">
-                <img src="src/img/systeme15.jpg" alt="hurston">
-                <p>Security Post Kareah</p>
-            </div>
-        </div>
-
-        <h3>Stanton III : ArcCorp</h3>
-        <p>ArcCorp possède deux Lunes : Lyria et Wala. La planète entière est une ville géante mais la zone d'atterrissage principale est Area18.</p>
-        <div class="systeme">
-
-            <div class="system1">
-                <img src="src/img/systeme16.png" alt="hurston">
-                <p>ArcCorp</p>
-            </div>
-            <div class="system1">
-                <img src="src/img/systeme17.jpg" alt="hurston">
-                <p>Area18</p>
+                </div>
             </div>
 
-        </div>
+            <div class="caracteristique">
+                <table>
+                    <?php
+                    $lieuxSysteme_info_img = $lieuxSystemeRepository->findAllInfObj($systeme["id_objet"]);
 
-        <h3>Stanton III : ArcCorp : Ses lunes</h3>
-        <div class="systeme">
+                    foreach ($lieuxSysteme_info_img as $construct_inf) { ?>
+                        <tr>
+                            <td><?= $construct_inf['nom'] ?></td>
+                            <td class="td_text_pad">
+                                <div class="td_text"><?= str_replace("\n", "<br/>", $construct_inf['info']) ?></div>
+                            </td>
+                        </tr>
+                    <?php } ?>
+                </table>
 
-            <div class="system1">
-                <img src="src/img/systeme18.png" alt="hurston">
-                <p>Lyria</p>
             </div>
-            <div class="system1">
-                <img src="src/img/systeme19.png" alt="hurston">
-                <p>Wala</p>
+            <div id="gallery_planete">
+                <?php
+                $lieuxSysteme_img = $lieuxSystemeRepository->findAllImgObj($systeme["id_objet"]);
+
+                foreach ($lieuxSysteme_img as $construct_img) { ?>
+                    <img src="src/img/<?= $construct_img['name'] ?>" alt="Systeme <? $systeme['nom_lieu'] ?>" />
+                <?php } ?>
+
             </div>
+            <div class="voir_aussi">
+                <h2 class="centered">Voir aussi</h2>
+                <?php foreach ($tous_systeme as $tous) { ?>
+                    <div class="blog-card">
 
-        </div>
+                        <div class="meta">
+                            <?php
+                            $lieu_img = $lieuxSystemeRepository->findAllImgObj($tous["id_objet"]);
+                            if (count($lieu_img) >= 1) {
+                            ?>
+                                <div class="photo" style="background-image: url(src/img/<?= $lieu_img[0]['name'] ?>" ;><a href="?ind=systeme_ind&id=<?= $tous["id_objet"]; ?>"></a></div>
+                            <?php } ?>
 
-        <h3>Stanton IV : MicroTech</h3>
-        <p>Microtech possède trois lunes : Calliope, Clio et Euterpe. La zone d'atterrissage principale est New Babbage.</p>
-        <div class="systeme">
-
-            <div class="system1">
-                <img src="src/img/systeme20.png" alt="hurston">
-                <p>Microtech</p>
+                        </div>
+                        <div class="description">
+                            <h2><a href="?ind=systeme_ind&id=<?= $tous["id_objet"]; ?>"><?= $tous['nom_obj']; ?></a></h2>
+                            <ul class="postcard__tagbox">
+                                <li class="tag__item">Système</li>
+                            </ul>
+                        </div>
+                    </div>
+                <?php } ?>
             </div>
-            <div class="system1">
-                <img src="src/img/systeme21.jpg" alt="hurston">
-                <p>New Babbage</p>
-            </div>
-
-        </div>
-
-        <h3>Stanton IV : Microtech : Ses lunes</h3>
-        <div class="systeme">
-
-            <div class="system1">
-                <img src="src/img/systeme22.jpg" alt="hurston">
-                <p>Calliope</p>
-            </div>
-            <div class="system1">
-                <img src="src/img/systeme23.jpg" alt="hurston">
-                <p>Clio</p>
-            </div>
-            <div class="system1">
-                <img src="src/img/systeme24.jpg" alt="hurston">
-                <p>Euterpe</p>
-            </div>
-
-        </div>
-
-    </div>
-    <div class="gallery_planete">
-
-
-    </div>
-
-
 </section>
+<?php
+    }
+?>

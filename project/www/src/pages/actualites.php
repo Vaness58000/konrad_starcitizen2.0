@@ -1,10 +1,21 @@
 <?php
 require __DIR__ . '/../../back/connexion.php';
 require __DIR__ . '/../../src/repository/ArticleRepository.php';
+$pg = 0;
+if (!empty($_GET['pg'])) {
+	$pg = intval($_GET['pg']) - 1;
+}
+if ($pg < 0) {
+	$pg = 0;
+}
+$nomb_art = 2;
 $articleRepository = new ArticleRepository();
 $type = $articleRepository->findIdTypeArticle("actualité");
-$article = $articleRepository->findAllAndTypeUser($type);
+$nomb = $articleRepository->findAllAndTypeUserCount($type);
 
+$nomb_page = ceil($nomb / $nomb_art);
+
+$article = $articleRepository->findAllAndTypeUserPage($type, $pg, $nomb_art);
 ?>
 <section class="post_dark">
 
@@ -48,3 +59,8 @@ $article = $articleRepository->findAllAndTypeUser($type);
     </div>
 
 </section>
+<ul class="pagination">
+<?php for ($i = 1; $i <= $nomb_page; $i++) { ?>
+		<li><a href="?ind=actualites&pg=<?= $i ?>"><?= $i ?></a></li>
+	<?php } ?>
+</ul>

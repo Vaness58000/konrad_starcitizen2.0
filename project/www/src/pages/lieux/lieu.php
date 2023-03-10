@@ -42,6 +42,14 @@
 				</div>
 			</div>
 		</div>
+		<div class="flex-slide insolite">
+			<div class="flex-title">Lieux insolites</div>
+			<div class="flex-about">
+				<div class="bouton-lieu">
+					<a class="btn_lieu" href="?ind=lieu_insolite"><span>Visiter</span></a>
+				</div>
+			</div>
+		</div>
 	</div>
 </div>
 
@@ -54,7 +62,7 @@
 			$(this).hover(function() {
 				$(this).find('.flex-title').css({
 					transform: 'rotate(0deg)',
-					top: '15%'
+					top: '250'
 				});
 				$(this).find('.flex-about').css({
 					opacity: '1'
@@ -62,7 +70,7 @@
 			}, function() {
 				$(this).find('.flex-title').css({
 					transform: 'rotate(90deg)',
-					top: '15%'
+					top: '250'
 				});
 				$(this).find('.flex-about').css({
 					opacity: '0'

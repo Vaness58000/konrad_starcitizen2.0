@@ -39,7 +39,14 @@ if (!class_exists('VaisseauRepository')) {
                     'INNER JOIN type_transport ON type_transport.id_type = equipements_transports.type '.
                     'INNER JOIN disponibilite ON disponibilite.id_disponibilite = equipements_transports.id_disponible WHERE type_transport.id_type=:type')->setParamInt(":type", $type)->fetchAllAssoc();
         }        
-    
+       
+        public function findIdTypeTransport(string $name):int {
+            $tab_type = $this->setSql('SELECT * FROM categorie_transport WHERE nom=:nom')->setParam(":nom", $name)->fetchAssoc();
+            if(!(!empty($tab_type) && array_key_exists("id_transport", $tab_type) && !empty($tab_type["id_transport"]))) {
+                return 0;
+            }
+            return intval($tab_type["id_transport"]);
+        }
     }
 }
 

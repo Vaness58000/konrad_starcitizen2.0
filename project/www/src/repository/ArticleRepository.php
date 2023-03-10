@@ -221,6 +221,7 @@ if (!class_exists('ArticleRepository')) {
         /**
          * Recuperer toutes les donnees visibles de la table
          */
+        
         public function findIdTypeArticle(string $name):int {
             $tab_type = $this->setSql('SELECT * FROM categories_articles WHERE nom=:nom')->setParam(":nom", $name)->fetchAssoc();
             if(!(!empty($tab_type) && array_key_exists("id_categorie_article", $tab_type) && !empty($tab_type["id_categorie_article"]))) {

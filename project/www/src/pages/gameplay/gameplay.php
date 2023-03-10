@@ -1,8 +1,19 @@
 <?php
 require __DIR__ . '/../../../back/connexion.php';
 require __DIR__ . '/../../../src/repository/UsersRepository.php';
+$pg = 0;
+if (!empty($_GET['pg'])) {
+	$pg = intval($_GET['pg']) - 1;
+}
+if ($pg < 0) {
+	$pg = 0;
+}
+$nomb_art = 3;
 $usersRepository = new UsersRepository();
-$users = $usersRepository->findAll();
+$nomb = $usersRepository->findAllAndUserCount();
+$nomb_page = ceil($nomb / $nomb_art);
+
+$users = $usersRepository->findAllAndUserPage($pg, $nomb_art);
 
 ?>
 
@@ -30,8 +41,8 @@ $users = $usersRepository->findAll();
                 <div class="profile-card-inf">
 
                     <div class="profile-card-inf__item">
-                        <div class="profile-card-inf__title">123</div>
-                        <div class="profile-card-inf__txt">Articles</div>
+                      
+                        <div class="profile-card-inf__txt">123 articles</div>
                     </div>
 
 
@@ -79,3 +90,8 @@ $users = $usersRepository->findAll();
 <?php } ?>
 
 </div>
+<ul class="pagination">
+	<?php for ($i = 1; $i <= $nomb_page; $i++) { ?>
+		<li><a href="?ind=gameplay&pg=<?= $i ?>"><?= $i ?></a></li>
+	<?php } ?>
+</ul>

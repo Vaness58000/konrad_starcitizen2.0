@@ -3,9 +3,10 @@ require __DIR__ . '/../../../back/connexion.php';
 require __DIR__ . '/../../../src/repository/ArticleRepository.php';
 require __DIR__ . '/../../../src/repository/UsersRepository.php';
 $articleRepository = new ArticleRepository();
-$article = $articleRepository->findAllAndTypeUserId($_GET['id'], $_GET['type']);
+$type = $articleRepository->findIdTypeArticle("article");
+$article = $articleRepository->findAllAndIdTypeUser($_GET['id'], $type);
 $usersRepository = new UsersRepository();
-$tous_article = $articleRepository->findAllAndTypeUserNoId($_GET['type'], $_GET["id"]);
+$tous_article = $articleRepository->findAllAndTypeUserNoId($type, $_GET["id"]);
 ?>
 <div class="page_actu">
     <?php 
@@ -38,7 +39,6 @@ $tous_article = $articleRepository->findAllAndTypeUserNoId($_GET['type'], $_GET[
                     <p class="text"><strong><?= str_replace("\n", "<br/>", $construct['resume']) ?></strong></p>
 
                     <p class="text"><?= str_replace("\n", "<br/>", $construct['contenu']) ?></p>
-
                     <?php
                     $article_img = $articleRepository->findAllImgArticle($construct["id"]);
 
@@ -46,7 +46,7 @@ $tous_article = $articleRepository->findAllAndTypeUserNoId($_GET['type'], $_GET[
                         <img src="src/img/<?= $construct_img['name'] ?>">
 
                     <?php } ?>
-             
+
                 <div class="voir_aussi">
                     <h2 class="centered">Voir aussi</h2>
                     <?php foreach ($tous_article as $tous) { ?>
@@ -64,7 +64,7 @@ $tous_article = $articleRepository->findAllAndTypeUserNoId($_GET['type'], $_GET[
                             <div class="description">
                                 <h2><a href="?ind=article_streamer_ind&type=<?= $construct["id_categorie_article"] ?>&id=<?= $tous["id"]; ?>"><?= $tous['titre']; ?></a></h2>
                                 <ul class="postcard__tagbox">
-                                    <li class="tag__item">Actualité</li>
+                                    <li class="tag__item">Gameplay</li>
 
                                     <li class="tag__item auteur blue">
                                         <a href="?ind=streamer_ind&id=<?= $construct["id"]; ?>">Publié par <?= $construct['pseudo'] ?></a>

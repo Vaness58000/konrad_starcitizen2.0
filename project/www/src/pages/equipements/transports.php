@@ -4,8 +4,7 @@ require __DIR__.'/../../../src/repository/VaisseauRepository.php';
 require __DIR__.'/../../../src/repository/ConstructeurRepository.php';
 
 $vaisseauRepository = new VaisseauRepository();
-$vaisseau = $vaisseauRepository->findAllType(1);
-
+$vaisseau = $vaisseauRepository->findAllType($_GET["type_transp"]);
 $constructeurRepository = new ConstructeurRepository();
 $construct_tab = $constructeurRepository->findAll();
 ?>
@@ -18,26 +17,19 @@ $construct_tab = $constructeurRepository->findAll();
     <div id="myDropdown" class="dropdown-content">
 
       <input type="text" placeholder="Recherche.." id="myInput" onkeyup="filterFunction()">
-      <a href="?ind=vaisseau" id="construct"><img src="" alt="">Tous les vaisseaux</a></li>
+      <a href="?ind=transport" id="construct"><img src="" alt="">Tous les vaisseaux</a></li>
      <?php foreach ($construct_tab as $construct) {?>
-        <a href="?ind=vaisseau_construct&id=<?= $construct['id_constructeur'] ?>"><img src="src/img/<?= $construct['logo'] ?>" alt="logo <?= $construct['nom'] ?>" width="50px"><?= $construct['nom'] ?></a>
+        <a href="?ind=constructeur_ind&id=<?= $construct['id_constructeur']; ?>"><img src="src/img/<?= $construct['logo'] ?>" alt="logo <?= $construct['nom'] ?>" width="50px"><?= $construct['nom'] ?></a>
         <?php } ?>
     </div>
 
   </div>
 
-  <!--  <form id="form1" action ="verif-form.php" method ="get">
-        <div id="recherches">
-         <label for="terme">GAMES</label>
-         <input type="search" id="terme" name="terme" placeholder="entrez votre jeu" required>
-         <input type="submit" name = "s" value="Rechercher">
-        </div>
-      </form>-->
   <div class="container_equipement">
 
     <?php foreach ($vaisseau as $construct) {?>
       <div class="equipement_indiv">
-        <a href="?ind=vaisseau_ind&id=<?= $construct['id']; ?>">
+        <a href="?ind=transport_ind&id=<?= $construct['id_objet']; ?>">
         <?php $vaisseau_img = $vaisseauRepository->findAllImgObj($construct["id_objet"]);
         if (count($vaisseau_img) >= 1) {
         ?><img src="src/img/<?= $vaisseau_img[0]["name"] ?>" alt="vaisseau<?= $construct['nom_vaiss'] ?>"></a>

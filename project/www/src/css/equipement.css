@@ -1,4 +1,4 @@
-.page_equipement{
+.page_equipement {
   background-image: url("../img/shipdetail-space-bg.jpg");
   background-attachment: fixed;
   background-size: cover;
@@ -71,6 +71,7 @@
   display: block;
 
 }
+
 /*FIN MENU CHOIX CONSTRUCTEUR*/
 
 
@@ -84,7 +85,7 @@
   text-align: center;
   color: white;
   width: 100%;
-  
+
 }
 
 .container_arme {
@@ -101,7 +102,6 @@
 
 .container_equipement img {
   width: 320px;
-  height: 150px;
   border: 1px;
   clip-path: polygon(0 0, 100% 0, 100% 100%, 100% 100%, 0 100%, 26px 100%, 0 calc(100% - 26px));
 }
@@ -122,6 +122,26 @@
   width: 300px;
 }
 
+@media screen and (max-width: 766px) {
+  .equipement_indiv {
+    margin: 30px 20px;
+  }
+}
+
+@media screen and (max-width: 679px) {
+  .container_equipement img {
+    width: 400px;
+    height: auto;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .container_equipement img {
+    width: 320px;
+    height: auto;
+  }
+}
+
 .arme_indiv {
   display: flex;
   flex-direction: column;
@@ -129,16 +149,19 @@
   justify-content: center;
   margin: 10px;
 }
-.arme_indiv img{
+
+.arme_indiv img {
   width: 400px;
   height: 200px;
 }
-@media screen and (max-width: 550px){
-  .arme_indiv img{
+
+@media screen and (max-width: 550px) {
+  .arme_indiv img {
     width: 320px;
     height: 150px;
   }
 }
+
 .centered {
   text-decoration: none;
   letter-spacing: 2px;
@@ -176,7 +199,6 @@
 .container_contructeur h2,
 .container_contructeur li {
   color: white;
-  margin: 10px;
 }
 
 .container_contructeur h2 {
@@ -188,12 +210,9 @@
 }
 
 .info_construct {
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-  margin: 0 30px;
+  display: block;
+  margin: 0 auto;
+  width: 80%;
   box-shadow: rgba(6, 201, 255, 0.25) 0px 50px 100px -20px, rgba(28, 159, 220, 0.3) 0px 30px 60px -30px, rgba(32, 121, 210, 0.35) 0px -2px 6px 0px inset;
 }
 
@@ -202,25 +221,17 @@
 }
 
 .info_construct p {
-  width: 95%;
-  margin: 5px;
-  line-height: 2em;
+  padding: 15px 30px 20px 30px;
+  line-height: 1.5em;
 }
 
 @media (max-width: 950px) {
-  .info_construct img {
-    width: 100%;
-    padding-right: 0px;
+  .info_construct {
+    width: 95%;
   }
 
   .info_construct p {
-    width: 100%;
-
-  }
-
-  .info_construct {
-    margin: 0 0px;
-
+    padding: 15px 10px 10px 10px;
   }
 }
 
@@ -360,4 +371,149 @@ p img {
   height: auto;
   float: left;
   margin: 0 1em 1em 0;
+}
+
+
+/*bouton equipement constructeur*/
+
+.container_categorie_construct {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  min-width: 320px;
+  margin-top: 40px;
+}
+
+.menu_categorie_construct {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  margin: 20px auto;
+  text-align: center;
+  width: 100%;
+  height: 40px;
+  transform: translateY(-50%);
+  z-index: 1;
+  list-style-type: none;
+}
+
+.menu_categorie_construct a {
+  color: white;
+}
+
+.categorie_item_construct {
+  height: 100%;
+  background-color: var(--light-color);
+  color: #ffffff;
+  font-family: 'Oswald', sans-serif;
+  border-radius: 7px;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  position: relative;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 16px;
+  transform: skew(-21deg);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.26);
+  margin: 5px;
+  padding: 0 40px;
+  cursor: pointer;
+}
+
+
+.categorie_item_construct:hover {
+  background: #102549;
+  color: #FFF;
+}
+
+
+.item_inner_construct {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  z-index: 2;
+  transform: skew(21deg);
+}
+
+.item_title_construct {
+  font-size: 16px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+
+@media all and (max-width: 1000px) {
+  .menu_categorie_construct {
+    height: 35px;
+  }
+
+  .item_title_construct {
+    font-size: 11px;
+  }
+
+  .categorie_item_construct {
+    padding: 0 30px;
+  }
+}
+
+@media all and (max-width: 710px) {
+  .menu_actegorie_construct {
+    height: 30px;
+  }
+
+  .categorie_item_construct {
+    padding: 0 20px;
+  }
+
+}
+
+/* constructeur css */
+.equipement_transport_construct {
+  margin: 30px 0;
+}
+
+.container_construct {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  text-align: center;
+  color: white;
+  width: 100%;
+
+}
+
+
+.construct_indiv {
+  margin: 40px 20px;
+  box-shadow: 0 4px 21px -12px rgba(1, 238, 255, 0.66);
+}
+
+.image_construct {
+  position: relative;
+  z-index: 1;
+}
+
+.construct_indiv img {
+  width: 400px;
+  height: 150px;
+}
+
+#logo_constructeur img {
+  width: 150px;
+  height: 100px;
+  position: absolute;
+  z-index: 2;
+  margin-top: -130px;
+  margin-left: -70px;
+  border-radius: 50% 1px solid;
+  background: var(--medium-light-color);
 }

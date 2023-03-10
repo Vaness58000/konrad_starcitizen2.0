@@ -1,163 +1,157 @@
 <?php
 require __DIR__ . '/../../../back/connexion.php';
-require __DIR__ . '/../../../src/repository/VaisseauRepository.php';
-$vaisseauRepository = new VaisseauRepository();
-$vaisseau = $vaisseauRepository->findAllId($_GET['id']);
-
+require __DIR__ . '/../../../src/repository/TransportRepository.php';
+$vaisseauRepository = new TransportRepository();
+$construct = $vaisseauRepository->findAllAndIdUser($_GET['id']);
 ?>
 
 <section class="page_generale">
-  <?php foreach ($vaisseau as $construct) { ?>
 
-    <div class="info_generale">
-      <main class="main-content">
-        <section class="slideshow">
+  <div class="info_generale">
+    <main class="main-content">
+      <section class="slideshow">
 
-          <div class="slides">
-            <div class="slideshow-inner">
-              <?php $vaisseau_img = $vaisseauRepository->findAllImgObj($construct["id_objet"]);
-              foreach ($vaisseau_img as $construct_img) { ?>
-                <div class="slide is-active ">
-                  <div class="slide-content">
-                    <div class="caption">
-
-                      <div class="title"><?= $construct['nom_vaiss'] ?></div>
-
-                    </div>
-                  </div>
-                  <div class="image-container">
-                    <img src="src/img/<?= $vaisseau_img[0]["name"] ?>" alt="vaisseau<?= $construct['nom_vaiss'] ?>">
-                  </div>
-                </div>
-              <?php } ?>
-              <div class="slide">
+        <div class="slides">
+          <div class="slideshow-inner">
+            <?php $vaisseau_img = $vaisseauRepository->findAllImgObj(intval($construct["id_objet"]));
+            foreach ($vaisseau_img as $construct_img) { ?>
+              <div class="slide is-active ">
                 <div class="slide-content">
                   <div class="caption">
-                    <div class="title"><?= $construct['nom_vaiss'] ?></div>
+
+                    <div class="title"><?= $construct['nom_obj'] ?></div>
+
                   </div>
                 </div>
                 <div class="image-container">
-                  <img src="src/img/vaisseau4.jpg" alt="<?= $construct['nom_vaiss'] ?>" class="image" />
+                  <img src="src/img/<?= $vaisseau_img[0]["name"] ?>" alt="vaisseau<?= $construct['nom_obj'] ?>">
                 </div>
               </div>
-              <div class="slide">
-                <div class="slide-content">
-                  <div class="caption">
-                    <div class="title"><?= $construct['nom_vaiss'] ?></div>
-
-                  </div>
-                </div>
-                <div class="image-container">
-                  <img src="src/img/vaisseau18.jpg" alt="<?= $construct['nom_vaiss'] ?>" class="image" />
+            <?php } ?>
+            <div class="slide">
+              <div class="slide-content">
+                <div class="caption">
+                  <div class="title"><?= $construct['nom_obj'] ?></div>
                 </div>
               </div>
-              <div class="slide">
-                <div class="slide-content">
-                  <div class="caption">
-                    <div class="title"><?= $vaisseau['nom_vaisseau']; ?></div>
-
-                  </div>
-                </div>
-                <div class="image-container">
-                  <img src="src/img/vaisseau14.jpg" alt="<?= $construct['nom_vaiss'] ?>" class="image" />
-                </div>
+              <div class="image-container">
+                <img src="src/img/vaisseau4.jpg" alt="<?= $construct['nom_obj'] ?>" class="image" />
               </div>
             </div>
-            <div class="pagination">
-              <div class="item is-active">
-                <span class="icon">1</span>
+            <div class="slide">
+              <div class="slide-content">
+                <div class="caption">
+                  <div class="title"><?= $construct['nom_obj'] ?></div>
+
+                </div>
               </div>
-              <div class="item">
-                <span class="icon">2</span>
-              </div>
-              <div class="item">
-                <span class="icon">3</span>
-              </div>
-              <div class="item">
-                <span class="icon">4</span>
+              <div class="image-container">
+                <img src="src/img/vaisseau18.jpg" alt="<?= $construct['nom_obj'] ?>" class="image" />
               </div>
             </div>
-            <div class="arrows">
-              <div class="arrow prev">
-                <span class="svg svg-arrow-left">
-                  <svg version="1.1" id="svg4-Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="14px" height="26px" viewBox="0 0 14 26" enable-background="new 0 0 14 26" xml:space="preserve">
-                    <path d="M13,26c-0.256,0-0.512-0.098-0.707-0.293l-12-12c-0.391-0.391-0.391-1.023,0-1.414l12-12c0.391-0.391,1.023-0.391,1.414,0s0.391,1.023,0,1.414L2.414,13l11.293,11.293c0.391,0.391,0.391,1.023,0,1.414C13.512,25.902,13.256,26,13,26z" />
-                  </svg>
-                  <span class="alt sr-only"></span>
-                </span>
+            <div class="slide">
+              <div class="slide-content">
+                <div class="caption">
+                  <div class="title"><?= $construct['nom_obj']; ?></div>
+
+                </div>
               </div>
-              <div class="arrow next">
-                <span class="svg svg-arrow-right">
-                  <svg version="1.1" id="svg5-Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="14px" height="26px" viewBox="0 0 14 26" enable-background="new 0 0 14 26" xml:space="preserve">
-                    <path d="M1,0c0.256,0,0.512,0.098,0.707,0.293l12,12c0.391,0.391,0.391,1.023,0,1.414l-12,12c-0.391,0.391-1.023,0.391-1.414,0s-0.391-1.023,0-1.414L11.586,13L0.293,1.707c-0.391-0.391-0.391-1.023,0-1.414C0.488,0.098,0.744,0,1,0z" />
-                  </svg>
-                  <span class="alt sr-only"></span>
-                </span>
+              <div class="image-container">
+                <img src="src/img/vaisseau14.jpg" alt="<?= $construct['nom_obj'] ?>" class="image" />
               </div>
             </div>
           </div>
-        </section>
-      </main>
+          <div class="pagination">
+            <div class="item is-active">
+              <span class="icon">1</span>
+            </div>
+            <div class="item">
+              <span class="icon">2</span>
+            </div>
+            <div class="item">
+              <span class="icon">3</span>
+            </div>
+            <div class="item">
+              <span class="icon">4</span>
+            </div>
+          </div>
+          <div class="arrows">
+            <div class="arrow prev">
+              <span class="svg svg-arrow-left">
+                <svg version="1.1" id="svg4-Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="14px" height="26px" viewBox="0 0 14 26" enable-background="new 0 0 14 26" xml:space="preserve">
+                  <path d="M13,26c-0.256,0-0.512-0.098-0.707-0.293l-12-12c-0.391-0.391-0.391-1.023,0-1.414l12-12c0.391-0.391,1.023-0.391,1.414,0s0.391,1.023,0,1.414L2.414,13l11.293,11.293c0.391,0.391,0.391,1.023,0,1.414C13.512,25.902,13.256,26,13,26z" />
+                </svg>
+                <span class="alt sr-only"></span>
+              </span>
+            </div>
+            <div class="arrow next">
+              <span class="svg svg-arrow-right">
+                <svg version="1.1" id="svg5-Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="14px" height="26px" viewBox="0 0 14 26" enable-background="new 0 0 14 26" xml:space="preserve">
+                  <path d="M1,0c0.256,0,0.512,0.098,0.707,0.293l12,12c0.391,0.391,0.391,1.023,0,1.414l-12,12c-0.391,0.391-1.023,0.391-1.414,0s-0.391-1.023,0-1.414L11.586,13L0.293,1.707c-0.391-0.391-0.391-1.023,0-1.414C0.488,0.098,0.744,0,1,0z" />
+                </svg>
+                <span class="alt sr-only"></span>
+              </span>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
 
-      <p><?= str_replace("\n", "<br/>", $construct['contenu']) ?></p>
-      <div class="bouton">
-        <a class="btn_actus" href="#"><span>Pledge Store</span></a>
-      </div>
+    <p><?= str_replace("\n", "<br/>", $construct['contenu']) ?></p>
+    <div class="bouton">
+      <a class="btn_actus" href="#"><span>Pledge Store</span></a><a class="btn_actus" href="#"><span>Erkul</span></a>
     </div>
 
+
+
+    <table>
+      <tr>
+        <th>constructeur</th>
+        <th><?= $construct['nom'] ?></th>
+      </tr>
+      <tr>
+        <td>Prix</td>
+        <td><?= $construct['prix'] ?></td>
+      </tr>
+      <tr>
+        <td>Disponibilité</td>
+        <td><?= $construct['nom_disponible']
+            ?></td>
+      </tr>
+      <tr>
+        <td>Equipage</td>
+        <td><?= $construct['equipage'] ?></td>
+      </tr>
+      <tr>
+        <td>Taille</td>
+        <td><?= $construct['taille'] ?></td>
+      </tr>
+      <tr>
+        <td>Poids</td>
+        <td><?= $construct['poids'] ?></td>
+      </tr>
+      <tr>
+        <td>Vitesse maximum</td>
+        <td><?= $construct['vitesse_max'] ?></td>
+      </tr>
+      <tr>
+        <td>Capacité cargo</td>
+        <td><?= $construct['capacite'] ?></td>
+      </tr>
+      <?php
+      $vaisseau_info_img = $vaisseauRepository->findAllInfObj($construct["id_objet"]);
+
+      foreach ($vaisseau_info_img as $construct_inf) { ?>
+        <tr>
+          <td><?= $construct_inf['nom'] ?></td>
+          <td class="td_text_pad">
+            <div class="td_text"><?= str_replace("\n", "<br/>", $construct_inf['info']) ?></div>
+          </td>
+        </tr>
+      <?php } ?>
+    </table>
+  </div>
 </section>
-<table>
-  <tr>
-    <th>constructeur</th>
-    <th><?php //$vaisseau['constructeur'] 
-        ?></th>
-  </tr>
-  <tr>
-    <td>Prix</td>
-    <td><?= $construct['prix'] ?></td>
-  </tr>
-  <tr>
-    <td>Disponibilité</td>
-    <td><?php //$vaisseau['disponibilite'] 
-        ?></td>
-  </tr>
-  <tr>
-    <td>Equipage</td>
-    <td><?= $construct['equipage'] ?></td>
-  </tr>
-  <tr>
-    <td>Taille</td>
-    <td><?= $construct['taille'] ?></td>
-  </tr>
-  <tr>
-    <td>Poids</td>
-    <td><?= $construct['poids'] ?></td>
-  </tr>
-  <tr>
-    <td>Vitesse maximum</td>
-    <td><?= $construct['vitesse_max'] ?></td>
-  </tr>
-  <tr>
-    <td>Capacité cargo</td>
-    <td><?= $construct['capacite'] ?></td>
-  </tr>
-  <?php
-    $vaisseau_info_img = $vaisseauRepository->findAllInfObj($construct["id_objet"]);
-
-    foreach ($vaisseau_info_img as $construct_inf) { ?>
-    <tr>
-      <td><?= $construct_inf['nom'] ?></td>
-      <td class="td_text_pad">
-        <div class="td_text"><?= str_replace("\n", "<br/>", $construct_inf['info']) ?></div>
-      </td>
-    </tr>
-  <?php } ?>
-</table>
-
-
-<?php
-  }
-?>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.1/TweenMax.min.js"></script>
