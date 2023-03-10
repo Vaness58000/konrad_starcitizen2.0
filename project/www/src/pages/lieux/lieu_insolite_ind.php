@@ -1,57 +1,80 @@
 <?php
 require __DIR__ . '/../../../back/connexion.php';
 require __DIR__ . '/../../../src/repository/LieuxRepository.php';
-$lieuxLuneRepository = new LieuxRepository();
-$type = $lieuxLuneRepository->findIdTypeLieu("Lieux insolites");
-$lieuxLune = $lieuxLuneRepository->findAllCatIdLieuId($_GET['id'], $type);
+$lieuxInsoliteRepository = new LieuxRepository();
+$type = $lieuxInsoliteRepository->findIdTypeLieu("Lieux insolites");
+$lieuxInsolite = $lieuxInsoliteRepository->findAllCatIdLieuId($_GET['id'], $type);
+$tous_lieu = $lieuxInsoliteRepository->findAllCatIdNoId($_GET['id'], $type);
 ?>
 
 
-<div class="block">
-    <section class="page_generale">
-        <?php foreach ($lieuxLune as $lune) { ?>
-            <div class="info_generale">
-                <h1><?= $lune['nom_lieu'] ?></h1>
+<section class="page_generale">
+    <?php foreach ($lieuxInsolite as $lune) { ?>
+        <div class="info_generale">
+            <h1><?= $lune['nom_lieu'] ?></h1>
+            <div class="description_generale">
+
+                <?php
+                $lieuxInsolite_img = $lieuxInsoliteRepository->findAllImgObj($lune["id_objet"]);
+                if (count($lieuxInsolite_img) >= 1) {
+                ?>
+                    <img src="src/img/<?= $lieuxInsolite_img[0]['name'] ?>" alt="<?= $lieuxInsolite_img[0]['alt'] ?>"></a>
+                <?php } ?>
                 <div class="description_generale">
+                    <p><?= str_replace("\n", "<br/>", $lune['contenu']) ?></p>
 
-                    <?php
-                    $lieuxLune_img = $lieuxLuneRepository->findAllImgObj($lune["id_objet"]);
-                    if (count($lieuxLune_img) >= 1) {
-                    ?>
-                        <img src="src/img/<?= $lieuxLune_img[0]['name'] ?>" alt="<?= $lieuxLune_img[0]['alt'] ?>"></a>
-                    <?php } ?>
-                    <div class="description_generale">
-                        <p><?= str_replace("\n", "<br/>", $lune['contenu']) ?></p>
-
-                    </div>
                 </div>
-    </section>
-</div>
-<div class="caracteristique">
-    <table>
-        <?php
-            $lieuxLune_info_img = $lieuxLuneRepository->findAllInfObj($lune["id_objet"]);
+            </div>
 
-            foreach ($lieuxLune_info_img as $construct_inf) { ?>
-            <tr>
-                <td><?= $construct_inf['nom'] ?></td>
-                <td class="td_text_pad">
-                    <div class="td_text"><?= str_replace("\n", "<br/>", $construct_inf['info']) ?></div>
-                </td>
-            </tr>
-        <?php } ?>
-    </table>
+            <div class="caracteristique">
+                <table>
+                    <?php
+                    $lieuxInsolite_info_img = $lieuxInsoliteRepository->findAllInfObj($lune["id_objet"]);
 
-</div>
-<div class="gallery_planete">
-    <?php
-            $lieuxLune_img = $lieuxLuneRepository->findAllImgObj($lune["id_objet"]);
+                    foreach ($lieuxInsolite_info_img as $construct_inf) { ?>
+                        <tr>
+                            <td><?= $construct_inf['nom'] ?></td>
+                            <td class="td_text_pad">
+                                <div class="td_text"><?= str_replace("\n", "<br/>", $construct_inf['info']) ?></div>
+                            </td>
+                        </tr>
+                    <?php } ?>
+                </table>
 
-            foreach ($lieuxLune_img as $construct_img) { ?>
-        <img src="src/img/<?= $construct_img['name'] ?>" alt="lune <? $lune['nom_obj'] ?>" />
-    <?php } ?>
+            </div>
+            <div id="gallery_planete">
+                <?php
+                $lieuxInsolite_img = $lieuxInsoliteRepository->findAllImgObj($lune["id_objet"]);
 
-</div>
+                foreach ($lieuxInsolite_img as $construct_img) { ?>
+                    <img src="src/img/<?= $construct_img['name'] ?>" alt="lune <? $lune['nom_obj'] ?>" />
+                <?php } ?>
+
+            </div>
+            <div class="voir_aussi">
+                <h2 class="centered">Voir aussi</h2>
+                <?php foreach ($tous_lieu as $tous) { ?>
+                    <div class="blog-card">
+
+                        <div class="meta">
+                            <?php
+                            $lieu_img = $lieuxLuneRepository->findAllImgObj($tous["id_objet"]);
+                            if (count($lieu_img) >= 1) {
+                            ?>
+                                <div class="photo" style="background-image: url(src/img/<?= $lieu_img[0]['name'] ?>" ;><a href="?ind=lieu_insolite_ind&id=<?= $tous["id_objet"]; ?>"></a></div>
+                            <?php } ?>
+
+                        </div>
+                        <div class="description">
+                            <h2><a href="?ind=lieu_insolite_ind&id=<?= $tous["id_objet"]; ?>"><?= $tous['nom_obj']; ?></a></h2>
+                            <ul class="postcard__tagbox">
+                                <li class="tag__item">Lieu insolite</li>
+                            </ul>
+                        </div>
+                    </div>
+                <?php } ?>
+            </div>
+</section>
 <?php
-        }
+    }
 ?>

@@ -34,7 +34,7 @@ html {
     --blue-color: rgba(10, 24, 34, 0.921);
     --line-color: #0a5688;
     --dark-black-color: rgb(10, 37, 53);
-    --light-black-color: #1a252d;
+    --light-black-color: rgba(4, 23, 37, 0.528);
     --shadow-color: #0074c2;
     --transparent-color: transparent;
 }

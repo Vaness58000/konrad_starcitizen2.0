@@ -24,7 +24,12 @@ if (!class_exists('EspecesRepository')) {
                     'LEFT JOIN lieu_espece ON especes.id_espece = lieu_espece.id_espece '.
                     '')->fetchAllAssoc();
         }
-
+        public function findAllNoId(int $id):array {
+            return $this->setSql('SELECT *, objet.id AS id_objet, objet.nom AS nom_obj FROM objet '.
+                    'INNER JOIN especes ON especes.id_objet = objet.id '.
+                    'LEFT JOIN lieu_espece ON especes.id_espece = lieu_espece.id_espece '.
+                    'WHERE objet.id!=:id LIMIT 3')->setParamInt(":id", $id)->fetchAllAssoc();
+        }
         /*Pour relier l'utilisateur au article*/
         public function findAllAndUserIdPage(int $id_type, int $id, int $nmPage=0, int $nbArtPage=0):array {
             $limit = "";
@@ -50,7 +55,7 @@ if (!class_exists('EspecesRepository')) {
                     'INNER JOIN utilisateurs ON utilisateurs.id_user = objet.id_user '.
                     'WHERE objet.id=:id')->setParamInt(":id", $id)->fetchAssoc();
         }
-
+        
         /*Pour relier l'utilisateur au article*/
         public function findAllAndUserIdCount(int $id_type, int $id):int {
             $sql = 'SELECT *, objet.id AS id_objet, objet.nom AS nom_obj FROM objet '.

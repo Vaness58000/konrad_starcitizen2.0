@@ -12,7 +12,7 @@ $armeFps = $armeFpsRepository->findAll();
   <?php foreach ($armeFps as $construct) { ?>
 
       <div class="arme_indiv">
-        <a href="?ind=arme_ind&id=<?= $construct['id']; ?>">
+        <a href="?ind=arme_ind&id=<?= $construct['id_objet']; ?>">
           <?php $armeFps_img = $armeFpsRepository->findAllImgObj($construct["id_objet"]); 
           if (count($armeFps_img) >= 1) {?>
           <img src="src/img/<?= $armeFps_img[0]['name'] ?>" alt="<?= $construct['nom_arm'] ?>"></a>

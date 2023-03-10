@@ -65,6 +65,25 @@ if (!class_exists('UsersRepository')) {
                         ->fetchAllAssoc();
         }
 
+        public function findAllAndUserPage(int $nmPage=0, int $nbArtPage=0):array {
+            $limit = "";
+            if(!empty($nbArtPage)) {
+                $nmStart = $nmPage*$nbArtPage;
+                $limit = " LIMIT $nbArtPage OFFSET $nmStart";
+            }
+            $sql = 'SELECT * FROM utilisateurs '.
+                    'LEFT JOIN avatar ON utilisateurs.id_user = avatar.id_user '.
+                    'ORDER BY utilisateurs.id_user DESC'.$limit.'';
+            return $this->setSql($sql)
+                        ->fetchAllAssoc();
+        }
+        public function findAllAndUserCount() {
+            $sql = 'SELECT * FROM utilisateurs '.
+                    'LEFT JOIN avatar ON utilisateurs.id_user = avatar.id_user '.
+                    'ORDER BY utilisateurs.id_user DESC';
+            return $this->setSql($sql)
+                        ->rowCount();
+        }
         /*Pour relier l'utilisateur au article*/
         public function findAllAndUserNoIdCount(int $id):int {
             $sql = 'SELECT * FROM utilisateurs '.

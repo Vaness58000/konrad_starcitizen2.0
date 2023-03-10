@@ -30,10 +30,11 @@ if (!class_exists('TransportRepository')) {
 
         public function findAllAndIdUser(int $id): array
         {
-            return $this->setSql('SELECT *, objet.id AS id_objet, objet.nom AS nom_obj, equipements_transports.id AS id_transp FROM objet ' .
+            return $this->setSql('SELECT *, objet.id AS id_objet, objet.nom AS nom_obj,  equipements_transports.id AS id_transp FROM objet ' .
                 'INNER JOIN equipements_transports ON equipements_transports.id_objet = objet.id ' .
                 'INNER JOIN utilisateurs ON utilisateurs.id_user = objet.id_user ' .
                 'LEFT JOIN construct_transp ON equipements_transports.id = construct_transp.id_transp ' .
+                'LEFT JOIN constructeur ON construct_transp.id_construct = constructeur.id_constructeur ' .
                 'INNER JOIN disponibilite ON disponibilite.id_disponibilite = equipements_transports.id_disponible ' .
                 'WHERE objet.id=:id')->setParamInt(":id", $id)->fetchAssoc();
         }
@@ -209,5 +210,7 @@ if (!class_exists('TransportRepository')) {
         {
             return $this->findIdTypeObj("transport");
         }
+
+    
     }
 }

@@ -22,7 +22,7 @@ $armeFps = $armeFpsRepository->findAllId($_GET['id']);
             <div class="bouton">
                 <a class="btn_actus" href="#"><span>Pledge Store</span></a>
             </div>
-</section>
+
 
 <table>
     <tr>
@@ -55,8 +55,8 @@ $armeFps = $armeFpsRepository->findAllId($_GET['id']);
     </tr>
 
 </table>
-
-
+</div>
+</section>
 <?php
     }
 ?>

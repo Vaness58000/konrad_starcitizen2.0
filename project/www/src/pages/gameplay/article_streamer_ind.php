@@ -39,7 +39,6 @@ $tous_article = $articleRepository->findAllAndTypeUserNoId($type, $_GET["id"]);
                     <p class="text"><strong><?= str_replace("\n", "<br/>", $construct['resume']) ?></strong></p>
 
                     <p class="text"><?= str_replace("\n", "<br/>", $construct['contenu']) ?></p>
-
                     <?php
                     $article_img = $articleRepository->findAllImgArticle($construct["id"]);
 
@@ -47,7 +46,7 @@ $tous_article = $articleRepository->findAllAndTypeUserNoId($type, $_GET["id"]);
                         <img src="src/img/<?= $construct_img['name'] ?>">
 
                     <?php } ?>
-             
+
                 <div class="voir_aussi">
                     <h2 class="centered">Voir aussi</h2>
                     <?php foreach ($tous_article as $tous) { ?>

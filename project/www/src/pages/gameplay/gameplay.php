@@ -30,8 +30,8 @@ $users = $usersRepository->findAll();
                 <div class="profile-card-inf">
 
                     <div class="profile-card-inf__item">
-                        <div class="profile-card-inf__title">123</div>
-                        <div class="profile-card-inf__txt">Articles</div>
+                      
+                        <div class="profile-card-inf__txt">123 articles</div>
                     </div>
 
 

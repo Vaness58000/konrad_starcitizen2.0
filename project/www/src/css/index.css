@@ -1094,6 +1094,7 @@ a:hover {
     border-right-style: solid;
     bottom: 0;
 }
+
 /*image pour guide*/
 .cards_guide {
     padding: 30px 10px;
@@ -1101,7 +1102,7 @@ a:hover {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    
+
 }
 
 .card--1 .card__img,
@@ -1113,38 +1114,47 @@ a:hover {
 .card--2 .card__img--hover {
     background-image: url('/../src/img/vehicule_illustration.jpg');
 }
+
 .card--3 .card__img,
 .card--3 .card__img--hover {
     background-image: url('/../src/img/arme_illustration.jpg');
 }
+
 .card--4 .card__img,
 .card--4 .card__img--hover {
     background-image: url('/../src/img/planete_illustration.jpg');
 }
+
 .card--4 .card__img,
 .card--4 .card__img--hover {
     background-image: url('/../src/img/civil8.jpg');
 }
+
 .card--5 .card__img,
 .card--5 .card__img--hover {
     background-image: url('/../src/img/planete_illustration.jpg');
 }
+
 .card--6 .card__img,
 .card--6 .card__img--hover {
     background-image: url('/../src/img/lune1.jpg');
 }
+
 .card--7 .card__img,
 .card--7 .card__img--hover {
     background-image: url('/../src/img/ville23.jpg');
 }
+
 .card--8 .card__img,
 .card--8 .card__img--hover {
     background-image: url('/../src/img/station.jpg');
 }
+
 .card--9 .card__img,
 .card--9 .card__img--hover {
     background-image: url('/../src/img/systeme1.jpg');
 }
+
 .card__img {
     visibility: hidden;
     background-size: cover;
@@ -1190,13 +1200,15 @@ a:hover {
     box-shadow: 0 4px 21px -12px rgba(1, 238, 255, 0.66);
     margin: 10px;
 }
+
 @media screen and (max-width: 460px) {
-    .card_guide{
-        width:320px;
-        
+    .card_guide {
+        width: 320px;
+
     }
-    
+
 }
+
 .card_guide:hover {
     box-shadow: 0px 30px 18px -8px rgba(0, 0, 0, 0.1);
     transform: scale(1.10, 1.10);

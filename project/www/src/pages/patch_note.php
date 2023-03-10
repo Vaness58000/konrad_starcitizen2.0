@@ -2,11 +2,23 @@
 require __DIR__ . '/../../back/connexion.php';
 require __DIR__ . '/../../src/repository/ArticleRepository.php';
 require __DIR__ . '/../../src/repository/UsersRepository.php';
+$pg = 0;
+if (!empty($_GET['pg'])) {
+	$pg = intval($_GET['pg']) - 1;
+}
+if ($pg < 0) {
+	$pg = 0;
+}
+$nomb_art = 3;
 $articleRepository = new ArticleRepository();
 $type = $articleRepository->findIdTypeArticle("patch_note");
-$article = $articleRepository->findAllAndTypeUser($type);
+//$article = $articleRepository->findAllAndTypeUser($type);
 $usersRepository = new UsersRepository();
+$nomb = $articleRepository->findAllAndTypeUserCount($type);
 
+$nomb_page = ceil($nomb / $nomb_art);
+
+$article = $articleRepository->findAllAndTypeUserPage($type, $pg, $nomb_art);
 ?>
 
 <div class="patch">
@@ -48,8 +60,15 @@ $usersRepository = new UsersRepository();
 				</div>
 			</div>
 		</div>
+
+
 	<?php
 	}
 	?>
 
 </div>
+<ul class="pagination">
+	<?php for ($i = 1; $i <= $nomb_page; $i++) { ?>
+		<li><a href="?ind=patch_note&pg=<?= $i ?>"><?= $i ?></a></li>
+	<?php } ?>
+</ul>
