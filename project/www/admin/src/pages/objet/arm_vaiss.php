@@ -5,6 +5,7 @@ include __DIR__.'/../../../../src/repository/ArmeVaissRepository.php';
 $armeVaissRepository = new ArmeVaissRepository();
 $id_type = $armeVaissRepository->findIdTypeArm();
 $nom_pg = "Armements vaisseau";
+$folder_img = "armement_vaiss";
 $count_obj = ceil($armeVaissRepository->findAllAndUserIdCount($id_type, intval($id))/$nb_par_pg);
 $objets = $armeVaissRepository->findAllAndUserIdPage($id_type, intval($id), $page, $nb_par_pg);
 

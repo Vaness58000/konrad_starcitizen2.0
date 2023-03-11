@@ -266,6 +266,7 @@ if (!class_exists('ConstructeurRepository')) {
 
         public function addModLieu(int $id, int $id_construct, int $id_lieu): int {
             $id_main = $id;
+            $this->beginTransaction();
             if(!empty($id)) {
                 $sql = "UPDATE constructeur_lieu SET id_lieu=:id_lieu WHERE id=:id";
                 $this->setSql($sql)
@@ -279,6 +280,13 @@ if (!class_exists('ConstructeurRepository')) {
                             ->setParamInt(":id_lieu", $id_lieu);
                 $this->executeSql();
                 $id_main = $this->lastInsertId();
+            }
+            // en cas d'erreur
+            if(Error_Log::isError()) {
+                $id_main = 0;
+                $this->rollBack();
+            } else {
+                $this->commit();
             }
             return $id_main;
         }

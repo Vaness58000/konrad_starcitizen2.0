@@ -6,14 +6,10 @@ $sessionUser = new SessionUser();
 if(!$sessionUser->isConnected()) {
     die("Merci de vous connecter.");
 } else {
-    $name = 'delete_lieuServices';
-    $file = __DIR__.'/../../../../upload/files/'.$name.'.json';
-    $current = json_encode($_POST);
-    file_put_contents($file, $current);
-    if(!empty($_POST) && array_key_exists("id-form-main", $_POST)) {
-        $servicesRepository = new ServicesRepository();
-        $id_serv = $objRepository->recupIdService(intVal($_POST['id-form-main']));
-        $servicesRepository->deleteLieuService($id_serv);
+    if(!empty($_POST) && array_key_exists("id", $_POST)) {
+        $id = intVal($_POST['id']);
+        $objRepository = new ServicesRepository();
+        $objRepository->deleteLieuService($id);
         if(empty($_POST['is_error'])) {
             echo "true";
         } else {

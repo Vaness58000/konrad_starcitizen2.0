@@ -13,7 +13,7 @@ function tab_delete(event) {
     let tdName = trTabeLine.querySelector(".td-name");
     if (window.confirm("Vous voulez vraiment supprimer '"+tdName.innerHTML+"' ?\n(Ceci sera définitif).")) {
         let id = returnTr(event.target).id.split("-")[1];
-        let poss = {id:id};
+        let poss = {id:id, folder_img:folder_img};
         fetch_post(delete_line_tab, poss).then(function (response) {
             if (response == "true") {
                 trTabeLine.remove();

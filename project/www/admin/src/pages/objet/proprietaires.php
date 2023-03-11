@@ -5,6 +5,7 @@ include __DIR__.'/../../../../src/repository/ProprietairesRepository.php';
 $proprietairesRepository = new ProprietairesRepository();
 $id_type = $proprietairesRepository->findIdTypePropriet();
 $nom_pg = "Propriétaires";
+$folder_img = "proprietaires";
 $count_obj = ceil($proprietairesRepository->findAllAndUserIdCount($id_type, intval($id))/$nb_par_pg);
 $objets = $proprietairesRepository->findAllAndUserIdPage($id_type, intval($id), $page, $nb_par_pg);
 

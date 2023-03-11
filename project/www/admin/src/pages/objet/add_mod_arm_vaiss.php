@@ -30,6 +30,7 @@ $tab_info = "";
 $tab_lieu = "";
 $contenu = "";
 $all_img = "";
+$lien = "";
 $validation = false;
 $isProprietaire = false;
 $isModif = " disabled";
@@ -41,6 +42,7 @@ if (!empty($_GET) && array_key_exists('id', $_GET) && !empty($_GET['id'])) {
     if(count($objet)>0){
         $id_obj = intval($_GET['id']);
         $nom = $objet['nom'];
+        $lien = $objet['lien'];
         $contenu = $objet['contenu'];
         $id_taille = intval($objet['id_taille']);
         $id_const = intval($objet['id_construct']);
@@ -123,6 +125,7 @@ $templatePage->addVarString("[#CITIZEN_ARM_VAISS_ISPRO#]", $isModif);
 $templatePage->addVarString("[#CITIZEN_ARM_VAISS_ID#]", $id_obj);
 $templatePage->addVarString("[#CITIZEN_ARM_VAISS_TAILLE#]", $taille);
 $templatePage->addVarString("[#CITIZEN_ARM_VAISS_CONST#]", $const);
+$templatePage->addVarString("[#CITIZEN_ARM_VAISS_LIEN#]", $lien);
 $templatePage->addVarString("[#CITIZEN_TYPE_OBJ#]", $id_type_objet);
 $templatePage->addVarString("[#CITIZEN_TYPE_ARM#]", $id_typa_arm);
 
