@@ -1,9 +1,20 @@
 <?php
 require __DIR__ . '/../../../back/connexion.php';
 include __DIR__ . '/../../../src/repository/LieuxRepository.php';
+$pg = 0;
+if (!empty($_GET['pg'])) {
+	$pg = intval($_GET['pg']) - 1;
+}
+if ($pg < 0) {
+	$pg = 0;
+}
+$nomb_art = 2;
 $lieuxSystemeRepository = new LieuxRepository();
 $type = $lieuxSystemeRepository->findIdTypeLieu("Systèmes");
-$systeme = $lieuxSystemeRepository->findAllCatId($type);
+$nomb = $lieuxSystemeRepository->findAllAndCatIdCount($type);
+$nomb_page = ceil($nomb / $nomb_art);
+$systeme = $lieuxSystemeRepository->findAllAndCatIdPage($type, $pg, $nomb_art);
+
 /*css planete.css*/
 ?>
 
@@ -25,5 +36,10 @@ $systeme = $lieuxSystemeRepository->findAllCatId($type);
     <?php } ?>
   </div>
 </section>
-
+<ul class="pagination">
+<?php for ($i = 1; $i <= $nomb_page; $i++) { ?>
+		<li><a href="?ind=systemes&pg=<?= $i ?>"><?= $i ?></a></li>
+	<?php } ?>
+</ul>
 <script type="text/javascript" src="js/script_filtre_vaisseau.js"></script>
+

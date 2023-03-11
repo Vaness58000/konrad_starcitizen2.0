@@ -1,9 +1,19 @@
 <?php
 require __DIR__ . '/../../../back/connexion.php';
 include __DIR__ . '/../../../src/repository/LieuxRepository.php';
+$pg = 0;
+if (!empty($_GET['pg'])) {
+	$pg = intval($_GET['pg']) - 1;
+}
+if ($pg < 0) {
+	$pg = 0;
+}
+$nomb_art = 2;
 $lieuxPlaneteRepository = new LieuxRepository();
 $type = $lieuxPlaneteRepository->findIdTypeLieu("Planètes");
-$planete = $lieuxPlaneteRepository->findAllCatId($type);
+$nomb = $lieuxPlaneteRepository->findAllAndCatIdCount($type);
+$nomb_page = ceil($nomb / $nomb_art);
+$planete = $lieuxPlaneteRepository->findAllAndCatIdPage($type, $pg, $nomb_art);
 /*css planete.css*/
 ?>
 
@@ -22,3 +32,8 @@ $planete = $lieuxPlaneteRepository->findAllCatId($type);
     </div>
 <?php } ?>
 </div>
+<ul class="pagination">
+<?php for ($i = 1; $i <= $nomb_page; $i++) { ?>
+		<li><a href="?ind=planetes&pg=<?= $i ?>"><?= $i ?></a></li>
+	<?php } ?>
+</ul>

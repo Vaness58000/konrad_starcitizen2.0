@@ -112,7 +112,7 @@ if (!class_exists('TransportRepository')) {
                 ->setParamInt(":id_type", $id_type)
                 ->fetchAllAssoc();
         }
-
+    
         /*Pour relier l'utilisateur au article*/
         public function findAllAndUserCount(int $id_type): int
         {
@@ -124,7 +124,33 @@ if (!class_exists('TransportRepository')) {
                 ->setParamInt(":id_type", $id_type)
                 ->rowCount();
         }
-
+        public function findAllAndTransportPage(int $id_type, int $nmPage = 0, int $nbArtPage = 0): array
+        {
+            $limit = "";
+            if (!empty($nbArtPage)) {
+                $nmStart = $nmPage * $nbArtPage;
+                $limit = " LIMIT $nbArtPage OFFSET $nmStart";
+            }
+            $sql = 'SELECT *, objet.id AS id_objet, objet.nom AS nom_obj FROM objet ' .
+                'INNER JOIN utilisateurs ON utilisateurs.id_user = objet.id_user ' .
+                'INNER JOIN equipements_transports ON equipements_transports.id_objet = objet.id ' .
+                'WHERE equipements_transports.type=:id_type ORDER BY objet.id DESC' . $limit . '';
+            return $this->setSql($sql)
+                ->setParamInt(":id_type", $id_type)
+                ->fetchAllAssoc();
+        }
+    
+        /*Pour relier l'utilisateur au article*/
+        public function findAllAndTransportCount(int $id_type): int
+        {
+            $sql = 'SELECT *, objet.id AS id_objet, objet.nom AS nom_obj FROM objet ' .
+                'INNER JOIN utilisateurs ON utilisateurs.id_user = objet.id_user ' .
+                'INNER JOIN equipements_transports ON equipements_transports.id_objet = objet.id ' .
+                'WHERE equipements_transports.type=:id_type ORDER BY objet.id DESC';
+            return $this->setSql($sql)
+                ->setParamInt(":id_type", $id_type)
+                ->rowCount();
+        }
         public function findAllIdAndLieux(int $id): array
         {
             $sql = 'SELECT *, objet.id AS id_lieu, objet.nom AS nom_lieu FROM objet ' .
@@ -200,7 +226,7 @@ if (!class_exists('TransportRepository')) {
         }
         public function findIdTypeTransports(string $name): int
         {
-            $tab_type = $this->setSql('SELECT * FROM categories_transport WHERE nom=:nom')->setParam(":nom", $name)->fetchAssoc();
+            $tab_type = $this->setSql('SELECT * FROM categorie_transport WHERE nom=:nom')->setParam(":nom", $name)->fetchAssoc();
             if (!(!empty($tab_type) && array_key_exists("id_transport", $tab_type) && !empty($tab_type["id_transport"]))) {
                 return 0;
             }

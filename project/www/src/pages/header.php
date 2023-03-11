@@ -32,7 +32,6 @@
   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   <script src="https://kit.fontawesome.com/3cff230019.js" crossorigin="anonymous"></script>
-  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
   <script src="https://kit.fontawesome.com/af562a2a63.js" crossorigin="anonymous"></script>
   <link href='https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
@@ -66,7 +65,7 @@
             <label for="show-guide" class="radio">Guide</label>
             <ul class="deroulant">
               <li><a class="radio" href="./?ind=equipements">Equipements</a></li>
-              <li><a class="radio" href="./?ind=constructeur">Constructeur</a></li>
+              <li><a class="radio" href="./?ind=constructeur">Constructeurs</a></li>
               <li><a class="radio" href="./?ind=lieux">Lieux</a></li>
               <li><a class="radio" href="./?ind=especes">Espèces</a></li>
               

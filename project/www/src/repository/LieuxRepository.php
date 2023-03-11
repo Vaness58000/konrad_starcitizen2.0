@@ -105,6 +105,38 @@ if (!class_exists('LieuxRepository')) {
                 ->fetchAllAssoc();
         }
 
+        public function findAllAndCatIdPage(int $id_cat, int $nmPage = 0, int $nbArtPage = 0): array
+        {
+            $limit = "";
+            if (!empty($nbArtPage)) {
+                $nmStart = $nmPage * $nbArtPage;
+                $limit = " LIMIT $nbArtPage OFFSET $nmStart";
+            }
+            $sql = 'SELECT *, lieux.id_lieu AS id_lieu_princ, objet.id AS id_objet, objet.nom AS nom_obj, categories_lieux.nom AS nom_cat FROM objet ' .
+                'INNER JOIN utilisateurs ON utilisateurs.id_user = objet.id_user ' .
+                'INNER JOIN lieux ON lieux.id_objet = objet.id ' .
+                'LEFT JOIN lieux_risque ON lieux.id_lieu = lieux_risque.id_lieux ' .
+                'LEFT JOIN lier_lieu ON lieux.id_lieu = lier_lieu.id_lieu ' .
+                'INNER JOIN categories_lieux ON categories_lieux.id_categ_lieu = lieux.id_categ_lieu ' .
+                'WHERE categories_lieux.id_categ_lieu=:id_cat ORDER BY objet.id DESC' . $limit . '';
+            return $this->setSql($sql)
+                ->setParamInt(":id_cat", $id_cat)
+                ->fetchAllAssoc();
+        }
+        public function findAllAndCatIdCount(int $id_cat): int
+        {
+            $sql = 'SELECT *, lieux.id_lieu AS id_lieu_princ, objet.id AS id_objet, objet.nom AS nom_obj, categories_lieux.nom AS nom_cat FROM objet ' .
+                'INNER JOIN utilisateurs ON utilisateurs.id_user = objet.id_user ' .
+                'INNER JOIN lieux ON lieux.id_objet = objet.id ' .
+                'LEFT JOIN lieux_risque ON lieux.id_lieu = lieux_risque.id_lieux ' .
+                'LEFT JOIN lier_lieu ON lieux.id_lieu = lier_lieu.id_lieu ' .
+                'INNER JOIN categories_lieux ON categories_lieux.id_categ_lieu = lieux.id_categ_lieu ' .
+                'WHERE categories_lieux.id_categ_lieu=:id_cat ORDER BY objet.id DESC';
+            return $this->setSql($sql)
+                ->setParamInt(":id_cat", $id_cat)
+                ->rowCount();
+        }
+
         /*Pour relier l'utilisateur au article*/
         public function findAllAndUserIdCount(int $id_type, int $id): int
         {

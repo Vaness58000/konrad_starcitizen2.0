@@ -2,18 +2,20 @@
 require __DIR__ . '/../../../back/connexion.php';
 require __DIR__ . '/../../../src/repository/TransportRepository.php';
 require __DIR__ . '/../../../src/repository/ConstructeurRepository.php';
+require __DIR__ . '/../../../src/repository/VaisseauRepository.php';
 require __DIR__ . '/../../../src/repository/ArmeFpsRepository.php';
 
 $constructeurRepository = new ConstructeurRepository();
 $construct_tabs = $constructeurRepository->findAllAndIdConstructeur($_GET['id']);
 $transportRepository = new TransportRepository();
+$id_vehicule = $transportRepository->findIdTypeTransports("vehicule");
+$id_vaiss = $transportRepository->findIdTypeTransports("vaisseau");
 if (!isset($_GET["type_transp"])) {
     $transports = $transportRepository->findAllAndUserConstructeurId($_GET['id']);
 } else {
     $transports = $transportRepository->findAllAndConstructIdPage($_GET["type_transp"], $_GET['id']);
 }
-$id_vehicule = 2;
-$id_vaiss = 1;
+
 ?>
 
 

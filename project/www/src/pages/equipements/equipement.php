@@ -1,6 +1,10 @@
 <?php
-$id_vehicule = 2;
-$id_vaiss = 1;
+
+require __DIR__ . '/../../../back/connexion.php';
+require __DIR__ . '/../../../src/repository/TransportRepository.php';
+$vaisseauRepository = new TransportRepository();
+$id_vehicule = $vaisseauRepository->findIdTypeTransports("vehicule");
+$id_vaiss = $vaisseauRepository->findIdTypeTransports("vaisseau");
 ?>
 <section class="page_presentation">
  
