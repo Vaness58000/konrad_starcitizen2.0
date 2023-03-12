@@ -130,7 +130,7 @@ if (!class_exists('TransportRepository')) {
                     'INNER JOIN lieux ON lieux.id_objet = objet.id '.
                     'LEFT JOIN transport_lieu ON lieux.id_lieu = transport_lieu.id_lieu '.
                     'INNER JOIN utilisateurs ON utilisateurs.id_user = objet.id_user '.
-                    'WHERE transport_lieu.id=:id && objet.validation=1 ORDER BY transport_lieu.id_transport DESC';
+                    'WHERE transport_lieu.id_transport=:id && objet.validation=1 ORDER BY transport_lieu.id_transport DESC';
             return $this->setSql($sql)
                 ->setParamInt(":id", $id)
                 ->fetchAllAssoc();

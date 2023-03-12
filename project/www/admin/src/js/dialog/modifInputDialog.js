@@ -5,6 +5,7 @@ function createNameTd() {
     let faiblElement = document.getElementById("dialog-faibl-select");
     let forceElement = document.getElementById("dialog-force-select");
     let gplayElement = document.getElementById("dialog-gplay-select");
+    let armTranspElement = document.getElementById("dialog-arm-select");
     let lieuElement = document.getElementById("dialog-lieu-select");
     let couleurElement = document.getElementById("dialog-couleur-select");
     if(nomElement != undefined) {
@@ -18,6 +19,9 @@ function createNameTd() {
     }
     if(gplayElement != undefined) {
         nameShow = gplayElement.options[gplayElement.selectedIndex].innerHTML;
+    }
+    if(armTranspElement != undefined) {
+        nameShow = armTranspElement.options[armTranspElement.selectedIndex].innerHTML;
     }
     if(lieuElement != undefined) {
         nameShow = lieuElement.options[lieuElement.selectedIndex].innerHTML;

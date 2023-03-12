@@ -93,7 +93,7 @@ if (!empty($_GET) && array_key_exists('id', $_GET) && !empty($_GET['id'])) {
                 $tab_info .= "\n".addTdTabSupl($value['id'], $value['nom'], 'info');
             }
         }
-
+        
         $lieux = $objetRepository->findAllIdAndLieux(intval($objet['id_transp']));
         if(!empty($lieux)) {
             foreach ($lieux as $value) {
@@ -121,7 +121,7 @@ if (!empty($_GET) && array_key_exists('id', $_GET) && !empty($_GET['id'])) {
                 $tab_equipem .= "\n".addTdTabSupl($value['id_transp_equip'], $value['nom'], 'equip', $value['id_equipem']);
             }
         }
-
+        
         $armeVaissRepository = new ArmeVaissRepository();
         $list_arm = $armeVaissRepository->findAllTranspId(intval($objet['id_transp']));
         if(!empty($list_arm)) {
