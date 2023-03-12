@@ -17,8 +17,8 @@ if(!$sessionUser->isConnected()) {
         !empty($_POST) &&
         array_key_exists('id', $_POST)
     ) {
-        /*$tabAddListLieux = new TabAddList($_POST, 'lieuDataTmp');
-        $tabListLieux = $tabAddListLieux->getTabList();
+        $tabAddListContro = new TabAddList($_POST, 'controDataTmp');
+        $tabListContro = $tabAddListContro->getTabList();
         // **********************
         $nameKeyImgMain = (array_key_exists('img-princ', $_POST) && !empty($_POST['img-princ'])) ? $_POST['img-princ'] : "";
         if(!empty($nameKeyImgMain)) {
@@ -37,7 +37,7 @@ if(!$sessionUser->isConnected()) {
             $nameImg = $oneImg->saveDataImg_uniqid($tabListImg[$i], 'img');
             $tabListImg[$i]['name_save'] = $nameImg;
         }
-        $objRepository = new ArmeFpsRepository();
+        $objRepository = new EspecesRepository();
         $id_main = $objRepository->addModObj(
             $_POST["id"], 
             $_POST["nom"], 
@@ -47,15 +47,24 @@ if(!$sessionUser->isConnected()) {
             $visible
         );
         // **********************
-        / *$id_serv = $objRepository->add($objRepository->recupIdService($id_main), $id_main);
-        if (!empty($tabListLieux) && !empty($id_main) && empty($_POST['id']) && empty($_POST['is_error'])) {
-            foreach ($tabListLieux as $value) {
+        $id_lieu_esp = intval($_POST['lieu']);
+        $id_categ_espece = intval($_POST['categorie']);
+        $gouvernence = $_POST['gouvernence'];
+        $souverainete = $_POST['souverainete'];
+        $philosophie = $_POST['philosophie'];
+        $religion = $_POST['religion'];
+        $pre_contact = $_POST['premier_cont'];
+        $origine = $_POST['origine'];
+        $id_espece = $objRepository->add($objRepository->recupIdEspece($id_main), $id_main, $id_categ_espece, $gouvernence, $souverainete, $philosophie, $religion, $pre_contact, $origine);
+        if (!empty($tabListContro) && !empty($id_main) && empty($_POST['id']) && empty($_POST['is_error'])) {
+            foreach ($tabListContro as $value) {
                 $id_lieu = intval($value['lieu']);
                 if (!empty($id_lieu)) {
-                    $objRepository->addModLieu(0, $id_serv, $id_lieu);
+                    $objRepository->addModControle(0, $id_espece, $id_lieu);
                 }
             }
-        }* /
+        }
+        $objRepository->addModLieu($objRepository->recupIdLieuEspece($id_espece), $id_espece, $id_lieu_esp);
         // **********************
         if (!empty($tabListInfo) && !empty($id_main) && empty($_POST['id']) && empty($_POST['is_error'])) {
             foreach ($tabListInfo as $value) {
@@ -81,7 +90,7 @@ if(!$sessionUser->isConnected()) {
             echo 'true';
         } else {
             echo 'Il y a eu une erreur lors du transfert.';
-        }*/
+        }
     } else {
         echo 'Vous ne pouvez pas faire cette action.';
     }
