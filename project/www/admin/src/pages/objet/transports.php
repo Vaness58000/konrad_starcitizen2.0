@@ -5,6 +5,7 @@ include __DIR__.'/../../../../src/repository/TransportRepository.php';
 $transportRepository = new TransportRepository();
 $id_type = $transportRepository->findIdTypeTransport();
 $nom_pg = "Transports";
+$folder_img = "transport";
 $count_obj = ceil($transportRepository->findAllAndUserIdCount($id_type, intval($id))/$nb_par_pg);
 $objets = $transportRepository->findAllAndUserIdPage($id_type, intval($id), $page, $nb_par_pg);
 

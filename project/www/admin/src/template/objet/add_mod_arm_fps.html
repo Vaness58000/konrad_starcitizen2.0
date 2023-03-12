@@ -39,6 +39,7 @@
         id="nom"
         value="[#CITIZEN_ARM_FPS_NOM#]"
         class="input-admin"
+        required
         [#CITIZEN_ARM_FPS_ISPRO#]
       />
       <label for="categorie-select">catégorie</label>
@@ -46,6 +47,7 @@
         name="categorie"
         id="categorie-select"
         class="input-admin"
+        required
         [#CITIZEN_ARM_FPS_ISPRO#]
       >
         <option value=""></option
@@ -56,6 +58,7 @@
         name="constructeur"
         id="constructeur-select"
         class="input-admin"
+        required
         [#CITIZEN_ARM_FPS_ISPRO#]
       >
         <option value=""></option
@@ -68,6 +71,7 @@
         id="poids"
         value="[#CITIZEN_ARM_FPS_POIDS#]"
         class="input-admin"
+        required
         [#CITIZEN_ARM_FPS_ISPRO#]
       />
       <label for="portee">portée</label
@@ -77,6 +81,7 @@
         id="portee"
         value="[#CITIZEN_ARM_FPS_PORTEE#]"
         class="input-admin"
+        required
         [#CITIZEN_ARM_FPS_ISPRO#]
       />
       <label for="perte">perte</label
@@ -86,6 +91,17 @@
         id="perte"
         value="[#CITIZEN_ARM_FPS_PERTE#]"
         class="input-admin"
+        required
+        [#CITIZEN_ARM_FPS_ISPRO#]
+      />
+      <label for="lien">lien</label
+      ><input
+        type="text"
+        name="lien"
+        id="lien"
+        value="[#CITIZEN_ARM_FPS_LIEN#]"
+        class="input-admin"
+        required
         [#CITIZEN_ARM_FPS_ISPRO#]
       />
       <label for="contenu">contenu</label
@@ -95,6 +111,7 @@
         cols="30"
         rows="10"
         class="input-admin text-bbcode"
+        required
         [#CITIZEN_ARM_FPS_ISPRO#]
       >
 [#CITIZEN_ARM_FPS_CONTENU#]</textarea

@@ -57,7 +57,7 @@ $modif_check .= ($isAdmin) ? "" : " disabled";
 
 
 $templatePage = new TemplatePage(__DIR__.'/../../template/gameplay/add_mod_screens.html');
-$templatePage->addVarString("[#CITIZEN_SCREEN_ISPRO#]", $isProprietaire);
+$templatePage->addVarString("[#CITIZEN_SCREEN_ISPRO#]", $isModif);
 $templatePage->addVarString("[#CITIZEN_SCREEN_ID#]", $id_screen);
 $templatePage->addVarString("[#CITIZEN_SCREEN_MODIF_CHECK#]", $modif_check);
 $templatePage->addVarString("[#CITIZEN_SCREEN_IMG#]", $img);

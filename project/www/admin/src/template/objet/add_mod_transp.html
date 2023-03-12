@@ -27,30 +27,40 @@
                     </figure>
                 </div>
             </div>
-            <label for="nom">nom</label><input type="text" name="nom" id="nom" value="[#CITIZEN_TRANSP_NOM#]" class="input-admin"[#CITIZEN_TRANSP_ISPRO#]>
+            <label for="nom">nom</label><input type="text" name="nom" id="nom" value="[#CITIZEN_TRANSP_NOM#]" class="input-admin" required[#CITIZEN_TRANSP_ISPRO#]>
             <label for="categorie">catégorie</label>
-            <select name="categorie" id="categorie" class="input-admin"[#CITIZEN_TRANSP_ISPRO#]>
+            <select name="categorie" id="categorie" class="input-admin" required[#CITIZEN_TRANSP_ISPRO#]>
                 <option value=""></option>[#CITIZEN_TRANSP_CAT#]
             </select>
             <label for="disponible">disponible</label>
-            <select name="disponible" id="disponible" class="input-admin"[#CITIZEN_TRANSP_ISPRO#]>
+            <select name="disponible" id="disponible" class="input-admin" required[#CITIZEN_TRANSP_ISPRO#]>
                 <option value=""></option>[#CITIZEN_TRANSP_DISP#]
             </select>
             <label for="type">type</label>
-            <select name="type" id="type" class="input-admin"[#CITIZEN_TRANSP_ISPRO#]>
+            <select name="type" id="type" class="input-admin" required[#CITIZEN_TRANSP_ISPRO#]>
                 <option value=""></option>[#CITIZEN_TRANSP_TYPE#]
             </select>
             <label for="construct">construct</label>
-            <select name="construct" id="construct" class="input-admin"[#CITIZEN_TRANSP_ISPRO#]>
+            <select name="construct" id="construct" class="input-admin" required[#CITIZEN_TRANSP_ISPRO#]>
                 <option value=""></option>[#CITIZEN_TRANSP_CONSTRUCT#]
             </select>
-            <label for="prix">prix</label><input type="text" name="prix" id="prix" value="[#CITIZEN_TRANSP_PRIX#]" class="input-admin"[#CITIZEN_TRANSP_ISPRO#]>
-            <label for="equipage">équipage</label><input type="text" name="equipage" id="equipage" value="[#CITIZEN_TRANSP_EQUIPAGE#]" class="input-admin"[#CITIZEN_TRANSP_ISPRO#]>
-            <label for="taille">taille</label><input type="text" name="taille" id="taille" value="[#CITIZEN_TRANSP_TAILLE#]" class="input-admin"[#CITIZEN_TRANSP_ISPRO#]>
-            <label for="poids">poids</label><input type="text" name="poids" id="poids" value="[#CITIZEN_TRANSP_POIDS#]" class="input-admin"[#CITIZEN_TRANSP_ISPRO#]>
-            <label for="vitesse-max">vitesse max</label><input type="text" name="vitesse-max" id="vitesse-max" value="[#CITIZEN_TRANSP_VITESSMAX#]" class="input-admin"[#CITIZEN_TRANSP_ISPRO#]>
-            <label for="capacite">capacite</label><input type="text" name="capacite" id="capacite" value="[#CITIZEN_TRANSP_CAPACITE#]" class="input-admin"[#CITIZEN_TRANSP_ISPRO#]>
-            <label for="contenu">contenu</label><textarea name="contenu" id="contenu" cols="30" rows="10" class="input-admin text-bbcode"[#CITIZEN_TRANSP_ISPRO#]>[#CITIZEN_TRANSP_CONTENU#]</textarea>
+            <label for="prix">prix</label><input type="text" name="prix" id="prix" value="[#CITIZEN_TRANSP_PRIX#]" class="input-admin" required[#CITIZEN_TRANSP_ISPRO#]>
+            <label for="equipage">équipage</label><input type="text" name="equipage" id="equipage" value="[#CITIZEN_TRANSP_EQUIPAGE#]" class="input-admin" required[#CITIZEN_TRANSP_ISPRO#]>
+            <label for="taille">taille</label><input type="text" name="taille" id="taille" value="[#CITIZEN_TRANSP_TAILLE#]" class="input-admin" required[#CITIZEN_TRANSP_ISPRO#]>
+            <label for="poids">poids</label><input type="text" name="poids" id="poids" value="[#CITIZEN_TRANSP_POIDS#]" class="input-admin" required[#CITIZEN_TRANSP_ISPRO#]>
+            <label for="vitesse-max">vitesse max</label><input type="text" name="vitesse-max" id="vitesse-max" value="[#CITIZEN_TRANSP_VITESSMAX#]" class="input-admin" required[#CITIZEN_TRANSP_ISPRO#]>
+            <label for="capacite">capacite</label><input type="text" name="capacite" id="capacite" value="[#CITIZEN_TRANSP_CAPACITE#]" class="input-admin" required[#CITIZEN_TRANSP_ISPRO#]>
+            <label for="lien">lien</label
+                ><input
+                  type="text"
+                  name="lien"
+                  id="lien"
+                  value="[#CITIZEN_TRANSP_LIEN#]"
+                  class="input-admin"
+                  required
+                  [#CITIZEN_TRANSP_ISPRO#]
+                />
+            <label for="contenu">contenu</label><textarea name="contenu" id="contenu" cols="30" rows="10" class="input-admin text-bbcode" required[#CITIZEN_TRANSP_ISPRO#]>[#CITIZEN_TRANSP_CONTENU#]</textarea>
             <input type="radio" class="radio-onglet" id="onglet-info" name="radio-onglet" value="" checked>
             <input type="radio" class="radio-onglet" id="onglet-force" name="radio-onglet" value="">
             <input type="radio" class="radio-onglet" id="onglet-faibl" name="radio-onglet" value="">

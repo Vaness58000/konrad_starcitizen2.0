@@ -25,8 +25,8 @@ $ispro = "";
 $id_force = 0;
 $list_force = "";
 
-if(!empty($_POST) && array_key_exists("idShow", $_POST) && !empty($_POST["idShow"])) {
-    $id_force = intval($_POST["idShow"]);
+if(!empty($_POST) && array_key_exists("id", $_POST) && !empty($_POST["id"])) {
+    $id_force = intval($_POST["id"]);
 }
 
 $catForcesRepository = new CatForcesRepository();

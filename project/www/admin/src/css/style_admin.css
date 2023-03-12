@@ -460,3 +460,7 @@ input[type="file"] {
 .tb-display-check {
   display: none;
 }
+
+.admin-contenu-tab {
+  padding: 20px;
+}

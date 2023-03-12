@@ -27,21 +27,21 @@
                     </figure>
                 </div>
             </div>
-            <label for="nom">nom</label><input type="text" name="nom" id="nom" value="[#CITIZEN_LIEU_NOM#]" class="input-admin"[#CITIZEN_LIEU_ISPRO#]>
-            <label for="habitable">habitable</label><div><input name="habitable" id="habitable" type="checkbox" class="darkSwitch two-column"[#CITIZEN_LIEU_HABIT_CHECK#]></div>
+            <label for="nom">nom</label><input type="text" name="nom" id="nom" value="[#CITIZEN_LIEU_NOM#]" class="input-admin" required[#CITIZEN_LIEU_ISPRO#]>
+            <label for="habitable">habitable</label><div><input name="habitable" id="habitable" type="checkbox" class="darkSwitch two-column" required[#CITIZEN_LIEU_HABIT_CHECK#]></div>
             <label for="categorie-select">catégorie</label>
-            <select name="categorie" id="categorie-select" class="input-admin"[#CITIZEN_ARTI_ISPRO#]>
+            <select name="categorie" id="categorie-select" class="input-admin" required[#CITIZEN_ARTI_ISPRO#]>
                 <option value=""></option>[#CITIZEN_LIEU_CAT#]
             </select>
             <label for="risque-select">risque</label>
-            <select name="risque" id="risque-select" class="input-admin"[#CITIZEN_ARTI_ISPRO#]>
+            <select name="risque" id="risque-select" class="input-admin" required[#CITIZEN_ARTI_ISPRO#]>
                 <option value=""></option>[#CITIZEN_LIEU_RISQUE#]
             </select>
             <label for="lier-select">lier</label>
-            <select name="lier" id="lier-select" class="input-admin"[#CITIZEN_ARTI_ISPRO#]>
+            <select name="lier" id="lier-select" class="input-admin" required[#CITIZEN_ARTI_ISPRO#]>
                 <option value=""></option>[#CITIZEN_LIEU_LIER#]
             </select>
-            <label for="contenu">contenu</label><textarea name="contenu" id="contenu" cols="30" rows="10" class="input-admin text-bbcode"[#CITIZEN_LIEU_ISPRO#]>[#CITIZEN_LIEU_CONTENU#]</textarea>
+            <label for="contenu">contenu</label><textarea name="contenu" id="contenu" cols="30" rows="10" class="input-admin text-bbcode" required[#CITIZEN_LIEU_ISPRO#]>[#CITIZEN_LIEU_CONTENU#]</textarea>
             <input type="radio" class="radio-onglet" id="onglet-info" name="radio-onglet" value="" checked>
             <div id="div-all-tab" class="two-column">
                 <div id="div-ul-onglets">

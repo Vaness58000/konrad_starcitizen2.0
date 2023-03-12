@@ -19,7 +19,7 @@ function tab_add_delete(event) {
         let name = dataId.name;
         let id = dataId.id;
         delete_dialog_exec = eval('delete_dialog_exec_'+name);
-        let poss = {id:id};
+        let poss = {id:id, id_form_main:id_form_main};
         if(isTmp) {
             let tmpValue = document.getElementById(elementTr.id.replace("idTmp-", "DataTmp-"));
             tmpValue.remove();

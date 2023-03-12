@@ -31,8 +31,8 @@ $prix_achat = "";
 $actu_min = "";
 $inv_max = "";
 
-if(!empty($_POST) && array_key_exists("idShow", $_POST) && !empty($_POST["idShow"])) {
-    $id_lieu_mat_pre = intval($_POST["idShow"]);
+if(!empty($_POST) && array_key_exists("id", $_POST) && !empty($_POST["id"])) {
+    $id_lieu_mat_pre = intval($_POST["id"]);
 }
 
 $matierePremiereRepository = new MatierePremiereRepository();

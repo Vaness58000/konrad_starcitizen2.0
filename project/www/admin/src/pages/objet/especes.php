@@ -5,6 +5,7 @@ include __DIR__.'/../../../../src/repository/EspecesRepository.php';
 $especesRepository = new EspecesRepository();
 $id_type = $especesRepository->findIdTypeEspece();
 $nom_pg = "Espèces";
+$folder_img = "especes";
 $count_obj = ceil($especesRepository->findAllAndUserIdCount($id_type, intval($id))/$nb_par_pg);
 $objets = $especesRepository->findAllAndUserIdPage($id_type, intval($id), $page, $nb_par_pg);
 

@@ -5,6 +5,7 @@ include __DIR__.'/../../../../src/repository/LieuxRepository.php';
 $lieuxRepository = new LieuxRepository();
 $id_type = $lieuxRepository->findIdTypeLieux();
 $nom_pg = "Lieux";
+$folder_img = "lieux";
 $count_obj = ceil($lieuxRepository->findAllAndUserIdCount($id_type, intval($id))/$nb_par_pg);
 $objets = $lieuxRepository->findAllAndUserIdPage($id_type, intval($id), $page, $nb_par_pg);
 

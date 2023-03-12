@@ -5,6 +5,7 @@ include __DIR__.'/../../../../src/repository/MatierePremiereRepository.php';
 $lieuxRepository = new MatierePremiereRepository();
 $id_type = $lieuxRepository->findIdTypeMatierePremiere();
 $nom_pg = "Matière première";
+$folder_img = "mat_prem";
 $count_obj = ceil($lieuxRepository->findAllAndUserIdCount($id_type, intval($id))/$nb_par_pg);
 $objets = $lieuxRepository->findAllAndUserIdPage($id_type, intval($id), $page, $nb_par_pg);
 

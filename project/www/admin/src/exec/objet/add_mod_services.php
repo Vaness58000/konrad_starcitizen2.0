@@ -47,12 +47,9 @@ if(!$sessionUser->isConnected()) {
             $visible
         );
         // **********************
-        $id_serv = $objRepository->recupIdService($id_main);
-        if(empty($id_serv) && empty($_POST['is_error'])) {
-            $id_serv = $objRepository->add($id_main);
-        }
-        if (!empty($tabAddListLieux) && !empty($id_main) && empty($_POST['id']) && empty($_POST['is_error'])) {
-            foreach ($tabAddListLieux as $value) {
+        $id_serv = $objRepository->add($objRepository->recupIdService($id_main), $id_main);
+        if (!empty($tabListLieux) && !empty($id_main) && empty($_POST['id']) && empty($_POST['is_error'])) {
+            foreach ($tabListLieux as $value) {
                 $id_lieu = intval($value['lieu']);
                 if (!empty($id_lieu)) {
                     $objRepository->addModLieu(0, $id_serv, $id_lieu);

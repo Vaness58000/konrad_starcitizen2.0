@@ -47,6 +47,7 @@ $tab_info = "";
 $tab_lieu = "";
 $contenu = "";
 $all_img = "";
+$lien = "";
 $validation = false;
 $isProprietaire = false;
 $isModif = " disabled";
@@ -57,15 +58,16 @@ if (!empty($_GET) && array_key_exists('id', $_GET) && !empty($_GET['id'])) {
     $objet = $objetRepository->findAllAndIdUser(intval($_GET['id']));
     if(count($objet)>0){
         $id_obj = intval($_GET['id']);
-        $nom = $objet['nom'];
-        $contenu = $objet['contenu'];
+        $nom = $objet['nom_obj'];
+        $contenu = $objet['contenu_obj'];
         $prix = $objet['prix'];
+        $lien = $objet['lien'];
         $equipage = $objet['equipage'];
         $taille = $objet['taille'];
         $poids = $objet['poids'];
         $vitessemax = $objet['vitesse_max'];
         $capacite = $objet['capacite'];
-        $isProprietaire = $objet['id_user'] == $id;
+        $isProprietaire = $objet['idUser'] == $id;
         $id_cat = intval($objet['categorie']);
         $id_disp = intval($objet['id_disponible']);
         $id_type = intval($objet['type']);
@@ -91,7 +93,7 @@ if (!empty($_GET) && array_key_exists('id', $_GET) && !empty($_GET['id'])) {
                 $tab_info .= "\n".addTdTabSupl($value['id'], $value['nom'], 'info');
             }
         }
-
+        
         $lieux = $objetRepository->findAllIdAndLieux(intval($objet['id_transp']));
         if(!empty($lieux)) {
             foreach ($lieux as $value) {
@@ -119,7 +121,7 @@ if (!empty($_GET) && array_key_exists('id', $_GET) && !empty($_GET['id'])) {
                 $tab_equipem .= "\n".addTdTabSupl($value['id_transp_equip'], $value['nom'], 'equip', $value['id_equipem']);
             }
         }
-
+        
         $armeVaissRepository = new ArmeVaissRepository();
         $list_arm = $armeVaissRepository->findAllTranspId(intval($objet['id_transp']));
         if(!empty($list_arm)) {
@@ -201,6 +203,7 @@ $templatePage->addVarString("[#CITIZEN_TRANSP_TAB_FAIBL#]", $tab_faibl);
 $templatePage->addVarString("[#CITIZEN_TRANSP_TAB_EQUIPEM#]", $tab_equipem);
 $templatePage->addVarString("[#CITIZEN_TRANSP_TAB_EQUIPEM#]", $tab_equipem);
 $templatePage->addVarString("[#CITIZEN_TRANSP_TAB_ARM#]", $tab_arm);
+$templatePage->addVarString("[#CITIZEN_TRANSP_LIEN#]", $lien);
 $templatePage->addVarString("[#CITIZEN_TYPE_OBJ#]", $id_type_objet);
 
 $templatePage->addFileCss("./src/css/style_dialog.css");

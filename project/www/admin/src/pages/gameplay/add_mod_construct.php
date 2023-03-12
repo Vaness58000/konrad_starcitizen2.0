@@ -77,7 +77,7 @@ if(!empty($category)) {
 }*/
 
 $templatePage = new TemplatePage(__DIR__.'/../../template/gameplay/add_mod_construct.html');
-$templatePage->addVarString("[#CITIZEN_CONST_ISPRO#]", $isProprietaire);
+$templatePage->addVarString("[#CITIZEN_CONST_ISPRO#]", $isModif);
 $templatePage->addVarString("[#CITIZEN_CONST_MODIF_CHECK#]", $modif_check);
 $templatePage->addVarString("[#CITIZEN_CONST_ID#]", $id_construct);
 $templatePage->addVarString("[#CITIZEN_CONST_LOGO#]", $logo);

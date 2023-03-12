@@ -7,9 +7,9 @@ if(!$sessionUser->isConnected()) {
     die("Merci de vous connecter.");
 } else {
     if(!empty($_POST) && array_key_exists("id-form-main", $_POST)) {
-        $servicesRepository = new ServicesRepository();
+        $objRepository = new ServicesRepository();
         $id_serv = $objRepository->recupIdService(intVal($_POST['id-form-main']));
-        $id = $servicesRepository->addModLieu(intVal($_POST['id']), $id_serv, intVal($_POST['lieu']));
+        $id = $objRepository->addModLieu(intVal($_POST['id']), $id_serv, intVal($_POST['lieu']));
         if(empty($_POST['is_error'])) {
             echo "true"."[#CITIZEN-ID#]".$id;
         } else {

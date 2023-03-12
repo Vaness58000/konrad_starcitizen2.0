@@ -5,6 +5,7 @@ include __DIR__.'/../../../../src/repository/ArmeFpsRepository.php';
 $armeFpsRepository = new ArmeFpsRepository();
 $id_type = $armeFpsRepository->findIdTypeArm();
 $nom_pg = "Armements FPS";
+$folder_img = "armement_fps";
 $count_obj = ceil($armeFpsRepository->findAllAndUserIdCount($id_type, intval($id))/$nb_par_pg);
 $objets = $armeFpsRepository->findAllAndUserIdPage($id_type, intval($id), $page, $nb_par_pg);
 

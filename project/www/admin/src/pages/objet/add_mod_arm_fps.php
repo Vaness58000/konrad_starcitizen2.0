@@ -33,6 +33,7 @@ $tab_info = "";
 $tab_lieu = "";
 $contenu = "";
 $all_img = "";
+$lien = "";
 $validation = false;
 $isProprietaire = false;
 $isModif = " disabled";
@@ -45,6 +46,7 @@ if (!empty($_GET) && array_key_exists('id', $_GET) && !empty($_GET['id'])) {
         $id_obj = intval($_GET['id']);
         $nom = $objet['nom_obj'];
         $poids = $objet['poids'];
+        $lien = $objet['lien'];
         $portee = $objet['portee'];
         $perte = $objet['perte'];
         $id_cat = intval($objet['id_cat']);
@@ -132,6 +134,7 @@ $templatePage->addVarString("[#CITIZEN_ARM_FPS_CONST#]", $const);
 $templatePage->addVarString("[#CITIZEN_ARM_FPS_POIDS#]", $poids);
 $templatePage->addVarString("[#CITIZEN_ARM_FPS_PORTEE#]", $portee);
 $templatePage->addVarString("[#CITIZEN_ARM_FPS_PERTE#]", $perte);
+$templatePage->addVarString("[#CITIZEN_ARM_FPS_LIEN#]", $lien);
 $templatePage->addVarString("[#CITIZEN_TYPE_OBJ#]", $id_type_objet);
 $templatePage->addVarString("[#CITIZEN_TYPE_ARM#]", $id_typa_arm);
 

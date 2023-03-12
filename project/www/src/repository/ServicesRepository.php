@@ -124,18 +124,21 @@ if (!class_exists('ServicesRepository')) {
             return intval($recupId['id']);
         }
         
-        public function add(int $id_objet): int {
-            $this->beginTransaction();
-            $sql = "INSERT INTO service (id_objet) VALUES (:id_objet)";
-            $this->setSql($sql)->setParamInt(":id_objet", $id_objet);
-            $this->executeSql();
-            $id_main = $this->lastInsertId();
-            // en cas d'erreur
-            if(Error_Log::isError()) {
-                $id_main = 0;
-                $this->rollBack();
-            } else {
-                $this->commit();
+        public function add(int $id_serv, int $id_objet): int {
+            $id_main = $id_serv;
+            if(empty($id_serv)) {
+                $this->beginTransaction();
+                $sql = "INSERT INTO service (id_objet) VALUES (:id_objet)";
+                $this->setSql($sql)->setParamInt(":id_objet", $id_objet);
+                $this->executeSql();
+                $id_main = $this->lastInsertId();
+                // en cas d'erreur
+                if(Error_Log::isError()) {
+                    $id_main = 0;
+                    $this->rollBack();
+                } else {
+                    $this->commit();
+                }
             }
             return $id_main;
         }
