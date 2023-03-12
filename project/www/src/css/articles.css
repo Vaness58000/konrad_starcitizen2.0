@@ -349,7 +349,7 @@ iframe {
 
 /*pagination*/
 .pagination{
-    margin: 20px 0 50px 0;
+    padding: 20px 0 50px 0;
 }
 .pagination,
 .pagination li a {

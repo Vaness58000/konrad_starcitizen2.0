@@ -77,6 +77,25 @@ if (!class_exists('ConstructeurRepository')) {
                         ->setParamInt(":id_user", $id)
                         ->fetchAllAssoc();
         }
+        public function findAllAndConstructeurIdPage(int $nmPage=0, int $nbArtPage=0):array {
+            $limit = "";
+            if(!empty($nbArtPage)) {
+                $nmStart = $nmPage*$nbArtPage;
+                $limit = " LIMIT $nbArtPage OFFSET $nmStart";
+            }
+            $sql = 'SELECT * FROM constructeur '.
+                    'INNER JOIN utilisateurs ON utilisateurs.id_user = constructeur.id_user
+                     ORDER BY constructeur.id_constructeur ASC'.$limit.'';
+            return $this->setSql($sql)
+                        ->fetchAllAssoc();
+        }
+        public function findAllAndConstructeurIdCount():int {
+            $sql = 'SELECT * FROM constructeur '.
+                    'INNER JOIN utilisateurs ON utilisateurs.id_user = constructeur.id_user 
+                    ORDER BY constructeur.id_constructeur DESC';
+            return $this->setSql($sql)
+                        ->rowCount();
+        }
 
         /*Pour relier l'utilisateur au article*/
         public function findAllAndUserIdCount(int $id):int {

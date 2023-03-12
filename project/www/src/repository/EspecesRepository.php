@@ -47,6 +47,27 @@ if (!class_exists('EspecesRepository')) {
                         ->setParamInt(":id_type", $id_type)
                         ->fetchAllAssoc();
         }
+        public function findAllAndEspeceIdPage(int $nmPage=0, int $nbArtPage=0):array {
+            $limit = "";
+            if(!empty($nbArtPage)) {
+                $nmStart = $nmPage*$nbArtPage;
+                $limit = " LIMIT $nbArtPage OFFSET $nmStart";
+            }
+            $sql = 'SELECT *, objet.id AS id_objet, objet.nom AS nom_obj FROM objet '.
+            'INNER JOIN especes ON especes.id_objet = objet.id '.
+            'LEFT JOIN lieu_espece ON especes.id_espece = lieu_espece.id_espece '.
+            'INNER JOIN utilisateurs ON utilisateurs.id_user = objet.id_user 
+            ORDER BY objet.id DESC'.$limit.'';
+            return $this->setSql($sql)
+                        ->fetchAllAssoc();
+        }public function findAllAndEspeceIdCount():int {
+            $sql = 'SELECT *, objet.id AS id_objet, objet.nom AS nom_obj FROM objet '.
+                    'INNER JOIN utilisateurs ON utilisateurs.id_user = objet.id_user '.
+                    'INNER JOIN especes ON especes.id_objet = objet.id '.
+                    'LEFT JOIN lieu_espece ON especes.id_espece = lieu_espece.id_espece ORDER BY objet.id DESC';
+            return $this->setSql($sql)
+                        ->rowCount();
+        }
 
         public function findAllAndIdUser(int $id):array {
             return $this->setSql('SELECT *, objet.id AS id_objet, objet.nom AS nom_obj FROM objet '.

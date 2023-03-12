@@ -1,9 +1,19 @@
 <?php
 require __DIR__ . '/../../../back/connexion.php';
 require __DIR__ . '/../../../src/repository/LieuxRepository.php';
+$pg = 0;
+if (!empty($_GET['pg'])) {
+	$pg = intval($_GET['pg']) - 1;
+}
+if ($pg < 0) {
+	$pg = 0;
+}
+$nomb_art = 10;
 $lieuxLuneRepository = new LieuxRepository();
 $type = $lieuxLuneRepository->findIdTypeLieu("Lunes");
-$lieuxLune = $lieuxLuneRepository->findAllCatId($type);
+$nomb = $lieuxLuneRepository->findAllAndCatIdCount($type);
+$nomb_page = ceil($nomb / $nomb_art);
+$lieuxLune = $lieuxLuneRepository->findAllAndCatIdPage($type, $pg, $nomb_art);
 /*css systeme.css*/
 ?>
 
@@ -24,3 +34,8 @@ $lieuxLune = $lieuxLuneRepository->findAllCatId($type);
     }
     ?>
 </div>
+<ul class="pagination">
+<?php for ($i = 1; $i <= $nomb_page; $i++) { ?>
+		<li><a href="?ind=lunes&pg=<?= $i ?>"><?= $i ?></a></li>
+	<?php } ?>
+</ul>

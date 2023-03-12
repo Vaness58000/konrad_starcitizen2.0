@@ -87,7 +87,33 @@ if (!class_exists('ArmeFpsRepository')) {
                         ->setParamInt(":id_type", $id_type)
                         ->fetchAllAssoc();
         }
-
+        public function findAllAndArmeIdPage(int $nmPage=0, int $nbArtPage=0):array {
+            $limit = "";
+            if(!empty($nbArtPage)) {
+                $nmStart = $nmPage*$nbArtPage;
+                $limit = " LIMIT $nbArtPage OFFSET $nmStart";
+            }
+            $sql = 'SELECT *, objet.id AS id_objet, objet.nom AS nom_obj, categorie_arm_fps.nom AS nom_cat FROM objet '.
+                    'INNER JOIN utilisateurs ON utilisateurs.id_user = objet.id_user '.
+                    'INNER JOIN equipements_armement ON equipements_armement.id_objet = objet.id '.
+                    'INNER JOIN arm_fps ON equipements_armement.id_arme = arm_fps.id_arm '.
+                    'INNER JOIN categorie_arm_fps ON arm_fps.id_cat = categorie_arm_fps.id_categ_arme '.
+                    'LEFT JOIN construct_arm ON equipements_armement.id_arme = construct_arm.id_arm
+                     ORDER BY objet.id DESC'.$limit.'';
+            return $this->setSql($sql)
+                        ->fetchAllAssoc();
+        }
+        public function findAllAndArmeIdCount():int {
+            $sql = 'SELECT *, objet.id AS id_objet, objet.nom AS nom_obj, categorie_arm_fps.nom AS nom_cat FROM objet '.
+                    'INNER JOIN utilisateurs ON utilisateurs.id_user = objet.id_user '.
+                    'INNER JOIN equipements_armement ON equipements_armement.id_objet = objet.id '.
+                    'INNER JOIN arm_fps ON equipements_armement.id_arme = arm_fps.id_arm '.
+                    'INNER JOIN categorie_arm_fps ON arm_fps.id_cat = categorie_arm_fps.id_categ_arme '.
+                    'LEFT JOIN construct_arm ON equipements_armement.id_arme = construct_arm.id_arm 
+                    ORDER BY objet.id DESC';
+            return $this->setSql($sql)
+                        ->rowCount();
+        }
         /*Pour relier l'utilisateur au article*/
         public function findAllAndUserIdCount(int $id_type, int $id):int {
             $sql = 'SELECT *, objet.id AS id_objet, objet.nom AS nom_obj, categorie_arm_fps.nom AS nom_cat FROM objet '.
