@@ -97,7 +97,7 @@ $construct = $vaisseauRepository->findAllAndIdUser($_GET['id']);
       </section>
     </main>
 
-    <p><?= str_replace("\n", "<br/>", $construct['contenu']) ?></p>
+    <p class="bbcode"><?= str_replace("\n", "<br/>", $construct['contenu']) ?></p>
     <div class="bouton">
       <a class="btn_actus" href="#"><span>Pledge Store</span></a><a class="btn_actus" href="#"><span>Erkul</span></a>
     </div>

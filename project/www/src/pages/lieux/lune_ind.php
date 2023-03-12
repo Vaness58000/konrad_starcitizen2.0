@@ -20,7 +20,7 @@ $lunes = $lieuxLuneRepository->findAllCatIdNoId($_GET['id'], $type);
                     <img src="src/img/<?= $lieuxLune_img[0]['name'] ?>" alt="<?= $lieuxLune_img[0]['alt'] ?>"></a>
                 <?php } ?>
                 <div class="description_generale">
-                    <p><?= str_replace("\n", "<br/>", $lune['contenu']) ?></p>
+                    <p class="bbcode"><?= str_replace("\n", "<br/>", $lune['contenu']) ?></p>
 
                 </div>
             </div>

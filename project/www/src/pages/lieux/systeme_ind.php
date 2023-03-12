@@ -21,7 +21,7 @@ $tous_systeme = $lieuxSystemeRepository->findAllCatIdNoId($_GET['id'], $type);
                     <img src="src/img/<?= $lieuxSysteme_img[0]['name'] ?>" alt="<?= $lieuxSysteme_img[0]['alt'] ?>"></a>
                 <?php } ?>
                 <div class="description_generale">
-                    <p><?= str_replace("\n", "<br/>", $systeme['contenu']) ?></p>
+                    <p class="bbcode"><?= str_replace("\n", "<br/>", $systeme['contenu']) ?></p>
 
                 </div>
             </div>
