@@ -179,6 +179,7 @@ if (!class_exists('LieuxRepository')) {
                         ->setParamInt(":id", $id)
                         ->fetchAssoc();
         }
+
         public function findIdTypeLieu(string $name): int
         {
             $tab_type = $this->setSql('SELECT * FROM categories_lieux WHERE nom=:nom')->setParam(":nom", $name)->fetchAssoc();
@@ -187,9 +188,130 @@ if (!class_exists('LieuxRepository')) {
             }
             return intval($tab_type["id_categ_lieu"]);
         }
+
         public function findIdTypeLieux(): int
         {
             return $this->findIdTypeObj("lieux");
         }
+
+        public function findIdLieu(int $id_objet): int {
+            $sql = 'SELECT id_lieu FROM lieux WHERE id_objet=:id_objet';
+            $recupId = $this->setSql($sql)
+                        ->setParamInt(":id_objet", $id_objet)
+                        ->fetchAssoc();
+            if(empty($recupId)) {
+                return 0;
+            }
+            return intval($recupId['id_lieu']);
+        }
+
+        public function add(int $id_lieu, int $id_objet, int $id_categ_lieu, bool $habitable): int {
+            $id_main = $id_lieu;
+            if(!empty($id_lieu)) {
+                $this->beginTransaction();
+                $sql = "UPDATE lieux SET id_categ_lieu=:id_categ_lieu,Habitable=:Habitable WHERE id_lieu=:id_lieu";
+                $this->setSql($sql)
+                    ->setParamInt(":id_lieu", $id_lieu)
+                    ->setParamInt(":id_categ_lieu", $id_categ_lieu)
+                    ->setParamBool(":Habitable", $habitable);
+                $this->executeSql();
+            }else {
+                $this->beginTransaction();
+                $sql = "INSERT INTO lieux(id_objet, id_categ_lieu, Habitable) VALUES (:id_objet, :id_categ_lieu, :Habitable)";
+                $this->setSql($sql)
+                    ->setParamInt(":id_objet", $id_objet)
+                    ->setParamInt(":id_categ_lieu", $id_categ_lieu)
+                    ->setParamBool(":Habitable", $habitable);
+                $this->executeSql();
+                $id_main = $this->lastInsertId();
+            }
+            // en cas d'erreur
+            if(Error_Log::isError()) {
+                $id_main = 0;
+                $this->rollBack();
+            } else {
+                $this->commit();
+            }
+            return $id_main;
+        }
+
+        public function findIdRisque(int $id_lieux): int {
+            $sql = 'SELECT id FROM lieux_risque WHERE id_lieux=:id';
+            $recupId = $this->setSql($sql)
+                        ->setParamInt(":id", $id_lieux)
+                        ->fetchAssoc();
+            if(empty($recupId)) {
+                return 0;
+            }
+            return intval($recupId['id']);
+        }
+
+        public function addModRisque(int $id, int $id_lieux, int $id_risque): int {
+            $id_main = $id;
+            if(!empty($id)) {
+                $this->beginTransaction();
+                $sql = "UPDATE lieux_risque SET id_risque=:id_risque WHERE id=:id";
+                $this->setSql($sql)
+                    ->setParamInt(":id", $id)
+                    ->setParamInt(":id_risque", $id_risque);
+                $this->executeSql();
+            }else {
+                $this->beginTransaction();
+                $sql = "INSERT INTO lieux_risque (id_lieux, id_risque) VALUES (:id_lieux, :id_risque)";
+                $this->setSql($sql)
+                    ->setParamInt(":id_lieux", $id_lieux)
+                    ->setParamInt(":id_risque", $id_risque);
+                $this->executeSql();
+                $id_main = $this->lastInsertId();
+            }
+            // en cas d'erreur
+            if(Error_Log::isError()) {
+                $id_main = 0;
+                $this->rollBack();
+            } else {
+                $this->commit();
+            }
+            return $id_main;
+        }
+
+        public function findIdLier(int $id_lieux): int {
+            $sql = 'SELECT id FROM lier_lieu WHERE id_lieu=:id';
+            $recupId = $this->setSql($sql)
+                        ->setParamInt(":id", $id_lieux)
+                        ->fetchAssoc();
+            if(empty($recupId)) {
+                return 0;
+            }
+            return intval($recupId['id']);
+        }
+
+        public function addModLier(int $id, int $id_lieu, int $id_lieu_lier): int {
+            $id_main = $id;
+            if(!empty($id)) {
+                $this->beginTransaction();
+                $sql = "UPDATE lier_lieu SET id_lieu_lier=:id_lieu_lier WHERE id=:id";
+                $this->setSql($sql)
+                    ->setParamInt(":id", $id)
+                    ->setParamInt(":id_lieu_lier", $id_lieu_lier);
+                $this->executeSql();
+            }else {
+                $this->beginTransaction();
+                $sql = "INSERT INTO lier_lieu (id_lieu, id_lieu_lier) VALUES (:id_lieu, :id_lieu_lier)";
+                $this->setSql($sql)
+                    ->setParamInt(":id_lieu_lier", $id_lieu_lier)
+                    ->setParamInt(":id_lieu", $id_lieu);
+                $this->executeSql();
+                $id_main = $this->lastInsertId();
+            }
+            // en cas d'erreur
+            if(Error_Log::isError()) {
+                $id_main = 0;
+                $this->rollBack();
+            } else {
+                $this->commit();
+            }
+            return $id_main;
+        }
+
     }
 }

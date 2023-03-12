@@ -47,10 +47,7 @@ if(!$sessionUser->isConnected()) {
             $visible
         );
         // **********************
-        $id_serv = $objRepository->recupIdService($id_main);
-        if(empty($id_serv) && empty($_POST['is_error'])) {
-            $id_serv = $objRepository->add($id_main);
-        }
+        $id_serv = $objRepository->add($objRepository->recupIdService($id_main), $id_main);
         if (!empty($tabListLieux) && !empty($id_main) && empty($_POST['id']) && empty($_POST['is_error'])) {
             foreach ($tabListLieux as $value) {
                 $id_lieu = intval($value['lieu']);

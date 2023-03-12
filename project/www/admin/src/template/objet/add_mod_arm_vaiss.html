@@ -28,13 +28,13 @@
                     </figure>
                 </div>
             </div>
-            <label for="nom">nom</label><input type="text" name="nom" id="nom" value="[#CITIZEN_ARM_VAISS_NOM#]" class="input-admin"[#CITIZEN_ARM_VAISS_ISPRO#]>
+            <label for="nom">nom</label><input type="text" name="nom" id="nom" value="[#CITIZEN_ARM_VAISS_NOM#]" class="input-admin" required[#CITIZEN_ARM_VAISS_ISPRO#]>
             <label for="taille">taille</label>
-            <select name="taille" id="taille-select" class="input-admin"[#CITIZEN_ARM_VAISS_ISPRO#]>
+            <select name="taille" id="taille-select" class="input-admin" required[#CITIZEN_ARM_VAISS_ISPRO#]>
                 <option value=""></option>[#CITIZEN_ARM_VAISS_TAILLE#]
             </select>
             <label for="constructeur">constructeur</label>
-            <select name="constructeur" id="constructeur-select" class="input-admin"[#CITIZEN_ARM_VAISS_ISPRO#]>
+            <select name="constructeur" id="constructeur-select" class="input-admin" required[#CITIZEN_ARM_VAISS_ISPRO#]>
                 <option value=""></option>[#CITIZEN_ARM_VAISS_CONST#]
             </select>
             <label for="lien">lien</label
@@ -44,9 +44,10 @@
               id="lien"
               value="[#CITIZEN_ARM_VAISS_LIEN#]"
               class="input-admin"
+              required
               [#CITIZEN_ARM_VAISS_ISPRO#]
             />
-            <label for="contenu">contenu</label><textarea name="contenu" id="contenu" cols="30" rows="10" class="input-admin text-bbcode"[#CITIZEN_ARM_VAISS_ISPRO#]>[#CITIZEN_ARM_VAISS_CONTENU#]</textarea>
+            <label for="contenu">contenu</label><textarea name="contenu" id="contenu" cols="30" rows="10" class="input-admin text-bbcode" required[#CITIZEN_ARM_VAISS_ISPRO#]>[#CITIZEN_ARM_VAISS_CONTENU#]</textarea>
             <input type="radio" class="radio-onglet" id="onglet-info" name="radio-onglet" value="" checked>
             <input type="radio" class="radio-onglet" id="onglet-lieu" name="radio-onglet" value="">
             <div id="div-all-tab" class="two-column">

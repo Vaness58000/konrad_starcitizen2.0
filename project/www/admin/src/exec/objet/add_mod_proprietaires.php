@@ -9,9 +9,6 @@ $sessionUser = new SessionUser();
 if(!$sessionUser->isConnected()) {
     die("Merci de vous connecter.");
 } else {
-    $name = 'add_mod_proprietaires';
-    $file = __DIR__.'/../../../../upload/files/'.$name.'.json';
-    $current = json_encode($_POST);
     if (
         !empty($_POST) &&
         array_key_exists('id', $_POST) &&
@@ -96,5 +93,4 @@ if(!$sessionUser->isConnected()) {
     } else {
         echo 'Vous ne pouvez pas faire cette action.';
     }
-    file_put_contents($file, $current);
 }

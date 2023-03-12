@@ -58,8 +58,8 @@ if (!empty($_GET) && array_key_exists('id', $_GET) && !empty($_GET['id'])) {
     $objet = $objetRepository->findAllAndIdUser(intval($_GET['id']));
     if(count($objet)>0){
         $id_obj = intval($_GET['id']);
-        $nom = $objet['nom'];
-        $contenu = $objet['contenu'];
+        $nom = $objet['nom_obj'];
+        $contenu = $objet['contenu_obj'];
         $prix = $objet['prix'];
         $lien = $objet['lien'];
         $equipage = $objet['equipage'];
@@ -67,7 +67,7 @@ if (!empty($_GET) && array_key_exists('id', $_GET) && !empty($_GET['id'])) {
         $poids = $objet['poids'];
         $vitessemax = $objet['vitesse_max'];
         $capacite = $objet['capacite'];
-        $isProprietaire = $objet['id_user'] == $id;
+        $isProprietaire = $objet['idUser'] == $id;
         $id_cat = intval($objet['categorie']);
         $id_disp = intval($objet['id_disponible']);
         $id_type = intval($objet['type']);
@@ -185,7 +185,7 @@ $templatePage->addVarString("[#CITIZEN_TRANSP_CONTENU#]", $contenu);
 $templatePage->addVarString("[#CITIZEN_TRANSP_TAB_INFO#]", $tab_info);
 $templatePage->addVarString("[#CITIZEN_TRANSP_MODIF_CHECK#]", $modif_check);
 $templatePage->addVarString("[#CITIZEN_TRANSP_IMG#]", $all_img);
-$templatePage->addVarString("[#CITIZEN_TRANSP_ISPRO#]", $isProprietaire);
+$templatePage->addVarString("[#CITIZEN_TRANSP_ISPRO#]", $isModif);
 $templatePage->addVarString("[#CITIZEN_TRANSP_ID#]", $id_obj);
 $templatePage->addVarString("[#CITIZEN_TRANSP_CAT#]", $cat);
 $templatePage->addVarString("[#CITIZEN_TRANSP_DISP#]", $disp);

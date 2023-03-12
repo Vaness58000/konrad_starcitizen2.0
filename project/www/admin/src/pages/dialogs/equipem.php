@@ -27,8 +27,8 @@ $id_equipem = 0;
 
 $catEquipemRepository = new CatEquipemRepository();
 
-if (!empty($_POST) && array_key_exists("idShow", $_POST) && !empty($_POST["idShow"])) {
-    $id_equipem = intval($_POST["idShow"]);
+if (!empty($_POST) && array_key_exists("id", $_POST) && !empty($_POST["id"])) {
+    $id_equipem = intval($_POST["id"]);
 }
 
 $obj = $catEquipemRepository->findAllId($id_equipem);

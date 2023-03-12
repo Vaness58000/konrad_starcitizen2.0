@@ -25,8 +25,8 @@ $ispro = "";
 $id_faibl = 0;
 $list_faibl = "";
 
-if(!empty($_POST) && array_key_exists("idShow", $_POST) && !empty($_POST["idShow"])) {
-    $id_faibl = intval($_POST["idShow"]);
+if(!empty($_POST) && array_key_exists("id", $_POST) && !empty($_POST["id"])) {
+    $id_faibl = intval($_POST["id"]);
 }
 
 $catFaiblRepository = new CatFaiblRepository();

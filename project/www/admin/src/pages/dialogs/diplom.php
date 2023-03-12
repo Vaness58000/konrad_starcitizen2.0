@@ -24,8 +24,8 @@ $imgs = "";
 $ispro = "";
 $id_diplom = 0;
 
-if(!empty($_POST) && array_key_exists("idShow", $_POST) && !empty($_POST["idShow"])) {
-    $id_diplom = intval($_POST["idShow"]);
+if(!empty($_POST) && array_key_exists("id", $_POST) && !empty($_POST["id"])) {
+    $id_diplom = intval($_POST["id"]);
 }
 
 $catDiplomRepository = new catDiplomRepository();

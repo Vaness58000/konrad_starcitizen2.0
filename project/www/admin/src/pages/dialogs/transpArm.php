@@ -38,7 +38,7 @@ if(!empty($transp_arm_base)) {
 }
 
 $templatePage = new TemplatePage(__DIR__.'/../../template/dialog/transpArm.html');
-$templatePage->addVarString("[#CITIZEN_DIALOG_LIEU#]", $list_transp_arm);
+$templatePage->addVarString("[#CITIZEN_DIALOG_ARM#]", $list_transp_arm);
 $templatePage->addVarString("[#CITIZEN_DIALOG_ISPRO#]", $ispro);
 
 if($error_Log->isError()) {

@@ -145,6 +145,93 @@ if (!class_exists('MatierePremiereRepository')) {
             return $this->findIdTypeObj("Matière première");
         }
 
+        public function recupIdMatPrem(int $id_objet): int {
+            $sql = 'SELECT id FROM matiere_premiere WHERE id_objet=:id';
+            $recupId = $this->setSql($sql)
+                        ->setParamInt(":id", $id_objet)
+                        ->fetchAssoc();
+            if(empty($recupId)) {
+                return 0;
+            }
+            return intval($recupId['id']);
+        }
+
+        public function recupIdMatPremLieu(int $id_objet): int {
+            $sql = 'SELECT id FROM matiere_premiere INNER JOIN  WHERE id_objet=:id';
+            $recupId = $this->setSql($sql)
+                        ->setParamInt(":id", $id_objet)
+                        ->fetchAssoc();
+            if(empty($recupId)) {
+                return 0;
+            }
+            return intval($recupId['id']);
+        }
+        
+        public function add(int $id_matPrem, int $id_objet, int $id_cat): int {
+            $id_main = $id_matPrem;
+            $this->beginTransaction();
+            if(!empty($id_matPrem)) {
+                $sql = "UPDATE matiere_premiere SET id_categorie=:id_categorie WHERE id=:id";
+                $this->setSql($sql)->setParamInt(":id", $id_matPrem)->setParamInt(":id_categorie", $id_cat);
+                $this->executeSql();
+            } else {
+                $sql = "INSERT INTO matiere_premiere (id_categorie, id_objet) VALUES (:id_categorie, :id_objet)";
+                $this->setSql($sql)->setParamInt(":id_objet", $id_objet)->setParamInt(":id_categorie", $id_cat);
+                $this->executeSql();
+                $id_main = $this->lastInsertId();
+            }
+            // en cas d'erreur
+            if(Error_Log::isError()) {
+                $id_main = 0;
+                $this->rollBack();
+            } else {
+                $this->commit();
+            }
+            return $id_main;
+        }
+
+        public function addModLieu(int $id, int $id_prod_pre, int $id_lieu, ?string $prix_vente, ?string $prix_achat, ?string $actu_min, ?string $inv_max): int {
+            $id_main = $id;
+            $this->beginTransaction();
+            if(!empty($id)) {
+                $sql = "UPDATE prod_pre_lieu SET id_lieu=:id_lieu,prix_vente=:prix_vente,prix_achat=:prix_achat,actu_min=:actu_min,inv_max=:inv_max WHERE id=:id";
+                $this->setSql($sql)
+                            ->setParamInt(":id", $id)
+                            ->setParamInt(":id_lieu", $id_lieu)
+                            ->setParam(":prix_vente", $prix_vente)
+                            ->setParam(":prix_achat", $prix_achat)
+                            ->setParam(":actu_min", $actu_min)
+                            ->setParam(":inv_max", $inv_max);
+                $this->executeSql();
+            } else {
+                $sql = "INSERT INTO prod_pre_lieu(id_prod_pre, id_lieu, prix_vente, prix_achat, actu_min, inv_max) VALUES (:id_prod_pre, :id_lieu, :prix_vente, :prix_achat, :actu_min, :inv_max)";
+                $this->setSql($sql)
+                            ->setParamInt(":id_prod_pre", $id_prod_pre)
+                            ->setParamInt(":id_lieu", $id_lieu)
+                            ->setParam(":prix_vente", $prix_vente)
+                            ->setParam(":prix_achat", $prix_achat)
+                            ->setParam(":actu_min", $actu_min)
+                            ->setParam(":inv_max", $inv_max);
+                $this->executeSql();
+                $id_main = $this->lastInsertId();
+            }
+            // en cas d'erreur
+            if(Error_Log::isError()) {
+                $id_main = 0;
+                $this->rollBack();
+            } else {
+                $this->commit();
+            }
+            return $id_main;
+        }
+
+        public function deleteLieuMatPrem(int $id): self {
+            $sql = "DELETE FROM prod_pre_lieu WHERE id=:id";
+            $this->setSql($sql)->setParamInt(":id", $id);
+            $this->executeSql();
+            return $this;
+        }
+
     }
 }
 
