@@ -112,7 +112,7 @@ if(!$sessionUser->isConnected()) {
                 $nom_equip = $value['nom'];
                 $contenu_equip = $value['contenu'];
                 $prix_equip = $value['prix'];
-                if (!empty($id_arm) && !empty($id_arm)) {
+                if (!empty($nom_equip) && !empty($nom_equip)) {
                     $id_equip = $objRepository->addModEquip(0, $nom_equip, $contenu_equip, $prix_equip);
                     $objRepository->addEquipTransp(0, $id_equip, $id_transp);
                 }

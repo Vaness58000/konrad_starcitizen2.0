@@ -25,6 +25,13 @@ if(!$sessionUser->isConnected()) {
                 $objetRepository->deleteImg($id_img);
             }
         }
+        $equipems = $objetRepository->findAllIdAndEquipem(intval($objetRepository->findAllAndIdUser($id)['id_transp']));
+        if(!empty($equipems)) {
+            foreach ($equipems as $value) {
+                $id_transport_equip = $objetRepository->recupTranspIdEquipement(intval($value['id_transp_equip']));
+                $objetRepository->deleteEquipTransp($id_transport_equip);
+            }
+        }
         $objetRepository->deleteObj($id);
         if(empty($_POST['is_error'])) {
             echo "true";

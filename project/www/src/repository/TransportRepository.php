@@ -65,6 +65,7 @@ if (!class_exists('TransportRepository')) {
                 ->setParamInt(":id_type", $id_type)
                 ->fetchAllAssoc();
         }
+
         public function findAllAndConstructIdPage(int $id_type, int $id, int $nmPage = 0, int $nbArtPage = 0): array
         {
             $limit = "";
@@ -130,7 +131,7 @@ if (!class_exists('TransportRepository')) {
                     'INNER JOIN lieux ON lieux.id_objet = objet.id '.
                     'LEFT JOIN transport_lieu ON lieux.id_lieu = transport_lieu.id_lieu '.
                     'INNER JOIN utilisateurs ON utilisateurs.id_user = objet.id_user '.
-                    'WHERE transport_lieu.id_transport=:id && objet.validation=1 ORDER BY transport_lieu.id_transport DESC';
+                    'WHERE transport_lieu.id_transport=:id && objet.validation=1 ORDER BY transport_lieu.id DESC';
             return $this->setSql($sql)
                 ->setParamInt(":id", $id)
                 ->fetchAllAssoc();
@@ -455,6 +456,17 @@ if (!class_exists('TransportRepository')) {
                 }
             }
             return $id_main;
+        }
+        
+        public function recupTranspIdEquipement(int $id_transp): int {
+            $sql = 'SELECT id_equip FROM transp_equip WHERE id=:id';
+            $recupId = $this->setSql($sql)
+                        ->setParamInt(":id", $id_transp)
+                        ->fetchAssoc();
+            if(empty($recupId)) {
+                return 0;
+            }
+            return intval($recupId['id_equip']);
         }
 
         public function deleteEquipTransp(int $id): self {
