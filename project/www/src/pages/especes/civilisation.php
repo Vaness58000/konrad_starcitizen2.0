@@ -28,8 +28,7 @@ $especes = $especeRepository->findAllAndEspeceIdPage($pg, $nomb_art);
     <p>Les "Civilisations" sont les espèces ayant atteint le stade, par développement social, culturel et scientifique, de la Civilisation. Ces espèces en sont généralement à l'ère du voyage spatial, et ont donc transcendé les frontières de leur monde d'origine. Leurs technologies sont avancées et pointues, et leur culture est puissante.</p>
     <div class="civilisation">
       <?php foreach ($especes as $construct) { ?>
-
-        <div id="especes hero">
+        <div class="especes hero">
           <a href="?ind=espece_ind&id=<?= $construct['id_objet']; ?>">
             <?php
             $especes_img = $especeRepository->findAllImgObj($construct["id_objet"]);
