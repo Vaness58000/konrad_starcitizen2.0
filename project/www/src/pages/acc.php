@@ -60,7 +60,7 @@ $id_vaiss = 1;
                     $article_img = $articleRepository->findAllImgArticle($construct["id"]);
                     if (count($article_img) >= 1) {
                     ?>
-                        <img class="postcard__img" src="src/img/<?= $article_img[0]['name'] ?>" alt="Image Title" />
+                        <img class="postcard__img" src="upload/articles/<?= $article_img[0]['src'] ?>" alt="Image Title" />
 
                     <?php } ?>
                 </a>

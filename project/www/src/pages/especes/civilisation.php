@@ -34,7 +34,7 @@ $especes = $especeRepository->findAllAndEspeceIdPage($pg, $nomb_art);
             $especes_img = $especeRepository->findAllImgObj($construct["id_objet"]);
             if (count($especes_img) >= 1) {
             ?>
-              <img id="hero-profile-img" src="src/img/<?= $especes_img[0]['name'] ?>" alt="<?= $especes_img[0]['alt'] ?>"></a>
+              <img id="hero-profile-img" src="./upload/especes/<?= $especes_img[0]['src'] ?>" alt="<?= $especes_img[0]['alt'] ?>"></a>
         <?php } ?>
         <div class="hero-description-bk"></div>
         <div class="hero-title">
