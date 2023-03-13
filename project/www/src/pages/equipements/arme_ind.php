@@ -2,12 +2,11 @@
 require __DIR__ . '/../../../back/connexion.php';
 require __DIR__ . '/../../../src/repository/ArmeFpsRepository.php';
 $armeFpsRepository = new ArmeFpsRepository();
-$armeFps = $armeFpsRepository->findAllId($_GET['id']);
+$construct = $armeFpsRepository->findAllId($_GET['id']);
 $lieux_armes = $armeFpsRepository->findAllIdAndLieux($_GET['id']);
 ?>
 
 <section class="page_generale">
-    <?php foreach ($armeFps as $construct) { ?>
 
         <div class="info_generale">
 
@@ -62,6 +61,3 @@ $lieux_armes = $armeFpsRepository->findAllIdAndLieux($_GET['id']);
             </table>
         </div>
 </section>
-<?php
-    }
-?>

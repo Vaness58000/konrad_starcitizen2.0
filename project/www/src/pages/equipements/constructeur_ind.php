@@ -4,7 +4,15 @@ require __DIR__ . '/../../../src/repository/TransportRepository.php';
 require __DIR__ . '/../../../src/repository/ConstructeurRepository.php';
 require __DIR__ . '/../../../src/repository/VaisseauRepository.php';
 require __DIR__ . '/../../../src/repository/ArmeFpsRepository.php';
-
+$pg = 0;
+if (!empty($_GET['pg'])) {
+    $pg = intval($_GET['pg']) - 1;
+}
+if ($pg < 0) {
+    $pg = 0;
+}
+$nomb_art = 3;
+$nomb = 0;
 $constructeurRepository = new ConstructeurRepository();
 $construct_tabs = $constructeurRepository->findAllAndIdConstructeur($_GET['id']);
 $transportRepository = new TransportRepository();
@@ -12,10 +20,12 @@ $id_vehicule = $transportRepository->findIdTypeTransports("vehicule");
 $id_vaiss = $transportRepository->findIdTypeTransports("vaisseau");
 if (!isset($_GET["type_transp"])) {
     $transports = $transportRepository->findAllAndUserConstructeurId($_GET['id']);
+    //$nomb = $articleRepository->findAllAndTypeUserCount($type);
 } else {
     $transports = $transportRepository->findAllAndConstructIdPage($_GET["type_transp"], $_GET['id']);
+    //$nomb = $articleRepository->findAllAndTypeUserCount($type);
 }
-
+$nomb_page = ceil($nomb / $nomb_art);
 ?>
 
 
@@ -77,5 +87,15 @@ if (!isset($_GET["type_transp"])) {
 
     </div>
 </div>
+<ul class="pagination">
+    <?php for ($i = 1; $i <= $nomb_page; $i++) { ?>
+        <?php if (!isset($_GET["type_transp"])) { ?>
+            <li><a href="?ind=constructeur_ind&id=<?= $_GET['id'] ?>&pg=<?= $i ?>"><?= $i ?></a></li>
+        <?php } else { ?>
+            <li><a href="?ind=constructeur_ind&type_transp=<?= $id_vaiss ?>&id=<?= $_GET['id'] ?>&pg=<?= $i ?>"><?= $i ?></a></li>
+
+    <?php }
+    } ?>
+</ul>
 </section>
 <script src="src/js/script_filtre_vaisseau.js"></script>
