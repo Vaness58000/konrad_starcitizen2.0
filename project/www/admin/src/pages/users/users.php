@@ -22,6 +22,7 @@ $nb_par_pg = 10;
 $choix_tab = "";
 $isAll = false;
 
+$usersRepository = new UsersRepository();
 $role_all = $usersRepository->findRoleAll();
 
 $templatePage = new TemplatePage(__DIR__.'/../../template/users/users.html');
