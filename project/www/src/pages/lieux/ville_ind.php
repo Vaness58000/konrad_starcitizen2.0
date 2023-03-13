@@ -20,7 +20,7 @@ $tous_ville = $lieuxVilleRepository->findAllCatIdNoId($_GET['id'], $type);
                     <img src="src/img/<?= $lieuxVille_img[0]['name'] ?>" alt="<?= $lieuxVille_img[0]['alt'] ?>"></a>
                 <?php } ?>
                 <div class="description_generale">
-                    <p><?= str_replace("\n", "<br/>", $ville['contenu']) ?></p>
+                    <p class="bbcode"><?= str_replace("\n", "<br/>", $ville['contenu']) ?></p>
 
                 </div>
             </div>
