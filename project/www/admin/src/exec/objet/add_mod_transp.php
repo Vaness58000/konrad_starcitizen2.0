@@ -9,19 +9,10 @@ $sessionUser = new SessionUser();
 if(!$sessionUser->isConnected()) {
     die("Merci de vous connecter.");
 } else {
-    /*$name = 'add_mod_transp';
-    $file = __DIR__.'/../../../../upload/files/'.$name.'.json';
-    $current = json_encode($_POST);
-    file_put_contents($file, $current);*/
     if (
         !empty($_POST) &&
         array_key_exists('id', $_POST)
     ) {
-        /*
-        ?string $prix, ?string $equipage, ?string $taille, ?string $poids, 
-        ?string $vitesse_max, ?string $capacite, ?string $description, 
-        int $categorie, int $type, ?string $lien, int $id_disponible
-        */
         $nom = $_POST["nom"];
         $prix = $_POST["prix"];
         $equipage = $_POST["equipage"];

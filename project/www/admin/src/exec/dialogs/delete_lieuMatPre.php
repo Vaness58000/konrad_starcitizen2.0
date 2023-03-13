@@ -7,10 +7,6 @@ $sessionUser = new SessionUser();
 if(!$sessionUser->isConnected()) {
     die("Merci de vous connecter.");
 } else {
-    $name = 'delete_lieuMatPre';
-    $file = __DIR__.'/../../../../upload/files/'.$name.'.json';
-    $current = json_encode($_POST);
-    file_put_contents($file, $current);
     if(!empty($_POST) && array_key_exists("id", $_POST)) {
         $id = intVal($_POST['id']);
         $objRepository = new MatierePremiereRepository();

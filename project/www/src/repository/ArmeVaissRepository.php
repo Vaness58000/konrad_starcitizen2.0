@@ -3,10 +3,10 @@
 // verifier qu'on n'a pas deja creer la fonction
 if (!class_exists('ArmeVaissRepository')) {
     // inculre la classe qui va creer le fichier "errors.log" en cas d'erreur.
-    include_once dirname(__FILE__) . '/ObjetRepository.php';
+    include_once dirname(__FILE__) . '/ArmeRepository.php';
 
     // fonction pour faire la connexion a la base de donnes
-    class ArmeVaissRepository extends ObjetRepository {
+    class ArmeVaissRepository extends ArmeRepository {
 
         /**
          * Constructeur par defaut
@@ -121,7 +121,7 @@ if (!class_exists('ArmeVaissRepository')) {
                     'WHERE objet.id=:id')->setParamInt(":id", $id)->fetchAssoc();
         }
 
-        public function findAllIdAndLieux(int $id):array {
+        /*public function findAllIdAndLieux(int $id):array {
             $sql = 'SELECT *, couleur.nom AS nom_couleur, objet.id AS id_obj, arm_lieu.id AS id_lieu_arm, objet.nom AS nom_lieu FROM objet '.
                     'INNER JOIN lieux ON lieux.id_objet = objet.id '.
                     'INNER JOIN arm_lieu ON arm_lieu.id_lieu = lieux.id_lieu '.
@@ -133,7 +133,7 @@ if (!class_exists('ArmeVaissRepository')) {
             return $this->setSql($sql)
                         ->setParamInt(":id", $id)
                         ->fetchAllAssoc();
-        }
+        }*/
 
         public function findListTaille():array {
             $sql = 'SELECT * FROM taille_arm_vaisseau ORDER BY id DESC';
@@ -146,12 +146,7 @@ if (!class_exists('ArmeVaissRepository')) {
         }
 
         public function findIdTypeArmTransp():int {
-            $name = "armement des vaisseaux";
-            $tab_type = $this->setSql('SELECT * FROM type_arm WHERE nom=:nom')->setParam(":nom", $name)->fetchAssoc();
-            if(!(!empty($tab_type) && array_key_exists("id", $tab_type) && !empty($tab_type["id"]))) {
-                return 0;
-            }
-            return intval($tab_type["id"]);
+            return $this->findIdTypeArmMain("armement des vaisseaux");
         }
 
     }

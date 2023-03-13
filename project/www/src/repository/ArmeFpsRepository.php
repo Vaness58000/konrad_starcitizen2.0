@@ -3,10 +3,10 @@
 // verifier qu'on n'a pas deja creer la fonction
 if (!class_exists('ArmeFpsRepository')) {
     // inculre la classe qui va creer le fichier "errors.log" en cas d'erreur.
-    include_once dirname(__FILE__) . '/ObjetRepository.php';
+    include_once dirname(__FILE__) . '/ArmeRepository.php';
 
     // fonction pour faire la connexion a la base de donnes
-    class ArmeFpsRepository extends ObjetRepository {
+    class ArmeFpsRepository extends ArmeRepository {
 
         /**
          * Constructeur par defaut
@@ -166,7 +166,7 @@ if (!class_exists('ArmeFpsRepository')) {
                         ->rowCount();
         }
 
-        public function findAllIdAndLieux(int $id, bool $orderName = false):array {
+        /*public function findAllIdAndLieux(int $id, bool $orderName = false):array {
             $order = "arm_lieu.id DESC";
             if($orderName) {
                 $order = "objet.nom";
@@ -182,7 +182,7 @@ if (!class_exists('ArmeFpsRepository')) {
             return $this->setSql($sql)
                         ->setParamInt(":id", $id)
                         ->fetchAllAssoc();
-        }
+        }*/
 
         public function findListCat(bool $orderName = false):array {
             $order = "id_categ_arme DESC";
@@ -199,12 +199,7 @@ if (!class_exists('ArmeFpsRepository')) {
         }
 
         public function findIdTypeArmFPS():int {
-            $name = "armes FPS";
-            $tab_type = $this->setSql('SELECT * FROM type_arm WHERE nom=:nom')->setParam(":nom", $name)->fetchAssoc();
-            if(!(!empty($tab_type) && array_key_exists("id", $tab_type) && !empty($tab_type["id"]))) {
-                return 0;
-            }
-            return intval($tab_type["id"]);
+            return $this->findIdTypeArmMain("armes FPS");
         }
 
     }
