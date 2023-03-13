@@ -26,77 +26,63 @@ div.desc {
   color: aliceblue;
 }
 
-.hero {
-  display: inline-block;
-  position: relative;
-  width: 400px;
-  overflow: hidden;
-  box-shadow: 5px 5px 30px rgba(37, 37, 37, 0.3);
-  margin: 30px;
-}
-
-img#hero-profile-img {
-  width: 100%;
-  height: auto;
-  margin: 0px auto;
-}
-
-.hero-description-bk {
-  position: absolute;
-  top: 165px;
-  height: 25%;
-  width: 400px;
-
-}
-
-.especes .hero-description-bk {
-  background-image: linear-gradient(var(--dark-black-color), var(--light-color))
-}
-
-.hero-title a {
-  position: absolute;
-  color: #fff;
-  font-weight: 900;
-  top: 130px;
-  left: 40%;
-  font-size: 25px;
-
-}
-
-.voir_aussi h2 {
-  margin-left: 20px;
-}
-
-.voir_aussi_container {
+.container_objet {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
+  position: relative;
+  text-align: center;
+  color: white;
+  width: 100%;
+
 }
 
-@media screen and (max-width: 500px) {
-  .hero-description-bk {
-    position: absolute;
-    top: 75%;
-    height: 25%;
-    width: 400px;
 
+.card_objet {
+  margin: 40px 20px;
+  box-shadow: var(--light-color) 0px -12px 30px, var(--light-color) 0px 4px 6px, var(--light-color) 0px 12px 13px, var(--light-color) 0px -3px 5px;
+}
+
+.card_objet {
+  position: relative;
+  z-index: 1;
+}
+
+#image_objet img {
+  width: 400px;
+  height: 250px;
+  margin: 0;
+}
+
+#nom_objet {
+  width: 400px;
+  height: 50px;
+  position: absolute;
+  z-index: 2;
+  margin-top: -50px;
+  border-radius: 50% 1px solid;
+  background: linear-gradient(var(--medium-light-color), var(--light-color));
+}
+
+#nom_objet h3 {
+  color: aliceblue;
+  margin-top: -35px;
+}
+
+@media screen and (max-width: 450px) {
+  .card_objet {
+    margin: 40px 0px;
+  }
+  #image_objet img {
+    width: 300px;
+    height: 180px;
+    margin: 0;
   }
 
-  .hero-title a {
-    position: absolute;
-    color: #fff;
-    font-weight: 900;
-    top: 47%;
-    left: 40%;
-    font-size: 20px;
-
-  }
-
-  #hero-profile-img {
-    width: 320px;
-    height: auto;
+  #nom_objet {
+    width: 300px;
   }
 }
 

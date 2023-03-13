@@ -25,7 +25,7 @@ $armeFps = $armeFpsRepository->findAllAndArmeIdPage($pg, $nomb_art);
         <a href="?ind=arme_ind&id=<?= $construct['id_objet']; ?>">
           <?php $armeFps_img = $armeFpsRepository->findAllImgObj($construct["id_objet"]); 
           if (count($armeFps_img) >= 1) {?>
-          <img src="src/img/<?= $armeFps_img[0]['name'] ?>" alt="<?= $construct['nom_obj'] ?>"></a>
+          <img src="./upload/armement_fps/<?= $armeFps_img[0]['src'] ?>" alt="<?= $construct['nom_obj'] ?>"></a>
           <?php } ?>
         <div class="centered"><?= $construct['nom_obj'] ?></div>
 

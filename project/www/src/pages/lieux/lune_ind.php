@@ -17,7 +17,7 @@ $lunes = $lieuxLuneRepository->findAllCatIdNoId($_GET['id'], $type);
                 $lieuxLune_img = $lieuxLuneRepository->findAllImgObj($lune["id_objet"]);
                 if (count($lieuxLune_img) >= 1) {
                 ?>
-                    <img src="src/img/<?= $lieuxLune_img[0]['name'] ?>" alt="<?= $lieuxLune_img[0]['alt'] ?>"></a>
+                    <img src="./upload/lieux/<?= $lieuxLune_img[0]['src'] ?>" alt="<?= $lieuxLune_img[0]['alt'] ?>"></a>
                 <?php } ?>
                 <div class="description_generale">
                     <p class="bbcode"><?= str_replace("\n", "<br/>", $lune['contenu']) ?></p>
@@ -46,7 +46,7 @@ $lunes = $lieuxLuneRepository->findAllCatIdNoId($_GET['id'], $type);
                 $lieuxLune_img = $lieuxLuneRepository->findAllImgObj($lune["id_objet"]);
 
                 foreach ($lieuxLune_img as $construct_img) { ?>
-                    <img src="src/img/<?= $construct_img['name'] ?>" alt="lune <? $lune['nom_obj'] ?>" />
+                    <img src="./upload/lieux/<?= $construct_img['src'] ?>" alt="lune <? $lune['nom_obj'] ?>" />
                 <?php } ?>
 
             </div>
@@ -60,7 +60,7 @@ $lunes = $lieuxLuneRepository->findAllCatIdNoId($_GET['id'], $type);
                             $lieu_img = $lieuxLuneRepository->findAllImgObj($tous["id_objet"]);
                             if (count($lieu_img) >= 1) {
                             ?>
-                                <div class="photo" style="background-image: url(src/img/<?= $lieu_img[0]['name'] ?>" ;><a href="?ind=lune_ind&id=<?= $tous["id_objet"]; ?>"></a></div>
+                                <div class="photo" style="background-image: url(./upload/lieux/<?= $lieu_img[0]['src'] ?>" ;><a href="?ind=lune_ind&id=<?= $tous["id_objet"]; ?>"></a></div>
                             <?php } ?>
 
                         </div>

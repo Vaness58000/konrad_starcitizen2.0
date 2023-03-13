@@ -28,7 +28,7 @@ $systeme = $lieuxSystemeRepository->findAllAndCatIdPage($type, $pg, $nomb_art);
         $lieuxSysteme_img = $lieuxSystemeRepository->findAllImgObj($construct["id_objet"]);
         if (count($lieuxSysteme_img) >= 1) {
         ?>
-          <img src="src/img/<?= $lieuxSysteme_img[0]['name'] ?>" alt="<?= $lieuxSysteme_img[0]['alt'] ?>"></a>
+          <img src="./upload/lieux/<?= $lieuxSysteme_img[0]['src'] ?>" alt="<?= $lieuxSysteme_img[0]['alt'] ?>"></a>
     <?php } ?>
         <div class="card__head"><?= $construct['nom_obj'] ?></div>
       </a>

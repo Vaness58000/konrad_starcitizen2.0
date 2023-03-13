@@ -26,22 +26,33 @@ $especes = $especeRepository->findAllAndEspeceIdPage($pg, $nomb_art);
   <div class="info_generale">
     <h3>Civilisations</h3>
     <p>Les "Civilisations" sont les espèces ayant atteint le stade, par développement social, culturel et scientifique, de la Civilisation. Ces espèces en sont généralement à l'ère du voyage spatial, et ont donc transcendé les frontières de leur monde d'origine. Leurs technologies sont avancées et pointues, et leur culture est puissante.</p>
-    <div class="civilisation">
-      <?php foreach ($especes as $construct) { ?>
-        <div class="especes hero">
-          <a href="?ind=espece_ind&id=<?= $construct['id_objet']; ?>">
+    <div class="container_objet">
+
+    <?php foreach ($especes as $construct) { ?>
+        <div class="card_objet">
+
+        <a href="?ind=espece_ind&id=<?= $construct['id_objet']; ?>">
+           
+            <div id="image_objet">
             <?php
             $especes_img = $especeRepository->findAllImgObj($construct["id_objet"]);
             if (count($especes_img) >= 1) {
             ?>
-              <img id="hero-profile-img" src="./upload/especes/<?= $especes_img[0]['src'] ?>" alt="<?= $especes_img[0]['alt'] ?>"></a>
+              <img src="./upload/especes/<?= $especes_img[0]['src'] ?>" alt="<?= $especes_img[0]['alt'] ?>">
         <?php } ?>
-        <div class="hero-description-bk"></div>
-        <div class="hero-title">
-          <a href="?ind=espece_ind&id=<?= $construct['id_objet']; ?>" class="centered2"><?= $construct['nom_obj'] ?></a>
+          
+            </div>
+            <div id="nom_objet">
+            <h3 class="centered2"><?= $construct['nom_obj'] ?></h3>
+            </div>
+            </a>
+         
         </div>
-        </div>
-      <?php } ?>
+    <?php
+    }
+    ?>
+
+</div>
 
 </section>
 <ul class="pagination">

@@ -30,7 +30,7 @@ $article = $articleRepository->findAllAndTypeUserPage($type, $pg, $nomb_art);
 					$article_img = $articleRepository->findAllImgArticle($construct["id"]);
 					if (count($article_img) >= 1) {
 					?>
-						<img src="src/img/<?= $article_img[0]['name'] ?>" alt="<?= $article_img[0]['alt'] ?>" />
+						<img src="./upload/articles/<?= $article_img[0]['src'] ?>" alt="<?= $article_img[0]['alt'] ?>" />
 
 					<?php } ?>
 			</div>

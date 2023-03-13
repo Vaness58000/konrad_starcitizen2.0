@@ -26,7 +26,7 @@ $ville = $lieuxVilleRepository->findAllAndCatIdPage($type, $pg, $nomb_art);
         $lieuxVille_img = $lieuxVilleRepository->findAllImgObj($construct["id_objet"]);
         if (count($lieuxVille_img) >= 1) {
         ?>
-          <img src="src/img/<?= $lieuxVille_img[0]['name'] ?>" alt="<?= $lieuxVille_img[0]['alt'] ?>"></a>
+          <img src="./upload/lieux/<?= $lieuxVille_img[0]['src'] ?>" alt="<?= $lieuxVille_img[0]['alt'] ?>"></a>
     <?php } ?>
     <div class="centered"><?= $construct['nom_obj'] ?></div>
     </a>

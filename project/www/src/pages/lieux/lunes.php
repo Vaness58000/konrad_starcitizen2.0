@@ -26,7 +26,7 @@ $lieuxLune = $lieuxLuneRepository->findAllAndCatIdPage($type, $pg, $nomb_art);
                 $lieuxLune_img = $lieuxLuneRepository->findAllImgObj($construct["id_objet"]);
                 if (count($lieuxLune_img) >= 1) {
               ?>
-                <img src="src/img/<?= $lieuxLune_img[0]['name'] ?>" alt="<?= $lieuxLune_img[0]['alt'] ?>"></a>
+                <img src="./upload/lieux/<?= $lieuxLune_img[0]['src'] ?>" alt="<?= $lieuxLune_img[0]['alt'] ?>"></a>
                 <?php } ?>
             <div class="centered"><?= $construct['nom_obj'] ?></div>
         </div>

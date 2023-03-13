@@ -26,7 +26,7 @@ $station = $lieuStationSpatiale->findAllAndCatIdPage($type, $pg, $nomb_art);
         $lieuxPlanete_img = $lieuStationSpatiale->findAllImgObj($construct["id_objet"]);
         if (count($lieuxPlanete_img) >= 1) {
         ?>
-          <img src="src/img/<?= $lieuxPlanete_img[0]['name'] ?>" alt="<?= $lieuxPlanete_img[0]['alt'] ?>"></a>
+          <img src="./upload/lieux/<?= $lieuxPlanete_img[0]['src'] ?>" alt="<?= $lieuxPlanete_img[0]['alt'] ?>"></a>
     <?php } ?>
     <div class="centered"><?= $construct['nom_obj'] ?></div>
     </a>

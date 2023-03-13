@@ -25,10 +25,10 @@ $construct_tab = $constructeurRepository->findAllAndConstructeurIdPage($pg, $nom
         <a href="?ind=constructeur_ind&id=<?= $construct['id_constructeur']; ?>">
            
             <div class="image_construct">
-          <img src="src/img/<?= $construct['image'] ?>" alt="">
+          <img src="./upload/constructeurs/<?= $construct['image'] ?>" alt="">
             </div>
             <div id="logo_constructeur">
-                <img src="src/img/<?= $construct["logo"] ?>" alt="logo <?= $construct['nom'] ?>">
+                <img src="./upload/constructeurs_logo/<?= $construct["logo"] ?>" alt="logo <?= $construct['nom'] ?>">
             </div>
             
             </a>

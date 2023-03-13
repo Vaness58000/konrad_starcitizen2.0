@@ -30,10 +30,10 @@ $nomb_page = ceil($nomb / $nomb_art);
 
 
 <div class="container_contructeur">
-    <h1><img src="src/img/<?= $construct_tabs['logo']; ?>">&ensp;<?= $construct_tabs['nom']; ?></h1>
+    <h1><img src="./upload/constructeurs_logo/<?= $construct_tabs['logo']; ?>">&ensp;<?= $construct_tabs['nom']; ?></h1>
 
     <div class="info_construct">
-        <img src="src/img/<?= $construct_tabs['image']; ?>" alt="<?= $construct_tabs['nom']; ?>">
+        <img src="./upload/constructeurs/<?= $construct_tabs['image']; ?>" alt="<?= $construct_tabs['nom']; ?>">
 
         <p><?= str_replace("\n", "<br/>", $construct_tabs['contenu']); ?></p>
 
@@ -76,7 +76,7 @@ $nomb_page = ceil($nomb / $nomb_art);
                 <a href="?ind=transport_ind&id=<?= $transport['id_objet']; ?>"> <?php $transport_img = $transportRepository->findAllImgObj(intval($transport["id_objet"]));
 
                                                                                 if (count($transport_img) >= 1) {
-                                                                                ?><img src="src/img/<?= $transport_img[0]["src"] ?>" alt="vaisseau<?= $transport['nom_obj'] ?>"></a>
+                                                                                ?><img src="./upload/transport/<?= $transport_img[0]["src"] ?>" alt="vaisseau<?= $transport['nom_obj'] ?>"></a>
             <?php } ?>
             <div class="centered"><?= $transport['nom_obj']; ?></div>
             </div>

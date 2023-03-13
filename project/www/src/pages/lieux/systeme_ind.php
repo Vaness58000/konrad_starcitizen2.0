@@ -18,7 +18,7 @@ $tous_systeme = $lieuxSystemeRepository->findAllCatIdNoId($_GET['id'], $type);
                 $lieuxSysteme_img = $lieuxSystemeRepository->findAllImgObj($systeme["id_objet"]);
                 if (count($lieuxSysteme_img) >= 1) {
                 ?>
-                    <img src="src/img/<?= $lieuxSysteme_img[0]['name'] ?>" alt="<?= $lieuxSysteme_img[0]['alt'] ?>"></a>
+                    <img src="./upload/lieux/<?= $lieuxSysteme_img[0]['src'] ?>" alt="<?= $lieuxSysteme_img[0]['alt'] ?>"></a>
                 <?php } ?>
                 <div class="description_generale">
                     <p class="bbcode"><?= str_replace("\n", "<br/>", $systeme['contenu']) ?></p>
@@ -47,7 +47,7 @@ $tous_systeme = $lieuxSystemeRepository->findAllCatIdNoId($_GET['id'], $type);
                 $lieuxSysteme_img = $lieuxSystemeRepository->findAllImgObj($systeme["id_objet"]);
 
                 foreach ($lieuxSysteme_img as $construct_img) { ?>
-                    <img src="src/img/<?= $construct_img['name'] ?>" alt="Systeme <? $systeme['nom_lieu'] ?>" />
+                    <img src="./upload/lieux/<?= $construct_img['src'] ?>" alt="Systeme <? $systeme['nom_lieu'] ?>" />
                 <?php } ?>
 
             </div>
@@ -61,7 +61,7 @@ $tous_systeme = $lieuxSystemeRepository->findAllCatIdNoId($_GET['id'], $type);
                             $lieu_img = $lieuxSystemeRepository->findAllImgObj($tous["id_objet"]);
                             if (count($lieu_img) >= 1) {
                             ?>
-                                <div class="photo" style="background-image: url(src/img/<?= $lieu_img[0]['name'] ?>" ;><a href="?ind=systeme_ind&id=<?= $tous["id_objet"]; ?>"></a></div>
+                                <div class="photo" style="background-image: url(./upload/lieux/<?= $lieu_img[0]['src'] ?>" ;><a href="?ind=systeme_ind&id=<?= $tous["id_objet"]; ?>"></a></div>
                             <?php } ?>
 
                         </div>

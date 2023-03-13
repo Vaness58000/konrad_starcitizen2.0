@@ -17,7 +17,7 @@ $tous_ville = $lieuxVilleRepository->findAllCatIdNoId($_GET['id'], $type);
                 $lieuxVille_img = $lieuxVilleRepository->findAllImgObj($ville["id_objet"]);
                 if (count($lieuxVille_img) >= 1) {
                 ?>
-                    <img src="src/img/<?= $lieuxVille_img[0]['name'] ?>" alt="<?= $lieuxVille_img[0]['alt'] ?>"></a>
+                    <img src="./upload/lieux/<?= $lieuxVille_img[0]['src'] ?>" alt="<?= $lieuxVille_img[0]['alt'] ?>"></a>
                 <?php } ?>
                 <div class="description_generale">
                     <p class="bbcode"><?= str_replace("\n", "<br/>", $ville['contenu']) ?></p>
@@ -46,7 +46,7 @@ $tous_ville = $lieuxVilleRepository->findAllCatIdNoId($_GET['id'], $type);
                 $lieuxVille_img = $lieuxVilleRepository->findAllImgObj($ville["id_objet"]);
 
                 foreach ($lieuxVille_img as $construct_img) { ?>
-                    <img src="src/img/<?= $construct_img['name'] ?>" alt="Ville <? $ville['nom_lieu'] ?>" />
+                    <img src="./upload/lieux/<?= $construct_img['src'] ?>" alt="Ville <? $ville['nom_lieu'] ?>" />
                 <?php } ?>
 
             </div>
@@ -60,7 +60,7 @@ $tous_ville = $lieuxVilleRepository->findAllCatIdNoId($_GET['id'], $type);
                             $lieu_img = $lieuxVilleRepository->findAllImgObj($tous["id_objet"]);
                             if (count($lieu_img) >= 1) {
                             ?>
-                                <div class="photo" style="background-image: url(src/img/<?= $lieu_img[0]['name'] ?>" ;><a href="?ind=ville_ind&id=<?= $tous["id_objet"]; ?>"></a></div>
+                                <div class="photo" style="background-image: url(./upload/lieux/<?= $lieu_img[0]['name'] ?>" ;><a href="?ind=ville_ind&id=<?= $tous["id_objet"]; ?>"></a></div>
                             <?php } ?>
 
                         </div>

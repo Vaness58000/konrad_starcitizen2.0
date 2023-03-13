@@ -25,12 +25,12 @@ $users = $usersRepository->findAllAndUserPage($pg, $nomb_art);
                 <?php
                         $user = $usersRepository->findAllUserAvatarId($streamer["idUser"]);
                         if (count($user) <= 0) { ?>
-                            <img src="src/img/avatar.png" alt="<?= $streamer['pseudo'] ?>" />
+                            <img src="./upload/avatar/avatar.png" alt="<?= $streamer['pseudo'] ?>" />
 
                         <?php } else if (count($user) >= 1) { ?>
-                            <img src="upload/<?= $user["src"] ?>" alt="avatar de <?= $streamer['pseudo'] ?>" />
+                            <img src="./upload/avatar/<?= $user["src"] ?>" alt="avatar de <?= $streamer['pseudo'] ?>" />
                         <?php } ?>
-                <img src="src/img/avatar.png" alt="profile card">
+                
             </div>
 
             <div class="profile-card__cnt -profile-cnt">

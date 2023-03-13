@@ -27,7 +27,7 @@ $construct_tab = $constructeurRepository->findAll();
     <div id="myDropdown" class="dropdown-content">
 
       <?php foreach ($construct_tab as $construct) { ?>
-        <a href="?ind=constructeur_ind&id=<?= $construct['id_constructeur']; ?>"><img src="src/img/<?= $construct['logo'] ?>" alt="logo <?= $construct['nom'] ?>" width="50px"><?= $construct['nom'] ?></a>
+        <a href="?ind=constructeur_ind&id=<?= $construct['id_constructeur']; ?>"><img src="./upload/constructeurs_logo/<?= $construct['logo'] ?>" alt="logo <?= $construct['nom'] ?>" width="70px" height="40px"><?= $construct['nom'] ?></a>
       <?php } ?>
     </div>
 
@@ -40,7 +40,7 @@ $construct_tab = $constructeurRepository->findAll();
         <a href="?ind=transport_ind&id=<?= $construct['id_objet']; ?>">
           <?php $vaisseau_img = $transportRepository->findAllImgObj($construct["id_objet"]);
           if (count($vaisseau_img) >= 1) {
-          ?><img src="src/img/<?= $vaisseau_img[0]["name"] ?>" alt="vaisseau<?= $construct['nom_obj'] ?>"></a>
+          ?><img src="./upload/transport/<?= $vaisseau_img[0]["src"] ?>" alt="vaisseau<?= $construct['nom_obj'] ?>"></a>
       <?php } ?>
       <div class="centered"><?= $construct['nom_obj'] ?></div>
       </div>

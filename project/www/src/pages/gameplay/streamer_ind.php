@@ -25,9 +25,9 @@ $user = $usersRepository->findAllId($_GET['id']);
         <?php
         $user_avatar = $user["src"];
         if (empty($user_avatar)) { ?>
-          <img class="card-avatar" src="src/img/avatar.png" alt="avatar de <?= $user['pseudo'] ?>"></a>
+          <img class="card-avatar" src="./upload/avatar/avatar.png" alt="avatar de <?= $user['pseudo'] ?>"></a>
         <?php } else { ?>
-          <img class="card-avatar" src="upload/<?= $user_avatar ?>" alt="avatar de <?= $user['pseudo'] ?>"></a>
+          <img class="card-avatar" src="./upload/avatar/<?= $user_avatar ?>" alt="avatar de <?= $user['pseudo'] ?>"></a>
         <?php } ?>
         <h1 class="card-fullname"><?= $user['pseudo'] ?></br>Streamer Star Citizen</h1>
         <h2 class="card-jobtitle"></h2>
@@ -64,7 +64,7 @@ $user = $usersRepository->findAllId($_GET['id']);
                 $article_img = $articleRepository->findAllImgArticle($construct["id"]);
                 if (count($article_img) >= 1) {
                 ?>
-                  <img class="postcard__img" src="src/img/<?= $article_img[0]['name'] ?>" alt="<?= $article_img[0]['alt'] ?>" />
+                  <img class="postcard__img" src="./upload/articles/<?= $article_img[0]['src'] ?>" alt="<?= $article_img[0]['alt'] ?>" />
 
                 <?php } ?>
               </a>

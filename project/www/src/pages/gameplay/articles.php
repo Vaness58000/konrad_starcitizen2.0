@@ -29,7 +29,7 @@ $article = $articleRepository->findAllAndTypeUserPage($type, $pg, $nomb_art);
             $article_img = $articleRepository->findAllImgArticle($construct["id"]);
             if (count($article_img) >= 1) {
             ?>
-              <img src="src/img/<?= $article_img[0]['src'] ?>" alt="<?= $article_img[0]['alt'] ?>" />
+              <img src="./upload/articles/<?= $article_img[0]['src'] ?>" alt="<?= $article_img[0]['alt'] ?>" />
 
             <?php } ?>
 
@@ -45,10 +45,10 @@ $article = $articleRepository->findAllAndTypeUserPage($type, $pg, $nomb_art);
             <?php
             $user = $usersRepository->findAllUserAvatarId($construct["id_user"]);
             if (count($user) <= 0) { ?>
-              <img src="src/img/avatar.png" alt="<?= $construct['pseudo'] ?>" />
+              <img src="./upload/avatar/avatar.png" alt="<?= $construct['pseudo'] ?>" />
 
             <?php } else if (count($user) >= 1) { ?>
-              <img src="upload/<?= $user["src"] ?>" alt="avatar de <?= $construct['pseudo'] ?>" />
+              <img src="./upload/avatar/<?= $user["src"] ?>" alt="avatar de <?= $construct['pseudo'] ?>" />
             <?php } ?>
             <div class="user-info">
               <h5><?= $construct['pseudo'] ?></h5>

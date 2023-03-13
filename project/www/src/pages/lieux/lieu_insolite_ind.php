@@ -18,7 +18,7 @@ $tous_lieu = $lieuxInsoliteRepository->findAllCatIdNoId($_GET['id'], $type);
                 $lieuxInsolite_img = $lieuxInsoliteRepository->findAllImgObj($lune["id_objet"]);
                 if (count($lieuxInsolite_img) >= 1) {
                 ?>
-                    <img src="src/img/<?= $lieuxInsolite_img[0]['name'] ?>" alt="<?= $lieuxInsolite_img[0]['alt'] ?>"></a>
+                    <img src="./upload/lieux/<?= $lieuxInsolite_img[0]['src'] ?>" alt="<?= $lieuxInsolite_img[0]['alt'] ?>"></a>
                 <?php } ?>
                 <div class="description_generale">
                     <p class="bbcode"><?= str_replace("\n", "<br/>", $lune['contenu']) ?></p>
@@ -39,6 +39,14 @@ $tous_lieu = $lieuxInsoliteRepository->findAllCatIdNoId($_GET['id'], $type);
                             </td>
                         </tr>
                     <?php } ?>
+                        <tr>
+                            <td>
+                                Lier à 
+                            </td>
+                            <td>
+                                
+                            </td>
+                        </tr>
                 </table>
 
             </div>
@@ -47,7 +55,7 @@ $tous_lieu = $lieuxInsoliteRepository->findAllCatIdNoId($_GET['id'], $type);
                 $lieuxInsolite_img = $lieuxInsoliteRepository->findAllImgObj($lune["id_objet"]);
 
                 foreach ($lieuxInsolite_img as $construct_img) { ?>
-                    <img src="src/img/<?= $construct_img['name'] ?>" alt="lune <? $lune['nom_obj'] ?>" />
+                    <img src="./upload/lieux/<?= $construct_img['src'] ?>" alt="lune <? $lune['nom_obj'] ?>" />
                 <?php } ?>
 
             </div>

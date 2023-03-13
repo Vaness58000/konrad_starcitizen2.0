@@ -25,10 +25,10 @@ $tous_article = $articleRepository->findAllAndTypeUserNoId($type, $_GET["id"]);
                         <?php
                         $user = $usersRepository->findAllUserAvatarId($construct["id_user"]);
                         if (count($user) <= 0) { ?>
-                            <img src="src/img/avatar.png" alt="<?= $construct['pseudo'] ?>" />
+                            <img src="./upload/avatar/avatar.png" alt="<?= $construct['pseudo'] ?>" />
 
                         <?php } else if (count($user) >= 1) { ?>
-                            <img src="upload/<?= $user["src"] ?>" alt="avatar de <?= $construct['pseudo'] ?>" />
+                            <img src="./upload/avatar/<?= $user["src"] ?>" alt="avatar de <?= $construct['pseudo'] ?>" />
                         <?php } ?>
                         <div class="user-info">
                             <h5><?= $construct['pseudo'] ?></h5>
@@ -37,14 +37,20 @@ $tous_article = $articleRepository->findAllAndTypeUserNoId($type, $_GET["id"]);
                     </div>
 
                     <p class="text"><strong><?= str_replace("\n", "<br/>", $construct['resume']) ?></strong></p>
+                    <?php
+					$article_img = $articleRepository->findAllImgArticle($construct["id"]);
+					if (count($article_img) >= 1) {
+					?>
+						<img src="./upload/articles/<?= $article_img[0]['src'] ?>" alt="<?= $article_img[0]['alt'] ?>" />
 
+					<?php } ?>
                     <p class="text bbcode"><?= str_replace("\n", "<br/>", $construct['contenu']) ?></p>
 
                     <?php
                     $article_img = $articleRepository->findAllImgArticle($construct["id"]);
 
                     foreach ($article_img as $construct_img) { ?>
-                        <img src="src/img/<?= $construct_img['name'] ?>">
+                        <img src="./upload/articles/<?= $construct_img['src'] ?>">
 
                     <?php } ?>
              
@@ -58,7 +64,7 @@ $tous_article = $articleRepository->findAllAndTypeUserNoId($type, $_GET["id"]);
                                 $article_img = $articleRepository->findAllImgArticle($tous["id"]);
                                 if (count($article_img) >= 1) {
                                 ?>
-                                    <div class="photo" style="background-image: url(src/img/<?= $article_img[0]['name'] ?>" ;><a href="?ind=patch_ind&id=<?= $tous["id"]; ?>"></a></div>
+                                    <div class="photo" style="background-image: url(./upload/articles/<?= $article_img[0]['src'] ?>" ;><a href="?ind=patch_ind&id=<?= $tous["id"]; ?>"></a></div>
                                 <?php } ?>
 
                             </div>
