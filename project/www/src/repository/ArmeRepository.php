@@ -52,6 +52,49 @@ if (!class_exists('ArmeRepository')) {
             return intval($tab_type["id"]);
         }
 
+        public function recupIdArm(int $id_objet): int {
+            $sql = 'SELECT id_arme FROM equipements_armement WHERE id_objet=:id';
+            $recupId = $this->setSql($sql)
+                        ->setParamInt(":id", $id_objet)
+                        ->fetchAssoc();
+            if(empty($recupId)) {
+                return 0;
+            }
+            return intval($recupId['id_arme']);
+        }
+        
+        public function addArm(int $id_transp, int $id_objet, int $id_type, ?string $lien): int {
+            $id_main = $id_transp;
+            if(empty($description)) {
+                $description = "";
+            }
+            $this->beginTransaction();
+            if(!empty($id_transp)) {
+                $sql = "UPDATE equipements_armement SET id_type=:id_type,lien=:lien WHERE id_arme=:id";
+                $this->setSql($sql)
+                    ->setParamInt(":id", $id_transp)
+                    ->setParamInt(":id_type", $id_type)
+                    ->setParam(":lien", $lien);
+                $this->executeSql();
+            } else {
+                $sql = "INSERT INTO equipements_armement (id_objet, id_type, lien) VALUES (:id_objet, :id_type, :lien)";
+                $this->setSql($sql)
+                    ->setParamInt(":id_objet", $id_objet)
+                    ->setParamInt(":id_type", $id_type)
+                    ->setParam(":lien", $lien);
+                $this->executeSql();
+                $id_main = $this->lastInsertId();
+            }
+            // en cas d'erreur
+            if(Error_Log::isError()) {
+                $id_main = 0;
+                $this->rollBack();
+            } else {
+                $this->commit();
+            }
+            return $id_main;
+        }
+
     }
 }
 
