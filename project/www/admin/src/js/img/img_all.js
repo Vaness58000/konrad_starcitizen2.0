@@ -18,7 +18,8 @@ function delete_img(e) {
         }
         /*let urlDeleteImg = "./src/exec/delete_img_obj.php";
         let urlDeleteImgInfp = "./src/exec/delete_img_obj_info.php";*/
-        if(nameAndId[0] === "imgMultiple") {
+        console.log(nameAndId);
+        if(nameAndId[0] === "imgFileMainTmp") {
             e.target.parentNode.parentNode.removeChild(e.target.parentNode);
         } else {
             let poss = { id: nameAndId[1], folder_img: folder_img };

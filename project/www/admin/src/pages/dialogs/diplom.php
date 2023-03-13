@@ -2,6 +2,7 @@
 include __DIR__.'/../../../../src/class/classMain/TemplatePage.php';
 include __DIR__.'/../../../../src/class/classMain/Error_Log.php';
 include __DIR__.'/../../../../src/repository/categories/CatDiplomRepository.php';
+include __DIR__.'/../../../../src/repository/EspecesRepository.php';
 include __DIR__.'/../../function/table-admin.php';
 include __DIR__.'/../../../../src/class/classSite/SessionUser.php';
 $sessionUser = new SessionUser();
@@ -24,8 +25,9 @@ $imgs = "";
 $ispro = "";
 $id_diplom = 0;
 
+$especesRepository = new EspecesRepository();
 if(!empty($_POST) && array_key_exists("id", $_POST) && !empty($_POST["id"])) {
-    $id_diplom = intval($_POST["id"]);
+    $id_diplom = $especesRepository->recupEspecIdDiplom(intval($_POST["id"]));
 }
 
 $catDiplomRepository = new catDiplomRepository();

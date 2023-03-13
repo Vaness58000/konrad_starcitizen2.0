@@ -1,5 +1,5 @@
 <?php
-include __DIR__.'/../../../../src/repository/categories/CatDiplomRepository.php';
+include __DIR__.'/../../../../src/repository/EspecesRepository.php';
 include __DIR__.'/../../../../src/class/classSite/SessionUser.php';
 $sessionUser = new SessionUser();
 // si la session existe pas soit si l'on est pas connecté on redirige

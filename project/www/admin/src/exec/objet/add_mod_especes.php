@@ -19,6 +19,8 @@ if(!$sessionUser->isConnected()) {
     ) {
         $tabAddListContro = new TabAddList($_POST, 'controDataTmp');
         $tabListContro = $tabAddListContro->getTabList();
+        $tabAddListDiplom = new TabAddList($_POST, 'diplomDataTmp');
+        $tabListDiplom = $tabAddListDiplom->getTabList();
         // **********************
         $nameKeyImgMain = (array_key_exists('img-princ', $_POST) && !empty($_POST['img-princ'])) ? $_POST['img-princ'] : "";
         if(!empty($nameKeyImgMain)) {
@@ -65,6 +67,16 @@ if(!$sessionUser->isConnected()) {
             }
         }
         $objRepository->addModLieu($objRepository->recupIdLieuEspece($id_espece), $id_espece, $id_lieu_esp);
+        if (!empty($tabListDiplom) && !empty($id_main) && empty($_POST['id']) && empty($_POST['is_error'])) {
+            foreach ($tabListDiplom as $value) {
+                $nom_diplom = $value['nom'];
+                $traite_diplom = $value['traite'];
+                if (!empty($nom_diplom) && !empty($traite_diplom)) {
+                    $id_diplom = $objRepository->addModDiplom(0, $nom_diplom, $traite_diplom);
+                    $objRepository->addDiplomEspec(0, $id_espece, $id_diplom);
+                }
+            }
+        }
         // **********************
         if (!empty($tabListInfo) && !empty($id_main) && empty($_POST['id']) && empty($_POST['is_error'])) {
             foreach ($tabListInfo as $value) {
