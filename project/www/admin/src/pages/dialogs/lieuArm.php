@@ -1,6 +1,7 @@
 <?php
 include __DIR__.'/../../../../src/class/classMain/TemplatePage.php';
 include __DIR__.'/../../../../src/class/classMain/Error_Log.php';
+include __DIR__.'/../../../../src/repository/ArmeRepository.php';
 include __DIR__.'/../../../../src/repository/LieuxRepository.php';
 include __DIR__.'/../../../../src/repository/categories/CatCouleurRepository.php';
 include __DIR__.'/../../function/table-admin.php';
@@ -30,8 +31,9 @@ $id_couleur = 0;
 $couleur = "";
 $prix = "";
 
-if(!empty($_POST) && array_key_exists("idShow", $_POST) && !empty($_POST["idShow"])) {
-    $id_lieux_arm = intval($_POST["idShow"]);
+$armeRepository = new ArmeRepository();
+if(!empty($_POST) && array_key_exists("id", $_POST) && !empty($_POST["id"])) {
+    $id_lieux_arm = $armeRepository->recupIdArm(intval($_POST["id"]));
 }
 
 $lieuxRepository = new LieuxRepository();

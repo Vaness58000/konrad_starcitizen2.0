@@ -63,16 +63,16 @@ if (!class_exists('ArmeRepository')) {
             return intval($recupId['id_arme']);
         }
         
-        public function addArm(int $id_transp, int $id_objet, int $id_type, ?string $lien): int {
-            $id_main = $id_transp;
+        public function addArm(int $id_arm, int $id_objet, int $id_type, ?string $lien): int {
+            $id_main = $id_arm;
             if(empty($description)) {
                 $description = "";
             }
             $this->beginTransaction();
-            if(!empty($id_transp)) {
+            if(!empty($id_arm)) {
                 $sql = "UPDATE equipements_armement SET id_type=:id_type,lien=:lien WHERE id_arme=:id";
                 $this->setSql($sql)
-                    ->setParamInt(":id", $id_transp)
+                    ->setParamInt(":id", $id_arm)
                     ->setParamInt(":id_type", $id_type)
                     ->setParam(":lien", $lien);
                 $this->executeSql();
@@ -82,6 +82,120 @@ if (!class_exists('ArmeRepository')) {
                     ->setParamInt(":id_objet", $id_objet)
                     ->setParamInt(":id_type", $id_type)
                     ->setParam(":lien", $lien);
+                $this->executeSql();
+                $id_main = $this->lastInsertId();
+            }
+            // en cas d'erreur
+            if(Error_Log::isError()) {
+                $id_main = 0;
+                $this->rollBack();
+            } else {
+                $this->commit();
+            }
+            return $id_main;
+        }
+        
+        public function recupIdConstructArm(int $id_transp): int {
+            $sql = 'SELECT id FROM construct_arm WHERE id_arm=:id';
+            $recupId = $this->setSql($sql)
+                        ->setParamInt(":id", $id_transp)
+                        ->fetchAssoc();
+            if(empty($recupId)) {
+                return 0;
+            }
+            return intval($recupId['id']);
+        }
+
+        public function addModConstruct(int $id, int $id_arm, int $id_construct): int {
+            $id_main = $id;
+            if(!empty($id)) {
+                $this->beginTransaction();
+                $sql = "UPDATE construct_arm SET id_construct=:id_construct WHERE id=:id";
+                $this->setSql($sql)
+                    ->setParamInt(":id", $id)
+                    ->setParamInt(":id_construct", $id_construct);
+                $this->executeSql();
+            }else {
+                $this->beginTransaction();
+                $sql = "INSERT INTO construct_arm (id_construct, id_arm) VALUES (:id_construct, :id_arm)";
+                $this->setSql($sql)
+                    ->setParamInt(":id_construct", $id_construct)
+                    ->setParamInt(":id_arm", $id_arm);
+                $this->executeSql();
+                $id_main = $this->lastInsertId();
+            }
+            // en cas d'erreur
+            if(Error_Log::isError()) {
+                $id_main = 0;
+                $this->rollBack();
+            } else {
+                $this->commit();
+            }
+            return $id_main;
+        }
+
+        public function addModLieu(int $id, int $id_arm, int $id_lieu, ?string $prix): int {
+            $id_main = $id;
+            $this->beginTransaction();
+            if(!empty($id)) {
+                $sql = "UPDATE arm_lieu SET id_lieu=:id_lieu,prix=:prix WHERE id=:id";
+                $this->setSql($sql)
+                            ->setParamInt(":id", $id)
+                            ->setParamInt(":id_lieu", $id_lieu)
+                            ->setParam(":prix", $prix);
+                $this->executeSql();
+            } else {
+                $sql = "INSERT INTO arm_lieu (id_lieu, id_arm, prix) VALUES (:id_lieu, :id_arm, :prix)";
+                $this->setSql($sql)
+                            ->setParamInt(":id_arm", $id_arm)
+                            ->setParamInt(":id_lieu", $id_lieu)
+                            ->setParam(":prix", $prix);
+                $this->executeSql();
+                $id_main = $this->lastInsertId();
+            }
+            // en cas d'erreur
+            if(Error_Log::isError()) {
+                $id_main = 0;
+                $this->rollBack();
+            } else {
+                $this->commit();
+            }
+            return $id_main;
+        }
+
+        public function deleteLieu(int $id): self {
+            $sql = "DELETE FROM arm_lieu WHERE id=:id";
+            $this->setSql($sql)->setParamInt(":id", $id);
+            $this->executeSql();
+            return $this;
+        }
+
+        public function recupIdArmCouleur(int $id_transp): int {
+            $sql = 'SELECT id FROM couleur_lieu_arm WHERE id_arm_lieu=:id';
+            $recupId = $this->setSql($sql)
+                        ->setParamInt(":id", $id_transp)
+                        ->fetchAssoc();
+            if(empty($recupId)) {
+                return 0;
+            }
+            return intval($recupId['id']);
+        }
+
+        public function addModArmCouleur(int $id, int $id_arm_lieu, int $id_couleur): int {
+            $id_main = $id;
+            if(!empty($id)) {
+                $this->beginTransaction();
+                $sql = "UPDATE couleur_lieu_arm SET id_couleur=:id_couleur WHERE id=:id";
+                $this->setSql($sql)
+                    ->setParamInt(":id", $id)
+                    ->setParamInt(":id_couleur", $id_couleur);
+                $this->executeSql();
+            }else {
+                $this->beginTransaction();
+                $sql = "INSERT INTO couleur_lieu_arm (id_arm_lieu, id_couleur) VALUES (:id_arm_lieu, :id_couleur)";
+                $this->setSql($sql)
+                    ->setParamInt(":id_arm_lieu", $id_arm_lieu)
+                    ->setParamInt(":id_couleur", $id_couleur);
                 $this->executeSql();
                 $id_main = $this->lastInsertId();
             }

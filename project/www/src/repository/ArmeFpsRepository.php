@@ -202,6 +202,53 @@ if (!class_exists('ArmeFpsRepository')) {
             return $this->findIdTypeArmMain("armes FPS");
         }
 
+        public function recupIdArmFPS(int $id_arm): int {
+            $sql = 'SELECT id FROM arm_fps WHERE id_arm=:id';
+            $recupId = $this->setSql($sql)
+                        ->setParamInt(":id", $id_arm)
+                        ->fetchAssoc();
+            if(empty($recupId)) {
+                return 0;
+            }
+            return intval($recupId['id']);
+        }
+        
+        public function add(int $id_transp, int $id_arm, int $id_cat, ?string $poids, ?string $portee, ?string $perte): int {
+            $id_main = $id_transp;
+            if(empty($description)) {
+                $description = "";
+            }
+            $this->beginTransaction();
+            if(!empty($id_transp)) {
+                $sql = "UPDATE arm_fps SET poids=:poids,portee=:portee,perte=:perte,id_cat=:id_cat WHERE id=:id";
+                $this->setSql($sql)
+                    ->setParamInt(":id", $id_transp)
+                    ->setParamInt(":id_cat", $id_cat)
+                    ->setParam(":poids", $poids)
+                    ->setParam(":portee", $portee)
+                    ->setParam(":perte", $perte);
+                $this->executeSql();
+            } else {
+                $sql = "INSERT INTO arm_fps (poids, portee, perte, id_arm, id_cat) VALUES (:poids, :portee, :perte, :id_arm, :id_cat)";
+                $this->setSql($sql)
+                    ->setParamInt(":id_arm", $id_arm)
+                    ->setParamInt(":id_cat", $id_cat)
+                    ->setParam(":poids", $poids)
+                    ->setParam(":portee", $portee)
+                    ->setParam(":perte", $perte);
+                $this->executeSql();
+                $id_main = $this->lastInsertId();
+            }
+            // en cas d'erreur
+            if(Error_Log::isError()) {
+                $id_main = 0;
+                $this->rollBack();
+            } else {
+                $this->commit();
+            }
+            return $id_main;
+        }
+
     }
 }
 

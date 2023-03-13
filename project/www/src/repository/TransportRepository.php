@@ -520,7 +520,7 @@ if (!class_exists('TransportRepository')) {
                 $sql = "UPDATE construct_transp SET id_construct=:id_construct WHERE id=:id";
                 $this->setSql($sql)
                     ->setParamInt(":id", $id)
-                    ->setParamInt(":id_transp", $id_transp);
+                    ->setParamInt(":id_construct", $id_construct);
                 $this->executeSql();
             }else {
                 $this->beginTransaction();

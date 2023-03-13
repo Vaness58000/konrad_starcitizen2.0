@@ -149,6 +149,47 @@ if (!class_exists('ArmeVaissRepository')) {
             return $this->findIdTypeArmMain("armement des vaisseaux");
         }
 
+        public function recupIdArmTransp(int $id_arm): int {
+            $sql = 'SELECT id FROM arm_fps WHERE id_arm=:id';
+            $recupId = $this->setSql($sql)
+                        ->setParamInt(":id", $id_arm)
+                        ->fetchAssoc();
+            if(empty($recupId)) {
+                return 0;
+            }
+            return intval($recupId['id']);
+        }
+        
+        public function add(int $id_transp, int $id_arm, int $id_taille): int {
+            $id_main = $id_transp;
+            if(empty($description)) {
+                $description = "";
+            }
+            $this->beginTransaction();
+            if(!empty($id_transp)) {
+                $sql = "UPDATE arm_vaiss SET id_taille=:id_taille WHERE id=:id";
+                $this->setSql($sql)
+                    ->setParamInt(":id", $id_transp)
+                    ->setParamInt(":id_taille", $id_taille);
+                $this->executeSql();
+            } else {
+                $sql = "INSERT INTO arm_vaiss (id_arm, id_taille) VALUES (:id_arm, :id_taille)";
+                $this->setSql($sql)
+                    ->setParamInt(":id_arm", $id_arm)
+                    ->setParamInt(":id_taille", $id_taille);
+                $this->executeSql();
+                $id_main = $this->lastInsertId();
+            }
+            // en cas d'erreur
+            if(Error_Log::isError()) {
+                $id_main = 0;
+                $this->rollBack();
+            } else {
+                $this->commit();
+            }
+            return $id_main;
+        }
+
     }
 }
 
