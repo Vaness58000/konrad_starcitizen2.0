@@ -17,7 +17,7 @@ if(!$sessionUser->isConnected()) {
         !empty($_POST) &&
         array_key_exists('id', $_POST)
     ) {
-        $tabAddListLieux = new TabAddList($_POST, 'lieuDataTmp');
+        /*$tabAddListLieux = new TabAddList($_POST, 'lieuDataTmp');
         $tabListLieux = $tabAddListLieux->getTabList();
         // **********************
         $nameKeyImgMain = (array_key_exists('img-princ', $_POST) && !empty($_POST['img-princ'])) ? $_POST['img-princ'] : "";
@@ -47,7 +47,7 @@ if(!$sessionUser->isConnected()) {
             $visible
         );
         // **********************
-        /*$id_serv = $objRepository->add($objRepository->recupIdService($id_main), $id_main);
+        / *$id_serv = $objRepository->add($objRepository->recupIdService($id_main), $id_main);
         if (!empty($tabListLieux) && !empty($id_main) && empty($_POST['id']) && empty($_POST['is_error'])) {
             foreach ($tabListLieux as $value) {
                 $id_lieu = intval($value['lieu']);
@@ -55,7 +55,7 @@ if(!$sessionUser->isConnected()) {
                     $objRepository->addModLieu(0, $id_serv, $id_lieu);
                 }
             }
-        }*/
+        }* /
         // **********************
         if (!empty($tabListInfo) && !empty($id_main) && empty($_POST['id']) && empty($_POST['is_error'])) {
             foreach ($tabListInfo as $value) {
@@ -81,7 +81,7 @@ if(!$sessionUser->isConnected()) {
             echo 'true';
         } else {
             echo 'Il y a eu une erreur lors du transfert.';
-        }
+        }*/
     } else {
         echo 'Vous ne pouvez pas faire cette action.';
     }

@@ -202,13 +202,13 @@ if (!class_exists('EspecesRepository')) {
             $id_main = $id;
             $this->beginTransaction();
             if(!empty($id)) {
-                $sql = "UPDATE lieu_espece SET id_lieu=:id_lieu WHERE id=:id";
+                $sql = "UPDATE controle_lieu SET id_lieu=:id_lieu WHERE id=:id";
                 $this->setSql($sql)
                             ->setParamInt(":id", $id)
                             ->setParamInt(":id_lieu", $id_lieu);
                 $this->executeSql();
             } else {
-                $sql = "INSERT INTO lieu_espece (id_espece, id_lieu) VALUES (:id_espece, :id_lieu)";
+                $sql = "INSERT INTO controle_lieu (id_espece, id_lieu) VALUES (:id_espece, :id_lieu)";
                 $this->setSql($sql)
                             ->setParamInt(":id_espece", $id_espece)
                             ->setParamInt(":id_lieu", $id_lieu);
@@ -226,7 +226,7 @@ if (!class_exists('EspecesRepository')) {
         }
 
         public function deleteLieuControle(int $id): self {
-            $sql = "DELETE FROM lieu_espece WHERE id=:id";
+            $sql = "DELETE FROM controle_lieu WHERE id=:id";
             $this->setSql($sql)->setParamInt(":id", $id);
             $this->executeSql();
             return $this;
@@ -271,23 +271,21 @@ if (!class_exists('EspecesRepository')) {
             return $id_main;
         }
 
-        public function addModDiplom(int $id, ?string $nom, ?string $description, ?string $prix): int {
+        public function addModDiplom(int $id, ?string $type, ?string $traite): int {
             $id_main = $id;
             $this->beginTransaction();
             if(!empty($id)) {
-                $sql = "UPDATE equipement SET nom=:nom,description=:description,prix=:prix WHERE id=:id";
+                $sql = "UPDATE diplomatie SET type=:type,traite=:traite WHERE id=:id";
                 $this->setSql($sql)
                             ->setParamInt(":id", $id)
-                            ->setParam(":nom", $nom)
-                            ->setParam(":description", $description)
-                            ->setParam(":prix", $prix);
+                            ->setParam(":type", $type)
+                            ->setParam(":traite", $traite);
                 $this->executeSql();
             } else {
-                $sql = "INSERT INTO equipement (nom, description, prix) VALUES (:nom, :description, :prix)";
+                $sql = "INSERT INTO diplomatie (type, traite) VALUES (:type, :traite)";
                 $this->setSql($sql)
-                            ->setParam(":nom", $nom)
-                            ->setParam(":description", $description)
-                            ->setParam(":prix", $prix);
+                            ->setParam(":type", $type)
+                            ->setParam(":traite", $traite);
                 $this->executeSql();
                 $id_main = $this->lastInsertId();
             }
@@ -301,14 +299,14 @@ if (!class_exists('EspecesRepository')) {
             return $id_main;
         }
 
-        public function addEquipTransp(int $id, int $id_equip, int $id_transp) {
+        public function addDiplomEspec(int $id, int $id_espece, int $id_diplomatie) {
             $id_main = $id;
             if(empty($id)) {
                 $this->beginTransaction();
-                $sql = "INSERT INTO transp_equip (id_equip, id_transp) VALUES (:id_equip, :id_transp)";
+                $sql = "INSERT INTO diplomatie_espece (id_diplomatie, id_espece) VALUES (:id_diplomatie, :id_espece)";
                 $this->setSql($sql)
-                    ->setParam(":id_equip", $id_equip)
-                    ->setParam(":id_transp", $id_transp);
+                    ->setParam(":id_espece", $id_espece)
+                    ->setParam(":id_diplomatie", $id_diplomatie);
                 $this->executeSql();
                 $id_main = $this->lastInsertId();
                 // en cas d'erreur
@@ -322,15 +320,26 @@ if (!class_exists('EspecesRepository')) {
             return $id_main;
         }
         
-        public function recupTranspIdEquipement(int $id_transp): int {
-            $sql = 'SELECT id_equip FROM transp_equip WHERE id=:id';
+        public function recupEspecIdDiplom(int $id_diplomatie_esp): int {
+            $sql = 'SELECT id_diplomatie FROM diplomatie_espece WHERE id=:id';
             $recupId = $this->setSql($sql)
-                        ->setParamInt(":id", $id_transp)
+                        ->setParamInt(":id", $id_diplomatie_esp)
                         ->fetchAssoc();
             if(empty($recupId)) {
                 return 0;
             }
-            return intval($recupId['id_equip']);
+            return intval($recupId['id_diplomatie']);
+        }
+        
+        public function recupObjEspecIdDiplom(int $id_obj): int {
+            $sql = 'SELECT id_espece FROM especes WHERE id_objet=:id';
+            $recupId = $this->setSql($sql)
+                        ->setParamInt(":id", $id_obj)
+                        ->fetchAssoc();
+            if(empty($recupId)) {
+                return 0;
+            }
+            return intval($recupId['id_espece']);
         }
 
         
