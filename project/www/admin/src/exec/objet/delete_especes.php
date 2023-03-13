@@ -26,6 +26,18 @@ if(!$sessionUser->isConnected()) {
                 $objetRepository->deleteImg($id_img);
             }
         }
+        $diploms = $objetRepository->findAllIdAndDiplomatie(intval($objetRepository->findAllAndIdUser($id)['idEspece']));
+        if(!empty($diploms)) {
+            foreach ($diploms as $value) {
+                /*echo "---------------"."\n";
+                var_dump(intval($value['id_diplomat']));
+                echo "\n";
+                $id_diplom = $objetRepository->recupEspecIdDiplom(intval($value['id_diplomat']));
+                var_dump($id_diplom);*/
+                $objetRepository->deleteDiplomEspece(intval($value['id_diplomat']));
+                //echo "---------------"."\n";
+            }
+        }
         $objetRepository->deleteObj($id);
         if(empty($_POST['is_error'])) {
             echo "true";

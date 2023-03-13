@@ -1,6 +1,7 @@
 <?php
 include __DIR__ . '/../../../../src/class/classMain/TemplatePage.php';
 include __DIR__ . '/../../../../src/class/classMain/Error_Log.php';
+include __DIR__ . '/../../../../src/repository/TransportRepository.php';
 include __DIR__ . '/../../../../src/repository/categories/CatEquipemRepository.php';
 include __DIR__ . '/../../function/table-admin.php';
 include __DIR__.'/../../../../src/class/classSite/SessionUser.php';
@@ -25,13 +26,12 @@ $prix = "";
 $ispro = "";
 $id_equipem = 0;
 
-$catEquipemRepository = new CatEquipemRepository();
-
+$objRepository = new TransportRepository();
 if (!empty($_POST) && array_key_exists("id", $_POST) && !empty($_POST["id"])) {
     $id_equipem = $objRepository->recupTranspIdEquipement(intval($_POST['id']));
 }
 
-
+$catEquipemRepository = new CatEquipemRepository();
 $obj = $catEquipemRepository->findAllId($id_equipem);
 if (count($obj) > 0) {
     $nom = $obj['nom'];

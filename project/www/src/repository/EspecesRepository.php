@@ -70,7 +70,7 @@ if (!class_exists('EspecesRepository')) {
         }
 
         public function findAllAndIdUser(int $id):array {
-            return $this->setSql('SELECT *, objet.id AS id_objet, objet.nom AS nom_obj FROM objet '.
+            return $this->setSql('SELECT *, especes.id_espece AS idEspece, objet.id AS id_objet, objet.nom AS nom_obj FROM objet '.
                     'INNER JOIN especes ON especes.id_objet = objet.id '.
                     'LEFT JOIN lieu_espece ON especes.id_espece = lieu_espece.id_espece '.
                     'INNER JOIN utilisateurs ON utilisateurs.id_user = objet.id_user '.
@@ -149,14 +149,14 @@ if (!class_exists('EspecesRepository')) {
         }
 
         public function recupIdEspece(int $id_objet): int {
-            $sql = 'SELECT id FROM service WHERE id_objet=:id';
+            $sql = 'SELECT id_espece FROM especes WHERE id_objet=:id';
             $recupId = $this->setSql($sql)
                         ->setParamInt(":id", $id_objet)
                         ->fetchAssoc();
             if(empty($recupId)) {
                 return 0;
             }
-            return intval($recupId['id']);
+            return intval($recupId['id_espece']);
         }
         
         public function add(int $id_espece, int $id_objet, int $id_categ_espece, ?string $gouvernence, ?string $souverainete, ?string $philosophie, ?string $religion, ?string $pre_contact, ?string $origine): int {
@@ -340,6 +340,13 @@ if (!class_exists('EspecesRepository')) {
                 return 0;
             }
             return intval($recupId['id_espece']);
+        }
+
+        public function deleteDiplomEspece(int $id): self {
+            $sql = "DELETE FROM diplomatie WHERE id=:id";
+            $this->setSql($sql)->setParamInt(":id", $id);
+            $this->executeSql();
+            return $this;
         }
 
         
