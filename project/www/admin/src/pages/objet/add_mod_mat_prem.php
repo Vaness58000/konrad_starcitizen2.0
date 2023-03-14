@@ -7,7 +7,7 @@ include __DIR__.'/../../../../src/class/classSite/SessionUser.php';
 $sessionUser = new SessionUser();
 // si la session existe pas soit si l'on est pas connecté on redirige
 if(!$sessionUser->isConnected()) {
-    header('Location: ../?ind=login');
+    header('Location: ./../?ind=login');
     die();
 }
 
@@ -106,7 +106,7 @@ $templatePage->addVarString("[#CITIZEN_MAT_PRE_ISPRO#]", $isModif);
 $templatePage->addVarString("[#CITIZEN_MAT_PRE_ID#]", $id_obj);
 $templatePage->addVarString("[#CITIZEN_TYPE_OBJ#]", $id_type_objet);
 
-$templatePage->addFileCss("./src/css/style_dialog.css");
+//$templatePage->addFileCss("./src/css/style_dialog.css");
 
 $templatePage->addFileJs("./src/js/objet/mat_prem.js");
 $templatePage->addFileJs("./src/js/img/all_img_user.js");

@@ -1,14 +1,19 @@
 <div class="display-admin">
     <div class="card-admin" data-state="#about">
       <div class="admin-title"><h1>List d'erreurs</h1></div>
-      <table id="tab-error">
-        <tr>
-          <th>Date</th>
-          <th>Message</th>
-        </tr>
-        <tbody class="tab-body-td" id="tab-body-error">
-          [#CITIZEN_LIST_ERROR#]
-        </tbody>
-      </table>
+      <input type="hidden" name="nbpg" id="nbpg" value="[#CITIZEN_LIST_ERROR_NBPG#]">
+      <input type="hidden" name="nmpg" id="nmpg" value="[#CITIZEN_LIST_ERROR_NMPG#]">
+      <div class="admin-contenu-tab">
+        <table id="tab-error">
+          <tr>
+            <th>Date</th>
+            <th>Message</th>
+          </tr>
+          <tbody class="tab-body-td" id="tab-body-error">
+            [#CITIZEN_LIST_ERROR#]
+          </tbody>
+        </table>
+        <div id="pagination"></div>
+      </div>
     </div>
 </div>

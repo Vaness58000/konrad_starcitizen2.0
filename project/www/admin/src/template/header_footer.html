@@ -8,25 +8,11 @@
     <link rel="stylesheet" href="./../src/fonts/stylesheet.css" />
     <link rel="stylesheet" href="./../src/css/style-header.css" />
     <link rel="stylesheet" href="./../src/css/index.css" />
-    <link rel="stylesheet" href="./../src/css/equipement.css" />
-    <link rel="stylesheet" href="./../src/css/equipement_ind.css" />
-    <link rel="stylesheet" href="./../src/css/contact.css" />
-    <link rel="stylesheet" href="./../src/css/planete.css" />
-    <link rel="stylesheet" href="./../src/css/systeme.css" />
-    <link rel="stylesheet" href="./../src/css/login.css" />
-    <link rel="stylesheet" href="./../src/css/civilisation.css" />
-    <link rel="stylesheet" href="./../src/css/articles.css" />
     <link rel="stylesheet" href="./../src/css/compte.css" />
     <link rel="stylesheet" href="./../src/css/login.css" />
     <link rel="stylesheet" href="./../src/css/squadron.css" />
-    <link rel="stylesheet" href="./../src/css/partage_screen.css" />
-    <link rel="stylesheet" href="./../src/css/gallerie.css" />
-    <link rel="stylesheet" href="./../src/css/gestion_screen.css" />
-    <link rel="stylesheet" href="./../src/css/rgpd.css" />
-    <link rel="stylesheet" href="./../src/css/streamer.css" />
-    <link rel="stylesheet" href="./../src/css/patch_note.css" />
-    <link rel="stylesheet" href="./../src/css/lieu.css" />
-    <link rel="stylesheet" href="./../src/css/gameplay.css" />[#CITIZEN_INDEX_CSS#]
+    <link rel="stylesheet" href="./src/css/style_dialog.css" />
+    <link rel="stylesheet" href="./../src/css/rgpd.css" />[#CITIZEN_INDEX_CSS#]
     <link rel="stylesheet" href="./src/css/onglet.css" />
     <link
       rel="stylesheet"
@@ -165,6 +151,7 @@
     <div class="page">
       [#CITIZEN_INDEX_PAGE#]
     </div>
+    <div class="barre"></div>
     <footer>
       <div class="footer-content">
         <img src="./../src/img/logo_test.png" alt="logo star citizen" />
@@ -220,6 +207,14 @@
 
   <style>
   </style>
+  <dialog id="dialog-user">
+      <form class="admin-contenu" id="dialog-form-user" method="post">
+        <button class="close-dialog"><img src="./src/images/x-circle.svg" alt="fermer le dialog"></button>
+        <div class="two-column admin-contenu" id="contenu-dialog-form-user">
+        </div>
+        <button class="two-column sauvegarde validation-dialog">Valider</button>
+      </form>
+  </dialog>
   <dialog id="dialog">
       <form class="admin-contenu" id="dialog-form" method="post">
         <input type="hidden" name="id" id="id-dialog-form" value="0" />
@@ -240,8 +235,8 @@
   </dialog>
   
     <script src="https://kit.fontawesome.com/af562a2a63.js" crossorigin="anonymous"></script>
-    <!--<script src="https://kit.fontawesome.com/a076d05399.js"></script>
-    <script src="https://kit.fontawesome.com/3cff230019.js" crossorigin="anonymous"></script>-->
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <script src="https://kit.fontawesome.com/3cff230019.js" crossorigin="anonymous"></script>
     <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>-->
     <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>-->
     <script src="https://cdn.jsdelivr.net/npm/sceditor@3/minified/sceditor.min.js"></script>
@@ -277,6 +272,8 @@
       <script src="./src/js/dialog/modifInputDialog.js"></script>
       <script src="./src/js/form/form_list_data.js"></script>
       <script src="./src/js/img/img_icon.js"></script>
+      <script src="./src/js/pass_user.js"></script>
+      <script src="./src/js/users/dialog_user.js"></script>
       <script>
         /*document.querySelectorAll(".text-bbcode").forEach(element => {
           sceditor.create(element, {

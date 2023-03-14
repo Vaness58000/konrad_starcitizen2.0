@@ -130,6 +130,7 @@
   z-index: 1;
   overflow-x: hidden;
   background-color: rgb(6, 6, 6);
+  background-image: url("./../../../src/img/gridbg_glow.png");
   display: flex;
   transition: 0.3s;
   flex-direction: column;
@@ -189,6 +190,7 @@
 }
 
 .darkSwitch {
+  border: 1px red solid;
   background: rgb(255, 104, 104);
   position: relative;
   margin: 0 10px;
@@ -202,6 +204,7 @@
   width: 66px !important;
   height: 22px;
 }
+
 .darkSwitch::after {
   content: "";
   position: absolute;
@@ -214,19 +217,38 @@
   background: #eee;
   transition: all 0.1s linear;
 }
+
 .darkSwitch:checked {
+  border: 1px green solid;
   background: #5b5;
 }
+
+.darkSwitch:disabled {
+  background: rgb(150, 61, 61);
+  border: 1px gray solid;
+}
+
+.darkSwitch:disabled::after {
+  background: #9b9b9b;
+}
+
+.darkSwitch:disabled:checked {
+  background: rgb(54, 119, 54);
+}
+
 .darkSwitch:checked::after {
   transform: translateX(200%);
 }
+
 th img,
 td img {
   filter: invert(1);
 }
+
 .th-admin {
   width: 30px;
 }
+
 .th-admin-visible {
   width: 50px;
 }
@@ -463,4 +485,32 @@ input[type="file"] {
 
 .admin-contenu-tab {
   padding: 20px;
+}
+
+.list-error {
+  padding: 20px;
+}
+
+.input-eye-pass {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  box-shadow: 0 0 5px 0;
+  background: #9cd7ffa6;
+  backdrop-filter: blur(10px);
+  border-radius: 5px;
+  border: 1px #0000ff45 solid;
+  margin: 5px;
+}
+
+i.pass-eye {
+  margin-left: 14px;
+  margin-right: 5px;
+}
+
+.input-eye-pass .input-admin {
+  backdrop-filter: unset;
+  background-color: unset;
+  border: unset;
+  box-shadow: unset;
 }

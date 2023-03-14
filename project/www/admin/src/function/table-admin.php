@@ -64,18 +64,25 @@ if(!function_exists('addOptionRole')) {
     }
 }
 if(!function_exists('addTdUserMain')) {
-    function addTdUserMain(int $id, ?string $pseudo, ?string $email, int $type, ?array $tab_role = null):?string {
+    function addTdUserMain(int $id, ?string $pseudo, ?string $email, int $role, int $type, ?array $tab_type = null, ?array $tab_role = null):?string {
         $list_tab_role = "";
         if(!empty($tab_role)) {
             foreach ($tab_role as $value) {
-                $list_tab_role .= addOptionRole($value['id_role'], $value['role'], $type);
+                $list_tab_role .= addOptionRole($value['id_role'], $value['role'], $role);
+            }
+        }
+        $list_tab_type = "";
+        if(!empty($tab_type)) {
+            foreach ($tab_type as $value) {
+                $list_tab_type .= addOptionRole($value['id'], $value['nom'], $type);
             }
         }
         return '<tr id="id-'.$id.'">'.
                     '<td class="td-name">'.$pseudo.'</td>'.
                     '<td>'.$email.'</td>'.
-                    '<td><select name="role" class="role">'.$list_tab_role.'</select></td>'.
-                    '<td class="td-admin img-modif"><img src="./src/images/pencil-fill.svg" alt=""></td>'.
+                    '<td><select name="role" value-old="'.$role.'" class="role">'.$list_tab_role.'</select></td>'.
+                    '<td><select name="type" value-old="'.$type.'" class="type-user">'.$list_tab_type.'</select></td>'.
+                    '<td class="td-admin img-modif-user"><img src="./src/images/pencil-fill.svg" alt=""></td>'.
                     '<td class="td-admin img-delete"><img src="./src/images/trash3-fill.svg" alt=""></td>'.
                 '</tr>';
     }

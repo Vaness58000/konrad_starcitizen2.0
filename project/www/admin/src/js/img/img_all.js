@@ -18,7 +18,6 @@ function delete_img(e) {
         }
         /*let urlDeleteImg = "./src/exec/delete_img_obj.php";
         let urlDeleteImgInfp = "./src/exec/delete_img_obj_info.php";*/
-        console.log(nameAndId);
         if(nameAndId[0] === "imgFileMainTmp") {
             e.target.parentNode.parentNode.removeChild(e.target.parentNode);
         } else {
@@ -27,7 +26,7 @@ function delete_img(e) {
                 if (response == "true") {
                     e.target.parentNode.parentNode.removeChild(e.target.parentNode);
                 } else {
-                    console.log(response);
+                    alert(response);
                 }
             });
         }
@@ -175,7 +174,6 @@ function loadFilesImgAll(event, nameIdAllImg, nameFile) {
 
 
 function deleteImgServ(e, id) {
-    console.log(id);
     /* envoyer les informations du message sur la page php a partir d'un formulaire */
     fetch_post(urlDeleteImg, {id:id}).then(function (
         response

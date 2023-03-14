@@ -1,9 +1,9 @@
 <div class="user">
 
-    <div class="card_user" data-state="#about">
+    <div class="card_user">
         <div class="card-header_user">
             <div class="card-cover_user" style="background-image: url('../src/img/fond_blue.jpg')"></div>
-            <img class="card-avatar_user" src="../src/img/avatar.png" alt="avatar utilisateur" />
+            <img class="card-avatar_user" src="[#CITIZEN_USER_IMG#]" alt="avatar utilisateur" />
             <h1 class="card-fullname_user">[#CITIZEN_USER_PSEUDO#]</h1>
 
         </div>
@@ -13,31 +13,7 @@
                 <h3><i class="fas fa-user-circle"></i>Vos informations</h3>
                 <p>Pseudo : [#CITIZEN_USER_PSEUDO#]</p>
                 <p>Adresse mail : [#CITIZEN_USER_EMAIL#]</p>
-                <div class="popup" id="popup-1">
-                    <div class="content">
-                        <div class="close-btn" onclick="togglePopup()">
-                            ×</div>
-
-                        <form action="layouts/modif_information_client.php?id_client=[#CITIZEN_USER_ID#]" method="post">
-                            <h3><i class="fas fa-user-circle"></i>Modifier mes informations</h3></br>
-
-                            <div class="modif">
-                                <label for='pseudo' id="label">Pseudo</label>
-                                <input type="text" id="new_pseudo" name="pseudo" value="[#CITIZEN_USER_PSEUDO#]" required /></br>
-
-                            </div>
-                            <div class="modif">
-                                <label for='email' id="label">Email </label>
-                                <input type="email" id="new_mail" name="email" value="[#CITIZEN_USER_EMAIL#]" required />
-                            </div>
-
-                            <button type="submit" class="sauvegarde">Sauvegarder</button>
-
-                        </form>
-
-                    </div>
-                </div>
-                <button onclick="togglePopup()" class="first-button">Modifier</button>
+                <button class="first-button modif-user">Modifier</button>
 
 
             </div>
@@ -48,37 +24,7 @@
                 <h3><i class="fa-solid fa-user-lock"></i>Votre mot de passe</h3>
                 [#CITIZEN_USER_ERR#]
 
-                <button onclick="togglePopup2()" class="first-button2">Modifier</button>
-                <div class="popup2" id="popup-2">
-                    <div class="content">
-                        <div class="close-btn" onclick="togglePopup2()">×</div>
-
-                        <form action="layouts/change_password.php" method="POST">
-                            <h3><i class="fa-solid fa-user-lock"></i>Modifier mon mot de passe</h3></br>
-
-                            <div class="modif">
-                                <label for='current_password'>Mot de passe actuel</label>
-
-                                <input type="password" id="current_password" name="current_password" required /></br>
-
-                            </div>
-                            <div class="modif">
-                                <label for='new_password'>Nouveau mot de passe</label>
-                                <input type="password" id="new_password" name="new_password" required /></br>
-
-                            </div>
-                            <div class="modif">
-                                <label for='new_password_retype'>Re tapez le nouveau mot de passe</label>
-                                <input type="password" id="new_password_retype" name="new_password_retype" required /></br>
-
-                            </div>
-                            <button type="submit" class="sauvegarde">Sauvegarder</button>
-
-                        </form>
-
-                    </div>
-                </div>
-
+                <button class="first-button2 modif-pass">Modifier</button>
             </div>
         </div>
     </div>

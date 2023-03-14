@@ -5,7 +5,7 @@ include __DIR__.'/../../../../src/repository/UsersRepository.php';
 // si la session existe pas soit si l'on est pas connecté on redirige
 if (!(!empty($_SESSION) && array_key_exists('utilisateur', $_SESSION) && !empty($_SESSION['utilisateur']) && 
     array_key_exists('id', $_SESSION['utilisateur']) && !empty($_SESSION['utilisateur']['id']))) {
-    header('Location: ../?ind=login');
+    header('Location: ./../?ind=login');
     die();
 }
 
@@ -24,6 +24,7 @@ $isAll = false;
 
 $usersRepository = new UsersRepository();
 $role_all = $usersRepository->findRoleAll();
+$type_all = $usersRepository->findTypeAll();
 
 $templatePage = new TemplatePage(__DIR__.'/../../template/users/users.html');
 $count = ceil($usersRepository->findAllAndUserNoIdCount($id)/$nb_par_pg);
@@ -32,7 +33,8 @@ $tab_all = "";
 
 if(!empty($articles)) {
     foreach ($articles as $value) {
-        $tab_all .= "\n".addTdUserMain(intval($value['id_user']), $value['pseudo'], $value['email'], intval($value['id_role']), $role_all);
+        $tab_all .= "\n".addTdUserMain(intval($value['id_user']), $value['pseudo'],
+         $value['email'], intval($value['id_role']), intval($value['id_type']), $type_all, $role_all);
     }
 }
 

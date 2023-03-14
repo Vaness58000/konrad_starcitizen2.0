@@ -32,6 +32,7 @@ if (!class_exists('UsersRepository')) {
             return $this->setSql('SELECT *, utilisateurs.id_user AS idUser FROM utilisateurs '.
             'LEFT JOIN avatar ON utilisateurs.id_user = avatar.id_user WHERE utilisateurs.id_user=:id AND utilisateurs.id_user=:id_user')->setParamInt(":id_user", $id_user)->setParamInt(":id", $id)->fetchAssoc();
         }
+        
         public function findAllNoId(int $id):array {
             return $this->setSql('SELECT * FROM utilisateurs '.
             'LEFT JOIN avatar ON utilisateurs.id_user = avatar.id_user '.
@@ -42,7 +43,14 @@ if (!class_exists('UsersRepository')) {
          * Recuperer toutes les donnees visibles de la table
          */
         public function findRoleAll():array {
-            return $this->setSql('SELECT * FROM type_role')->fetchAllAssoc();
+            return $this->setSql('SELECT * FROM type_role ORDER BY role')->fetchAllAssoc();
+        }
+
+        /**
+         * Recuperer toutes les donnees visibles de la table
+         */
+        public function findTypeAll():array {
+            return $this->setSql('SELECT * FROM type_user ORDER BY nom')->fetchAllAssoc();
         }
         
         public function findAllUserAvatarId(int $id):array {

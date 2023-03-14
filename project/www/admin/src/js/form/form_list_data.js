@@ -34,8 +34,3 @@ function formToArray(formObj) {
     }
     return formArr;
 }
-/*let tab = form_list("form-contenu");
-console.log(tab);
-Object.keys(tab).forEach(key => {
-    console.log(key+":"+tab[key]);
-});*/

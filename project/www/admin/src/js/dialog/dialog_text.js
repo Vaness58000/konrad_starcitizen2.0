@@ -1,5 +1,5 @@
 "use strict";
-let elementDialogMsg = document.querySelector("#dialog-msg");
+/*let elementDialogMsg = document.querySelector("#dialog-msg");
 let reponseDialogMsg = false;
 
 function showDialogText(message) {
@@ -25,4 +25,4 @@ if (elementDialogMsg != undefined) {
   elementDialogMsg.querySelectorAll(".validation-dialog").forEach((element) => {
     element.addEventListener("click", validationFormDialogMsg);
   });
-}
+}*/

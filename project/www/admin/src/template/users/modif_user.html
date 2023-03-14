@@ -1,0 +1,38 @@
+<div class="two-column admin-title"><h1>Modifier le compte</h1></div>
+<input type="hidden" name="id-user" value="[#CITIZEN_USER_ID#]" />
+<div class="two-column add-list-img">
+  <input
+    type="file"
+    accept="image/png, image/jpeg"
+    name="file-img"
+    id="file-img"
+  />
+  <label for="file-img">
+    <img
+      width="180"
+      height="180"
+      class="img-add"
+      id="img-add"
+      src="[#CITIZEN_USER_IMG#]"
+      alt="add img"
+    />
+  </label>
+</div>
+<label for="pseudo">pseudo</label
+><input
+  type="text"
+  name="pseudo"
+  id="pseudo"
+  value="[#CITIZEN_USER_PSEUDO#]"
+  class="input-admin"
+  required
+/>
+<label for="email">email</label
+><input
+  type="text"
+  name="email"
+  id="email"
+  value="[#CITIZEN_USER_EMAIL#]"
+  class="input-admin"
+  required
+/>

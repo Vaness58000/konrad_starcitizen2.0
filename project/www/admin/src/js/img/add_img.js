@@ -36,11 +36,13 @@ function loadFiles(event, idImg) {
     }
 }
 
-function imgFile(file, img) {
+function imgFile(file, img, isIconeInv = true) {
     if(file != undefined && img != undefined) {
         file.addEventListener('change', function(e) {
             loadFiles(e, img);
-            icon_inverse();
+            if(isIconeInv) {
+                icon_inverse();
+            }
         });
     }
     

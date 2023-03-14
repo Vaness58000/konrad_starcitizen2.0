@@ -1,0 +1,68 @@
+<div class="two-column admin-title"><h1>Modifier le mot de passe</h1></div>
+<input type="hidden" name="id-user" value="[#CITIZEN_PASS_ID#]" />
+<style>
+  .input-eye-pass {
+    color:black;
+  }
+  .input-eye-pass i {
+    filter: invert(0);
+  }
+  .input-label {
+    display: flex;
+    position: relative;
+    padding: 6px;
+    flex-direction: column;
+    align-items: flex-start;
+    color:black;
+  }
+  .input-label label {
+    /*position: absolute;*/
+    margin: 8px;
+  }
+  /*.input-label label:focus-within,*/
+  .input-label > input:focus ~ label,
+  .input-label > input:not(:placeholder-shown) + label {
+    position: unset;
+  }
+</style>
+<div class="two-column input-eye-pass">
+  <div class="input-label">
+    <label for="pass-old">ancien mot de passe</label>
+    <input
+      type="password"
+      name="pass-old"
+      id="pass-old"
+      class="input-admin input-pass"
+      autocomplete
+    />
+  </div>
+  <i class="pass-eye fa-sharp fa-solid fa-eye-slash"></i>
+</div>
+
+<div class="two-column input-eye-pass">
+  <div class="input-label">
+    <label for="pass-new">Nouveau mot de passe</label>
+    <input
+      type="password"
+      name="pass-new"
+      id="pass-new"
+      class="input-admin input-pass"
+      autocomplete
+    />
+  </div>
+  <i class="pass-eye fa-sharp fa-solid fa-eye-slash"></i>
+</div>
+
+<div class="two-column input-eye-pass">
+  <div class="input-label">
+    <label for="pass-eye pass-new-rep">Répéter le mot de passe</label>
+    <input
+      type="password"
+      name="pass-new-rep"
+      id="pass-new-rep"
+      class="input-admin input-pass"
+      autocomplete
+    />
+  </div>
+  <i class="pass-eye fa-sharp fa-solid fa-eye-slash"></i>
+</div>

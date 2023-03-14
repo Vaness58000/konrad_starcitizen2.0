@@ -39,7 +39,7 @@ function showDialog(nameId, idShow) {
         elementDialog.showModal();
         imgAllInfo();
       } else {
-        console.log(response);
+        alert(response);
       }
     });
   }

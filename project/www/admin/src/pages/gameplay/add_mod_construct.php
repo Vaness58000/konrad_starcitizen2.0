@@ -6,7 +6,7 @@ include __DIR__.'/../../../../src/class/classSite/SessionUser.php';
 $sessionUser = new SessionUser();
 // si la session existe pas soit si l'on est pas connecté on redirige
 if(!$sessionUser->isConnected()) {
-    header('Location: ../?ind=login');
+    header('Location: ./../?ind=login');
     die();
 }
 
@@ -86,7 +86,7 @@ $templatePage->addVarString("[#CITIZEN_CONST_CONTENU#]", $contenu);
 $templatePage->addVarString("[#CITIZEN_CONST_NOM#]", $nom);
 $templatePage->addVarString("[#CITIZEN_CONST_TAB_LIEU#]", $tab_lieu);
 
-$templatePage->addFileCss("./src/css/style_dialog.css");
+//$templatePage->addFileCss("./src/css/style_dialog.css");
 
 $templatePage->addFileJs("./src/js/gameplay/construct.js");
 $templatePage->addFileJs("./src/js/img/all_img_user.js");
